@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Exoplanets">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="Exoplanet">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Mass">
+                                <xs:complexType>
+                                    <xs:attribute name="mass" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Radius">
+                                <xs:complexType>
+                                    <xs:attribute name="radius" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="OrbitalPeriod">
+                                <xs:complexType>
+                                    <xs:attribute name="orbitalPeriod" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="SemiMajorAxis">
+                                <xs:complexType>
+                                    <xs:attribute name="semiMajorAxis" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Eccentricity">
+                                <xs:complexType>
+                                    <xs:attribute name="eccentricity" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="AngularDistance">
+                                <xs:complexType>
+                                    <xs:attribute name="angularDistance" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Inclination">
+                                <xs:complexType>
+                                    <xs:attribute name="inclination" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="TzeroTr">
+                                <xs:complexType>
+                                    <xs:attribute name="tzero_tr" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="TzeroTrSec">
+                                <xs:complexType>
+                                    <xs:attribute name="tzero_trSec" type="xs:string" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="LambdaAngle">
+                                <xs:complexType>
+                                    <xs:attribute name="lambdaAngle" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:string" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="TzeroVr">
+                                <xs:complexType>
+                                    <xs:attribute name="tzero_vr" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Temperature">
+                                <xs:complexType>
+                                    <xs:attribute name="Calculated" type="xs:double" use="optional" />
+                                    <xs:attribute name="Measured" type="xs:double" use="optional" />
+                                    <xs:attribute name="HotPointLon" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="LogG">
+                                <xs:complexType>
+                                    <xs:attribute name="logG" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="PublicationStatus">
+                                <xs:complexType>
+                                    <xs:attribute name="Status" type="xs:string" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Discovered">
+                                <xs:complexType>
+                                    <xs:attribute name="discovered" type="xs:string" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Updated">
+                                <xs:complexType>
+                                    <xs:attribute name="updated" type="xs:string" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Omega">
+                                <xs:complexType>
+                                    <xs:attribute name="Omega" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Tperi">
+                                <xs:complexType>
+                                    <xs:attribute name="tperi" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DetectionType">
+                                <xs:complexType>
+                                    <xs:attribute name="Type" type="xs:string" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Molecules">
+                                <xs:complexType>
+                                    <xs:attribute name="molecules" type="xs:string" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ImpactParameter">
+                                <xs:complexType>
+                                    <xs:attribute name="impactParameter" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="K">
+                                <xs:complexType>
+                                    <xs:attribute name="k" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="GeometricAlbedo">
+                                <xs:complexType>
+                                    <xs:attribute name="geometricAlbedo" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Tconj">
+                                <xs:complexType>
+                                    <xs:attribute name="tconj" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMin" type="xs:double" use="optional" />
+                                    <xs:attribute name="errorMax" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="MassDetectionType">
+                                <xs:complexType>
+                                    <xs:attribute name="massDetectionType" type="xs:string" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="RadiusDetectionType">
+                                <xs:complexType>
+                                    <xs:attribute name="radiusDetectionType" type="xs:string" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="AlternateNames">
+                                <xs:complexType>
+                                    <xs:attribute name="alternateNames" type="xs:string" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Star">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Magnitudes">
+                                            <xs:complexType>
+                                                <xs:attribute name="V" type="xs:double" use="optional" />
+                                                <xs:attribute name="I" type="xs:double" use="optional" />
+                                                <xs:attribute name="J" type="xs:double" use="optional" />
+                                                <xs:attribute name="H" type="xs:double" use="optional" />
+                                                <xs:attribute name="K" type="xs:double" use="optional" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Properties">
+                                            <xs:complexType>
+                                                <xs:attribute name="Distance" type="xs:double" use="optional" />
+                                                <xs:attribute name="Metallicity" type="xs:double" use="optional" />
+                                                <xs:attribute name="Mass" type="xs:double" use="optional" />
+                                                <xs:attribute name="Radius" type="xs:double" use="optional" />
+                                                <xs:attribute name="SPType" type="xs:string" use="optional" />
+                                                <xs:attribute name="Age" type="xs:double" use="optional" />
+                                                <xs:attribute name="Teff" type="xs:double" use="optional" />
+                                                <xs:attribute name="DetectedDisc" type="xs:string" use="optional" />
+                                                <xs:attribute name="MagneticField" type="xs:string" use="optional" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                    <xs:attribute name="ra" type="xs:double" use="optional" />
+                                    <xs:attribute name="dec" type="xs:double" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:integer" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
