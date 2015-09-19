@@ -11,6 +11,8 @@ namespace ExoplanetLibrary
     {
     class WriteCSV
         {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Usage", "CA2202:Do not dispose objects multiple times" )]
+
         static public int Write ( string csvFileName, ArrayList exoplanets )
             {
             TextWriter writer = null;

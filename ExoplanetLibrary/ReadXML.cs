@@ -1137,6 +1137,36 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
+        static private void SetValidation ( FileStream fileStream, XmlReaderSettings settings )
+            {
+            ValidationEventHandler validationEventHandler = new ValidationEventHandler ( exoplanetSettingsValidationEventHandler );
+            XmlSchema xmlSchema = null;
+
+            if ( System.IO.File.Exists ( @m_xsdVersion2FileName ) || System.IO.File.Exists ( @m_xsdVersion1FileName ) )
+                if ( string.Equals ( m_version, "2.0" ) )
+                    xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @m_xsdVersion2FileName, FileMode.Open ) ), validationEventHandler );
+                else if ( string.Equals ( m_version, "1.0" ) )
+                    xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @m_xsdVersion1FileName, FileMode.Open ) ), validationEventHandler );
+
+
+            settings.ConformanceLevel = ConformanceLevel.Document;
+            settings.CheckCharacters = true;
+            settings.IgnoreComments = true;
+            settings.IgnoreWhitespace = true;
+            settings.DtdProcessing = DtdProcessing.Ignore;
+
+            if ( xmlSchema != null )
+                {
+                settings.ValidationType = ValidationType.Schema;
+                settings.ValidationFlags = XmlSchemaValidationFlags.ProcessInlineSchema;
+                settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
+                settings.Schemas.Add ( xmlSchema );
+                settings.ValidationEventHandler += new ValidationEventHandler ( exoplanetSettingsValidationEventHandler );
+                }
+            else
+                settings.ValidationType = ValidationType.None;
+            }
+
         static public int Read ( string xmlFileName, ref ArrayList exoplanets )
             {
             m_validationErrors = "";
@@ -1145,35 +1175,11 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
             if ( System.IO.File.Exists ( xmlFileName ) )
                 {
-                SetVersion ( xmlFileName );
-
                 FileStream fileStream = null;
-                ValidationEventHandler validationEventHandler = new ValidationEventHandler ( exoplanetSettingsValidationEventHandler );
-                XmlSchema xmlSchema = null;
-
-                if ( System.IO.File.Exists ( @m_xsdVersion2FileName ) || System.IO.File.Exists ( @m_xsdVersion1FileName ) )
-                    if ( string.Equals ( m_version, "2.0" ) )
-                        xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @m_xsdVersion2FileName, FileMode.Open ) ), validationEventHandler );
-                    else if ( string.Equals ( m_version, "1.0" ) )
-                        xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @m_xsdVersion1FileName, FileMode.Open ) ), validationEventHandler );
-
                 XmlReaderSettings settings = new XmlReaderSettings ( );
-                settings.ConformanceLevel = ConformanceLevel.Document;
-                settings.CheckCharacters = true;
-                settings.IgnoreComments = true;
-                settings.IgnoreWhitespace = true;
-                settings.DtdProcessing = DtdProcessing.Ignore;
 
-                if ( xmlSchema != null )
-                    {
-                    settings.ValidationType = ValidationType.Schema;
-                    settings.ValidationFlags = XmlSchemaValidationFlags.ProcessInlineSchema;
-                    settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
-                    settings.Schemas.Add ( xmlSchema );
-                    settings.ValidationEventHandler += new ValidationEventHandler ( exoplanetSettingsValidationEventHandler );
-                    }
-                else
-                    settings.ValidationType = ValidationType.None;
+                SetVersion ( xmlFileName );
+                SetValidation ( fileStream, settings );
 
                 m_reader = XmlReader.Create ( xmlFileName, settings );
 
@@ -1566,128 +1572,107 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadImpactParameter ( CExoplanet exoplanet )
             {
-            if ( string.Equals ( m_version, "2.0" ) )
-                {
-                m_reader.ReadToFollowing ( "ImpactParameter" );
+            m_reader.ReadToFollowing ( "ImpactParameter" );
 
-                while ( m_reader.MoveToNextAttribute ( ) )
+            while ( m_reader.MoveToNextAttribute ( ) )
+                {
+                switch ( m_reader.Name )
                     {
-                    switch ( m_reader.Name )
-                        {
-                        case "impactParameter":
-                            exoplanet.ImpactParameter = m_reader.Value;
-                            break;
-                        case "errorMin":
-                            exoplanet.ImpactParameterErrorMin = m_reader.Value;
-                            break;
-                        case "errorMax":
-                            exoplanet.ImpactParameterErrorMax = m_reader.Value;
-                            break;
-                        }
+                    case "impactParameter":
+                        exoplanet.ImpactParameter = m_reader.Value;
+                        break;
+                    case "errorMin":
+                        exoplanet.ImpactParameterErrorMin = m_reader.Value;
+                        break;
+                    case "errorMax":
+                        exoplanet.ImpactParameterErrorMax = m_reader.Value;
+                        break;
                     }
                 }
             }
 
         static void ReadK ( CExoplanet exoplanet )
             {
-            if ( string.Equals ( m_version, "2.0" ) )
-                {
-                m_reader.ReadToFollowing ( "K" );
+            m_reader.ReadToFollowing ( "K" );
 
-                while ( m_reader.MoveToNextAttribute ( ) )
+            while ( m_reader.MoveToNextAttribute ( ) )
+                {
+                switch ( m_reader.Name )
                     {
-                    switch ( m_reader.Name )
-                        {
-                        case "k":
-                            exoplanet.K = m_reader.Value;
-                            break;
-                        case "errorMin":
-                            exoplanet.KErrorMin = m_reader.Value;
-                            break;
-                        case "errorMax":
-                            exoplanet.KErrorMax = m_reader.Value;
-                            break;
-                        }
+                    case "k":
+                        exoplanet.K = m_reader.Value;
+                        break;
+                    case "errorMin":
+                        exoplanet.KErrorMin = m_reader.Value;
+                        break;
+                    case "errorMax":
+                        exoplanet.KErrorMax = m_reader.Value;
+                        break;
                     }
                 }
             }
 
         static void ReadGeometricAlbedo ( CExoplanet exoplanet )
             {
-            if ( string.Equals ( m_version, "2.0" ) )
-                {
-                m_reader.ReadToFollowing ( "GeometricAlbedo" );
+            m_reader.ReadToFollowing ( "GeometricAlbedo" );
 
-                while ( m_reader.MoveToNextAttribute ( ) )
+            while ( m_reader.MoveToNextAttribute ( ) )
+                {
+                switch ( m_reader.Name )
                     {
-                    switch ( m_reader.Name )
-                        {
-                        case "geometricAlbedo":
-                            exoplanet.GeometricAlbedo = m_reader.Value;
-                            break;
-                        case "errorMin":
-                            exoplanet.GeometricAlbedoErrorMin = m_reader.Value;
-                            break;
-                        case "errorMax":
-                            exoplanet.GeometricAlbedoErrorMax = m_reader.Value;
-                            break;
-                        }
+                    case "geometricAlbedo":
+                        exoplanet.GeometricAlbedo = m_reader.Value;
+                        break;
+                    case "errorMin":
+                        exoplanet.GeometricAlbedoErrorMin = m_reader.Value;
+                        break;
+                    case "errorMax":
+                        exoplanet.GeometricAlbedoErrorMax = m_reader.Value;
+                        break;
                     }
                 }
             }
 
         static void ReadTconj ( CExoplanet exoplanet )
             {
-            if ( string.Equals ( m_version, "2.0" ) )
-                {
-                m_reader.ReadToFollowing ( "Tconj" );
+            m_reader.ReadToFollowing ( "Tconj" );
 
-                while ( m_reader.MoveToNextAttribute ( ) )
+            while ( m_reader.MoveToNextAttribute ( ) )
+                {
+                switch ( m_reader.Name )
                     {
-                    switch ( m_reader.Name )
-                        {
-                        case "tconj":
-                            exoplanet.Tconj = m_reader.Value;
-                            break;
-                        case "errorMin":
-                            exoplanet.TconjErrorMin = m_reader.Value;
-                            break;
-                        case "errorMax":
-                            exoplanet.TconjErrorMax = m_reader.Value;
-                            break;
-                        }
+                    case "tconj":
+                        exoplanet.Tconj = m_reader.Value;
+                        break;
+                    case "errorMin":
+                        exoplanet.TconjErrorMin = m_reader.Value;
+                        break;
+                    case "errorMax":
+                        exoplanet.TconjErrorMax = m_reader.Value;
+                        break;
                     }
                 }
             }
 
         static void ReadMassDetectionType ( CExoplanet exoplanet )
             {
-            if ( string.Equals ( m_version, "2.0" ) )
-                {
-                m_reader.ReadToFollowing ( "MassDetectionType" );
-                m_reader.MoveToFirstAttribute ( );
-                exoplanet.MassDetectionType = m_reader.Value;
-                }
+            m_reader.ReadToFollowing ( "MassDetectionType" );
+            m_reader.MoveToFirstAttribute ( );
+            exoplanet.MassDetectionType = m_reader.Value;
             }
 
         static void ReadRadiusDetectionType ( CExoplanet exoplanet )
             {
-            if ( string.Equals ( m_version, "2.0" ) )
-                {
-                m_reader.ReadToFollowing ( "RadiusDetectionType" );
-                m_reader.MoveToFirstAttribute ( );
-                exoplanet.RadiusDetectionType = m_reader.Value;
-                }
+            m_reader.ReadToFollowing ( "RadiusDetectionType" );
+            m_reader.MoveToFirstAttribute ( );
+            exoplanet.RadiusDetectionType = m_reader.Value;
             }
 
         static void ReadAlternateNames ( CExoplanet exoplanet )
             {
-            if ( string.Equals ( m_version, "2.0" ) )
-                {
-                m_reader.ReadToFollowing ( "AlternateNames" );
-                m_reader.MoveToFirstAttribute ( );
-                exoplanet.AlternateNames = m_reader.Value;
-                }
+            m_reader.ReadToFollowing ( "AlternateNames" );
+            m_reader.MoveToFirstAttribute ( );
+            exoplanet.AlternateNames = m_reader.Value;
             }
 
         static void ReadStar ( CExoplanet exoplanet )
