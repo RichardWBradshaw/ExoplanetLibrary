@@ -66,20 +66,14 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExoplanetDetailsDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ExoplanetDetailsDialog.Designer.cs">
-      <DependentUpon>ExoplanetDetailsDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helper.cs" />
-    <Compile Include="ReadCSV.cs" />
-    <Compile Include="StarDetails.cs">
+    <Compile Include="ExoplanetDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StarDetails.Designer.cs">
-      <DependentUpon>StarDetails.cs</DependentUpon>
+    <Compile Include="ExoplanetDetails.Designer.cs">
+      <DependentUpon>ExoplanetDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReadCSV.cs" />
     <Compile Include="WriteCSV.cs" />
     <Compile Include="WriteXML.cs" />
     <Compile Include="LibraryDialog.cs">
@@ -95,11 +89,8 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExoplanetDetailsDialog.resx">
-      <DependentUpon>ExoplanetDetailsDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StarDetails.resx">
-      <DependentUpon>StarDetails.cs</DependentUpon>
+    <EmbeddedResource Include="ExoplanetDetails.resx">
+      <DependentUpon>ExoplanetDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LibraryDialog.resx">
       <DependentUpon>LibraryDialog.cs</DependentUpon>

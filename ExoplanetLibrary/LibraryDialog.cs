@@ -25,7 +25,7 @@ namespace ExoplanetLibrary
         private ArrayList m_exoplanets = null;
 
         private ExoplanetDetails m_exoplanetDetails = null;
-        private StarDetails m_starDetails = null;
+
         private AboutBox m_about = null;
 
         public LibraryDialog ( )
@@ -34,21 +34,21 @@ namespace ExoplanetLibrary
 
             CreateExoplanetListView ( );
             lvwColumnSorter = new ListViewColumnSorter ( );
-            this.m_exoplanetListView.ListViewItemSorter = lvwColumnSorter;
+            m_exoplanetListView.ListViewItemSorter = lvwColumnSorter;
 
-            this.openMenuItem.Click += new EventHandler ( open_Click );
-            this.exitMenuItem.Click += new EventHandler ( exit_Click );
+            openMenuItem.Click += new EventHandler ( open_Click );
+            exitMenuItem.Click += new EventHandler ( exit_Click );
 #if not_used
-            this.openXMLMenuItem.Click += new EventHandler ( openXML_Click );
-            this.openCSVMenuItem.Click += new EventHandler ( openCSV_Click );
+            openXMLMenuItem.Click += new EventHandler ( openXML_Click );
+            openCSVMenuItem.Click += new EventHandler ( openCSV_Click );
 #endif
-            this.saveAsMenuItem.Click += new EventHandler ( saveAs_Click );
+            saveAsMenuItem.Click += new EventHandler ( saveAs_Click );
 
-            this.aboutMenuItem.Click += new EventHandler ( about_Click );
+            aboutMenuItem.Click += new EventHandler ( about_Click );
 
-            this.ResizeBegin += new System.EventHandler ( this.MyResizeBegin );
-            this.ResizeEnd += new System.EventHandler ( this.MyResizeEnd );
-            this.SizeChanged += new System.EventHandler ( this.MyResize );
+            ResizeBegin += new System.EventHandler ( MyResizeBegin );
+            ResizeEnd += new System.EventHandler ( MyResizeEnd );
+            SizeChanged += new System.EventHandler ( MyResize );
             }
 
         private void MyResizeBegin ( object sender, System.EventArgs e )
@@ -65,15 +65,15 @@ namespace ExoplanetLibrary
 
             if ( m_exoplanetListView != null )
                 {
-                m_exoplanetListView.Height = this.Size.Height - ( 60 + 24 );
-                m_exoplanetListView.Width = this.Size.Width - 40;
+                m_exoplanetListView.Height = Size.Height - ( 60 + 24 );
+                m_exoplanetListView.Width = Size.Width - 40;
                 }
             }
 
         private void CreateExoplanetListView ( )
             {
             m_exoplanetListView = new ListView ( );
-            m_exoplanetListView.Bounds = new Rectangle ( new Point ( 10, 24 ), new Size ( this.Width - 40, this.Height - ( 60 + 24 ) ) );
+            m_exoplanetListView.Bounds = new Rectangle ( new Point ( 10, 24 ), new Size ( Width - 40, Height - ( 60 + 24 ) ) );
 
             m_exoplanetListView.View = View.Details;
             m_exoplanetListView.LabelEdit = false;
@@ -89,7 +89,7 @@ namespace ExoplanetLibrary
             m_exoplanetListView.DoubleClick += new EventHandler ( ExoplanentListView_DoubleClick );
             m_exoplanetListView.KeyDown += new KeyEventHandler ( ExoplanentListView_KeyDown );
             m_exoplanetListView.KeyUp += new KeyEventHandler ( ExoplanentListView_KeyUp );
-            this.Controls.Add ( m_exoplanetListView );
+            Controls.Add ( m_exoplanetListView );
             }
 
         private void UpdateExoplanetListView ( )
@@ -234,7 +234,7 @@ namespace ExoplanetLibrary
                 lvwColumnSorter.Order = SortOrder.Ascending;
                 }
 
-            this.m_exoplanetListView.Sort ( );
+            m_exoplanetListView.Sort ( );
             }
 
         private void ExoplanentListView_Click ( object sender, EventArgs e )
@@ -244,9 +244,9 @@ namespace ExoplanetLibrary
 
         private void ExoplanentListView_DoubleClick ( object sender, EventArgs e )
             {
-            if ( this.m_exoplanetListView.SelectedItems.Count == 1 )
+            if ( m_exoplanetListView.SelectedItems.Count == 1 )
                 {
-                CExoplanet exoplanet = ( CExoplanet )this.m_exoplanetListView.SelectedItems[0].Tag;
+                CExoplanet exoplanet = ( CExoplanet )m_exoplanetListView.SelectedItems[0].Tag;
 
 #if display_as_modal_dialog
                 if ( m_exoplanetDetails == null )
@@ -287,19 +287,19 @@ namespace ExoplanetLibrary
 
         private void ExoplanentListView_KeyDown ( object sender, EventArgs e )
             {
-            if ( this.m_exoplanetListView.SelectedItems.Count == 1 )
+            if ( m_exoplanetListView.SelectedItems.Count == 1 )
                 {
-                displayAllDetails ( ( CExoplanet )this.m_exoplanetListView.SelectedItems[0].Tag );
-                this.m_exoplanetListView.SelectedItems[0].Selected = true;
+                displayAllDetails ( ( CExoplanet )m_exoplanetListView.SelectedItems[0].Tag );
+                m_exoplanetListView.SelectedItems[0].Selected = true;
                 }
             }
 
         private void ExoplanentListView_KeyUp ( object sender, EventArgs e )
             {
-            if ( this.m_exoplanetListView.SelectedItems.Count == 1 )
+            if ( m_exoplanetListView.SelectedItems.Count == 1 )
                 {
-                displayAllDetails ( ( CExoplanet )this.m_exoplanetListView.SelectedItems[0].Tag );
-                this.m_exoplanetListView.SelectedItems[0].Selected = true;
+                displayAllDetails ( ( CExoplanet )m_exoplanetListView.SelectedItems[0].Tag );
+                m_exoplanetListView.SelectedItems[0].Selected = true;
                 }
             }
 
@@ -311,13 +311,6 @@ namespace ExoplanetLibrary
             m_exoplanetDetails.DisplayDetails ( exoplanet );
             m_exoplanetDetails.Show ( );
             m_exoplanetDetails.BringToFront ( );
-
-            if ( m_starDetails == null )
-                m_starDetails = new StarDetails ( this );
-
-            m_starDetails.DisplayDetails ( exoplanet );
-            m_starDetails.Show ( );
-            m_starDetails.BringToFront ( );
             }
 
         private void open_Click ( object sender, System.EventArgs e )
@@ -458,11 +451,6 @@ namespace ExoplanetLibrary
         public void ExoplanetDetailsClosed ( )
             {
             m_exoplanetDetails = null;
-            }
-
-        public void StarDetailsClosed ( )
-            {
-            m_starDetails = null;
             }
         }
     }
