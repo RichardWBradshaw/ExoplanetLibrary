@@ -10,9 +10,18 @@ namespace ExoplanetLibrary
     {
     class ReadCSV
         {
-        static string m_version = "2.0";
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Usage", "CA2202:Do not dispose objects multiple times" )]
+        static private string Version_ = "2.0";
+        static private string Version
+            {
+            get
+                {
+                return Version_;
+                }
+            set
+                {
+                Version_ = value;
+                }
+            }
 
         static public int Read ( string csvFileName )
             {
@@ -37,12 +46,12 @@ namespace ExoplanetLibrary
 
                 IsValidVersion ( csvFileName );
 
-                if ( string.Equals ( m_version, "1.0" ) || string.Equals ( m_version, "2.0" ) )
+                if ( string.Equals ( Version, "1.0" ) || string.Equals ( Version, "2.0" ) )
                     {
                     writer = XmlWriter.Create ( xmlFileName, settings );
 
                     writer.WriteStartElement ( "Exoplanets" );
-                    writer.WriteAttributeString ( "version", m_version );
+                    writer.WriteAttributeString ( "version", Version );
 
                     TextReader reader = null;
 
@@ -64,8 +73,6 @@ namespace ExoplanetLibrary
                             }
                         }
 
-                    reader.Close ( );
-
                     writer.WriteEndElement ( );
                     writer.Close ( );
                     }
@@ -78,7 +85,7 @@ namespace ExoplanetLibrary
             {
             TextReader reader = File.OpenText ( csvFileName );
 
-            m_version = "";
+            Version = "";
 
             if ( reader != null )
                 {
@@ -94,7 +101,7 @@ namespace ExoplanetLibrary
                         "omega, omega_error_min, omega_error_max, tperi, tperi_error_min, tperi_error_max, detection_type, molecules, " +
                         "star_name, ra, dec, mag_v, mag_i, mag_j, mag_h, mag_k, star_distance, star_metallicity, " +
                         "star_mass, star_radius, star_sp_type, star_age, star_teff" ) )
-                    m_version = "1.0";
+                    Version = "1.0";
                 else if ( firstLine.Equals ( "# name,mass,mass_error_min,mass_error_max,radius,radius_error_min,radius_error_max," +
                     "orbital_period,orbital_period_error_min,orbital_period_error_max,semi_major_axis,semi_major_axis_error_min,semi_major_axis_error_max," +
                     "eccentricity,eccentricity_error_min,eccentricity_error_max,inclination,inclination_error_min,inclination_error_max," +
@@ -106,14 +113,14 @@ namespace ExoplanetLibrary
                     "detection_type,mass_detection_type,radius_detection_type,alternate_names,molecules," +
                     "star_name,ra,dec,mag_v,mag_i,mag_j,mag_h,mag_k,star_distance,star_metallicity,star_mass,star_radius,star_sp_type,star_age,star_teff," +
                     "star_detected_disc,star_magnetic_field" ) )
-                    m_version = "2.0";
+                    Version = "2.0";
                 else
-                    m_version = "";
+                    Version = "";
                 }
 
             reader.Close ( );
 
-            return m_version;
+            return Version;
             }
 
         static private int WriteExoplanet ( XmlWriter writer, string line )
@@ -122,7 +129,7 @@ namespace ExoplanetLibrary
             string[] strings = line.Split ( delimiterChars );
             int numberOfStrings = strings.Length;
 
-            if ( string.Equals ( m_version, "1.0" ) )
+            if ( string.Equals ( Version, "1.0" ) )
                 {
                 if ( numberOfStrings == 62 )
                     {
@@ -130,10 +137,10 @@ namespace ExoplanetLibrary
 
                     AssignFromVersion1 ( strings, exoplanet );
 
-                    WriteXML.WriteExoplanet ( writer, exoplanet, m_version );
+                    WriteXML.WriteExoplanet ( writer, exoplanet, Version );
                     }
                 }
-            else if ( string.Equals ( m_version, "2.0" ) )
+            else if ( string.Equals ( Version, "2.0" ) )
                 {
                 if ( numberOfStrings == 79 )
                     {
@@ -141,7 +148,7 @@ namespace ExoplanetLibrary
 
                     AssignFromVersion2 ( strings, exoplanet );
 
-                    WriteXML.WriteExoplanet ( writer, exoplanet, m_version );
+                    WriteXML.WriteExoplanet ( writer, exoplanet, Version );
                     }
                 }
 

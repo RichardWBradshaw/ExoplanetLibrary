@@ -22,188 +22,188 @@ namespace ExoplanetLibrary
 
     public class CProperties
         {
-        private string m_distance;
+        private string Distance_;
         public string Distance
             {
             get
                 {
-                return m_distance;
+                return Distance_;
                 }
             set
                 {
-                m_distance = value;
+                Distance_ = value;
                 }
             }
 
-        private string m_metallicity;
+        private string Metallicity_;
         public string Metallicity
             {
             get
                 {
-                return m_metallicity;
+                return Metallicity_;
                 }
             set
                 {
-                m_metallicity = value;
+                Metallicity_ = value;
                 }
             }
 
-        private string m_mass;
+        private string Mass_;
         public string Mass
             {
             get
                 {
-                return m_mass;
+                return Mass_;
                 }
             set
                 {
-                m_mass = value;
+                Mass_ = value;
                 }
             }
 
-        private string m_radius;
+        private string Radius_;
         public string Radius
             {
             get
                 {
-                return m_radius;
+                return Radius_;
                 }
             set
                 {
-                m_radius = value;
+                Radius_ = value;
                 }
             }
 
-        private string m_SPType;
+        private string SPType_;
         public string SPType
             {
             get
                 {
-                return m_SPType;
+                return SPType_;
                 }
             set
                 {
-                m_SPType = value;
+                SPType_ = value;
                 }
             }
 
-        private string m_age;
+        private string Age_;
         public string Age
             {
             get
                 {
-                return m_age;
+                return Age_;
                 }
             set
                 {
-                m_age = value;
+                Age_ = value;
                 }
             }
 
-        private string m_teff;
+        private string Teff_;
         public string Teff
             {
             get
                 {
-                return m_teff;
+                return Teff_;
                 }
             set
                 {
-                m_teff = value;
+                Teff_ = value;
                 }
             }
 
-        private string m_detectedDisc;
+        private string DetectedDisc_;
         public string DetectedDisc
             {
             get
                 {
-                return m_detectedDisc;
+                return DetectedDisc_;
                 }
             set
                 {
-                m_detectedDisc = value;
+                DetectedDisc_ = value;
                 }
             }
 
-        private string m_magneticField;
+        private string MagneticField_;
         public string MagneticField
             {
             get
                 {
-                return m_magneticField;
+                return MagneticField_;
                 }
             set
                 {
-                m_magneticField = value;
+                MagneticField_ = value;
                 }
             }
         };
 
     public class CStar
         {
-        private string m_name;
+        private string Name_;
         public string Name
             {
             get
                 {
-                return m_name;
+                return Name_;
                 }
             set
                 {
-                m_name = value;
+                Name_ = value;
                 }
             }
 
-        private string m_rightAccession;
+        private string RightAccession_;
         public string RightAccession
             {
             get
                 {
-                return m_rightAccession;
+                return RightAccession_;
                 }
             set
                 {
-                m_rightAccession = value;
+                RightAccession_ = value;
                 }
             }
 
-        private string m_declination;
+        private string Declination_;
         public string Declination
             {
             get
                 {
-                return m_declination;
+                return Declination_;
                 }
             set
                 {
-                m_declination = value;
+                Declination_ = value;
                 }
             }
 
-        private CMagnitudes m_magnitudes;
+        private CMagnitudes Magnitudes_;
         public CMagnitudes Magnitudes
             {
             get
                 {
-                return m_magnitudes;
+                return Magnitudes_;
                 }
             set
                 {
-                m_magnitudes = value;
+                Magnitudes_ = value;
                 }
             }
 
-        private CProperties m_properties;
+        private CProperties Properties_;
         public CProperties Properties
             {
             get
                 {
-                return m_properties;
+                return Properties_;
                 }
             set
                 {
-                m_properties = value;
+                Properties_ = value;
                 }
             }
 
@@ -292,848 +292,907 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
     public class CExoplanet
         {
-        private string m_name;
-
+        private string Name_;
         public string Name
             {
             get
                 {
-                return m_name;
+                return Name_;
                 }
             set
                 {
-                m_name = value;
+                Name_ = value;
                 }
             }
 
-        private string m_mass;
+        private string Mass_;
         public string Mass
             {
             get
                 {
-                return m_mass;
+                return Mass_;
                 }
             set
                 {
-                m_mass = value;
+                Mass_ = value;
                 }
             }
 
-        private string m_massErrorMin;
+        private string MassErrorMin_;
         public string MassErrorMin
             {
             get
                 {
-                return m_massErrorMin;
+                return MassErrorMin_;
                 }
             set
                 {
-                m_massErrorMin = value;
+                MassErrorMin_ = value;
                 }
             }
 
-        private string m_massErrorMax;
+        private string MassErrorMax_;
         public string MassErrorMax
             {
             get
                 {
-                return m_massErrorMax;
+                return MassErrorMax_;
                 }
             set
                 {
-                m_massErrorMax = value;
+                MassErrorMax_ = value;
                 }
             }
 
-        private string m_radius;
+        private string Radius_;
         public string Radius
             {
             get
                 {
-                return m_radius;
+                return Radius_;
                 }
             set
                 {
-                m_radius = value;
+                Radius_ = value;
                 }
             }
 
-        private string m_radiusErrorMin;
+        private string RadiusErrorMin_;
         public string RadiusErrorMin
             {
             get
                 {
-                return m_radiusErrorMin;
+                return RadiusErrorMin_;
                 }
             set
                 {
-                m_radiusErrorMin = value;
+                RadiusErrorMin_ = value;
                 }
             }
 
-        private string m_radiusErrorMax;
+        private string RadiusErrorMax_;
         public string RadiusErrorMax
             {
             get
                 {
-                return m_radiusErrorMax;
+                return RadiusErrorMax_;
                 }
             set
                 {
-                m_radiusErrorMax = value;
+                RadiusErrorMax_ = value;
                 }
             }
 
-        private string m_orbitalPeriod;
+        private string OrbitalPeriod_;
         public string OrbitalPeriod
             {
             get
                 {
-                return m_orbitalPeriod;
+                return OrbitalPeriod_;
                 }
             set
                 {
-                m_orbitalPeriod = value;
+                OrbitalPeriod_ = value;
                 }
             }
 
-        private string m_orbitalPeriodErrorMin;
+        private string OrbitalPeriodErrorMin_;
         public string OrbitalPeriodErrorMin
             {
             get
                 {
-                return m_orbitalPeriodErrorMin;
+                return OrbitalPeriodErrorMin_;
                 }
             set
                 {
-                m_orbitalPeriodErrorMin = value;
+                OrbitalPeriodErrorMin_ = value;
                 }
             }
 
-        private string m_orbitalPeriodErrorMax;
+        private string OrbitalPeriodErrorMax_;
         public string OrbitalPeriodErrorMax
             {
             get
                 {
-                return m_orbitalPeriodErrorMax;
+                return OrbitalPeriodErrorMax_;
                 }
             set
                 {
-                m_orbitalPeriodErrorMax = value;
+                OrbitalPeriodErrorMax_ = value;
                 }
             }
 
-        private string m_semiMajorAxis;
+        private string SemiMajorAxis_;
         public string SemiMajorAxis
             {
             get
                 {
-                return m_semiMajorAxis;
+                return SemiMajorAxis_;
                 }
             set
                 {
-                m_semiMajorAxis = value;
+                SemiMajorAxis_ = value;
                 }
             }
 
-        private string m_semiMajorAxisErrorMin;
+        private string SemiMajorAxisErrorMin_;
         public string SemiMajorAxisErrorMin
             {
             get
                 {
-                return m_semiMajorAxisErrorMin;
+                return SemiMajorAxisErrorMin_;
                 }
             set
                 {
-                m_semiMajorAxisErrorMin = value;
+                SemiMajorAxisErrorMin_ = value;
                 }
             }
 
-        private string m_semiMajorAxisErrorMax;
+        private string SemiMajorAxisErrorMax_;
         public string SemiMajorAxisErrorMax
             {
             get
                 {
-                return m_semiMajorAxisErrorMax;
+                return SemiMajorAxisErrorMax_;
                 }
             set
                 {
-                m_semiMajorAxisErrorMax = value;
+                SemiMajorAxisErrorMax_ = value;
                 }
             }
 
-        private string m_eccentricity;
+        private string Eccentricity_;
         public string Eccentricity
             {
             get
                 {
-                return m_eccentricity;
+                return Eccentricity_;
                 }
             set
                 {
-                m_eccentricity = value;
+                Eccentricity_ = value;
                 }
             }
 
-        private string m_eccentricityErrorMin;
+        private string EccentricityErrorMin_;
         public string EccentricityErrorMin
             {
             get
                 {
-                return m_eccentricityErrorMin;
+                return EccentricityErrorMin_;
                 }
             set
                 {
-                m_eccentricityErrorMin = value;
+                EccentricityErrorMin_ = value;
                 }
             }
 
-        private string m_eccentricityErrorMax;
+        private string EccentricityErrorMax_;
         public string EccentricityErrorMax
             {
             get
                 {
-                return m_eccentricityErrorMax;
+                return EccentricityErrorMax_;
                 }
             set
                 {
-                m_eccentricityErrorMax = value;
+                EccentricityErrorMax_ = value;
                 }
             }
 
-        private string m_angularDistance;
+        private string AngularDistance_;
         public string AngularDistance
             {
             get
                 {
-                return m_angularDistance;
+                return AngularDistance_;
                 }
             set
                 {
-                m_angularDistance = value;
+                AngularDistance_ = value;
                 }
             }
 
-        private string m_inclination;
+        private string Inclination_;
         public string Inclination
             {
             get
                 {
-                return m_inclination;
+                return Inclination_;
                 }
             set
                 {
-                m_inclination = value;
+                Inclination_ = value;
                 }
             }
 
-        private string m_inclinationErrorMin;
+        private string InclinationErrorMin_;
         public string InclinationErrorMin
             {
             get
                 {
-                return m_inclinationErrorMin;
+                return InclinationErrorMin_;
                 }
             set
                 {
-                m_inclinationErrorMin = value;
+                InclinationErrorMin_ = value;
                 }
             }
 
-        private string m_inclinationErrorMax;
+        private string InclinationErrorMax_;
         public string InclinationErrorMax
             {
             get
                 {
-                return m_inclinationErrorMax;
+                return InclinationErrorMax_;
                 }
             set
                 {
-                m_inclinationErrorMax = value;
+                InclinationErrorMax_ = value;
                 }
             }
 
-        private string m_tzeroTr;
+        private string TzeroTr_;
         public string TzeroTr
             {
             get
                 {
-                return m_tzeroTr;
+                return TzeroTr_;
                 }
             set
                 {
-                m_tzeroTr = value;
+                TzeroTr_ = value;
                 }
             }
-        private string m_zeroTrErrorMin;
+        private string TzeroTrErrorMin_;
         public string TzeroTrErrorMin
             {
             get
                 {
-                return m_zeroTrErrorMin;
+                return TzeroTrErrorMin_;
                 }
             set
                 {
-                m_zeroTrErrorMin = value;
+                TzeroTrErrorMin_ = value;
                 }
             }
 
-        private string m_zeroTrErrorMax;
+        private string TzeroTrErrorMax_;
         public string TzeroTrErrorMax
             {
             get
                 {
-                return m_zeroTrErrorMax;
+                return TzeroTrErrorMax_;
                 }
             set
                 {
-                m_zeroTrErrorMax = value;
+                TzeroTrErrorMax_ = value;
                 }
             }
 
-        private string m_tzeroTrSec;
+        private string TzeroTrSec_;
         public string TzeroTrSec
             {
             get
                 {
-                return m_tzeroTrSec;
+                return TzeroTrSec_;
                 }
             set
                 {
-                m_tzeroTrSec = value;
+                TzeroTrSec_ = value;
                 }
             }
 
-        private string m_tzeroTrSecErrorMin;
+        private string TzeroTrSecErrorMin_;
         public string TzeroTrSecErrorMin
             {
             get
                 {
-                return m_tzeroTrSecErrorMin;
+                return TzeroTrSecErrorMin_;
                 }
             set
                 {
-                m_tzeroTrSecErrorMin = value;
+                TzeroTrSecErrorMin_ = value;
                 }
             }
 
-        private string m_tzeroTrSecErrorMax;
+        private string TzeroTrSecErrorMax_;
         public string TzeroTrSecErrorMax
             {
             get
                 {
-                return m_tzeroTrSecErrorMax;
+                return TzeroTrSecErrorMax_;
                 }
             set
                 {
-                m_tzeroTrSecErrorMax = value;
+                TzeroTrSecErrorMax_ = value;
                 }
             }
 
-        private string m_lambdaAngle;
+        private string LambdaAngle_;
         public string LambdaAngle
             {
             get
                 {
-                return m_lambdaAngle;
+                return LambdaAngle_;
                 }
             set
                 {
-                m_lambdaAngle = value;
+                LambdaAngle_ = value;
                 }
             }
-        private string m_lambdaAngleErrorMin;
+
+        private string LambdaAngleErrorMin_;
         public string LambdaAngleErrorMin
             {
             get
                 {
-                return m_lambdaAngleErrorMin;
+                return LambdaAngleErrorMin_;
                 }
             set
                 {
-                m_lambdaAngleErrorMin = value;
+                LambdaAngleErrorMin_ = value;
                 }
             }
 
-        private string m_lambdaAngleErrorMax;
+        private string LambdaAngleErrorMax_;
         public string LambdaAngleErrorMax
             {
             get
                 {
-                return m_lambdaAngleErrorMax;
+                return LambdaAngleErrorMax_;
                 }
             set
                 {
-                m_lambdaAngleErrorMax = value;
+                LambdaAngleErrorMax_ = value;
                 }
             }
 
-        private string m_tzeroVr;
+        private string TzeroVr_;
         public string TzeroVr
             {
             get
                 {
-                return m_tzeroVr;
+                return TzeroVr_;
                 }
             set
                 {
-                m_tzeroVr = value;
+                TzeroVr_ = value;
                 }
             }
 
-        private string m_tzeroVrErrorMin;
+        private string TzeroVrErrorMin_;
         public string TzeroVrErrorMin
             {
             get
                 {
-                return m_tzeroVrErrorMin;
+                return TzeroVrErrorMin_;
                 }
             set
                 {
-                m_tzeroVrErrorMin = value;
+                TzeroVrErrorMin_ = value;
                 }
             }
 
-        private string m_tzeroVrErrorMax;
+        private string TzeroVrErrorMax_;
         public string TzeroVrErrorMax
             {
             get
                 {
-                return m_tzeroVrErrorMax;
+                return TzeroVrErrorMax_;
                 }
             set
                 {
-                m_tzeroVrErrorMax = value;
+                TzeroVrErrorMax_ = value;
                 }
             }
 
-        private string m_temperatureCalculated;
+        private string TemperatureCalculated_;
         public string TemperatureCalculated
             {
             get
                 {
-                return m_temperatureCalculated;
+                return TemperatureCalculated_;
                 }
             set
                 {
-                m_temperatureCalculated = value;
+                TemperatureCalculated_ = value;
                 }
             }
 
-        private string m_temperatureMeasured;
+        private string TemperatureMeasured_;
         public string TemperatureMeasured
             {
             get
                 {
-                return m_temperatureMeasured;
+                return TemperatureMeasured_;
                 }
             set
                 {
-                m_temperatureMeasured = value;
+                TemperatureMeasured_ = value;
                 }
             }
 
-        private string m_temperatureHotPointLo;
+        private string TemperatureHotPointLo_;
         public string TemperatureHotPointLo
             {
             get
                 {
-                return m_temperatureHotPointLo;
+                return TemperatureHotPointLo_;
                 }
             set
                 {
-                m_temperatureHotPointLo = value;
+                TemperatureHotPointLo_ = value;
                 }
             }
 
-        private string m_logG;
+        private string LogG_;
         public string LogG
             {
             get
                 {
-                return m_logG;
+                return LogG_;
                 }
             set
                 {
-                m_logG = value;
+                LogG_ = value;
                 }
             }
 
-        private string m_status;
+        private string Status_;
         public string Status
             {
             get
                 {
-                return m_status;
+                return Status_;
                 }
             set
                 {
-                m_status = value;
+                Status_ = value;
                 }
             }
 
-        private string m_discovered;
+        private string Discovered_;
         public string Discovered
             {
             get
                 {
-                return m_discovered;
+                return Discovered_;
                 }
             set
                 {
-                m_discovered = value;
+                Discovered_ = value;
                 }
             }
 
-        private string m_updated;
+        private string Updated_;
         public string Updated
             {
             get
                 {
-                return m_updated;
+                return Updated_;
                 }
             set
                 {
-                m_updated = value;
+                Updated_ = value;
                 }
             }
 
-        private string m_omega;
+        private string Omega_;
         public string Omega
             {
             get
                 {
-                return m_omega;
+                return Omega_;
                 }
             set
                 {
-                m_omega = value;
+                Omega_ = value;
                 }
             }
 
-        private string m_omegaErrorMin;
+        private string OmegaErrorMin_;
         public string OmegaErrorMin
             {
             get
                 {
-                return m_omegaErrorMin;
+                return OmegaErrorMin_;
                 }
             set
                 {
-                m_omegaErrorMin = value;
+                OmegaErrorMin_ = value;
                 }
             }
 
-        private string m_omegaErrorMax;
+        private string OmegaErrorMax_;
         public string OmegaErrorMax
             {
             get
                 {
-                return m_omegaErrorMax;
+                return OmegaErrorMax_;
                 }
             set
                 {
-                m_omegaErrorMax = value;
+                OmegaErrorMax_ = value;
                 }
             }
 
-        private string m_tperi;
+        private string Tperi_;
         public string Tperi
             {
             get
                 {
-                return m_tperi;
+                return Tperi_;
                 }
             set
                 {
-                m_tperi = value;
+                Tperi_ = value;
                 }
             }
 
-        private string m_tperiErrorMin;
+        private string TperiErrorMin_;
         public string TperiErrorMin
             {
             get
                 {
-                return m_tperiErrorMin;
+                return TperiErrorMin_;
                 }
             set
                 {
-                m_tperiErrorMin = value;
+                TperiErrorMin_ = value;
                 }
             }
 
-        private string m_tperiErrorMax;
+        private string TperiErrorMax_;
         public string TperiErrorMax
             {
             get
                 {
-                return m_tperiErrorMax;
+                return TperiErrorMax_;
                 }
             set
                 {
-                m_tperiErrorMax = value;
+                TperiErrorMax_ = value;
                 }
             }
 
-        private string m_detectionType;
+        private string DetectionType_;
         public string DetectionType
             {
             get
                 {
-                return m_detectionType;
+                return DetectionType_;
                 }
             set
                 {
-                m_detectionType = value;
+                DetectionType_ = value;
                 }
             }
 
-        private string m_molecules;
+        private string Molecules_;
         public string Molecules
             {
             get
                 {
-                return m_molecules;
+                return Molecules_;
                 }
             set
                 {
-                m_molecules = value;
+                Molecules_ = value;
                 }
             }
 
-        private string m_impactParameter;
+        private string ImpactParameter_;
         public string ImpactParameter
             {
             get
                 {
-                return m_impactParameter;
+                return ImpactParameter_;
                 }
             set
                 {
-                m_impactParameter = value;
+                ImpactParameter_ = value;
                 }
             }
 
-        private string m_impactParameterErrorMin;
+        private string ImpactParameterErrorMin_;
         public string ImpactParameterErrorMin
             {
             get
                 {
-                return m_impactParameterErrorMin;
+                return ImpactParameterErrorMin_;
                 }
             set
                 {
-                m_impactParameterErrorMin = value;
+                ImpactParameterErrorMin_ = value;
                 }
             }
 
-        private string m_impactParameterErrorMax;
+        private string ImpactParameterErrorMax_;
         public string ImpactParameterErrorMax
             {
             get
                 {
-                return m_impactParameterErrorMax;
+                return ImpactParameterErrorMax_;
                 }
             set
                 {
-                m_impactParameterErrorMax = value;
+                ImpactParameterErrorMax_ = value;
                 }
             }
 
-        private string m_k;
+        private string K_;
         public string K
             {
             get
                 {
-                return m_k;
+                return K_;
                 }
             set
                 {
-                m_k = value;
+                K_ = value;
                 }
             }
 
-        private string m_kErrorMin;
+        private string KErrorMin_;
         public string KErrorMin
             {
             get
                 {
-                return m_kErrorMin;
+                return KErrorMin_;
                 }
             set
                 {
-                m_kErrorMin = value;
+                KErrorMin_ = value;
                 }
             }
 
-        private string m_kErrorMax;
+        private string KErrorMax_;
         public string KErrorMax
             {
             get
                 {
-                return m_kErrorMax;
+                return KErrorMax_;
                 }
             set
                 {
-                m_kErrorMax = value;
+                KErrorMax_ = value;
                 }
             }
 
-        private string m_geometricAlbedo;
+        private string GeometricAlbedo_;
         public string GeometricAlbedo
             {
             get
                 {
-                return m_geometricAlbedo;
+                return GeometricAlbedo_;
                 }
             set
                 {
-                m_geometricAlbedo = value;
+                GeometricAlbedo_ = value;
                 }
             }
 
-        private string m_geometricAlbedoErrorMin;
+        private string GeometricAlbedoErrorMin_;
         public string GeometricAlbedoErrorMin
             {
             get
                 {
-                return m_geometricAlbedoErrorMin;
+                return GeometricAlbedoErrorMin_;
                 }
             set
                 {
-                m_geometricAlbedoErrorMin = value;
+                GeometricAlbedoErrorMin_ = value;
                 }
             }
 
-        private string m_geometricAlbedoErrorMax;
+        private string GeometricAlbedoErrorMax_;
         public string GeometricAlbedoErrorMax
             {
             get
                 {
-                return m_geometricAlbedoErrorMax;
+                return GeometricAlbedoErrorMax_;
                 }
             set
                 {
-                m_geometricAlbedoErrorMax = value;
+                GeometricAlbedoErrorMax_ = value;
                 }
             }
 
-        private string m_tconj;
+        private string Tconj_;
         public string Tconj
             {
             get
                 {
-                return m_tconj;
+                return Tconj_;
                 }
             set
                 {
-                m_tconj = value;
+                Tconj_ = value;
                 }
             }
 
-        private string m_tconjErrorMin;
+        private string TconjErrorMin_;
         public string TconjErrorMin
             {
             get
                 {
-                return m_tconjErrorMin;
+                return TconjErrorMin_;
                 }
             set
                 {
-                m_tconjErrorMin = value;
+                TconjErrorMin_ = value;
                 }
             }
 
-        private string m_tconjErrorMax;
+        private string TconjErrorMax_;
         public string TconjErrorMax
             {
             get
                 {
-                return m_tconjErrorMax;
+                return TconjErrorMax_;
                 }
             set
                 {
-                m_tconjErrorMax = value;
+                TconjErrorMax_ = value;
                 }
             }
 
-        private string m_massDetectionType;
+        private string MassDetectionType_;
         public string MassDetectionType
             {
             get
                 {
-                return m_massDetectionType;
+                return MassDetectionType_;
                 }
             set
                 {
-                m_massDetectionType = value;
+                MassDetectionType_ = value;
                 }
             }
 
-        private string m_radiusDetectionType;
+        private string RadiusDetectionType_;
         public string RadiusDetectionType
             {
             get
                 {
-                return m_radiusDetectionType;
+                return RadiusDetectionType_;
                 }
             set
                 {
-                m_radiusDetectionType = value;
+                RadiusDetectionType_ = value;
                 }
             }
 
-        private string m_alternateNames;
+        private string AlternateNames_;
         public string AlternateNames
             {
             get
                 {
-                return m_alternateNames;
+                return AlternateNames_;
                 }
             set
                 {
-                m_alternateNames = value;
+                AlternateNames_ = value;
                 }
             }
 
-        private CStar m_star;
+        private CStar Star_;
         public CStar Star
             {
             get
                 {
-                return m_star;
+                return Star_;
                 }
             set
                 {
-                m_star = value;
+                Star_ = value;
                 }
             }
 
         public CExoplanet ( )
             {
-            m_star = new CStar ( );
+            Star_ = new CStar ( );
             }
         };
 
     class ReadXML : CExoplanet
         {
-        static XmlReader m_reader = null;
+        static XmlReader Reader_ = null;
+        static XmlReader Reader
+            {
+            get
+                {
+                return Reader_;
+                }
+            set
+                {
+                Reader_ = value;
+                }
+            }
 
-        static private string m_version = "2.0";
-        static string m_xsdVersion1FileName = "C:\\ProgramData\\Exoplanet Library\\schema\\EXOPLANET.V.1.xsd";
-        static string m_xsdVersion2FileName = "C:\\ProgramData\\Exoplanet Library\\schema\\EXOPLANET.xsd";
-        static string m_validationErrors = "";
+        static private string Version_ = "2.0";
+        static private string Version
+            {
+            get
+                {
+                return Version_;
+                }
+            set
+                {
+                Version_ = value;
+                }
+            }
+
+        static private string XsdVersion1FileName_ = "C:\\ProgramData\\Exoplanet Library\\schema\\EXOPLANET.V.1.xsd";
+        static private string XsdVersion1FileName
+            {
+            get
+                {
+                return XsdVersion1FileName_;
+                }
+            set
+                {
+                XsdVersion1FileName_ = value;
+                }
+            }
+
+        static private string XsdVersion2FileName_ = "C:\\ProgramData\\Exoplanet Library\\schema\\EXOPLANET.xsd";
+        static private string XsdVersion2FileName
+            {
+            get
+                {
+                return XsdVersion2FileName_;
+                }
+            set
+                {
+                XsdVersion2FileName_ = value;
+                }
+            }
+
+        static private string ValidationErrors_ = "";
+        static private string ValidationErrors
+            {
+            get
+                {
+                return ValidationErrors_;
+                }
+            set
+                {
+                ValidationErrors_ = value;
+                }
+            }
+
 
         static private void SetVersion ( string xmlFileName )
             {
             if ( System.IO.File.Exists ( xmlFileName ) )
                 {
-                m_reader = XmlReader.Create ( xmlFileName );
-                m_reader.ReadToFollowing ( "Exoplanets" );
-                m_reader.MoveToFirstAttribute ( );
-                m_version = m_reader.Value;
-                m_reader.Close ( );
+                Reader = XmlReader.Create ( xmlFileName );
+                Reader.ReadToFollowing ( "Exoplanets" );
+                Reader.MoveToFirstAttribute ( );
+                Version = Reader.Value;
+                Reader.Close ( );
                 }
             }
 
@@ -1142,12 +1201,11 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
             ValidationEventHandler validationEventHandler = new ValidationEventHandler ( exoplanetSettingsValidationEventHandler );
             XmlSchema xmlSchema = null;
 
-            if ( System.IO.File.Exists ( @m_xsdVersion2FileName ) || System.IO.File.Exists ( @m_xsdVersion1FileName ) )
-                if ( string.Equals ( m_version, "2.0" ) )
-                    xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @m_xsdVersion2FileName, FileMode.Open ) ), validationEventHandler );
-                else if ( string.Equals ( m_version, "1.0" ) )
-                    xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @m_xsdVersion1FileName, FileMode.Open ) ), validationEventHandler );
-
+            if ( System.IO.File.Exists ( @XsdVersion2FileName ) || System.IO.File.Exists ( @XsdVersion1FileName ) )
+                if ( string.Equals ( Version, "2.0" ) )
+                    xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @XsdVersion2FileName, FileMode.Open ) ), validationEventHandler );
+                else if ( string.Equals ( Version, "1.0" ) )
+                    xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @XsdVersion1FileName, FileMode.Open ) ), validationEventHandler );
 
             settings.ConformanceLevel = ConformanceLevel.Document;
             settings.CheckCharacters = true;
@@ -1169,7 +1227,7 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static public int Read ( string xmlFileName, ref ArrayList exoplanets )
             {
-            m_validationErrors = "";
+            ValidationErrors = "";
 
             exoplanets = new ArrayList ( );
 
@@ -1181,9 +1239,9 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 SetVersion ( xmlFileName );
                 SetValidation ( fileStream, settings );
 
-                m_reader = XmlReader.Create ( xmlFileName, settings );
+                Reader = XmlReader.Create ( xmlFileName, settings );
 
-                while ( m_reader.Read ( ) )
+                while ( Reader.Read ( ) )
                     {
                     CExoplanet exoplanet = new CExoplanet ( );
 
@@ -1209,7 +1267,7 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                     ReadDetectionType ( exoplanet );
                     ReadMolecules ( exoplanet );
 
-                    if ( string.Equals ( m_version, "2.0" ) )
+                    if ( string.Equals ( Version, "2.0" ) )
                         {
                         ReadImpactParameter ( exoplanet );
                         ReadK ( exoplanet );
@@ -1231,39 +1289,39 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 if ( fileStream != null )
                     fileStream.Close ( );
 
-                m_reader.Close ( );
+                Reader.Close ( );
                 }
 
-            if ( m_validationErrors.Length > 0 )
-                MessageBox.Show ( m_validationErrors );
+            if ( ValidationErrors.Length > 0 )
+                MessageBox.Show ( ValidationErrors );
 
             return 0;
             }
 
         static void ReadExoplanet ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Exoplanet" );
+            Reader.ReadToFollowing ( "Exoplanet" );
 
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.Name = m_reader.Value;
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.Name = Reader.Value;
             }
 
         static void ReadMass ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Mass" );
+            Reader.ReadToFollowing ( "Mass" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "mass":
-                        exoplanet.Mass = m_reader.Value;
+                        exoplanet.Mass = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.MassErrorMin = m_reader.Value;
+                        exoplanet.MassErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.MassErrorMax = m_reader.Value;
+                        exoplanet.MassErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1271,20 +1329,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadRadius ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Radius" );
+            Reader.ReadToFollowing ( "Radius" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "radius":
-                        exoplanet.Radius = m_reader.Value;
+                        exoplanet.Radius = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.RadiusErrorMin = m_reader.Value;
+                        exoplanet.RadiusErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.RadiusErrorMax = m_reader.Value;
+                        exoplanet.RadiusErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1292,20 +1350,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadOrbitalPeriod ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "OrbitalPeriod" );
+            Reader.ReadToFollowing ( "OrbitalPeriod" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "orbitalPeriod":
-                        exoplanet.OrbitalPeriod = m_reader.Value;
+                        exoplanet.OrbitalPeriod = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.OrbitalPeriodErrorMin = m_reader.Value;
+                        exoplanet.OrbitalPeriodErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.OrbitalPeriodErrorMax = m_reader.Value;
+                        exoplanet.OrbitalPeriodErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1313,20 +1371,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadSemiMajorAxis ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "SemiMajorAxis" );
+            Reader.ReadToFollowing ( "SemiMajorAxis" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "semiMajorAxis":
-                        exoplanet.SemiMajorAxis = m_reader.Value;
+                        exoplanet.SemiMajorAxis = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.SemiMajorAxisErrorMin = m_reader.Value;
+                        exoplanet.SemiMajorAxisErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.SemiMajorAxisErrorMax = m_reader.Value;
+                        exoplanet.SemiMajorAxisErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1334,20 +1392,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadEccentricity ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Eccentricity" );
+            Reader.ReadToFollowing ( "Eccentricity" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "eccentricity":
-                        exoplanet.Eccentricity = m_reader.Value;
+                        exoplanet.Eccentricity = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.EccentricityErrorMin = m_reader.Value;
+                        exoplanet.EccentricityErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.EccentricityErrorMax = m_reader.Value;
+                        exoplanet.EccentricityErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1355,27 +1413,27 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadAngularDistance ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "AngularDistance" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.AngularDistance = m_reader.Value;
+            Reader.ReadToFollowing ( "AngularDistance" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.AngularDistance = Reader.Value;
             }
 
         static void ReadInclination ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Inclination" );
+            Reader.ReadToFollowing ( "Inclination" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "inclination":
-                        exoplanet.Inclination = m_reader.Value;
+                        exoplanet.Inclination = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.InclinationErrorMin = m_reader.Value;
+                        exoplanet.InclinationErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.InclinationErrorMax = m_reader.Value;
+                        exoplanet.InclinationErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1383,20 +1441,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadTzeroTr ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "TzeroTr" );
+            Reader.ReadToFollowing ( "TzeroTr" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "tzero_tr":
-                        exoplanet.TzeroTr = m_reader.Value;
+                        exoplanet.TzeroTr = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.TzeroTrErrorMin = m_reader.Value;
+                        exoplanet.TzeroTrErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.TzeroTrErrorMax = m_reader.Value;
+                        exoplanet.TzeroTrErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1404,20 +1462,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadTzeroTrSec ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "TzeroTrSec" );
+            Reader.ReadToFollowing ( "TzeroTrSec" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "tzero_trSec":
-                        exoplanet.TzeroTrSec = m_reader.Value;
+                        exoplanet.TzeroTrSec = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.TzeroTrSecErrorMin = m_reader.Value;
+                        exoplanet.TzeroTrSecErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.TzeroTrSecErrorMax = m_reader.Value;
+                        exoplanet.TzeroTrSecErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1425,20 +1483,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadLambdaAngle ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "LambdaAngle" );
+            Reader.ReadToFollowing ( "LambdaAngle" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "lambdaAngle":
-                        exoplanet.LambdaAngle = m_reader.Value;
+                        exoplanet.LambdaAngle = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.LambdaAngleErrorMin = m_reader.Value;
+                        exoplanet.LambdaAngleErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.LambdaAngleErrorMax = m_reader.Value;
+                        exoplanet.LambdaAngleErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1446,20 +1504,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadTzeroVr ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "TzeroVr" );
+            Reader.ReadToFollowing ( "TzeroVr" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "tzero_vr":
-                        exoplanet.TzeroVr = m_reader.Value;
+                        exoplanet.TzeroVr = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.TzeroVrErrorMin = m_reader.Value;
+                        exoplanet.TzeroVrErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.TzeroVrErrorMax = m_reader.Value;
+                        exoplanet.TzeroVrErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1467,20 +1525,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadTemperature ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Temperature" );
+            Reader.ReadToFollowing ( "Temperature" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "Calculated":
-                        exoplanet.TemperatureCalculated = m_reader.Value;
+                        exoplanet.TemperatureCalculated = Reader.Value;
                         break;
                     case "Measured":
-                        exoplanet.TemperatureMeasured = m_reader.Value;
+                        exoplanet.TemperatureMeasured = Reader.Value;
                         break;
                     case "HotPointLon":
-                        exoplanet.TemperatureHotPointLo = m_reader.Value;
+                        exoplanet.TemperatureHotPointLo = Reader.Value;
                         break;
                     }
                 }
@@ -1488,48 +1546,48 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadLogG ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "LogG" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.LogG = m_reader.Value;
+            Reader.ReadToFollowing ( "LogG" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.LogG = Reader.Value;
             }
 
         static void ReadPublicationStatus ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "PublicationStatus" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.Status = m_reader.Value;
+            Reader.ReadToFollowing ( "PublicationStatus" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.Status = Reader.Value;
             }
 
         static void ReadDiscovered ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Discovered" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.Discovered = m_reader.Value;
+            Reader.ReadToFollowing ( "Discovered" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.Discovered = Reader.Value;
             }
 
         static void ReadUpdated ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Updated" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.Updated = m_reader.Value;
+            Reader.ReadToFollowing ( "Updated" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.Updated = Reader.Value;
             }
 
         static void ReadOmega ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Omega" );
+            Reader.ReadToFollowing ( "Omega" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "Omega":
-                        exoplanet.Omega = m_reader.Value;
+                        exoplanet.Omega = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.OmegaErrorMin = m_reader.Value;
+                        exoplanet.OmegaErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.OmegaErrorMax = m_reader.Value;
+                        exoplanet.OmegaErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1537,20 +1595,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadTperi ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Tperi" );
+            Reader.ReadToFollowing ( "Tperi" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "tperi":
-                        exoplanet.Tperi = m_reader.Value;
+                        exoplanet.Tperi = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.TperiErrorMin = m_reader.Value;
+                        exoplanet.TperiErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.TperiErrorMax = m_reader.Value;
+                        exoplanet.TperiErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1558,34 +1616,34 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadDetectionType ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "DetectionType" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.DetectionType = m_reader.Value;
+            Reader.ReadToFollowing ( "DetectionType" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.DetectionType = Reader.Value;
             }
 
         static void ReadMolecules ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Molecules" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.Molecules = m_reader.Value;
+            Reader.ReadToFollowing ( "Molecules" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.Molecules = Reader.Value;
             }
 
         static void ReadImpactParameter ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "ImpactParameter" );
+            Reader.ReadToFollowing ( "ImpactParameter" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "impactParameter":
-                        exoplanet.ImpactParameter = m_reader.Value;
+                        exoplanet.ImpactParameter = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.ImpactParameterErrorMin = m_reader.Value;
+                        exoplanet.ImpactParameterErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.ImpactParameterErrorMax = m_reader.Value;
+                        exoplanet.ImpactParameterErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1593,20 +1651,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadK ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "K" );
+            Reader.ReadToFollowing ( "K" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "k":
-                        exoplanet.K = m_reader.Value;
+                        exoplanet.K = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.KErrorMin = m_reader.Value;
+                        exoplanet.KErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.KErrorMax = m_reader.Value;
+                        exoplanet.KErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1614,20 +1672,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadGeometricAlbedo ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "GeometricAlbedo" );
+            Reader.ReadToFollowing ( "GeometricAlbedo" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "geometricAlbedo":
-                        exoplanet.GeometricAlbedo = m_reader.Value;
+                        exoplanet.GeometricAlbedo = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.GeometricAlbedoErrorMin = m_reader.Value;
+                        exoplanet.GeometricAlbedoErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.GeometricAlbedoErrorMax = m_reader.Value;
+                        exoplanet.GeometricAlbedoErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1635,20 +1693,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadTconj ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Tconj" );
+            Reader.ReadToFollowing ( "Tconj" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "tconj":
-                        exoplanet.Tconj = m_reader.Value;
+                        exoplanet.Tconj = Reader.Value;
                         break;
                     case "errorMin":
-                        exoplanet.TconjErrorMin = m_reader.Value;
+                        exoplanet.TconjErrorMin = Reader.Value;
                         break;
                     case "errorMax":
-                        exoplanet.TconjErrorMax = m_reader.Value;
+                        exoplanet.TconjErrorMax = Reader.Value;
                         break;
                     }
                 }
@@ -1656,41 +1714,41 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadMassDetectionType ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "MassDetectionType" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.MassDetectionType = m_reader.Value;
+            Reader.ReadToFollowing ( "MassDetectionType" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.MassDetectionType = Reader.Value;
             }
 
         static void ReadRadiusDetectionType ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "RadiusDetectionType" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.RadiusDetectionType = m_reader.Value;
+            Reader.ReadToFollowing ( "RadiusDetectionType" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.RadiusDetectionType = Reader.Value;
             }
 
         static void ReadAlternateNames ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "AlternateNames" );
-            m_reader.MoveToFirstAttribute ( );
-            exoplanet.AlternateNames = m_reader.Value;
+            Reader.ReadToFollowing ( "AlternateNames" );
+            Reader.MoveToFirstAttribute ( );
+            exoplanet.AlternateNames = Reader.Value;
             }
 
         static void ReadStar ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Star" );
+            Reader.ReadToFollowing ( "Star" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "Name":
-                        exoplanet.Star.Name = m_reader.Value;
+                        exoplanet.Star.Name = Reader.Value;
                         break;
                     case "ra":
-                        exoplanet.Star.RightAccession = m_reader.Value;
+                        exoplanet.Star.RightAccession = Reader.Value;
                         break;
                     case "dec":
-                        exoplanet.Star.Declination = m_reader.Value;
+                        exoplanet.Star.Declination = Reader.Value;
                         break;
                     }
                 }
@@ -1698,26 +1756,26 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadMagnitudes ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Magnitudes" );
+            Reader.ReadToFollowing ( "Magnitudes" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "V":
-                        exoplanet.Star.Magnitudes.V = m_reader.Value;
+                        exoplanet.Star.Magnitudes.V = Reader.Value;
                         break;
                     case "I":
-                        exoplanet.Star.Magnitudes.I = m_reader.Value;
+                        exoplanet.Star.Magnitudes.I = Reader.Value;
                         break;
                     case "J":
-                        exoplanet.Star.Magnitudes.J = m_reader.Value;
+                        exoplanet.Star.Magnitudes.J = Reader.Value;
                         break;
                     case "H":
-                        exoplanet.Star.Magnitudes.H = m_reader.Value;
+                        exoplanet.Star.Magnitudes.H = Reader.Value;
                         break;
                     case "K":
-                        exoplanet.Star.Magnitudes.K = m_reader.Value;
+                        exoplanet.Star.Magnitudes.K = Reader.Value;
                         break;
                     }
                 }
@@ -1725,38 +1783,38 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
 
         static void ReadProperties ( CExoplanet exoplanet )
             {
-            m_reader.ReadToFollowing ( "Properties" );
+            Reader.ReadToFollowing ( "Properties" );
 
-            while ( m_reader.MoveToNextAttribute ( ) )
+            while ( Reader.MoveToNextAttribute ( ) )
                 {
-                switch ( m_reader.Name )
+                switch ( Reader.Name )
                     {
                     case "Distance":
-                        exoplanet.Star.Properties.Distance = m_reader.Value;
+                        exoplanet.Star.Properties.Distance = Reader.Value;
                         break;
                     case "Metallicity":
-                        exoplanet.Star.Properties.Metallicity = m_reader.Value;
+                        exoplanet.Star.Properties.Metallicity = Reader.Value;
                         break;
                     case "Mass":
-                        exoplanet.Star.Properties.Mass = m_reader.Value;
+                        exoplanet.Star.Properties.Mass = Reader.Value;
                         break;
                     case "Radius":
-                        exoplanet.Star.Properties.Radius = m_reader.Value;
+                        exoplanet.Star.Properties.Radius = Reader.Value;
                         break;
                     case "SPType":
-                        exoplanet.Star.Properties.SPType = m_reader.Value;
+                        exoplanet.Star.Properties.SPType = Reader.Value;
                         break;
                     case "Age":
-                        exoplanet.Star.Properties.Age = m_reader.Value;
+                        exoplanet.Star.Properties.Age = Reader.Value;
                         break;
                     case "Teff":
-                        exoplanet.Star.Properties.Teff = m_reader.Value;
+                        exoplanet.Star.Properties.Teff = Reader.Value;
                         break;
                     case "DetectedDisc":
-                        exoplanet.Star.Properties.DetectedDisc = m_reader.Value;
+                        exoplanet.Star.Properties.DetectedDisc = Reader.Value;
                         break;
                     case "MagneticField":
-                        exoplanet.Star.Properties.MagneticField = m_reader.Value;
+                        exoplanet.Star.Properties.MagneticField = Reader.Value;
                         break;
                     }
                 }
@@ -1766,13 +1824,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
             {
             if ( e.Severity == XmlSeverityType.Warning )
                 {
-                m_validationErrors += "WARNING: " + "\r";
-                m_validationErrors += e.Message + "\r";
+                ValidationErrors_ += "WARNING: " + "\r";
+                ValidationErrors_ += e.Message + "\r";
                 }
             else if ( e.Severity == XmlSeverityType.Error )
                 {
-                m_validationErrors += "ERROR: " + "\r";
-                m_validationErrors += e.Message + "\r";
+                ValidationErrors += "ERROR: " + "\r";
+                ValidationErrors += e.Message + "\r";
                 }
             }
 

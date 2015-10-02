@@ -87,8 +87,8 @@ namespace ExoplanetLibrary
             m_exoplanetListView.ColumnClick += new ColumnClickEventHandler ( ExoplanentListView_ColumnClick );
             m_exoplanetListView.Click += new EventHandler ( ExoplanentListView_Click );
             m_exoplanetListView.DoubleClick += new EventHandler ( ExoplanentListView_DoubleClick );
-            m_exoplanetListView.KeyDown += new KeyEventHandler ( ExoplanentListView_KeyDown );
-            m_exoplanetListView.KeyUp += new KeyEventHandler ( ExoplanentListView_KeyUp );
+            //m_exoplanetListView.KeyDown += new KeyEventHandler ( ExoplanentListView_KeyDown );
+            //m_exoplanetListView.KeyUp += new KeyEventHandler ( ExoplanentListView_KeyUp );
             Controls.Add ( m_exoplanetListView );
             }
 
@@ -113,21 +113,21 @@ namespace ExoplanetLibrary
                 listView.Columns.Add ( "Name", -2, HorizontalAlignment.Left );
                 listView.Columns.Add ( "M (Mjup)", -2, HorizontalAlignment.Left );
                 listView.Columns.Add ( "R (Rjup)", -2, HorizontalAlignment.Left );
-                listView.Columns.Add ( "Period", -2, HorizontalAlignment.Left );
-                listView.Columns.Add ( "Semi-Major Axis", -2, HorizontalAlignment.Left );
+                listView.Columns.Add ( "Period (day)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ( "Semi-Major Axis (AU)", -2, HorizontalAlignment.Left );
                 listView.Columns.Add ( "Eccentricity", -2, HorizontalAlignment.Left );
                 listView.Columns.Add ( "Angular Distance", -2, HorizontalAlignment.Left );
 
                 if ( m_addPlanetDetails )
                     {
-                    listView.Columns.Add ( "Inclination", -2, HorizontalAlignment.Left );
-                    listView.Columns.Add ( "T0", -2, HorizontalAlignment.Left );
-                    listView.Columns.Add ( "T0-sec", -2, HorizontalAlignment.Left );
-                    listView.Columns.Add ( "Lambda Angle", -2, HorizontalAlignment.Left );
-                    listView.Columns.Add ( "Tvr", -2, HorizontalAlignment.Left );
-                    listView.Columns.Add ( "Tcalc.", -2, HorizontalAlignment.Left );
-                    listView.Columns.Add ( "Tmeas.", -2, HorizontalAlignment.Left );
-                    listView.Columns.Add ( "HP Long", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "Inclination (deg)", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "T0 (JD)", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "T0-sec (JD)", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "Lambda Angle (deg)", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "Tvr (JD)", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "Tcalc. (K)", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "Tmeas. (K)", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "Hot pt (deg)", -2, HorizontalAlignment.Left);
                     listView.Columns.Add ( "Log(g)", -2, HorizontalAlignment.Left );
                     listView.Columns.Add ( "Pub. Status", -2, HorizontalAlignment.Left );
                     }
@@ -137,7 +137,7 @@ namespace ExoplanetLibrary
 
                 if ( m_addPlanetDetails )
                     {
-                    listView.Columns.Add ( "Omega", -2, HorizontalAlignment.Left );
+                    listView.Columns.Add ( "Omega (deg)", -2, HorizontalAlignment.Left );
                     listView.Columns.Add ( "Detection Type", -2, HorizontalAlignment.Left );
                     listView.Columns.Add ( "Molecules", -2, HorizontalAlignment.Left );
                     }
@@ -239,14 +239,9 @@ namespace ExoplanetLibrary
 
         private void ExoplanentListView_Click ( object sender, EventArgs e )
             {
-            ExoplanentListView_DoubleClick ( sender, e );
-            }
-
-        private void ExoplanentListView_DoubleClick ( object sender, EventArgs e )
-            {
-            if ( m_exoplanetListView.SelectedItems.Count == 1 )
+            if (m_exoplanetListView.SelectedItems.Count == 1)
                 {
-                CExoplanet exoplanet = ( CExoplanet )m_exoplanetListView.SelectedItems[0].Tag;
+                CExoplanet exoplanet = ( CExoplanet )m_exoplanetListView.SelectedItems [0].Tag;
 
 #if display_as_modal_dialog
                 if ( m_exoplanetDetails == null )
@@ -254,34 +249,59 @@ namespace ExoplanetLibrary
 
                 m_exoplanetDetails.ExoplanetDetails ( exoplanet );
                 m_exoplanetDetails.ShowDialog ( );
-#elif display_as_message_box
-                MessageBox.Show ( "Name: " + exoplanet.name +
-                    "\rMass: " + exoplanet.mass + "(" + exoplanet.massErrorMin + " " + exoplanet.massErrorMax + ")" +
-                    "\rRadius: " + exoplanet.radius + "(" + exoplanet.radiusErrorMin + " " + exoplanet.radiusErrorMax + ")" +
-                    "\rOrbital Period: " + exoplanet.orbitalPeriod + "(" + exoplanet.orbitalPeriodErrorMin + " " + exoplanet.orbitalPeriodErrorMax + ")" +
-                    "\rSemi Major Axis: " + exoplanet.semiMajorAxis + "(" + exoplanet.semiMajorAxisErrorMin + " " + exoplanet.semiMajorAxisErrorMax + ")" +
-                    "\rEccentricity: " + exoplanet.eccentricity + "(" + exoplanet.eccentricityErrorMin + " " + exoplanet.eccentricityErrorMax + ")" +
-                    "\rAngular Distance: " + exoplanet.orbitalPeriod +
-                    "\rInclination: " + exoplanet.inclination + "(" + exoplanet.inclinationErrorMin + " " + exoplanet.inclinationErrorMax + ")" +
-                    "\rTzero Tr: " + exoplanet.tzeroTr + "(" + exoplanet.tzeroTrErrorMin + " " + exoplanet.tzeroTrErrorMax + ")" +
-                    "\rTzero Tr Sec: " + exoplanet.tzeroTrSec + "(" + exoplanet.tzeroTrSecErrorMin + " " + exoplanet.tzeroTrSecErrorMax + ")" +
-                    "\rLambda Angle: " + exoplanet.lambdaAngle + "(" + exoplanet.lambdaAngleErrorMin + " " + exoplanet.lambdaAngleErrorMax + ")" +
-                    "\rTzero Vr: " + exoplanet.tzeroVr + "(" + exoplanet.tzeroVrErrorMin + " " + exoplanet.tzeroVrErrorMax + ")" +
-                    "\rTemp. Calc.: " + exoplanet.temperatureCalculated +
-                    "\rTemp. Meas.: " + exoplanet.temperatureMeasured +
-                    "\rTemp. HPL: " + exoplanet.temperatureHotPointLo +
-                    "\rLogG: " + exoplanet.logG +
-                    "\rPublication Status: " + exoplanet.status +
-                    "\rDiscovered: " + exoplanet.discovered +
-                    "\rUpdated: " + exoplanet.updated +
-                    "\rOmega: " + exoplanet.omega + "(" + exoplanet.omegaErrorMin + " " + exoplanet.omegaErrorMax + ")" +
-                    "\rTperi: " + exoplanet.tperi + "(" + exoplanet.tperiErrorMin + " " + exoplanet.tperiErrorMax + ")" +
-                    "\rDetection Type: " + exoplanet.detectionType +
-                    "\rMolecules: " + exoplanet.molecules
-                );
 #else
-                displayAllDetails ( exoplanet );
+                displayAllDetails (exoplanet);
 #endif
+                }
+            }
+
+        private void ExoplanentListView_DoubleClick ( object sender, EventArgs e )
+            {
+            if (m_exoplanetListView.SelectedItems.Count == 1)
+                {
+                m_exoplanetListView.Sort ();
+                Refresh ();
+
+                CExoplanet previousExoplanet = null;
+                int multiPlanetStars = 0;
+
+                foreach ( CExoplanet exoplanet in m_exoplanets )
+                    {
+                    if (previousExoplanet != null)
+                        if (string.Equals (exoplanet.Star.Name, previousExoplanet.Star.Name))
+                            ++multiPlanetStars;
+
+                    previousExoplanet = exoplanet;
+                    }
+
+                    MessageBox.Show ("Number of Exoplanets " + m_exoplanets.Count +
+                                     "\rMulti-Planet Stars " + multiPlanetStars);
+
+                //CExoplanet exoplanet = ( CExoplanet )m_exoplanetListView.SelectedItems [0].Tag;
+                //MessageBox.Show ("Name: " + exoplanet.Name +
+                //    "\rMass: " + exoplanet.Mass + "(" + exoplanet.MassErrorMin + " " + exoplanet.MassErrorMax + ")" +
+                //    "\rRadius: " + exoplanet.Radius + "(" + exoplanet.RadiusErrorMin + " " + exoplanet.RadiusErrorMax + ")" +
+                //    "\rOrbital Period: " + exoplanet.OrbitalPeriod + "(" + exoplanet.OrbitalPeriodErrorMin + " " + exoplanet.OrbitalPeriodErrorMax + ")" +
+                //    "\rSemi Major Axis: " + exoplanet.SemiMajorAxis + "(" + exoplanet.SemiMajorAxisErrorMin + " " + exoplanet.SemiMajorAxisErrorMax + ")" +
+                //    "\rEccentricity: " + exoplanet.Eccentricity + "(" + exoplanet.EccentricityErrorMin + " " + exoplanet.EccentricityErrorMax + ")" +
+                //    "\rAngular Distance: " + exoplanet.OrbitalPeriod +
+                //    "\rInclination: " + exoplanet.Inclination + "(" + exoplanet.InclinationErrorMin + " " + exoplanet.InclinationErrorMax + ")" +
+                //    "\rTzero Tr: " + exoplanet.TzeroTr + "(" + exoplanet.TzeroTrErrorMin + " " + exoplanet.TzeroTrErrorMax + ")" +
+                //    "\rTzero Tr Sec: " + exoplanet.TzeroTrSec + "(" + exoplanet.TzeroTrSecErrorMin + " " + exoplanet.TzeroTrSecErrorMax + ")" +
+                //    "\rLambda Angle: " + exoplanet.LambdaAngle + "(" + exoplanet.LambdaAngleErrorMin + " " + exoplanet.LambdaAngleErrorMax + ")" +
+                //    "\rTzero Vr: " + exoplanet.TzeroVr + "(" + exoplanet.TzeroVrErrorMin + " " + exoplanet.TzeroVrErrorMax + ")" +
+                //    "\rTemp. Calc.: " + exoplanet.TemperatureCalculated +
+                //    "\rTemp. Meas.: " + exoplanet.TemperatureMeasured +
+                //    "\rTemp. HPL: " + exoplanet.TemperatureHotPointLo +
+                //    "\rLogG: " + exoplanet.LogG +
+                //    "\rPublication Status: " + exoplanet.Status +
+                //    "\rDiscovered: " + exoplanet.Discovered +
+                //    "\rUpdated: " + exoplanet.Updated +
+                //    "\rOmega: " + exoplanet.Omega + "(" + exoplanet.OmegaErrorMin + " " + exoplanet.OmegaErrorMax + ")" +
+                //    "\rTperi: " + exoplanet.Tperi + "(" + exoplanet.TperiErrorMin + " " + exoplanet.TperiErrorMax + ")" +
+                //    "\rDetection Type: " + exoplanet.DetectionType +
+                //    "\rMolecules: " + exoplanet.Molecules
+                //);
                 }
             }
 
@@ -318,7 +338,7 @@ namespace ExoplanetLibrary
             OpenFileDialog openFileDialog = new OpenFileDialog ( );
 
             openFileDialog.InitialDirectory = "c:\\ProgramData\\Exoplanet Library\\";
-            openFileDialog.Filter = "xml files (*.xml)|*.xml|csv files (*.csv)|*.csv|All files (*.*)|*.*";
+            openFileDialog.Filter = "xml files (*.xml)|*.xml|csv files (*.csv)|*.csv|vot files (*.vot)|*.vot|All files (*.*)|*.*";
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
 
@@ -339,6 +359,11 @@ namespace ExoplanetLibrary
                             {
                             ReadCSV.Read ( openFileDialog.FileName );
                             m_xmlFileName = openFileDialog.FileName.Replace ( ".txt", ".xml" );
+                            }
+                        else if ( fileName.EndsWith ( ".vot" ) )
+                            {
+                            ReadVOT.Read ( openFileDialog.FileName );
+                            m_xmlFileName = openFileDialog.FileName.Replace ( ".vot", ".xml" );
                             }
                         else if ( fileName.EndsWith ( ".xml" ) )
                             {

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VOTABLE version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.1" xmlns="http://www.ivoa.net/xml/VOTable/v1.1">
+    <RESOURCE name="EXOPLANET_EU_CAT" type="results">
+    <DESCRIPTION>The Extrasolar Planets Encyclopaedia Simple Cone Search Service</DESCRIPTION>
+    
+        
+    <INFO name="QUERY_STATUS" value="OK"/>
+    <INFO name="SERVICE_PROTOCOL" value="1.03">SCS</INFO>
+    <COOSYS ID="J2000" system="eq_FK5" equinox="J2000" />
+        <TABLE name="The Extrasolar Planet Encylopaedia catalog">
+            <DESCRIPTION>The Extrasolar Planets Encyclopaedia (http://exoplanet.eu)</DESCRIPTION>
+            
+            
+                <FIELD ID="col1" name="name" datatype="char" arraysize="*" unit="" ucd="ID_MAIN">
+                    <DESCRIPTION>Name of a planet</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col2" name="mass" datatype="double" unit="Mjup" ucd="phys.mass">
+                    <DESCRIPTION>Planetary Mass</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col3" name="mass_error_min" datatype="double" unit="Mjup" ucd="stat.error;phys.mass">
+                    <DESCRIPTION>Planetary Mass error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col4" name="mass_error_max" datatype="double" unit="Mjup" ucd="stat.error;phys.mass">
+                    <DESCRIPTION>Planetary Mass error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col5" name="radius" datatype="double" unit="Rjup" ucd="phys.size.radius">
+                    <DESCRIPTION>Planetary Radius</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col6" name="radius_error_min" datatype="double" unit="Rjup" ucd="stat.error;phys.size.radius">
+                    <DESCRIPTION>Planetary Radius error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col7" name="radius_error_max" datatype="double" unit="Rjup" ucd="stat.error;phys.size.radius">
+                    <DESCRIPTION>Planetary Radius error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col8" name="orbital_period" datatype="double" unit="d" ucd="src.orbital;time.period">
+                    <DESCRIPTION>Orbital Period</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col9" name="orbital_period_err_min" datatype="double" unit="d" ucd="stat.error;src.orbital;time.period">
+                    <DESCRIPTION>Orbital Period error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col10" name="orbital_period_err_max" datatype="double" unit="d" ucd="stat.error;src.orbital;time.period">
+                    <DESCRIPTION>Orbital Period error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col11" name="semi_major_axis" datatype="double" unit="AU" ucd="phys.size.smajAxis">
+                    <DESCRIPTION>Semi-Major Axis</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col12" name="semi_major_axis_error_min" datatype="double" unit="AU" ucd="stat.error;phys.size.smajAxis">
+                    <DESCRIPTION>Semi-Major Axis error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col13" name="semi_major_axis_error_max" datatype="double" unit="AU" ucd="stat.error;phys.size.smajAxis">
+                    <DESCRIPTION>Semi-Major Axis error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col14" name="eccentricity" datatype="double" unit="" ucd="src.orbital.eccentricity">
+                    <DESCRIPTION>Orbital Eccentricity</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col15" name="eccentricity_error_min" datatype="double" unit="" ucd="stat.error;src.orbital.eccentricity">
+                    <DESCRIPTION>Orbital Eccentricity error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col16" name="eccentricity_error_max" datatype="double" unit="" ucd="stat.error;src.orbital.eccentricity">
+                    <DESCRIPTION>Orbital Eccentricity error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col17" name="inclination" datatype="double" unit="deg" ucd="src.orbital.inclination">
+                    <DESCRIPTION>Orbital Inclination</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col18" name="inclination_error_min" datatype="double" unit="deg" ucd="stat.error;src.orbital.inclination">
+                    <DESCRIPTION>Orbital Inclination error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col19" name="inclination_error_max" datatype="double" unit="deg" ucd="stat.error;src.orbital.inclination">
+                    <DESCRIPTION>Orbital Inclination error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col20" name="angular_distance" datatype="double" unit="arcsec" ucd="pos.angDistance">
+                    <DESCRIPTION>Angular Distance</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col21" name="discovered" datatype="int" unit="yr" ucd="time.publiYear">
+                    <DESCRIPTION>Year of Discovery</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col22" name="updated" datatype="char" arraysize="*" unit="" ucd="time.epoch">
+                    <DESCRIPTION>Last Update</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col23" name="omega" datatype="double" unit="deg" ucd="src.orbital.periastron">
+                    <DESCRIPTION>Argument of Periastron</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col24" name="omega_error_min" datatype="double" unit="deg" ucd="stat.error;src.orbital.periastron">
+                    <DESCRIPTION>Argument of Periastron error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col25" name="omega_error_max" datatype="double" unit="deg" ucd="stat.error;src.orbital.periastron">
+                    <DESCRIPTION>Argument of Periastron error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col26" name="tperi" datatype="double" unit="d" ucd="time.epoch;src.orbital.periastron">
+                    <DESCRIPTION>Epoch of Periastron</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col27" name="tperi_error_min" datatype="double" unit="d" ucd="stat.error;time.epoch;src.orbital.periastron">
+                    <DESCRIPTION>Epoch of Periastron error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col28" name="tperi_error_max" datatype="double" unit="d" ucd="stat.error;time.epoch;src.orbital.periastron">
+                    <DESCRIPTION>Epoch of Periastron error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col29" name="tconj" datatype="double" unit="d" ucd="time.epoch">
+                    <DESCRIPTION>Conjonction Date</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col30" name="tconj_error_min" datatype="double" unit="d" ucd="stat.error;time.epoch">
+                    <DESCRIPTION>Conjonction Date error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col31" name="tconj_error_max" datatype="double" unit="d" ucd="stat.error;time.epoch">
+                    <DESCRIPTION>Conjonction Date error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col32" name="tzero_tr" datatype="double" unit="d" ucd="time.epoch">
+                    <DESCRIPTION>Primary Transit</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col33" name="tzero_tr_error_min" datatype="double" unit="d" ucd="stat.error;time.epoch">
+                    <DESCRIPTION>Primary Transit error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col34" name="tzero_tr_error_max" datatype="double" unit="d" ucd="stat.error;time.epoch">
+                    <DESCRIPTION>Primary Transit error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col35" name="tzero_tr_sec" datatype="double" unit="d" ucd="time.epoch">
+                    <DESCRIPTION>Secondary Transit</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col36" name="tzero_tr_sec_error_min" datatype="double" unit="d" ucd="stat.error;time.epoch">
+                    <DESCRIPTION>Secondary transit error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col37" name="tzero_tr_sec_error_max" datatype="double" unit="d" ucd="stat.error;time.epoch">
+                    <DESCRIPTION>Secondary transit error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col38" name="lambda_angle" datatype="double" unit="deg" ucd="pos.posAng">
+                    <DESCRIPTION>Sky-projected angle between the planetary orbital spin and the stellar rotational spin </DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col39" name="lambda_angle_error_min" datatype="double" unit="deg" ucd="stat.error;pos.posAng">
+                    <DESCRIPTION>Sky-projected angle between the planetary orbital spin and the stellar rotational spin error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col40" name="lambda_angle_error_max" datatype="double" unit="deg" ucd="stat.error;pos.posAng">
+                    <DESCRIPTION>Sky-projected angle between the planetary orbital spin and the stellar rotational spin error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col41" name="impact_parameter" datatype="double" unit="" ucd="src.impactParam">
+                    <DESCRIPTION>Impact Parameter b</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col42" name="impact_parameter_error_min" datatype="double" unit="" ucd="stat.error;src.impactParam">
+                    <DESCRIPTION>Impact Parameter b error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col43" name="impact_parameter_error_max" datatype="double" unit="" ucd="stat.error;src.impactParam">
+                    <DESCRIPTION>Impact Parameter b error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col44" name="tzero_vr" datatype="double" unit="d" ucd="time.epoch">
+                    <DESCRIPTION>Zero Radial Speed time</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col45" name="tzero_vr_error_min" datatype="double" unit="d" ucd="stat.error;time.epoch">
+                    <DESCRIPTION>Zero Radial Speed time error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col46" name="tzero_vr_error_max" datatype="double" unit="d" ucd="stat.error;time.epoch">
+                    <DESCRIPTION>Zero Radial Speed time error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col47" name="k" datatype="double" unit="m.s-1" ucd="spect.dopplerVeloc">
+                    <DESCRIPTION>Velocity Semiamplitude K</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col48" name="k_error_min" datatype="double" unit="m.s-1" ucd="stat.error;spect.dopplerVeloc">
+                    <DESCRIPTION>Velocity Semiamplitude K error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col49" name="k_error_max" datatype="double" unit="m.s-1" ucd="stat.error;spect.dopplerVeloc">
+                    <DESCRIPTION>Velocity Semiamplitude K error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col50" name="temp_calculated" datatype="double" unit="K" ucd="">
+                    <DESCRIPTION>Calculated temperature</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col51" name="temp_measured" datatype="double" unit="K" ucd="">
+                    <DESCRIPTION>Measured temperature</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col52" name="hot_point_lon" datatype="double" unit="deg" ucd="pos.posAng">
+                    <DESCRIPTION>Hottest point longitude</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col53" name="geometric_albedo" datatype="double" unit="" ucd="phys.albedo">
+                    <DESCRIPTION>Geometric albedo</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col54" name="geometric_albedo_error_min" datatype="double" unit="" ucd="stat.error;phys.albedo">
+                    <DESCRIPTION>Geometric albedo error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col55" name="geometric_albedo_error_max" datatype="double" unit="" ucd="stat.error;phys.albedo">
+                    <DESCRIPTION>Geometric albedo error</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col56" name="log_g" datatype="double" unit="" ucd="">
+                    <DESCRIPTION>log(g)</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col57" name="publication_status" datatype="char" arraysize="*" unit="" ucd="meta.code.status">
+                    <DESCRIPTION>Publication Status</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col58" name="detection_type" datatype="char" arraysize="*" unit="" ucd="meta.note">
+                    <DESCRIPTION>Detection type</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col59" name="mass_detection_type" datatype="char" arraysize="*" unit="" ucd="meta.note">
+                    <DESCRIPTION>Mass Measurement Method</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col60" name="radius_detection_type" datatype="char" arraysize="*" unit="" ucd="meta.note">
+                    <DESCRIPTION>Radius Measurement Method</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col61" name="alternate_names" datatype="char" arraysize="*" unit="" ucd="meta.note">
+                    <DESCRIPTION>List of planet alternative names</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col62" name="molecules" datatype="char" arraysize="*" unit="" ucd="meta.note">
+                    <DESCRIPTION>List of detected molecules</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col63" name="star_name" datatype="char" arraysize="*" unit="" ucd="meta.id">
+                    <DESCRIPTION>Name of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col64" name="ra" datatype="double" unit="deg" ucd="POS_EQ_RA_MAIN">
+                    <DESCRIPTION>RA (J2000) of a star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col65" name="dec" datatype="double" unit="deg" ucd="POS_EQ_DEC_MAIN">
+                    <DESCRIPTION>Dec (J2000) of a star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col66" name="mag_v" datatype="double" unit="mag" ucd="phot.mag;em.opt.V">
+                    <DESCRIPTION>V magnitude of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col67" name="mag_i" datatype="double" unit="mag" ucd="phot.mag;em.opt.I">
+                    <DESCRIPTION>I magnitude of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col68" name="mag_j" datatype="double" unit="mag" ucd="phot.mag;em.IR.J">
+                    <DESCRIPTION>J magnitude of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col69" name="mag_h" datatype="double" unit="mag" ucd="phot.mag;em.IR.H">
+                    <DESCRIPTION>H magnitude of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col70" name="mag_k" datatype="double" unit="mag" ucd="phot.mag;em.IR.K">
+                    <DESCRIPTION>K magnitude of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col71" name="star_distance" datatype="double" unit="pc" ucd="pos.distance">
+                    <DESCRIPTION>Distance to a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col72" name="star_metallicity" datatype="double" unit="" ucd="phys.abund.Z">
+                    <DESCRIPTION>Metallicity of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col73" name="star_mass" datatype="double" unit="solMass" ucd="phys.mass">
+                    <DESCRIPTION>Mass of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col74" name="star_radius" datatype="double" unit="solRad" ucd="phys.size.radius">
+                    <DESCRIPTION>Radius of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col75" name="star_sp_type" datatype="char" arraysize="*" unit="" ucd="src.spType">
+                    <DESCRIPTION>Spectral type of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col76" name="star_age" datatype="double" unit="Gyr" ucd="time.age">
+                    <DESCRIPTION>Age of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col77" name="star_teff" datatype="double" unit="K" ucd="phys.temperature.effective">
+                    <DESCRIPTION>Effective temperature of a host star</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col78" name="star_detected_disc" datatype="char" arraysize="*" unit="" ucd="meta.info">
+                    <DESCRIPTION>Star Detected Disc</DESCRIPTION>
+                </FIELD>
+            
+                <FIELD ID="col79" name="star_magnetic_field" datatype="boolean" unit="" ucd="phys.magField">
+                    <DESCRIPTION>Star magnetic field</DESCRIPTION>
+                </FIELD>
+                                            
+            <DATA>
+                <TABLEDATA>
+                    
+                    <TR>
+                        <TD>11 Com b</TD><TD>19.4</TD><TD>1.5</TD><TD>1.5</TD><TD></TD><TD></TD><TD></TD><TD>326.03</TD><TD>0.32</TD><TD>0.32</TD><TD>1.29</TD><TD>0.05</TD><TD>0.05</TD><TD>0.231</TD><TD>0.005</TD><TD>0.005</TD><TD></TD><TD></TD><TD></TD><TD>0.011664</TD><TD>2008</TD><TD>2015-08-21</TD><TD>94.8</TD><TD>1.5</TD><TD>1.5</TD><TD>2452899.6</TD><TD>1.6</TD><TD>1.6</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>296.7</TD><TD>5.6</TD><TD>5.6</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>11 Com</TD><TD>185.1791667</TD><TD>17.7927778</TD><TD>4.74</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>110.6</TD><TD>-0.35</TD><TD>2.7</TD><TD>19.0</TD><TD>G8 III</TD><TD></TD><TD>4742.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>11 UMi b</TD><TD>10.5</TD><TD>2.47</TD><TD>2.47</TD><TD></TD><TD></TD><TD></TD><TD>516.22</TD><TD>3.25</TD><TD>3.25</TD><TD>1.54</TD><TD>0.07</TD><TD>0.07</TD><TD>0.08</TD><TD>0.03</TD><TD>0.03</TD><TD></TD><TD></TD><TD></TD><TD>0.012887</TD><TD>2009</TD><TD>2009-08-13</TD><TD>117.63</TD><TD>21.06</TD><TD>21.06</TD><TD>2452861.05</TD><TD>2.06</TD><TD>2.06</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>11 UMi</TD><TD>229.275</TD><TD>71.8238889</TD><TD>5.02</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>119.5</TD><TD>0.04</TD><TD>1.8</TD><TD>24.08</TD><TD>K4III</TD><TD>1.56</TD><TD>4340.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>14 And b</TD><TD>5.33</TD><TD>0.57</TD><TD>0.57</TD><TD></TD><TD></TD><TD></TD><TD>185.84</TD><TD>0.23</TD><TD>0.23</TD><TD>0.83</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>0.010864</TD><TD>2008</TD><TD>2014-08-27</TD><TD></TD><TD></TD><TD></TD><TD>2452861.4</TD><TD>1.5</TD><TD>1.5</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>14 And</TD><TD>352.8208333</TD><TD>39.2361111</TD><TD>5.22</TD><TD>4.1</TD><TD>3.02</TD><TD>2.61</TD><TD>2.33</TD><TD>76.4</TD><TD>-0.24</TD><TD>2.2</TD><TD>11.0</TD><TD>K0III</TD><TD></TD><TD>4813.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>14 Her b</TD><TD>4.64</TD><TD>0.19</TD><TD>0.19</TD><TD></TD><TD></TD><TD></TD><TD>1773.4</TD><TD>2.5</TD><TD>2.5</TD><TD>2.77</TD><TD>0.05</TD><TD>0.05</TD><TD>0.369</TD><TD>0.005</TD><TD>0.005</TD><TD></TD><TD></TD><TD></TD><TD>0.153039</TD><TD>2002</TD><TD>2014-08-27</TD><TD>22.6</TD><TD>0.9</TD><TD>0.9</TD><TD>2451372.7</TD><TD>3.6</TD><TD>3.6</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>14 Her</TD><TD>242.5958333</TD><TD>43.8216667</TD><TD>6.67</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>18.1</TD><TD>0.43</TD><TD>0.9</TD><TD>0.708</TD><TD>K0 V</TD><TD>5.1</TD><TD>5311.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>16 Cyg B b</TD><TD>1.68</TD><TD>0.07</TD><TD>0.07</TD><TD></TD><TD></TD><TD></TD><TD>799.5</TD><TD>0.6</TD><TD>0.6</TD><TD>1.68</TD><TD>0.03</TD><TD>0.03</TD><TD>0.689</TD><TD>0.011</TD><TD>0.011</TD><TD></TD><TD></TD><TD></TD><TD>0.078468</TD><TD>1996</TD><TD>2014-08-27</TD><TD>83.4</TD><TD>2.1</TD><TD>2.1</TD><TD>2450539.3</TD><TD>1.6</TD><TD>1.6</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>16 Cyg B</TD><TD>295.4625</TD><TD>50.5175</TD><TD>6.2</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>21.41</TD><TD>0.08</TD><TD>1.01</TD><TD>0.98</TD><TD>G2.5 V</TD><TD>8.0</TD><TD>5766.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>18 Del b</TD><TD>10.3</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>993.3</TD><TD>3.2</TD><TD>3.2</TD><TD>2.6</TD><TD></TD><TD></TD><TD>0.08</TD><TD>0.01</TD><TD>0.01</TD><TD></TD><TD></TD><TD></TD><TD>0.035568</TD><TD>2008</TD><TD>2014-08-27</TD><TD>166.1</TD><TD>6.5</TD><TD>6.5</TD><TD>2451672.0</TD><TD>18.0</TD><TD>18.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>18 Del</TD><TD>314.6083333</TD><TD>10.8391667</TD><TD>5.52</TD><TD></TD><TD>4.03</TD><TD>3.44</TD><TD>3.67</TD><TD>73.1</TD><TD>-0.052</TD><TD>2.3</TD><TD>8.5</TD><TD>G6III</TD><TD></TD><TD>4979.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>1RXS 1609 b</TD><TD>14.0</TD><TD>3.0</TD><TD>2.0</TD><TD>1.7</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>330.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2.275862</TD><TD>2008</TD><TD>2015-03-05</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>1800.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>4.0</TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD></TD><TD></TD><TD>RXJ 1609, 1RXS J1609-2105b, 1RXS J1609b, 1RXS J160929.1-210524 b</TD><TD>H2O, CO, K</TD><TD>1RXS1609</TD><TD>242.375</TD><TD>-21.0827778</TD><TD></TD><TD>10.99</TD><TD>9.82</TD><TD>9.12</TD><TD>8.92</TD><TD>145.0</TD><TD></TD><TD>0.73</TD><TD>1.35</TD><TD>K7V</TD><TD>0.011</TD><TD>4060.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>1SWASP J1407 b</TD><TD>20.0</TD><TD>6.0</TD><TD>6.0</TD><TD></TD><TD></TD><TD></TD><TD>3725.0</TD><TD>900.0</TD><TD>900.0</TD><TD>3.9</TD><TD>1.7</TD><TD>1.7</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2012</TD><TD>2014-10-29</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Primary Transit</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD>1SWASP J1407</TD><TD>211.950000016</TD><TD>-39.761944469</TD><TD>12.4</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>133.0</TD><TD></TD><TD>0.9</TD><TD>0.99</TD><TD></TD><TD>0.016</TD><TD>4400.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>24 Sex b</TD><TD>1.99</TD><TD>0.38</TD><TD>0.26</TD><TD></TD><TD></TD><TD></TD><TD>452.8</TD><TD>4.5</TD><TD>2.1</TD><TD>1.333</TD><TD>0.009</TD><TD>0.004</TD><TD>0.09</TD><TD>0.06</TD><TD>0.14</TD><TD></TD><TD></TD><TD></TD><TD>0.017821</TD><TD>2010</TD><TD>2014-05-23</TD><TD>9.2</TD><TD>165.4</TD><TD>277.9</TD><TD>2454762.0</TD><TD>172.3</TD><TD>172.3</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>24 Sex</TD><TD>155.8666667</TD><TD>0.9022222</TD><TD>7.38</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>74.8</TD><TD>-0.03</TD><TD>1.54</TD><TD>4.9</TD><TD>G5</TD><TD>2.7</TD><TD>5098.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>24 Sex c</TD><TD>0.86</TD><TD>0.22</TD><TD>0.35</TD><TD></TD><TD></TD><TD></TD><TD>883.0</TD><TD>14.0</TD><TD>32.0</TD><TD>2.08</TD><TD>0.02</TD><TD>0.05</TD><TD>0.29</TD><TD>0.09</TD><TD>0.16</TD><TD></TD><TD></TD><TD></TD><TD>0.027807</TD><TD>2010</TD><TD>2014-05-23</TD><TD>220.5</TD><TD>320.9</TD><TD>182.2</TD><TD>2454930.0</TD><TD>96.5</TD><TD>96.5</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Radial Velocity</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>24 Sex</TD><TD>155.8666667</TD><TD>0.9022222</TD><TD>7.38</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>74.8</TD><TD>-0.03</TD><TD>1.54</TD><TD>4.9</TD><TD>G5</TD><TD>2.7</TD><TD>5098.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M 0103(AB) b</TD><TD>13.0</TD><TD>1.0</TD><TD>1.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>84.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2013</TD><TD>2013-07-22</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2M 0103(AB)</TD><TD>15.9</TD><TD>-55.2656</TD><TD></TD><TD></TD><TD>7.5</TD><TD></TD><TD></TD><TD>47.2</TD><TD></TD><TD>0.4</TD><TD></TD><TD>M</TD><TD>0.03</TD><TD></TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M 0122-2439 b</TD><TD>20.0</TD><TD>7.0</TD><TD>7.0</TD><TD>1.0</TD><TD>0.2</TD><TD>0.2</TD><TD></TD><TD></TD><TD></TD><TD>52.0</TD><TD>6.0</TD><TD>6.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2013</TD><TD>2015-04-29</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>1380.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2M 0122-2439</TD><TD>20.7125</TD><TD>-24.6142</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>36.0</TD><TD></TD><TD>0.4</TD><TD></TD><TD>M3.5</TD><TD>0.12</TD><TD></TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M 0219-3925 b</TD><TD>13.9</TD><TD>1.1</TD><TD>1.1</TD><TD>1.44</TD><TD>0.03</TD><TD>0.03</TD><TD></TD><TD></TD><TD></TD><TD>156.0</TD><TD>10.0</TD><TD>10.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2015</TD><TD>2015-06-14</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>1683.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD>Spectrum</TD><TD>Theoretical</TD><TD></TD><TD></TD><TD>2M 0219-3925</TD><TD>34.841666674</TD><TD>-39.423055569</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>39.4</TD><TD></TD><TD>0.11</TD><TD>0.27</TD><TD>M6</TD><TD></TD><TD>3064.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M 044144 b</TD><TD>7.5</TD><TD>2.5</TD><TD>2.5</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>15.0</TD><TD>0.6</TD><TD>0.6</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>0.107143</TD><TD>2010</TD><TD>2010-04-06</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2M 044144</TD><TD>70.4375</TD><TD>23.0308333</TD><TD></TD><TD></TD><TD>14.2</TD><TD>13.72</TD><TD>13.16</TD><TD>140.0</TD><TD></TD><TD>0.02</TD><TD></TD><TD>M8.5</TD><TD>0.001</TD><TD></TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M 0746+20 b</TD><TD>30.0</TD><TD>25.0</TD><TD>25.0</TD><TD>0.97</TD><TD>0.06</TD><TD>0.06</TD><TD>4640.0</TD><TD>25.0</TD><TD>25.0</TD><TD>2.897</TD><TD>0.005</TD><TD>0.005</TD><TD>0.487</TD><TD>0.003</TD><TD>0.003</TD><TD>138.2</TD><TD>0.5</TD><TD>0.5</TD><TD>0.237265</TD><TD>2010</TD><TD>2012-01-20</TD><TD>354.4</TD><TD>0.9</TD><TD>0.9</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2M 0746+20</TD><TD>116.6791667</TD><TD>20.0088889</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>12.21</TD><TD></TD><TD>0.12</TD><TD>0.089</TD><TD></TD><TD></TD><TD>2205.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M 1936+4603 b</TD><TD>1.9</TD><TD>0.1</TD><TD>0.1</TD><TD></TD><TD></TD><TD></TD><TD>416.0</TD><TD>2.0</TD><TD>2.0</TD><TD>0.92</TD><TD>0.02</TD><TD>0.02</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2015</TD><TD>2015-04-21</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Pulsar</TD><TD>TTV</TD><TD></TD><TD></TD><TD></TD><TD>2M  1938+4603</TD><TD>294.637500011</TD><TD>46.066388903</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>0.6</TD><TD></TD><TD>sdB+M</TD><TD></TD><TD></TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M 2140+16 b</TD><TD>20.0</TD><TD>20.0</TD><TD>80.0</TD><TD>0.92</TD><TD>0.39</TD><TD>0.39</TD><TD>7340.0</TD><TD>584.0</TD><TD>584.0</TD><TD>3.53</TD><TD>0.15</TD><TD>0.15</TD><TD>0.26</TD><TD>0.06</TD><TD>0.06</TD><TD>46.2</TD><TD>8.7</TD><TD>8.7</TD><TD>0.1412</TD><TD>2010</TD><TD>2012-01-20</TD><TD>223.0</TD><TD>47.0</TD><TD>47.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2M 2140+16</TD><TD>325.1208333</TD><TD>16.4216667</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>25.0</TD><TD></TD><TD>0.08</TD><TD>0.1</TD><TD></TD><TD></TD><TD>2300.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M 2206-20 b</TD><TD>30.0</TD><TD>20.0</TD><TD>70.0</TD><TD>1.3</TD><TD>0.18</TD><TD>0.18</TD><TD>8686.0</TD><TD>69.4</TD><TD>69.4</TD><TD>4.48</TD><TD>0.4</TD><TD>0.4</TD><TD></TD><TD></TD><TD></TD><TD>44.3</TD><TD>0.7</TD><TD>0.7</TD><TD>0.167979</TD><TD>2010</TD><TD>2012-01-20</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2M 2206-20</TD><TD>331.5958333</TD><TD>-20.785</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>26.67</TD><TD></TD><TD>0.13</TD><TD>0.11</TD><TD></TD><TD></TD><TD>2350.0</TD><TD></TD><TD></TD>
+                    </TR>
+                    
+                    <TR>
+                        <TD>2M1207 b</TD><TD>4.0</TD><TD>1.0</TD><TD>1.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>46.0</TD><TD>5.0</TD><TD>5.0</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>0.877863</TD><TD>2004</TD><TD>2014-05-25</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Published in a refereed paper</TD><TD>Imaging</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>2M1207</TD><TD>181.8875</TD><TD>-39.5483333</TD><TD>20.15</TD><TD>15.95</TD><TD>13.0</TD><TD></TD><TD></TD><TD>52.4</TD><TD></TD><TD>0.025</TD><TD></TD><TD>M8</TD><TD>0.008</TD><TD></TD><TD></TD><TD></TD>
+
+</TR>
+                    
+                </TABLEDATA>
+            </DATA>
+            
+        </TABLE>
+    </RESOURCE>
+    
+</VOTABLE>
+

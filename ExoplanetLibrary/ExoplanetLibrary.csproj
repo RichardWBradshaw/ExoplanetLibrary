@@ -74,6 +74,7 @@
       <DependentUpon>ExoplanetDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="ReadCSV.cs" />
+    <Compile Include="ReadVOT.cs" />
     <Compile Include="WriteCSV.cs" />
     <Compile Include="WriteXML.cs" />
     <Compile Include="LibraryDialog.cs">
