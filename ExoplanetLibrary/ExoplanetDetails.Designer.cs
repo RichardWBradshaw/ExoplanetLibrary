@@ -17,21 +17,21 @@
 
         private void InitializeComponent ( )
             {
-            SuspendLayout();
+            this.SuspendLayout();
             // 
             // ExoplanetDetails
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            ClientSize = new System.Drawing.Size(434, 623);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "ExoplanetDetails";
-            Text = "Planet & Star Details";
-            TopMost = true;
-            FormClosing += new System.Windows.Forms.FormClosingEventHandler(PlanetNStarDetails_FormClosing);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(434, 661);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "ExoplanetDetails";
+            this.Text = "Planet & Star Details";
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlanetNStarDetails_FormClosing);
+            this.ResumeLayout(false);
 
             }
 

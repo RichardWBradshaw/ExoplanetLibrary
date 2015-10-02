@@ -18,14 +18,14 @@ namespace ExoplanetLibrary
         private SortOrder OrderOfSort;
         private CaseInsensitiveComparer ObjectCompare;
 
-        public ListViewColumnSorter ( )
+        public ListViewColumnSorter()
             {
             ColumnToSort = 0;
             OrderOfSort = SortOrder.None;
-            ObjectCompare = new CaseInsensitiveComparer ( );
+            ObjectCompare = new CaseInsensitiveComparer ();
             }
 
-        public int Compare ( object x, object y )
+        public int Compare(object x, object y)
             {
             int compareResult;
             double dx, dy;
@@ -34,16 +34,16 @@ namespace ExoplanetLibrary
             listviewX = ( ListViewItem )x;
             listviewY = ( ListViewItem )y;
 
-            if ( double.TryParse ( listviewX.SubItems[ColumnToSort].Text, out dx ) && double.TryParse ( listviewY.SubItems[ColumnToSort].Text, out dy ) )
-                compareResult = ObjectCompare.Compare ( dx, dy );
-            else if ( Helper.ParseHMS ( listviewX.SubItems[ColumnToSort].Text, out dx ) && Helper.ParseHMS ( listviewY.SubItems[ColumnToSort].Text, out dy ) )
-                compareResult = ObjectCompare.Compare ( dx, dy );
+            if (double.TryParse (listviewX.SubItems [ColumnToSort].Text, out dx) && double.TryParse (listviewY.SubItems [ColumnToSort].Text, out dy))
+                compareResult = ObjectCompare.Compare (dx, dy);
+            else if (Helper.ParseHMS (listviewX.SubItems [ColumnToSort].Text, out dx) && Helper.ParseHMS (listviewY.SubItems [ColumnToSort].Text, out dy))
+                compareResult = ObjectCompare.Compare (dx, dy);
             else
-                compareResult = ObjectCompare.Compare ( listviewX.SubItems[ColumnToSort].Text, listviewY.SubItems[ColumnToSort].Text );
+                compareResult = ObjectCompare.Compare (listviewX.SubItems [ColumnToSort].Text, listviewY.SubItems [ColumnToSort].Text);
 
-            if ( OrderOfSort == SortOrder.Ascending )
+            if (OrderOfSort == SortOrder.Ascending)
                 return compareResult;
-            else if ( OrderOfSort == SortOrder.Descending )
+            else if (OrderOfSort == SortOrder.Descending)
                 return ( -compareResult );
             else
                 return 0;

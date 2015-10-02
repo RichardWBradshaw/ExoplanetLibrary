@@ -207,10 +207,10 @@ namespace ExoplanetLibrary
                 }
             }
 
-        public CStar ( )
+        public CStar()
             {
-            Magnitudes = new CMagnitudes ( );
-            Properties = new CProperties ( );
+            Magnitudes = new CMagnitudes ();
+            Properties = new CProperties ();
             }
         };
 
@@ -1110,9 +1110,9 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        public CExoplanet ( )
+        public CExoplanet()
             {
-            Star_ = new CStar ( );
+            Star_ = new CStar ();
             }
         };
 
@@ -1184,28 +1184,28 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
             }
 
 
-        static private void SetVersion ( string xmlFileName )
+        static private void SetVersion(string xmlFileName)
             {
-            if ( System.IO.File.Exists ( xmlFileName ) )
+            if (System.IO.File.Exists (xmlFileName))
                 {
-                Reader = XmlReader.Create ( xmlFileName );
-                Reader.ReadToFollowing ( "Exoplanets" );
-                Reader.MoveToFirstAttribute ( );
+                Reader = XmlReader.Create (xmlFileName);
+                Reader.ReadToFollowing ("Exoplanets");
+                Reader.MoveToFirstAttribute ();
                 Version = Reader.Value;
-                Reader.Close ( );
+                Reader.Close ();
                 }
             }
 
-        static private void SetValidation ( FileStream fileStream, XmlReaderSettings settings )
+        static private void SetValidation(FileStream fileStream, XmlReaderSettings settings)
             {
-            ValidationEventHandler validationEventHandler = new ValidationEventHandler ( exoplanetSettingsValidationEventHandler );
+            ValidationEventHandler validationEventHandler = new ValidationEventHandler (exoplanetSettingsValidationEventHandler);
             XmlSchema xmlSchema = null;
 
-            if ( System.IO.File.Exists ( @XsdVersion2FileName ) || System.IO.File.Exists ( @XsdVersion1FileName ) )
-                if ( string.Equals ( Version, "2.0" ) )
-                    xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @XsdVersion2FileName, FileMode.Open ) ), validationEventHandler );
-                else if ( string.Equals ( Version, "1.0" ) )
-                    xmlSchema = XmlSchema.Read ( ( fileStream = File.Open ( @XsdVersion1FileName, FileMode.Open ) ), validationEventHandler );
+            if (System.IO.File.Exists (@XsdVersion2FileName) || System.IO.File.Exists (@XsdVersion1FileName))
+                if (string.Equals (Version, "2.0"))
+                    xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion2FileName, FileMode.Open) ), validationEventHandler);
+                else if (string.Equals (Version, "1.0"))
+                    xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion1FileName, FileMode.Open) ), validationEventHandler);
 
             settings.ConformanceLevel = ConformanceLevel.Document;
             settings.CheckCharacters = true;
@@ -1213,106 +1213,106 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
             settings.IgnoreWhitespace = true;
             settings.DtdProcessing = DtdProcessing.Ignore;
 
-            if ( xmlSchema != null )
+            if (xmlSchema != null)
                 {
                 settings.ValidationType = ValidationType.Schema;
                 settings.ValidationFlags = XmlSchemaValidationFlags.ProcessInlineSchema;
                 settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
-                settings.Schemas.Add ( xmlSchema );
-                settings.ValidationEventHandler += new ValidationEventHandler ( exoplanetSettingsValidationEventHandler );
+                settings.Schemas.Add (xmlSchema);
+                settings.ValidationEventHandler += new ValidationEventHandler (exoplanetSettingsValidationEventHandler);
                 }
             else
                 settings.ValidationType = ValidationType.None;
             }
 
-        static public int Read ( string xmlFileName, ref ArrayList exoplanets )
+        static public int Read(string xmlFileName, ref ArrayList exoplanets)
             {
             ValidationErrors = "";
 
-            exoplanets = new ArrayList ( );
+            exoplanets = new ArrayList ();
 
-            if ( System.IO.File.Exists ( xmlFileName ) )
+            if (System.IO.File.Exists (xmlFileName))
                 {
                 FileStream fileStream = null;
-                XmlReaderSettings settings = new XmlReaderSettings ( );
+                XmlReaderSettings settings = new XmlReaderSettings ();
 
-                SetVersion ( xmlFileName );
-                SetValidation ( fileStream, settings );
+                SetVersion (xmlFileName);
+                SetValidation (fileStream, settings);
 
-                Reader = XmlReader.Create ( xmlFileName, settings );
+                Reader = XmlReader.Create (xmlFileName, settings);
 
-                while ( Reader.Read ( ) )
+                while (Reader.Read ())
                     {
-                    CExoplanet exoplanet = new CExoplanet ( );
+                    CExoplanet exoplanet = new CExoplanet ();
 
-                    ReadExoplanet ( exoplanet );
-                    ReadMass ( exoplanet );
-                    ReadRadius ( exoplanet );
-                    ReadOrbitalPeriod ( exoplanet );
-                    ReadSemiMajorAxis ( exoplanet );
-                    ReadEccentricity ( exoplanet );
-                    ReadAngularDistance ( exoplanet );
-                    ReadInclination ( exoplanet );
-                    ReadTzeroTr ( exoplanet );
-                    ReadTzeroTrSec ( exoplanet );
-                    ReadLambdaAngle ( exoplanet );
-                    ReadTzeroVr ( exoplanet );
-                    ReadTemperature ( exoplanet );
-                    ReadLogG ( exoplanet );
-                    ReadPublicationStatus ( exoplanet );
-                    ReadDiscovered ( exoplanet );
-                    ReadUpdated ( exoplanet );
-                    ReadOmega ( exoplanet );
-                    ReadTperi ( exoplanet );
-                    ReadDetectionType ( exoplanet );
-                    ReadMolecules ( exoplanet );
+                    ReadExoplanet (exoplanet);
+                    ReadMass (exoplanet);
+                    ReadRadius (exoplanet);
+                    ReadOrbitalPeriod (exoplanet);
+                    ReadSemiMajorAxis (exoplanet);
+                    ReadEccentricity (exoplanet);
+                    ReadAngularDistance (exoplanet);
+                    ReadInclination (exoplanet);
+                    ReadTzeroTr (exoplanet);
+                    ReadTzeroTrSec (exoplanet);
+                    ReadLambdaAngle (exoplanet);
+                    ReadTzeroVr (exoplanet);
+                    ReadTemperature (exoplanet);
+                    ReadLogG (exoplanet);
+                    ReadPublicationStatus (exoplanet);
+                    ReadDiscovered (exoplanet);
+                    ReadUpdated (exoplanet);
+                    ReadOmega (exoplanet);
+                    ReadTperi (exoplanet);
+                    ReadDetectionType (exoplanet);
+                    ReadMolecules (exoplanet);
 
-                    if ( string.Equals ( Version, "2.0" ) )
+                    if (string.Equals (Version, "2.0"))
                         {
-                        ReadImpactParameter ( exoplanet );
-                        ReadK ( exoplanet );
-                        ReadGeometricAlbedo ( exoplanet );
-                        ReadTconj ( exoplanet );
-                        ReadMassDetectionType ( exoplanet );
-                        ReadRadiusDetectionType ( exoplanet );
-                        ReadAlternateNames ( exoplanet );
+                        ReadImpactParameter (exoplanet);
+                        ReadK (exoplanet);
+                        ReadGeometricAlbedo (exoplanet);
+                        ReadTconj (exoplanet);
+                        ReadMassDetectionType (exoplanet);
+                        ReadRadiusDetectionType (exoplanet);
+                        ReadAlternateNames (exoplanet);
                         }
 
-                    ReadStar ( exoplanet );
-                    ReadMagnitudes ( exoplanet );
-                    ReadProperties ( exoplanet );
+                    ReadStar (exoplanet);
+                    ReadMagnitudes (exoplanet);
+                    ReadProperties (exoplanet);
 
-                    if ( !string.IsNullOrEmpty ( exoplanet.Name ) )
-                        exoplanets.Add ( ( object )exoplanet );
+                    if (!string.IsNullOrEmpty (exoplanet.Name))
+                        exoplanets.Add (( object )exoplanet);
                     }
 
-                if ( fileStream != null )
-                    fileStream.Close ( );
+                if (fileStream != null)
+                    fileStream.Close ();
 
-                Reader.Close ( );
+                Reader.Close ();
                 }
 
-            if ( ValidationErrors.Length > 0 )
-                MessageBox.Show ( ValidationErrors );
+            if (ValidationErrors.Length > 0)
+                MessageBox.Show (ValidationErrors);
 
             return 0;
             }
 
-        static void ReadExoplanet ( CExoplanet exoplanet )
+        static void ReadExoplanet(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Exoplanet" );
+            Reader.ReadToFollowing ("Exoplanet");
 
-            Reader.MoveToFirstAttribute ( );
+            Reader.MoveToFirstAttribute ();
             exoplanet.Name = Reader.Value;
             }
 
-        static void ReadMass ( CExoplanet exoplanet )
+        static void ReadMass(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Mass" );
+            Reader.ReadToFollowing ("Mass");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "mass":
                         exoplanet.Mass = Reader.Value;
@@ -1327,13 +1327,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadRadius ( CExoplanet exoplanet )
+        static void ReadRadius(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Radius" );
+            Reader.ReadToFollowing ("Radius");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "radius":
                         exoplanet.Radius = Reader.Value;
@@ -1348,13 +1348,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadOrbitalPeriod ( CExoplanet exoplanet )
+        static void ReadOrbitalPeriod(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "OrbitalPeriod" );
+            Reader.ReadToFollowing ("OrbitalPeriod");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "orbitalPeriod":
                         exoplanet.OrbitalPeriod = Reader.Value;
@@ -1369,13 +1369,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadSemiMajorAxis ( CExoplanet exoplanet )
+        static void ReadSemiMajorAxis(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "SemiMajorAxis" );
+            Reader.ReadToFollowing ("SemiMajorAxis");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "semiMajorAxis":
                         exoplanet.SemiMajorAxis = Reader.Value;
@@ -1390,13 +1390,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadEccentricity ( CExoplanet exoplanet )
+        static void ReadEccentricity(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Eccentricity" );
+            Reader.ReadToFollowing ("Eccentricity");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "eccentricity":
                         exoplanet.Eccentricity = Reader.Value;
@@ -1411,20 +1411,20 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadAngularDistance ( CExoplanet exoplanet )
+        static void ReadAngularDistance(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "AngularDistance" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("AngularDistance");
+            Reader.MoveToFirstAttribute ();
             exoplanet.AngularDistance = Reader.Value;
             }
 
-        static void ReadInclination ( CExoplanet exoplanet )
+        static void ReadInclination(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Inclination" );
+            Reader.ReadToFollowing ("Inclination");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "inclination":
                         exoplanet.Inclination = Reader.Value;
@@ -1439,13 +1439,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadTzeroTr ( CExoplanet exoplanet )
+        static void ReadTzeroTr(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "TzeroTr" );
+            Reader.ReadToFollowing ("TzeroTr");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "tzero_tr":
                         exoplanet.TzeroTr = Reader.Value;
@@ -1460,13 +1460,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadTzeroTrSec ( CExoplanet exoplanet )
+        static void ReadTzeroTrSec(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "TzeroTrSec" );
+            Reader.ReadToFollowing ("TzeroTrSec");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "tzero_trSec":
                         exoplanet.TzeroTrSec = Reader.Value;
@@ -1481,13 +1481,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadLambdaAngle ( CExoplanet exoplanet )
+        static void ReadLambdaAngle(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "LambdaAngle" );
+            Reader.ReadToFollowing ("LambdaAngle");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "lambdaAngle":
                         exoplanet.LambdaAngle = Reader.Value;
@@ -1502,13 +1502,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadTzeroVr ( CExoplanet exoplanet )
+        static void ReadTzeroVr(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "TzeroVr" );
+            Reader.ReadToFollowing ("TzeroVr");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "tzero_vr":
                         exoplanet.TzeroVr = Reader.Value;
@@ -1523,13 +1523,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadTemperature ( CExoplanet exoplanet )
+        static void ReadTemperature(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Temperature" );
+            Reader.ReadToFollowing ("Temperature");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "Calculated":
                         exoplanet.TemperatureCalculated = Reader.Value;
@@ -1544,41 +1544,41 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadLogG ( CExoplanet exoplanet )
+        static void ReadLogG(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "LogG" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("LogG");
+            Reader.MoveToFirstAttribute ();
             exoplanet.LogG = Reader.Value;
             }
 
-        static void ReadPublicationStatus ( CExoplanet exoplanet )
+        static void ReadPublicationStatus(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "PublicationStatus" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("PublicationStatus");
+            Reader.MoveToFirstAttribute ();
             exoplanet.Status = Reader.Value;
             }
 
-        static void ReadDiscovered ( CExoplanet exoplanet )
+        static void ReadDiscovered(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Discovered" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("Discovered");
+            Reader.MoveToFirstAttribute ();
             exoplanet.Discovered = Reader.Value;
             }
 
-        static void ReadUpdated ( CExoplanet exoplanet )
+        static void ReadUpdated(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Updated" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("Updated");
+            Reader.MoveToFirstAttribute ();
             exoplanet.Updated = Reader.Value;
             }
 
-        static void ReadOmega ( CExoplanet exoplanet )
+        static void ReadOmega(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Omega" );
+            Reader.ReadToFollowing ("Omega");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "Omega":
                         exoplanet.Omega = Reader.Value;
@@ -1593,13 +1593,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadTperi ( CExoplanet exoplanet )
+        static void ReadTperi(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Tperi" );
+            Reader.ReadToFollowing ("Tperi");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "tperi":
                         exoplanet.Tperi = Reader.Value;
@@ -1614,27 +1614,27 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadDetectionType ( CExoplanet exoplanet )
+        static void ReadDetectionType(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "DetectionType" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("DetectionType");
+            Reader.MoveToFirstAttribute ();
             exoplanet.DetectionType = Reader.Value;
             }
 
-        static void ReadMolecules ( CExoplanet exoplanet )
+        static void ReadMolecules(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Molecules" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("Molecules");
+            Reader.MoveToFirstAttribute ();
             exoplanet.Molecules = Reader.Value;
             }
 
-        static void ReadImpactParameter ( CExoplanet exoplanet )
+        static void ReadImpactParameter(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "ImpactParameter" );
+            Reader.ReadToFollowing ("ImpactParameter");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "impactParameter":
                         exoplanet.ImpactParameter = Reader.Value;
@@ -1649,13 +1649,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadK ( CExoplanet exoplanet )
+        static void ReadK(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "K" );
+            Reader.ReadToFollowing ("K");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "k":
                         exoplanet.K = Reader.Value;
@@ -1670,13 +1670,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadGeometricAlbedo ( CExoplanet exoplanet )
+        static void ReadGeometricAlbedo(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "GeometricAlbedo" );
+            Reader.ReadToFollowing ("GeometricAlbedo");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "geometricAlbedo":
                         exoplanet.GeometricAlbedo = Reader.Value;
@@ -1691,13 +1691,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadTconj ( CExoplanet exoplanet )
+        static void ReadTconj(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Tconj" );
+            Reader.ReadToFollowing ("Tconj");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "tconj":
                         exoplanet.Tconj = Reader.Value;
@@ -1712,34 +1712,34 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadMassDetectionType ( CExoplanet exoplanet )
+        static void ReadMassDetectionType(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "MassDetectionType" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("MassDetectionType");
+            Reader.MoveToFirstAttribute ();
             exoplanet.MassDetectionType = Reader.Value;
             }
 
-        static void ReadRadiusDetectionType ( CExoplanet exoplanet )
+        static void ReadRadiusDetectionType(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "RadiusDetectionType" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("RadiusDetectionType");
+            Reader.MoveToFirstAttribute ();
             exoplanet.RadiusDetectionType = Reader.Value;
             }
 
-        static void ReadAlternateNames ( CExoplanet exoplanet )
+        static void ReadAlternateNames(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "AlternateNames" );
-            Reader.MoveToFirstAttribute ( );
+            Reader.ReadToFollowing ("AlternateNames");
+            Reader.MoveToFirstAttribute ();
             exoplanet.AlternateNames = Reader.Value;
             }
 
-        static void ReadStar ( CExoplanet exoplanet )
+        static void ReadStar(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Star" );
+            Reader.ReadToFollowing ("Star");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "Name":
                         exoplanet.Star.Name = Reader.Value;
@@ -1754,13 +1754,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadMagnitudes ( CExoplanet exoplanet )
+        static void ReadMagnitudes(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Magnitudes" );
+            Reader.ReadToFollowing ("Magnitudes");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "V":
                         exoplanet.Star.Magnitudes.V = Reader.Value;
@@ -1781,13 +1781,13 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void ReadProperties ( CExoplanet exoplanet )
+        static void ReadProperties(CExoplanet exoplanet)
             {
-            Reader.ReadToFollowing ( "Properties" );
+            Reader.ReadToFollowing ("Properties");
 
-            while ( Reader.MoveToNextAttribute ( ) )
+            while (Reader.MoveToNextAttribute ())
                 {
-                switch ( Reader.Name )
+                switch (Reader.Name)
                     {
                     case "Distance":
                         exoplanet.Star.Properties.Distance = Reader.Value;
@@ -1820,14 +1820,14 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
                 }
             }
 
-        static void exoplanetSettingsValidationEventHandler ( object sender, ValidationEventArgs e )
+        static void exoplanetSettingsValidationEventHandler(object sender, ValidationEventArgs e)
             {
-            if ( e.Severity == XmlSeverityType.Warning )
+            if (e.Severity == XmlSeverityType.Warning)
                 {
                 ValidationErrors_ += "WARNING: " + "\r";
                 ValidationErrors_ += e.Message + "\r";
                 }
-            else if ( e.Severity == XmlSeverityType.Error )
+            else if (e.Severity == XmlSeverityType.Error)
                 {
                 ValidationErrors += "ERROR: " + "\r";
                 ValidationErrors += e.Message + "\r";
