@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
 using System.Collections;
 
 namespace ExoplanetLibrary
     {
     class Helper
         {
-        static public string FormatHMS(string text)
+        static public string FormatHMS (string text)
             {
             if (!string.IsNullOrEmpty (text))
                 {
@@ -30,7 +27,7 @@ namespace ExoplanetLibrary
             return text;
             }
 
-        static public bool ParseHMS(string text, out double hms)
+        static public bool ParseHMS (string text, out double hms)
             {
             hms = 0.0;
 
@@ -49,8 +46,10 @@ namespace ExoplanetLibrary
             return false;
             }
 
-        static public int NumberOfMultiPlanetStars(ArrayList exoplanets)
+        static public int NumberOfMultiPlanetStars (ArrayList exoplanets)
             {
+            exoplanets.Sort (new SortByStarName ());
+
             CExoplanet previousExoplanet = null;
             int multiPlanetStars = 0;
 
@@ -66,42 +65,42 @@ namespace ExoplanetLibrary
             return multiPlanetStars;
             }
 
-        static public int NumberOfTypeOStars(ArrayList exoplanets)
+        static public int NumberOfTypeOStars (ArrayList exoplanets)
             {
             return NumberOfStars (exoplanets, 'O');
             }
 
-        static public int NumberOfTypeBStars(ArrayList exoplanets)
+        static public int NumberOfTypeBStars (ArrayList exoplanets)
             {
             return NumberOfStars (exoplanets, 'B');
             }
 
-        static public int NumberOfTypeAStars(ArrayList exoplanets)
+        static public int NumberOfTypeAStars (ArrayList exoplanets)
             {
             return NumberOfStars (exoplanets, 'A');
             }
 
-        static public int NumberOfTypeFStars(ArrayList exoplanets)
+        static public int NumberOfTypeFStars (ArrayList exoplanets)
             {
             return NumberOfStars (exoplanets, 'F');
             }
 
-        static public int NumberOfTypeGStars(ArrayList exoplanets)
+        static public int NumberOfTypeGStars (ArrayList exoplanets)
             {
             return NumberOfStars (exoplanets, 'G');
             }
 
-        static public int NumberOfTypeKStars(ArrayList exoplanets)
+        static public int NumberOfTypeKStars (ArrayList exoplanets)
             {
             return NumberOfStars (exoplanets, 'K');
             }
 
-        static public int NumberOfTypeMStars(ArrayList exoplanets)
+        static public int NumberOfTypeMStars (ArrayList exoplanets)
             {
             return NumberOfStars (exoplanets, 'M');
             }
 
-        static private int NumberOfStars(ArrayList exoplanets, char type)
+        static private int NumberOfStars (ArrayList exoplanets, char type)
             {
             int matches = 0;
 

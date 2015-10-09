@@ -11,7 +11,7 @@ namespace ExoplanetLibrary
     {
     public partial class AboutBox : Form
         {
-        public AboutBox()
+        public AboutBox ()
             {
             InitializeComponent ();
             Text = String.Format ("About {0}", AssemblyTitle);

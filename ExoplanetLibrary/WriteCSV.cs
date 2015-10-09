@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Xml;
+﻿using System.IO;
 using System.Collections;
 
 namespace ExoplanetLibrary
     {
     class WriteCSV
         {
-        static public int Write(string csvFileName, ArrayList exoplanets)
+        static public int Write (string csvFileName, ArrayList exoplanets)
             {
             TextWriter writer = null;
 
@@ -27,7 +21,7 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        static private int WriteFirstLine(TextWriter textWriter)
+        static private int WriteFirstLine (TextWriter textWriter)
             {
             textWriter.WriteLine ("# name, mass, mass_error_min, mass_error_max, radius, radius_error_min, " +
                                 "radius_error_max, orbital_period, orbital_period_err_min, orbital_period_err_max, " +
@@ -43,7 +37,7 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        static public int Write(TextWriter textWriter, CExoplanet exoplanet)
+        static public int Write (TextWriter textWriter, CExoplanet exoplanet)
             {
             WriteLine (textWriter, exoplanet.Name);
             WriteLine (textWriter, exoplanet.Mass);
@@ -111,14 +105,14 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        static private int WriteLine(TextWriter textWriter, string stringer)
+        static private int WriteLine (TextWriter textWriter, string stringer)
             {
             textWriter.Write (stringer + ",");
 
             return 0;
             }
 
-        static private int WriteLastLine(TextWriter textWriter, string stringer)
+        static private int WriteLastLine (TextWriter textWriter, string stringer)
             {
             textWriter.Write (stringer + "\r");
 

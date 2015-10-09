@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
-
-// A simple C# library for graph plotting
 
 namespace ExoplanetLibrary
     {
@@ -72,7 +64,7 @@ namespace ExoplanetLibrary
             set { AddStarDetails_ = value; }
             }
 
-        public LibraryDialog()
+        public LibraryDialog ()
             {
             InitializeComponent ();
 
@@ -91,15 +83,15 @@ namespace ExoplanetLibrary
             SizeChanged += new System.EventHandler (MyResize);
             }
 
-        private void MyResizeBegin(object sender, System.EventArgs e)
+        private void MyResizeBegin (object sender, System.EventArgs e)
             {
             }
 
-        private void MyResizeEnd(object sender, System.EventArgs e)
+        private void MyResizeEnd (object sender, System.EventArgs e)
             {
             }
 
-        private void MyResize(object sender, System.EventArgs e)
+        private void MyResize (object sender, System.EventArgs e)
             {
             Control control = ( Control )sender;
 
@@ -110,7 +102,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void CreateExoplanetListView()
+        private void CreateExoplanetListView ()
             {
             ExoplanetListView = new ListView ();
             ExoplanetListView.Bounds = new Rectangle (new Point (10, 24), new Size (Width - 40, Height - ( 60 + 24 )));
@@ -130,7 +122,7 @@ namespace ExoplanetLibrary
             Controls.Add (ExoplanetListView);
             }
 
-        private void UpdateExoplanetListView()
+        private void UpdateExoplanetListView ()
             {
             for (int index = ExoplanetListView.Items.Count - 1; index >= 0; --index)
                 ExoplanetListView.Items.RemoveAt (index);
@@ -138,7 +130,7 @@ namespace ExoplanetLibrary
             AddItemsToListView (ExoplanetListView, false);
             }
 
-        private void AddItemsToListView(ListView listView, bool addColumns)
+        private void AddItemsToListView (ListView listView, bool addColumns)
             {
             if (ExoplanetsArray != null)
                 ExoplanetsArray.Clear ();
@@ -258,7 +250,7 @@ namespace ExoplanetLibrary
 #endif
             }
 
-        private void ExoplanentListView_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void ExoplanentListView_ColumnClick (object sender, ColumnClickEventArgs e)
             {
             if (e.Column == LvwColumnSorter.SortColumn)
                 {
@@ -276,7 +268,7 @@ namespace ExoplanetLibrary
             ExoplanetListView.Sort ();
             }
 
-        private void ExoplanentListView_Click(object sender, EventArgs e)
+        private void ExoplanentListView_Click (object sender, EventArgs e)
             {
             if (ExoplanetListView.SelectedItems.Count == 1)
                 {
@@ -286,13 +278,10 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void ExoplanentListView_DoubleClick(object sender, EventArgs e)
+        private void ExoplanentListView_DoubleClick (object sender, EventArgs e)
             {
             if (ExoplanetListView.SelectedItems.Count == 1)
                 {
-                ExoplanetListView.Sort ();
-                Refresh ();
-
                 MessageBox.Show ("Number of Exoplanets " + ExoplanetsArray.Count +
                                  "\rMulti-Planet Stars " + Helper.NumberOfMultiPlanetStars (ExoplanetsArray) +
                                  "\rNumber of Type O   " + Helper.NumberOfTypeOStars (ExoplanetsArray) +
@@ -306,7 +295,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void displayAllDetails(CExoplanet exoplanet)
+        private void displayAllDetails (CExoplanet exoplanet)
             {
             if (ExoplanetDetails == null)
                 ExoplanetDetails = new ExoplanetDetails (this);
@@ -316,7 +305,7 @@ namespace ExoplanetLibrary
             ExoplanetDetails.BringToFront ();
             }
 
-        private void open_Click(object sender, System.EventArgs e)
+        private void open_Click (object sender, System.EventArgs e)
             {
             OpenFileDialog openFileDialog = new OpenFileDialog ();
 
@@ -363,12 +352,12 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void exit_Click(object sender, System.EventArgs e)
+        private void exit_Click (object sender, System.EventArgs e)
             {
             Close ();
             }
 
-        private void saveAs_Click(object sender, System.EventArgs e)
+        private void saveAs_Click (object sender, System.EventArgs e)
             {
             SaveFileDialog saveFileDialog = new SaveFileDialog ();
 
@@ -396,13 +385,13 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void about_Click(object sender, System.EventArgs e)
+        private void about_Click (object sender, System.EventArgs e)
             {
             About = new AboutBox ();
             About.ShowDialog ();     // modal
             }
 
-        public void ExoplanetDetailsClosed()
+        public void ExoplanetDetailsClosed ()
             {
             ExoplanetDetails = null;
             }

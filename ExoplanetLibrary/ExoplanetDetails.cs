@@ -15,43 +15,31 @@ namespace ExoplanetLibrary
         private LibraryDialog ParentDialog_ = null;
         private LibraryDialog ParentDialog
             {
-            get
-                {
-                return ParentDialog_;
-                }
-            set
-                {
-                ParentDialog_ = value;
-                }
+            get { return ParentDialog_; }
+            set { ParentDialog_ = value; }
             }
 
         private ListView DetailsListView_ = null;
         private ListView DetailsListView
             {
-            get
-                {
-                return DetailsListView_;
-                }
-            set
-                {
-                DetailsListView_ = value;
-                }
+            get { return DetailsListView_; }
+            set { DetailsListView_ = value; }
             }
 
-        public ExoplanetDetails(LibraryDialog parent)
+        public ExoplanetDetails (LibraryDialog parent)
             {
             ParentDialog = parent;
             InitializeComponent ();
             CreatePlanetListView ();
             }
 
-        private void PlanetNStarDetails_FormClosing(object sender, FormClosingEventArgs e)
+        private void PlanetNStarDetails_FormClosing (object sender, FormClosingEventArgs e)
             {
             if (ParentDialog != null)
                 ParentDialog.ExoplanetDetailsClosed ();
             }
 
-        private void CreatePlanetListView()
+        private void CreatePlanetListView ()
             {
             DetailsListView = new ListView ();
             DetailsListView.Bounds = new Rectangle (new Point (10, 10), new Size (Width - 45, Height - ( 60 )));
@@ -68,7 +56,7 @@ namespace ExoplanetLibrary
             Controls.Add (DetailsListView);
             }
 
-        private void UpdatePlanetsListView()
+        private void UpdatePlanetsListView ()
             {
             for (int index = DetailsListView.Items.Count - 1; index >= 0; --index)
                 DetailsListView.Items.RemoveAt (index);
@@ -76,7 +64,7 @@ namespace ExoplanetLibrary
             AddItemsToListView (DetailsListView, false, null);
             }
 
-        private void AddItemsToListView(ListView listView, bool addColumns, ExoplanetLibrary.CExoplanet exoplanet)
+        private void AddItemsToListView (ListView listView, bool addColumns, ExoplanetLibrary.CExoplanet exoplanet)
             {
             if (addColumns)
                 {
@@ -230,7 +218,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private string Format(string value, string minimumError, string maximumError)
+        private string Format (string value, string minimumError, string maximumError)
             {
             if (minimumError != null && maximumError != null && minimumError.Length > 0 && maximumError.Length > 0)
                 {
@@ -245,7 +233,7 @@ namespace ExoplanetLibrary
                 return " - ";
             }
 
-        private string Format(string value)
+        private string Format (string value)
             {
             if (value != null && value.Length > 0)
                 return value;
@@ -253,7 +241,7 @@ namespace ExoplanetLibrary
                 return " - ";
             }
 
-        public void DisplayDetails(ExoplanetLibrary.CExoplanet exoplanet)
+        public void DisplayDetails (ExoplanetLibrary.CExoplanet exoplanet)
             {
             for (int index = DetailsListView.Items.Count - 1; index >= 0; --index)
                 DetailsListView.Items.RemoveAt (index);

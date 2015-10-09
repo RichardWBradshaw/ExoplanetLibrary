@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
+﻿using System.Collections;
 using System.Windows.Forms;
 
 //
@@ -18,14 +13,14 @@ namespace ExoplanetLibrary
         private SortOrder OrderOfSort;
         private CaseInsensitiveComparer ObjectCompare;
 
-        public ListViewColumnSorter()
+        public ListViewColumnSorter ()
             {
             ColumnToSort = 0;
             OrderOfSort = SortOrder.None;
             ObjectCompare = new CaseInsensitiveComparer ();
             }
 
-        public int Compare(object x, object y)
+        public int Compare (object x, object y)
             {
             int compareResult;
             double dx, dy;
