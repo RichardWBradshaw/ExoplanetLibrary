@@ -116,9 +116,9 @@ namespace ExoplanetLibrary
             ExoplanetListView.Sorting = SortOrder.Ascending;
 
             AddItemsToListView (ExoplanetListView, true);
-            ExoplanetListView.ColumnClick += new ColumnClickEventHandler (ExoplanentListView_ColumnClick);
-            ExoplanetListView.Click += new EventHandler (ExoplanentListView_Click);
-            ExoplanetListView.DoubleClick += new EventHandler (ExoplanentListView_DoubleClick);
+            ExoplanetListView.ColumnClick += new ColumnClickEventHandler (ExoplanettListView_ColumnClick);
+            ExoplanetListView.Click += new EventHandler (ExoplanettListView_Click);
+            ExoplanetListView.DoubleClick += new EventHandler (ExoplanettListView_DoubleClick);
             Controls.Add (ExoplanetListView);
             }
 
@@ -187,13 +187,13 @@ namespace ExoplanetLibrary
                     }
                 }
 #if walk_enumerator
-            IEnumerator exoplanentEnumerator = m_exoplanets.GetEnumerator ( );
-            exoplanentEnumerator.Reset();
+            IEnumerator ExoplanettEnumerator = m_exoplanets.GetEnumerator ( );
+            ExoplanettEnumerator.Reset();
 
             CExoplanet exoplanetList[] = new CExoplanet(m_exoplanets);
-            while ( exoplanentEnumerator.MoveNext ( ) )
+            while ( ExoplanettEnumerator.MoveNext ( ) )
                 {
-                CExoplanet exoplanet = exoplanentEnumerator.Current as CExoplanet;
+                CExoplanet exoplanet = ExoplanettEnumerator.Current as CExoplanet;
                 }
 #else
             foreach (CExoplanet exoplanet in ExoplanetsArray)
@@ -250,7 +250,7 @@ namespace ExoplanetLibrary
 #endif
             }
 
-        private void ExoplanentListView_ColumnClick (object sender, ColumnClickEventArgs e)
+        private void ExoplanettListView_ColumnClick (object sender, ColumnClickEventArgs e)
             {
             if (e.Column == LvwColumnSorter.SortColumn)
                 {
@@ -268,7 +268,7 @@ namespace ExoplanetLibrary
             ExoplanetListView.Sort ();
             }
 
-        private void ExoplanentListView_Click (object sender, EventArgs e)
+        private void ExoplanettListView_Click (object sender, EventArgs e)
             {
             if (ExoplanetListView.SelectedItems.Count == 1)
                 {
@@ -278,20 +278,23 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void ExoplanentListView_DoubleClick (object sender, EventArgs e)
+        private void ExoplanettListView_DoubleClick (object sender, EventArgs e)
             {
             if (ExoplanetListView.SelectedItems.Count == 1)
                 {
-                MessageBox.Show ("Number of Exoplanets " + ExoplanetsArray.Count +
-                                 "\rMulti-Planet Stars " + Helper.NumberOfMultiPlanetStars (ExoplanetsArray) +
-                                 "\rNumber of Type O   " + Helper.NumberOfTypeOStars (ExoplanetsArray) +
-                                 "\rNumber of Type B   " + Helper.NumberOfTypeBStars (ExoplanetsArray) +
-                                 "\rNumber of Type A   " + Helper.NumberOfTypeAStars (ExoplanetsArray) +
-                                 "\rNumber of Type F   " + Helper.NumberOfTypeFStars (ExoplanetsArray) +
-                                 "\rNumber of Type G   " + Helper.NumberOfTypeGStars (ExoplanetsArray) +
-                                 "\rNumber of Type K   " + Helper.NumberOfTypeKStars (ExoplanetsArray) +
-                                 "\rNumber of Type M   " + Helper.NumberOfTypeMStars (ExoplanetsArray)
-                                 );
+                ArrayList types = null;
+                string StarTypesString = null;
+
+                Helper.NumberOfStarTypes (ExoplanetsArray, ref types);
+
+                for (int index = 0; index < types.Count; ++index )
+                    {
+                    StarTypes type = types[index] as StarTypes;
+
+                    StarTypesString += "\rNumber of Type " +  type.Name + "   " + type.Count.ToString();
+                    }
+
+                    MessageBox.Show ("Number of Exoplanets " + ExoplanetsArray.Count + "\rMulti-Planet Stars " + Helper.NumberOfMultiPlanetStars (ExoplanetsArray) + StarTypesString );
                 }
             }
 

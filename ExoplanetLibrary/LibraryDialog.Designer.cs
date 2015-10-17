@@ -99,7 +99,7 @@ namespace ExoplanetLibrary
             ShowIcon = false;
             ShowInTaskbar = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            Text = "Exoplanent Library";
+            Text = "Exoplanett Library";
             TopMost = true;
             menuStrip1.ResumeLayout ( false );
             menuStrip1.PerformLayout ( );

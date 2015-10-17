@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 "\r\n" +
 "The original data can be found at http://exoplanet.eu/" +
 "\r\n" +
-"The original version of this program reads the .csv files and creates a custom .xml file with a .xsd for validation.  A later version of thos program with read the .xml data from the web site."
+"This program reads the .csv or .vot files and creates a custom .xml file with a .xsd for validation."
 )]
 [assembly: AssemblyConfiguration ( "" )]
 [assembly: AssemblyCompany ( "Author:  RichardWBradshaw@Outlook.com" )]

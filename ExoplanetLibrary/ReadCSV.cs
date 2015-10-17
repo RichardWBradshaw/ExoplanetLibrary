@@ -388,66 +388,66 @@ namespace ExoplanetLibrary
 
             exoplanet.AngularDistance = "";         // ReplaceNonNumerics (strings [19].ToString ());
 
-            exoplanet.Discovered = "";              //strings [151].ToString ();
+            exoplanet.Discovered = "";              // strings [151].ToString ();
 
-            exoplanet.Updated = "";                 //strings [157].ToString ();
+            exoplanet.Updated = "";                 // strings [157].ToString ();
 
-            exoplanet.Omega = "";                   //ReplaceNonNumerics (strings [22].ToString ());
-            exoplanet.OmegaErrorMin = "";           //ReplaceNonNumerics (strings [23].ToString ());
-            exoplanet.OmegaErrorMax = "";           //ReplaceNonNumerics (strings [24].ToString ());
+            exoplanet.Omega = "";                   // ReplaceNonNumerics (strings [22].ToString ());
+            exoplanet.OmegaErrorMin = "";           // ReplaceNonNumerics (strings [23].ToString ());
+            exoplanet.OmegaErrorMax = "";           // ReplaceNonNumerics (strings [24].ToString ());
 
-            exoplanet.Tperi = "";                   //ReplaceNonNumerics (strings [25].ToString ());
+            exoplanet.Tperi = "";                   // ReplaceNonNumerics (strings [25].ToString ());
             exoplanet.TperiErrorMin = "";           // ReplaceNonNumerics (strings [26].ToString ());
-            exoplanet.TperiErrorMax = "";           //ReplaceNonNumerics (strings [27].ToString ());
+            exoplanet.TperiErrorMax = "";           // ReplaceNonNumerics (strings [27].ToString ());
 
-            exoplanet.Tconj = "";                   //ReplaceNonNumerics (strings [28].ToString ());
-            exoplanet.TconjErrorMin = "";           //ReplaceNonNumerics (strings [29].ToString ());
-            exoplanet.TconjErrorMax = "";           //ReplaceNonNumerics (strings [30].ToString ());
+            exoplanet.Tconj = "";                   // ReplaceNonNumerics (strings [28].ToString ());
+            exoplanet.TconjErrorMin = "";           // ReplaceNonNumerics (strings [29].ToString ());
+            exoplanet.TconjErrorMax = "";           // ReplaceNonNumerics (strings [30].ToString ());
 
             exoplanet.TzeroTr = "";                 // ReplaceNonNumerics (strings [31].ToString ());
-            exoplanet.TzeroTrErrorMin = "";         //ReplaceNonNumerics (strings [32].ToString ());
-            exoplanet.TzeroTrErrorMax = "";         //ReplaceNonNumerics (strings [33].ToString ());
+            exoplanet.TzeroTrErrorMin = "";         // ReplaceNonNumerics (strings [32].ToString ());
+            exoplanet.TzeroTrErrorMax = "";         // ReplaceNonNumerics (strings [33].ToString ());
 
             exoplanet.TzeroTrSec = "";              // ReplaceNonNumerics (strings [34].ToString ());
-            exoplanet.TzeroTrSecErrorMin = "";      //ReplaceNonNumerics (strings [35].ToString ());
-            exoplanet.TzeroTrSecErrorMax = "";      //ReplaceNonNumerics (strings [36].ToString ());
+            exoplanet.TzeroTrSecErrorMin = "";      // ReplaceNonNumerics (strings [35].ToString ());
+            exoplanet.TzeroTrSecErrorMax = "";      // ReplaceNonNumerics (strings [36].ToString ());
 
-            exoplanet.LambdaAngle = "";             //ReplaceNonNumerics (strings [37].ToString ());
-            exoplanet.LambdaAngleErrorMin = "";     //ReplaceNonNumerics (strings [38].ToString ());
-            exoplanet.LambdaAngleErrorMax = "";     //ReplaceNonNumerics (strings [39].ToString ());
+            exoplanet.LambdaAngle = "";             // ReplaceNonNumerics (strings [37].ToString ());
+            exoplanet.LambdaAngleErrorMin = "";     // ReplaceNonNumerics (strings [38].ToString ());
+            exoplanet.LambdaAngleErrorMax = "";     // ReplaceNonNumerics (strings [39].ToString ());
 
             exoplanet.ImpactParameter = ReplaceNonNumerics (strings [134].ToString ());
             exoplanet.ImpactParameterErrorMin = ReplaceNonNumerics (strings [136].ToString ());
             exoplanet.ImpactParameterErrorMax = ReplaceNonNumerics (strings [135].ToString ());
 
-            exoplanet.TzeroVr = "";                 //ReplaceNonNumerics (strings [43].ToString ());
+            exoplanet.TzeroVr = "";                 // ReplaceNonNumerics (strings [43].ToString ());
 
-            exoplanet.TzeroVrErrorMin = "";         //ReplaceNonNumerics (strings [44].ToString ());
-            exoplanet.TzeroVrErrorMax = "";         //ReplaceNonNumerics (strings [45].ToString ());
+            exoplanet.TzeroVrErrorMin = "";         // ReplaceNonNumerics (strings [44].ToString ());
+            exoplanet.TzeroVrErrorMax = "";         // ReplaceNonNumerics (strings [45].ToString ());
 
-            exoplanet.K = "";                       //ReplaceNonNumerics (strings [46].ToString ());
-            exoplanet.KErrorMin = "";               //ReplaceNonNumerics (strings [47].ToString ());
-            exoplanet.KErrorMax = "";               //ReplaceNonNumerics (strings [48].ToString ());
+            exoplanet.K = "";                       // ReplaceNonNumerics (strings [46].ToString ());
+            exoplanet.KErrorMin = "";               // ReplaceNonNumerics (strings [47].ToString ());
+            exoplanet.KErrorMax = "";               // ReplaceNonNumerics (strings [48].ToString ());
 
-            exoplanet.TemperatureCalculated = "";   //ReplaceNonNumerics (strings [49].ToString ());
-            exoplanet.TemperatureMeasured = "";     //ReplaceNonNumerics (strings [50].ToString ());
-            exoplanet.TemperatureHotPointLo = "";   //ReplaceNonNumerics (strings [51].ToString ());
+            exoplanet.TemperatureCalculated = "";   // ReplaceNonNumerics (strings [49].ToString ());
+            exoplanet.TemperatureMeasured = "";     // ReplaceNonNumerics (strings [50].ToString ());
+            exoplanet.TemperatureHotPointLo = "";   // ReplaceNonNumerics (strings [51].ToString ());
 
-            exoplanet.GeometricAlbedo = "";         //ReplaceNonNumerics (strings [52].ToString ());
+            exoplanet.GeometricAlbedo = "";         // ReplaceNonNumerics (strings [52].ToString ());
             exoplanet.GeometricAlbedoErrorMin = ""; // ReplaceNonNumerics (strings [53].ToString ());
-            exoplanet.GeometricAlbedoErrorMax = ""; //ReplaceNonNumerics (strings [54].ToString ());
+            exoplanet.GeometricAlbedoErrorMax = ""; // ReplaceNonNumerics (strings [54].ToString ());
 
-            exoplanet.LogG = "";                    //ReplaceNonNumerics (strings [55].ToString ());
+            exoplanet.LogG = "";                    // ReplaceNonNumerics (strings [55].ToString ());
             exoplanet.Status = strings [157].ToString ();
-            exoplanet.DetectionType = "";           //strings [57].ToString ();
+            exoplanet.DetectionType = "";           // strings [57].ToString ();
 
-            exoplanet.MassDetectionType = "";       //strings [58].ToString ();
+            exoplanet.MassDetectionType = "";       // strings [58].ToString ();
 
-            exoplanet.RadiusDetectionType = "";     //strings [59].ToString ();
+            exoplanet.RadiusDetectionType = "";     // strings [59].ToString ();
 
-            exoplanet.AlternateNames = "";          //strings [60].ToString ();
+            exoplanet.AlternateNames = "";          // strings [60].ToString ();
 
-            exoplanet.Molecules = "";               //strings [61].ToString ();
+            exoplanet.Molecules = "";               // strings [61].ToString ();
 
             exoplanet.Star.Name = strings [1].ToString ();
             exoplanet.Star.RightAccession = ReplaceNonNumerics (strings [38].ToString ());

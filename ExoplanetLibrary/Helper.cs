@@ -1,9 +1,14 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 
 namespace ExoplanetLibrary
     {
+    public class StarTypes
+        {
+        public string Name;
+        public int Count;
+        }
+
     class Helper
         {
         static public string FormatHMS (string text)
@@ -112,6 +117,41 @@ namespace ExoplanetLibrary
                 }
 
             return matches;
+            }
+
+        static public int NumberOfStarTypes (ArrayList exoplanets, ref ArrayList types)
+            {
+            types = new ArrayList ();
+
+            foreach (CExoplanet exoplanet in exoplanets)
+                {
+                if (exoplanet.Star.Properties.SPType != null)
+                    {
+                    bool addType = true;
+
+                    for (int index = 0; index < types.Count && addType; ++index)
+                        {
+                        StarTypes type = types [index] as StarTypes;
+
+                        if (exoplanet.Star.Properties.SPType.Substring (0, 1) == type.Name)
+                            {
+                            ++type.Count;
+                            addType = false;
+                            }
+                        }
+
+                    if (addType)
+                        {
+                        StarTypes type = new StarTypes ();
+                        type.Name = exoplanet.Star.Properties.SPType.Substring (0, 1);
+                        type.Count = 1;
+
+                        types.Add (type);
+                        }
+                    }
+                }
+
+            return 0;
             }
 
         }
