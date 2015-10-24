@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace ExoplanetLibrary
     {
-    class ReadCSV
+    public class ReadCSV
         {
         static private string Version_ = "2.0";
         static private string Version

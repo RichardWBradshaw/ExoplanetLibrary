@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Express 14 for Windows Desktop
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoplanetLibrary", "ExoplanetLibrary\ExoplanetLibrary.csproj", "{065D95D3-B173-4F20-B302-2D24FC1DE8CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoplanetLibraryUnitTest", "ExoplanetLibraryUnitTest\ExoplanetLibraryUnitTest.csproj", "{189CE6BA-D42D-457A-8CA6-6500ED919652}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{065D95D3-B173-4F20-B302-2D24FC1DE8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{065D95D3-B173-4F20-B302-2D24FC1DE8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{065D95D3-B173-4F20-B302-2D24FC1DE8CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{189CE6BA-D42D-457A-8CA6-6500ED919652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{189CE6BA-D42D-457A-8CA6-6500ED919652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{189CE6BA-D42D-457A-8CA6-6500ED919652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{189CE6BA-D42D-457A-8CA6-6500ED919652}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -57,7 +57,7 @@ namespace ExoplanetLibrary
             set { AddPlanetDetails_ = value; }
             }
 
-        private bool AddStarDetails_ = false;
+        private bool AddStarDetails_ = true;
         public bool AddStarDetails
             {
             get { return AddStarDetails_; }
@@ -118,7 +118,6 @@ namespace ExoplanetLibrary
             AddItemsToListView (ExoplanetListView, true);
             ExoplanetListView.ColumnClick += new ColumnClickEventHandler (ExoplanettListView_ColumnClick);
             ExoplanetListView.Click += new EventHandler (ExoplanettListView_Click);
-            ExoplanetListView.DoubleClick += new EventHandler (ExoplanettListView_DoubleClick);
             Controls.Add (ExoplanetListView);
             }
 
@@ -190,7 +189,6 @@ namespace ExoplanetLibrary
             IEnumerator ExoplanettEnumerator = m_exoplanets.GetEnumerator ( );
             ExoplanettEnumerator.Reset();
 
-            CExoplanet exoplanetList[] = new CExoplanet(m_exoplanets);
             while ( ExoplanettEnumerator.MoveNext ( ) )
                 {
                 CExoplanet exoplanet = ExoplanettEnumerator.Current as CExoplanet;

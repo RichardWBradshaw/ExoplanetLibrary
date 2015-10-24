@@ -154,82 +154,6 @@ namespace ExoplanetLibrary
             }
         };
 
-    /****
-http://exoplanet.eu/readme//
-Data
-Planet data
-Planet data are the latest data known. They are taken from:
-Latest published papers or professional preprints and conferences
-First-hand updated data on professional websites. These presently are:
- Anglo-Australian Planet Search
-California & Carnegie Planet Search
-Geneva Extrasolar Planet Search Programmes
-Transatlantic Exoplanet Survey
-University of Texas - Dept. of Astronomy
-HAT and HATS
-WASP
-NASA Exoplanet Archive
-Kepler
-
-Planet parameters :
-    Mass (MJup/MEarth) : mass of the planet
-    soon coming Msini (MJup/MEarth) : minimum mass of the planet due to inclination effect
-    Radius (RJup/Rearth) : radius of the planet
-    Period (day) : orbital period of the planet
-    a (AU) : semi-major axis of the planet orbit
-    e : eccentrity of the planet orbit from 0, circular orbit, to almost 1, very elongated orbit
-    i (deg) : inclination of planet orbit, angle between the planet orbit and the sky plane 
-    Ang. dist.(arcsec) : formal star-planet angular separation given by a/Distance
-    Discovery : year of discovery at the time of acceptance of a paper
-    Update : date of the update of data
-    ω (deg) : periapse longitude : angle between the periapse and the line nodes in the orbit plane
-    Tperi (JD) : time of passage at the periapse for eccentric orbits
-    Tconj(JD) : time of the star-planet upper conjunction 
-    T0 (JD) : time of passage at the center of the transit light curve for the primary transit
-    T0-sec (JD) : time of passage at the center of the transit light curve for the secondary transit
-    λ Ang. (deg) :  sky-projected angle between the planetary orbital spin and the stellar rotational spin (Rossiter-McLaughlin anomaly).
-    Impact Param b (%) : minimum, in stellar radius units, of distance of the planet to the stellar center for transiting planets 
-    TVR (JD) : time of zero, increasing, radial velocity (i.e. when the planet moves toward the observer) for circular orbits 
-    K (m/s) :semi-amplitude of the radial velocity curve
-    Tcalc (K) :planet temperature as calculated by authors, based on a planet model
-    Tmeas (K) : planet temperature as measured by authors
-    Hot pt (deg) : longitude of the planet hottest point
-    Ag : Albedo
-    Log(g) : Surface gravity
-    Disc./Det Method : Methods of discovery/detection of the planet (RV, transit, TTV, lensing, astrometry, imaging. The first method is the discovery one.
-    Mass Meas method : Method of measurement of the planet mass (RV, astrometry, planet model for direct imaging)
-    Radius Meas method : Method of measurement of the planet radius (transit, 
-    planet model for direct imaging)
-    Alternate names : alternatives names of the same planet
-    Molecules : Species detected in the planet
-
-    Number of planets in the system :
-
-Stellar data
-Stellar data (positions, distances, V mag, mass, metallicities etc) are taken from Simbad or from professional papers on exoplanets.
-Stellar parameters :
-    Star name :
-    α2000 (hh :mm :ss) : Right Ascension
-    δ2000 (hh :mm :ss) : Declination
-    mV : apparent magnitude in the V band
-    mI : apparent magnitude in the I band
-    mJ : apparent magnitude in the J band
-    mH : apparent magnitude in the H band
-    mK : apparent magnitude in the K band
-    Distance (pc) : distance of the star to the observer
-    Metallicity : decimal logarithm of the massive elements (« metals ») to hydrogen ratio in solar units  (i.e. Log [(metals/H)star/(metals/H)Sun] )
-    Mass (Msun) : star mas in solar units
-    Radius (Rsun) : star radius in solar units
-    Sp. Type : stellar spectral type
-    Age (Gy) : stellar age
-    Teff : effective stellar temperature  
-    Detected disc :  (direct imaging or IR excess) disc detected
-    Magnetic field (Yes/No) : stellar magnetic field detected
-
-◦Errors
-When a value is known only by its maximum or minimum its prefix is « < » or « > ». e.g. : < 89.9 or > 0.067.
-*****/
-
     public class CExoplanet
         {
         private string Name_;
@@ -678,10 +602,10 @@ When a value is known only by its maximum or minimum its prefix is « < » or «
             }
         };
 
-    class ReadXML : CExoplanet
+    public class ReadXML : CExoplanet
         {
-        static XmlReader Reader_ = null;
-        static XmlReader Reader
+        static private XmlReader Reader_ = null;
+        static private XmlReader Reader
             {
             get { return Reader_; }
             set { Reader_ = value; }

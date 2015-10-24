@@ -18,93 +18,93 @@ namespace ExoplanetLibrary
 
         private void InitializeComponent ( )
             {
-            menuStrip1 = new System.Windows.Forms.MenuStrip ( );
-            fileMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
-            openMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
-            saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
-            fileSeparator = new System.Windows.Forms.ToolStripSeparator ( );
-            exitMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
-            helpMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
-            aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
-            menuStrip1.SuspendLayout ( );
-            SuspendLayout ( );
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange ( new System.Windows.Forms.ToolStripItem[] {
-            fileMenuItem,
-            helpMenuItem} );
-            menuStrip1.Location = new System.Drawing.Point ( 0, 0 );
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new System.Drawing.Size ( 784, 24 );
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenuItem,
+            this.helpMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileMenuItem
             // 
-            fileMenuItem.DropDownItems.AddRange ( new System.Windows.Forms.ToolStripItem[] {
-            openMenuItem,
-            saveAsMenuItem,
-            fileSeparator,
-            exitMenuItem} );
-            fileMenuItem.Name = "fileMenuItem";
-            fileMenuItem.Size = new System.Drawing.Size ( 37, 20 );
-            fileMenuItem.Text = "File";
+            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openMenuItem,
+            this.saveAsMenuItem,
+            this.fileSeparator,
+            this.exitMenuItem});
+            this.fileMenuItem.Name = "fileMenuItem";
+            this.fileMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileMenuItem.Text = "File";
             // 
             // openMenuItem
             // 
-            openMenuItem.Name = "openMenuItem";
-            openMenuItem.Size = new System.Drawing.Size ( 139, 22 );
-            openMenuItem.Text = "Open ...";
+            this.openMenuItem.Name = "openMenuItem";
+            this.openMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.openMenuItem.Text = "Open ...";
             // 
             // saveAsMenuItem
             // 
-            saveAsMenuItem.Name = "saveAsMenuItem";
-            saveAsMenuItem.Size = new System.Drawing.Size ( 139, 22 );
-            saveAsMenuItem.Text = "Save as .CSV";
+            this.saveAsMenuItem.Name = "saveAsMenuItem";
+            this.saveAsMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.saveAsMenuItem.Text = "Save as .CSV";
             // 
             // fileSeparator
             // 
-            fileSeparator.Name = "fileSeparator";
-            fileSeparator.Size = new System.Drawing.Size ( 136, 6 );
+            this.fileSeparator.Name = "fileSeparator";
+            this.fileSeparator.Size = new System.Drawing.Size(136, 6);
             // 
             // exitMenuItem
             // 
-            exitMenuItem.Name = "exitMenuItem";
-            exitMenuItem.Size = new System.Drawing.Size ( 139, 22 );
-            exitMenuItem.Text = "Exit";
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.exitMenuItem.Text = "Exit";
             // 
             // helpMenuItem
             // 
-            helpMenuItem.DropDownItems.AddRange ( new System.Windows.Forms.ToolStripItem[] {
-            aboutMenuItem} );
-            helpMenuItem.Name = "helpMenuItem";
-            helpMenuItem.Size = new System.Drawing.Size ( 44, 20 );
-            helpMenuItem.Text = "Help";
+            this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutMenuItem});
+            this.helpMenuItem.Name = "helpMenuItem";
+            this.helpMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpMenuItem.Text = "Help";
             // 
             // aboutMenuItem
             // 
-            aboutMenuItem.Name = "aboutMenuItem";
-            aboutMenuItem.Size = new System.Drawing.Size ( 209, 22 );
-            aboutMenuItem.Text = "About Exoplanet Library...";
+            this.aboutMenuItem.Name = "aboutMenuItem";
+            this.aboutMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.aboutMenuItem.Text = "About Exoplanet Library...";
             // 
             // LibraryDialog
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF ( 6F, 13F );
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            ClientSize = new System.Drawing.Size ( 784, 341 );
-            Controls.Add ( menuStrip1 );
-            Name = "LibraryDialog";
-            ShowIcon = false;
-            ShowInTaskbar = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            Text = "Exoplanett Library";
-            TopMost = true;
-            menuStrip1.ResumeLayout ( false );
-            menuStrip1.PerformLayout ( );
-            ResumeLayout ( false );
-            PerformLayout ( );
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(784, 341);
+            this.Controls.Add(this.menuStrip1);
+            this.Name = "LibraryDialog";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.Text = "Exoplanet Library";
+            this.TopMost = true;
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
             }
 

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ExoplanetLibrary
     {
-    class WriteCSV
+    public class WriteCSV
         {
         static public int Write (string csvFileName, ArrayList exoplanets)
             {
