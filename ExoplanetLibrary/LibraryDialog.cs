@@ -116,8 +116,8 @@ namespace ExoplanetLibrary
             ExoplanetListView.Sorting = SortOrder.Ascending;
 
             AddItemsToListView (ExoplanetListView, true);
-            ExoplanetListView.ColumnClick += new ColumnClickEventHandler (ExoplanettListView_ColumnClick);
-            ExoplanetListView.Click += new EventHandler (ExoplanettListView_Click);
+            ExoplanetListView.ColumnClick += new ColumnClickEventHandler (ExoplanetListView_ColumnClick);
+            ExoplanetListView.Click += new EventHandler (ExoplanetListView_Click);
             Controls.Add (ExoplanetListView);
             }
 
@@ -135,7 +135,7 @@ namespace ExoplanetLibrary
                 ExoplanetsArray.Clear ();
 
             ExoplanetsArray = null;
-            ReadXML.Read (XmlFileName, ref ExoplanetsArray_);
+            ReadXML.Read (XmlFileName, ref ExoplanetsArray_, false);
 
             if (addColumns)
                 {
@@ -187,11 +187,11 @@ namespace ExoplanetLibrary
                 }
 #if walk_enumerator
             IEnumerator ExoplanettEnumerator = m_exoplanets.GetEnumerator ( );
-            ExoplanettEnumerator.Reset();
+            ExoplanetEnumerator.Reset();
 
-            while ( ExoplanettEnumerator.MoveNext ( ) )
+            while ( ExoplanetEnumerator.MoveNext ( ) )
                 {
-                CExoplanet exoplanet = ExoplanettEnumerator.Current as CExoplanet;
+                CExoplanet exoplanet = ExoplanetEnumerator.Current as CExoplanet;
                 }
 #else
             foreach (CExoplanet exoplanet in ExoplanetsArray)
@@ -248,7 +248,7 @@ namespace ExoplanetLibrary
 #endif
             }
 
-        private void ExoplanettListView_ColumnClick (object sender, ColumnClickEventArgs e)
+        private void ExoplanetListView_ColumnClick (object sender, ColumnClickEventArgs e)
             {
             if (e.Column == LvwColumnSorter.SortColumn)
                 {
@@ -266,7 +266,7 @@ namespace ExoplanetLibrary
             ExoplanetListView.Sort ();
             }
 
-        private void ExoplanettListView_Click (object sender, EventArgs e)
+        private void ExoplanetListView_Click (object sender, EventArgs e)
             {
             if (ExoplanetListView.SelectedItems.Count == 1)
                 {
@@ -276,7 +276,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void ExoplanettListView_DoubleClick (object sender, EventArgs e)
+        private void ExoplanetListView_DoubleClick (object sender, EventArgs e)
             {
             if (ExoplanetListView.SelectedItems.Count == 1)
                 {
@@ -376,7 +376,7 @@ namespace ExoplanetLibrary
                     if (( stream = saveFileDialog.OpenFile () ) != null)
                         {
                         stream.Close ();
-                        WriteCSV.Write (saveFileDialog.FileName, ExoplanetsArray);
+                        WriteCSV.Write (saveFileDialog.FileName, ExoplanetsArray, "1.0");
                         }
                     }
                 catch (Exception ex)

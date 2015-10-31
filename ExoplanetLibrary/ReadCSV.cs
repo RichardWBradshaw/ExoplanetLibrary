@@ -15,7 +15,7 @@ namespace ExoplanetLibrary
 
         static public int Read (string csvFileName)
             {
-            if (System.IO.File.Exists (csvFileName))
+            if (File.Exists (csvFileName))
                 {
                 XmlWriter writer = null;
                 XmlWriterSettings settings = null;
@@ -78,7 +78,7 @@ namespace ExoplanetLibrary
                 char [] delimiterChars = { ',', '\t' };
 
 
-                if (firstLine.StartsWith ("# name, mass, mass_error_min"))
+                if (firstLine.StartsWith ("# name,mass,") || firstLine.StartsWith ("# name, mass, "))
                     {
                     string [] strings = firstLine.Split (delimiterChars);
 
@@ -309,7 +309,6 @@ namespace ExoplanetLibrary
             exoplanet.ImpactParameterErrorMax = ReplaceNonNumerics (strings [42].ToString ());
 
             exoplanet.TzeroVr = ReplaceNonNumerics (strings [43].ToString ());
-
             exoplanet.TzeroVrErrorMin = ReplaceNonNumerics (strings [44].ToString ());
             exoplanet.TzeroVrErrorMax = ReplaceNonNumerics (strings [45].ToString ());
 
@@ -358,7 +357,7 @@ namespace ExoplanetLibrary
             exoplanet.Star.Properties.MagneticField = strings [78].ToString ();
             }
 
-        static private void AssignFromVersion3 (String [] strings, CExoplanet exoplanet)
+        static private void AssignFromVersion3 (String [] strings, CExoplanet exoplanet) // needs_work
             {
             exoplanet.Name = strings [66].ToString ();
 

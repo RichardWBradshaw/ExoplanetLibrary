@@ -22,7 +22,7 @@ namespace ExoplanetLibrary
 
         public int Compare (object x, object y)
             {
-            int compareResult;
+            int compareResults;
             double dx, dy;
             ListViewItem listviewX, listviewY;
 
@@ -30,16 +30,16 @@ namespace ExoplanetLibrary
             listviewY = ( ListViewItem )y;
 
             if (double.TryParse (listviewX.SubItems [ColumnToSort].Text, out dx) && double.TryParse (listviewY.SubItems [ColumnToSort].Text, out dy))
-                compareResult = ObjectCompare.Compare (dx, dy);
+                compareResults = ObjectCompare.Compare (dx, dy);
             else if (Helper.ParseHMS (listviewX.SubItems [ColumnToSort].Text, out dx) && Helper.ParseHMS (listviewY.SubItems [ColumnToSort].Text, out dy))
-                compareResult = ObjectCompare.Compare (dx, dy);
+                compareResults = ObjectCompare.Compare (dx, dy);
             else
-                compareResult = ObjectCompare.Compare (listviewX.SubItems [ColumnToSort].Text, listviewY.SubItems [ColumnToSort].Text);
+                compareResults = ObjectCompare.Compare (listviewX.SubItems [ColumnToSort].Text, listviewY.SubItems [ColumnToSort].Text);
 
             if (OrderOfSort == SortOrder.Ascending)
-                return compareResult;
+                return compareResults;
             else if (OrderOfSort == SortOrder.Descending)
-                return ( -compareResult );
+                return ( -compareResults );
             else
                 return 0;
             }

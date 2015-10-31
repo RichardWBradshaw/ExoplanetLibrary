@@ -641,7 +641,7 @@ namespace ExoplanetLibrary
 
         static private void SetVersion (string xmlFileName)
             {
-            if (System.IO.File.Exists (xmlFileName))
+            if (File.Exists (xmlFileName))
                 {
                 Reader = XmlReader.Create (xmlFileName);
                 Reader.ReadToFollowing ("Exoplanets");
@@ -651,16 +651,17 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void SetValidation (FileStream fileStream, XmlReaderSettings settings)
+        static private void SetValidation (FileStream fileStream, XmlReaderSettings settings, bool skipValidation)
             {
             ValidationEventHandler validationEventHandler = new ValidationEventHandler (exoplanetSettingsValidationEventHandler);
             XmlSchema xmlSchema = null;
 
-            if (System.IO.File.Exists (@XsdVersion2FileName) || System.IO.File.Exists (@XsdVersion1FileName))
-                if (string.Equals (Version, "2.0"))
-                    xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion2FileName, FileMode.Open) ), validationEventHandler);
-                else if (string.Equals (Version, "1.0"))
-                    xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion1FileName, FileMode.Open) ), validationEventHandler);
+            if(skipValidation== false)
+                if (File.Exists (@XsdVersion2FileName) || File.Exists (@XsdVersion1FileName))
+                    if (string.Equals (Version, "2.0"))
+                        xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion2FileName, FileMode.Open) ), validationEventHandler);
+                    else if (string.Equals (Version, "1.0"))
+                        xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion1FileName, FileMode.Open) ), validationEventHandler);
 
             settings.ConformanceLevel = ConformanceLevel.Document;
             settings.CheckCharacters = true;
@@ -680,19 +681,19 @@ namespace ExoplanetLibrary
                 settings.ValidationType = ValidationType.None;
             }
 
-        static public int Read (string xmlFileName, ref ArrayList exoplanets)
+        static public int Read (string xmlFileName, ref ArrayList exoplanets, bool skipValidation)
             {
             ValidationErrors = "";
 
             exoplanets = new ArrayList ();
 
-            if (System.IO.File.Exists (xmlFileName))
+            if (File.Exists (xmlFileName))
                 {
                 FileStream fileStream = null;
                 XmlReaderSettings settings = new XmlReaderSettings ();
 
                 SetVersion (xmlFileName);
-                SetValidation (fileStream, settings);
+                SetValidation (fileStream, settings, skipValidation);
 
                 Reader = XmlReader.Create (xmlFileName, settings);
 

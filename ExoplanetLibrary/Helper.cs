@@ -9,7 +9,7 @@ namespace ExoplanetLibrary
         public int Count;
         }
 
-    class Helper
+   public class Helper
         {
         static public string FormatHMS (string text)
             {
@@ -154,5 +154,128 @@ namespace ExoplanetLibrary
             return 0;
             }
 
+        static public bool AreEqual (ArrayList exoplanetArray1, ArrayList exoplanetArray2)
+            {
+            if (exoplanetArray1 == null)
+                return false;
+
+            if (exoplanetArray2 == null)
+                return false;
+
+            if (exoplanetArray1.Count != exoplanetArray2.Count)
+                return false;
+
+            for (int index = 0; index < exoplanetArray1.Count; ++index)
+                {
+                CExoplanet exoplanet1 = exoplanetArray1 [index] as CExoplanet;
+                CExoplanet exoplanet2 = exoplanetArray2 [index] as CExoplanet;
+
+                if (!AreEqual (exoplanet1, exoplanet2))
+                    return false;
+                }
+
+            return true;
+            }
+
+        static private bool AreEqual (CExoplanet exoplanet1, CExoplanet exoplanet2)
+            {
+            if (!string.Equals (exoplanet1.Name, exoplanet2.Name))
+                return false;
+
+            if (!string.Equals (exoplanet1.Mass, exoplanet2.Mass))
+                return false;
+
+            if (!string.Equals (exoplanet1.Radius, exoplanet2.Radius))
+                return false;
+
+            if (!string.Equals (exoplanet1.OrbitalPeriod, exoplanet2.OrbitalPeriod))
+                return false;
+
+            if (!string.Equals (exoplanet1.SemiMajorAxis, exoplanet2.SemiMajorAxis))
+                return false;
+
+            if (!string.Equals (exoplanet1.Eccentricity, exoplanet2.Eccentricity))
+                return false;
+
+            if (!string.Equals (exoplanet1.AngularDistance, exoplanet2.AngularDistance))
+                return false;
+
+            if (!string.Equals (exoplanet1.TzeroTr, exoplanet2.TzeroTr))
+                return false;
+
+            if (!string.Equals (exoplanet1.TzeroTrSec, exoplanet2.TzeroTrSec))
+                return false;
+
+            if (!string.Equals (exoplanet1.LambdaAngle, exoplanet2.LambdaAngle))
+                return false;
+
+            if (!string.Equals (exoplanet1.TzeroVr, exoplanet2.TzeroVr))
+                return false;
+
+            if (!string.Equals (exoplanet1.TemperatureCalculated, exoplanet2.TemperatureCalculated))
+                return false;
+
+            if (!string.Equals (exoplanet1.LogG, exoplanet2.LogG))
+                return false;
+
+            if (!string.Equals (exoplanet1.Status, exoplanet2.Status))
+                return false;
+
+            if (!string.Equals (exoplanet1.Discovered, exoplanet2.Discovered))
+                return false;
+
+            if (!string.Equals (exoplanet1.Updated, exoplanet2.Updated))
+                return false;
+
+            if (!string.Equals (exoplanet1.Omega, exoplanet2.Omega))
+                return false;
+
+            if (!string.Equals (exoplanet1.Tperi, exoplanet2.Tperi))
+                return false;
+
+            if (!string.Equals (exoplanet1.DetectionType, exoplanet2.DetectionType))
+                return false;
+
+            if (!string.Equals (exoplanet1.ImpactParameter, exoplanet2.ImpactParameter))
+                return false;
+
+            if (!string.Equals (exoplanet1.K, exoplanet2.K))
+                return false;
+
+            if (!string.Equals (exoplanet1.GeometricAlbedo, exoplanet2.GeometricAlbedo))
+                return false;
+
+            if (!string.Equals (exoplanet1.Tconj, exoplanet2.Tconj))
+                return false;
+
+            if (!string.Equals (exoplanet1.MassDetectionType, exoplanet2.MassDetectionType))
+                return false;
+
+            if (!string.Equals (exoplanet1.RadiusDetectionType, exoplanet2.RadiusDetectionType))
+                return false;
+
+            if (!string.Equals (exoplanet1.AlternateNames, exoplanet2.AlternateNames))
+                return false;
+
+            if (!string.Equals (exoplanet1.ImpactParameter, exoplanet2.ImpactParameter))
+                return false;
+
+            if (!string.Equals (exoplanet1.K, exoplanet2.K))
+                return false;
+
+            if (!string.Equals (exoplanet1.GeometricAlbedo, exoplanet2.GeometricAlbedo))
+                return false;
+
+            if (!string.Equals (exoplanet1.Tconj, exoplanet2.Tconj))
+                return false;
+
+            if (!string.Equals (exoplanet1.MassDetectionType, exoplanet2.MassDetectionType))
+                return false;
+
+            if (!string.Equals (exoplanet1.RadiusDetectionType, exoplanet2.RadiusDetectionType))
+                return false;
+
+            return true;
+            }
         }
     }

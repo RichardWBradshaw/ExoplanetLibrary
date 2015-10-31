@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 "o NASA Exoplanet Archive\r\n" +
 "o Kepler\r\n" +
 "\r\n" +
-"The original data can be found at http://exoplanet.eu/" +
+"The original data can be found at http://exoplanet.eu " +
 "\r\n" +
 "This program reads the .csv or .vot files and creates a custom .xml file with a .xsd for validation."
 )]

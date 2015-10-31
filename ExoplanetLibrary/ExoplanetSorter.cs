@@ -9,12 +9,12 @@ namespace ExoplanetLibrary
 
         int IComparer.Compare (Object x, Object y)
             {
-            CExoplanet exoplanetX, exoplanetY;
+            CExoplanet exoplanet1, exoplanet2;
 
-            exoplanetX = ( CExoplanet )x;
-            exoplanetY = ( CExoplanet )y;
+            exoplanet1 = ( CExoplanet )x;
+            exoplanet2 = ( CExoplanet )y;
 
-            return ObjectCompare.Compare (exoplanetX.Star.Name, exoplanetY.Star.Name);
+            return ObjectCompare.Compare (exoplanet1.Star.Name, exoplanet2.Star.Name);
             }
         }
 
@@ -24,12 +24,12 @@ namespace ExoplanetLibrary
 
         int IComparer.Compare (Object x, Object y)
             {
-            CExoplanet exoplanetX, exoplanetY;
+            CExoplanet exoplanet1, exoplanet2;
 
-            exoplanetX = ( CExoplanet )x;
-            exoplanetY = ( CExoplanet )y;
+            exoplanet1 = ( CExoplanet )x;
+            exoplanet2 = ( CExoplanet )y;
 
-            return ObjectCompare.Compare (exoplanetX.Name, exoplanetY.Name);
+            return ObjectCompare.Compare (exoplanet1.Name, exoplanet2.Name);
             }
         }
     }
