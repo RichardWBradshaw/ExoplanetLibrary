@@ -8,7 +8,26 @@ namespace ExoplanetLibrary
     {
     public partial class LibraryDialog : Form
         {
-        private string XmlFileName_ = "C:\\ProgramData\\Exoplanet Library\\kepler.xml";
+        public LibraryDialog ()
+            {
+            InitializeComponent ();
+
+            CreateExoplanetListView ();
+            LvwColumnSorter = new ListViewColumnSorter ();
+            ExoplanetListView.ListViewItemSorter = LvwColumnSorter;
+
+            openMenuItem.Click += new EventHandler (open_Click);
+            exitMenuItem.Click += new EventHandler (exit_Click);
+            saveAsMenuItem.Click += new EventHandler (saveAs_Click);
+
+            aboutMenuItem.Click += new EventHandler (about_Click);
+
+            ResizeBegin += new System.EventHandler (MyResizeBegin);
+            ResizeEnd += new System.EventHandler (MyResizeEnd);
+            SizeChanged += new System.EventHandler (MyResize);
+            }
+
+        private string XmlFileName_ = Constant.ProgramDataFolder + "kepler.xml";
         public string XmlFileName
             {
             get { return XmlFileName_; }
@@ -50,7 +69,7 @@ namespace ExoplanetLibrary
             set { LvwColumnSorter_ = value; }
             }
 
-        private bool AddPlanetDetails_ = false;
+        private bool AddPlanetDetails_ = true;
         public bool AddPlanetDetails
             {
             get { return AddPlanetDetails_; }
@@ -62,25 +81,6 @@ namespace ExoplanetLibrary
             {
             get { return AddStarDetails_; }
             set { AddStarDetails_ = value; }
-            }
-
-        public LibraryDialog ()
-            {
-            InitializeComponent ();
-
-            CreateExoplanetListView ();
-            LvwColumnSorter = new ListViewColumnSorter ();
-            ExoplanetListView.ListViewItemSorter = LvwColumnSorter;
-
-            openMenuItem.Click += new EventHandler (open_Click);
-            exitMenuItem.Click += new EventHandler (exit_Click);
-            saveAsMenuItem.Click += new EventHandler (saveAs_Click);
-
-            aboutMenuItem.Click += new EventHandler (about_Click);
-
-            ResizeBegin += new System.EventHandler (MyResizeBegin);
-            ResizeEnd += new System.EventHandler (MyResizeEnd);
-            SizeChanged += new System.EventHandler (MyResize);
             }
 
         private void MyResizeBegin (object sender, System.EventArgs e)
@@ -123,10 +123,13 @@ namespace ExoplanetLibrary
 
         private void UpdateExoplanetListView ()
             {
+            Cursor.Current = Cursors.WaitCursor;
+
             for (int index = ExoplanetListView.Items.Count - 1; index >= 0; --index)
                 ExoplanetListView.Items.RemoveAt (index);
 
             AddItemsToListView (ExoplanetListView, false);
+            Cursor.Current = Cursors.Default;
             }
 
         private void AddItemsToListView (ListView listView, bool addColumns)
@@ -135,7 +138,7 @@ namespace ExoplanetLibrary
                 ExoplanetsArray.Clear ();
 
             ExoplanetsArray = null;
-            ReadXML.Read (XmlFileName, ref ExoplanetsArray_, false);
+            ReadXML.Read (XmlFileName, ref ExoplanetsArray_);
 
             if (addColumns)
                 {
@@ -194,7 +197,7 @@ namespace ExoplanetLibrary
                 CExoplanet exoplanet = ExoplanetEnumerator.Current as CExoplanet;
                 }
 #else
-            foreach (CExoplanet exoplanet in ExoplanetsArray)
+            foreach (Exoplanet exoplanet in ExoplanetsArray)
                 {
                 ListViewItem item = new ListViewItem (exoplanet.Name, 0);
 
@@ -232,14 +235,14 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (exoplanet.Star.Name);
                 item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.RightAccession));
                 item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.Declination));
-                item.SubItems.Add (exoplanet.Star.Properties.SPType);
+                item.SubItems.Add (exoplanet.Star.Property.SPType);
 
                 if (AddStarDetails)
                     {
-                    item.SubItems.Add (exoplanet.Star.Properties.Age);
-                    item.SubItems.Add (exoplanet.Star.Properties.Distance);
-                    item.SubItems.Add (exoplanet.Star.Properties.Mass);
-                    item.SubItems.Add (exoplanet.Star.Properties.Radius);
+                    item.SubItems.Add (exoplanet.Star.Property.Age);
+                    item.SubItems.Add (exoplanet.Star.Property.Distance);
+                    item.SubItems.Add (exoplanet.Star.Property.Mass);
+                    item.SubItems.Add (exoplanet.Star.Property.Radius);
                     }
 
                 item.Tag = exoplanet;
@@ -270,7 +273,7 @@ namespace ExoplanetLibrary
             {
             if (ExoplanetListView.SelectedItems.Count == 1)
                 {
-                CExoplanet exoplanet = ( CExoplanet )ExoplanetListView.SelectedItems [0].Tag;
+                Exoplanet exoplanet = ( Exoplanet )ExoplanetListView.SelectedItems [0].Tag;
 
                 displayAllDetails (exoplanet);
                 }
@@ -285,18 +288,18 @@ namespace ExoplanetLibrary
 
                 Helper.NumberOfStarTypes (ExoplanetsArray, ref types);
 
-                for (int index = 0; index < types.Count; ++index )
+                for (int index = 0; index < types.Count; ++index)
                     {
-                    StarTypes type = types[index] as StarTypes;
+                    StarTypes type = types [index] as StarTypes;
 
-                    StarTypesString += "\rNumber of Type " +  type.Name + "   " + type.Count.ToString();
+                    StarTypesString += "\rNumber of Type " + type.Name + "   " + type.Count.ToString ();
                     }
 
-                    MessageBox.Show ("Number of Exoplanets " + ExoplanetsArray.Count + "\rMulti-Planet Stars " + Helper.NumberOfMultiPlanetStars (ExoplanetsArray) + StarTypesString );
+                MessageBox.Show ("Number of Exoplanets " + ExoplanetsArray.Count + "\rMulti-Planet Stars " + Helper.NumberOfMultiPlanetStars (ExoplanetsArray) + StarTypesString);
                 }
             }
 
-        private void displayAllDetails (CExoplanet exoplanet)
+        private void displayAllDetails (Exoplanet exoplanet)
             {
             if (ExoplanetDetails == null)
                 ExoplanetDetails = new ExoplanetDetails (this);
@@ -323,6 +326,8 @@ namespace ExoplanetLibrary
                         {
                         string fileName = openFileDialog.FileName.ToLower ();
 
+                        Cursor.Current = Cursors.WaitCursor;
+
                         if (fileName.EndsWith (".csv"))
                             {
                             ReadCSV.Read (openFileDialog.FileName);
@@ -344,6 +349,8 @@ namespace ExoplanetLibrary
                             }
 
                         UpdateExoplanetListView ();
+
+                        Cursor.Current = Cursors.Default;
                         }
                     }
                 catch (Exception ex)
@@ -364,7 +371,7 @@ namespace ExoplanetLibrary
 
             saveFileDialog.InitialDirectory = "c:\\ProgramData\\Exoplanet Library\\";
             saveFileDialog.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
-            saveFileDialog.FilterIndex = 2;
+            saveFileDialog.FilterIndex = 1;
             saveFileDialog.RestoreDirectory = true;
 
             if (saveFileDialog.ShowDialog () == DialogResult.OK)
@@ -376,7 +383,12 @@ namespace ExoplanetLibrary
                     if (( stream = saveFileDialog.OpenFile () ) != null)
                         {
                         stream.Close ();
-                        WriteCSV.Write (saveFileDialog.FileName, ExoplanetsArray, "1.0");
+                        string fileName = saveFileDialog.FileName;
+
+                        if (!fileName.EndsWith (".csv"))
+                            fileName = fileName + ".csv";
+
+                        WriteCSV.Write (fileName, ExoplanetsArray, Constant.Version1);
                         }
                     }
                 catch (Exception ex)

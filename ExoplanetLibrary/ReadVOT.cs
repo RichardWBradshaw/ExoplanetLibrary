@@ -3,9 +3,13 @@ using System.Xml;
 
 namespace ExoplanetLibrary
     {
-    class ReadVOT : CExoplanet
+    public class ReadVOT
         {
-        static private string Version_ = "2.0";
+        public ReadVOT ()
+            {
+            }
+
+        static private string Version_ = Constant.Version2;
         static private string Version
             {
             get { return Version_; }
@@ -40,7 +44,7 @@ namespace ExoplanetLibrary
                 else
                     xmlFileName = votFileName.Replace (".dat", ".xml");
 
-                if (string.Equals (Version, "1.0") || string.Equals (Version, "2.0"))
+                if (string.Equals (Version, Constant.Version1) || string.Equals (Version, Constant.Version2))
                     {
                     writer = XmlWriter.Create (xmlFileName, settings);
 
@@ -157,7 +161,7 @@ namespace ExoplanetLibrary
 
         static private int WriteExoplanet (XmlWriter writer, string line)
             {
-            CExoplanet exoplanet = new CExoplanet ();
+            Exoplanet exoplanet = new Exoplanet ();
             bool done = false;
             int column = 1;
             int startIndex = -1, endIndex = -1;
@@ -181,83 +185,83 @@ namespace ExoplanetLibrary
                             {
                             case 1: exoplanet.Name = stringer; break;
 
-                            case 2: exoplanet.Mass = ReplaceNonNumerics (stringer); break;
-                            case 3: exoplanet.MassErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 4: exoplanet.MassErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 2: exoplanet.Mass = Helper.ReplaceNonNumerics (stringer); break;
+                            case 3: exoplanet.MassErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 4: exoplanet.MassErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 5: exoplanet.Radius = ReplaceNonNumerics (stringer); break;
-                            case 6: exoplanet.RadiusErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 7: exoplanet.RadiusErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 5: exoplanet.Radius = Helper.ReplaceNonNumerics (stringer); break;
+                            case 6: exoplanet.RadiusErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 7: exoplanet.RadiusErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 8: exoplanet.OrbitalPeriod = ReplaceNonNumerics (stringer); break;
-                            case 9: exoplanet.OrbitalPeriodErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 10: exoplanet.OrbitalPeriodErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 8: exoplanet.OrbitalPeriod = Helper.ReplaceNonNumerics (stringer); break;
+                            case 9: exoplanet.OrbitalPeriodErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 10: exoplanet.OrbitalPeriodErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 11: exoplanet.SemiMajorAxis = ReplaceNonNumerics (stringer); break;
-                            case 12: exoplanet.SemiMajorAxisErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 13: exoplanet.SemiMajorAxisErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 11: exoplanet.SemiMajorAxis = Helper.ReplaceNonNumerics (stringer); break;
+                            case 12: exoplanet.SemiMajorAxisErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 13: exoplanet.SemiMajorAxisErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 14: exoplanet.Eccentricity = ReplaceNonNumerics (stringer); break;
-                            case 15: exoplanet.EccentricityErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 16: exoplanet.EccentricityErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 14: exoplanet.Eccentricity = Helper.ReplaceNonNumerics (stringer); break;
+                            case 15: exoplanet.EccentricityErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 16: exoplanet.EccentricityErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 17: exoplanet.Inclination = ReplaceNonNumerics (stringer); break;
-                            case 18: exoplanet.InclinationErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 19: exoplanet.InclinationErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 17: exoplanet.Inclination = Helper.ReplaceNonNumerics (stringer); break;
+                            case 18: exoplanet.InclinationErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 19: exoplanet.InclinationErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 20: exoplanet.AngularDistance = ReplaceNonNumerics (stringer); break;
+                            case 20: exoplanet.AngularDistance = Helper.ReplaceNonNumerics (stringer); break;
 
                             case 21: exoplanet.Discovered = stringer; break;
 
                             case 22: exoplanet.Updated = stringer; break;
 
-                            case 23: exoplanet.Omega = ReplaceNonNumerics (stringer); break;
-                            case 24: exoplanet.OmegaErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 25: exoplanet.OmegaErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 23: exoplanet.Omega = Helper.ReplaceNonNumerics (stringer); break;
+                            case 24: exoplanet.OmegaErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 25: exoplanet.OmegaErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 26: exoplanet.Tperi = ReplaceNonNumerics (stringer); break;
-                            case 27: exoplanet.TperiErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 28: exoplanet.TperiErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 26: exoplanet.Tperi = Helper.ReplaceNonNumerics (stringer); break;
+                            case 27: exoplanet.TperiErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 28: exoplanet.TperiErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 29: exoplanet.Tconj = ReplaceNonNumerics (stringer); break;
-                            case 30: exoplanet.TconjErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 31: exoplanet.TconjErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 29: exoplanet.Tconj = Helper.ReplaceNonNumerics (stringer); break;
+                            case 30: exoplanet.TconjErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 31: exoplanet.TconjErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 32: exoplanet.TzeroTr = ReplaceNonNumerics (stringer); break;
-                            case 33: exoplanet.TzeroTrErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 34: exoplanet.TzeroTrErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 32: exoplanet.TzeroTr = Helper.ReplaceNonNumerics (stringer); break;
+                            case 33: exoplanet.TzeroTrErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 34: exoplanet.TzeroTrErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 35: exoplanet.TzeroTrSec = ReplaceNonNumerics (stringer); break;
-                            case 36: exoplanet.TzeroTrSecErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 37: exoplanet.TzeroTrSecErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 35: exoplanet.TzeroTrSec = Helper.ReplaceNonNumerics (stringer); break;
+                            case 36: exoplanet.TzeroTrSecErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 37: exoplanet.TzeroTrSecErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 38: exoplanet.LambdaAngle = ReplaceNonNumerics (stringer); break;
-                            case 39: exoplanet.LambdaAngleErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 40: exoplanet.LambdaAngleErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 38: exoplanet.LambdaAngle = Helper.ReplaceNonNumerics (stringer); break;
+                            case 39: exoplanet.LambdaAngleErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 40: exoplanet.LambdaAngleErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 41: exoplanet.ImpactParameter = ReplaceNonNumerics (stringer); break;
-                            case 42: exoplanet.ImpactParameterErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 43: exoplanet.ImpactParameterErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 41: exoplanet.ImpactParameter = Helper.ReplaceNonNumerics (stringer); break;
+                            case 42: exoplanet.ImpactParameterErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 43: exoplanet.ImpactParameterErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 44: exoplanet.TzeroVr = ReplaceNonNumerics (stringer); break;
-                            case 45: exoplanet.TzeroVrErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 46: exoplanet.TzeroVrErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 44: exoplanet.TzeroVr = Helper.ReplaceNonNumerics (stringer); break;
+                            case 45: exoplanet.TzeroVrErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 46: exoplanet.TzeroVrErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 47: exoplanet.K = ReplaceNonNumerics (stringer); break;
-                            case 48: exoplanet.KErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 49: exoplanet.KErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 47: exoplanet.K = Helper.ReplaceNonNumerics (stringer); break;
+                            case 48: exoplanet.KErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 49: exoplanet.KErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 50: exoplanet.TemperatureMeasured = ReplaceNonNumerics (stringer); break;
+                            case 50: exoplanet.TemperatureMeasured = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 51: exoplanet.TemperatureCalculated = ReplaceNonNumerics (stringer); break;
+                            case 51: exoplanet.TemperatureCalculated = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 52: exoplanet.TemperatureHotPointLo = ReplaceNonNumerics (stringer); break;
+                            case 52: exoplanet.TemperatureHotPointLo = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 53: exoplanet.GeometricAlbedo = ReplaceNonNumerics (stringer); break;
-                            case 54: exoplanet.GeometricAlbedoErrorMin = ReplaceNonNumerics (stringer); break;
-                            case 55: exoplanet.GeometricAlbedoErrorMax = ReplaceNonNumerics (stringer); break;
+                            case 53: exoplanet.GeometricAlbedo = Helper.ReplaceNonNumerics (stringer); break;
+                            case 54: exoplanet.GeometricAlbedoErrorMin = Helper.ReplaceNonNumerics (stringer); break;
+                            case 55: exoplanet.GeometricAlbedoErrorMax = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 56: exoplanet.LogG = ReplaceNonNumerics (stringer); break;
+                            case 56: exoplanet.LogG = Helper.ReplaceNonNumerics (stringer); break;
 
                             case 57: exoplanet.Status = stringer; break;
 
@@ -273,29 +277,29 @@ namespace ExoplanetLibrary
 
                             case 63: exoplanet.Star.Name = stringer; break;
 
-                            case 64: exoplanet.Star.RightAccession = ReplaceNonNumerics (stringer); break;
+                            case 64: exoplanet.Star.RightAccession = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 65: exoplanet.Star.Declination = ReplaceNonNumerics (stringer); break;
+                            case 65: exoplanet.Star.Declination = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 66: exoplanet.Star.Magnitudes.V = ReplaceNonNumerics (stringer); break;
-                            case 67: exoplanet.Star.Magnitudes.I = ReplaceNonNumerics (stringer); break;
-                            case 68: exoplanet.Star.Magnitudes.J = ReplaceNonNumerics (stringer); break;
-                            case 69: exoplanet.Star.Magnitudes.H = ReplaceNonNumerics (stringer); break;
-                            case 70: exoplanet.Star.Magnitudes.K = ReplaceNonNumerics (stringer); break;
+                            case 66: exoplanet.Star.Magnitude.V = Helper.ReplaceNonNumerics (stringer); break;
+                            case 67: exoplanet.Star.Magnitude.I = Helper.ReplaceNonNumerics (stringer); break;
+                            case 68: exoplanet.Star.Magnitude.J = Helper.ReplaceNonNumerics (stringer); break;
+                            case 69: exoplanet.Star.Magnitude.H = Helper.ReplaceNonNumerics (stringer); break;
+                            case 70: exoplanet.Star.Magnitude.K = Helper.ReplaceNonNumerics (stringer); break;
 
-                            case 71: exoplanet.Star.Properties.Distance = ReplaceNonNumerics (stringer); break;
-                            case 72: exoplanet.Star.Properties.Metallicity = ReplaceNonNumerics (stringer); break;
-                            case 73: exoplanet.Star.Properties.Mass = ReplaceNonNumerics (stringer); break;
-                            case 74: exoplanet.Star.Properties.Radius = ReplaceNonNumerics (stringer); break;
-                            case 75: exoplanet.Star.Properties.SPType = ReplaceNonNumerics (stringer); break;
-                            case 76: exoplanet.Star.Properties.Age = stringer; break;
-                            case 77: exoplanet.Star.Properties.Teff = ReplaceNonNumerics (stringer); break;
-                            case 78: exoplanet.Star.Properties.DetectedDisc = stringer; break;
-                            case 79: exoplanet.Star.Properties.MagneticField = stringer; break;
+                            case 71: exoplanet.Star.Property.Distance = Helper.ReplaceNonNumerics (stringer); break;
+                            case 72: exoplanet.Star.Property.Metallicity = Helper.ReplaceNonNumerics (stringer); break;
+                            case 73: exoplanet.Star.Property.Mass = Helper.ReplaceNonNumerics (stringer); break;
+                            case 74: exoplanet.Star.Property.Radius = Helper.ReplaceNonNumerics (stringer); break;
+                            case 75: exoplanet.Star.Property.SPType = Helper.ReplaceNonNumerics (stringer); break;
+                            case 76: exoplanet.Star.Property.Age = stringer; break;
+                            case 77: exoplanet.Star.Property.Teff = Helper.ReplaceNonNumerics (stringer); break;
+                            case 78: exoplanet.Star.Property.DetectedDisc = stringer; break;
+                            case 79: exoplanet.Star.Property.MagneticField = stringer; break;
                             }
                         }
 
-                    if (column == 79)
+                    if (column == Constant.Version2StringCount)
                         done = true;
                     else
                         ++column;
@@ -305,16 +309,6 @@ namespace ExoplanetLibrary
             WriteXML.WriteExoplanet (writer, exoplanet, Version);
 
             return 0;
-            }
-
-        static private string ReplaceNonNumerics (string originalString)
-            {
-            if (originalString == "inf")
-                return "";
-            else if (originalString == "nan")
-                return "";
-            else
-                return originalString;
             }
 
         }

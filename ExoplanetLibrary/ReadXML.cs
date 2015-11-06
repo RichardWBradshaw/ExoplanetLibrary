@@ -6,604 +6,12 @@ using System.Collections;
 
 namespace ExoplanetLibrary
     {
-    public class CMagnitudes
+    public class ReadXML
         {
-        private string V_;
-        public string V
+        public ReadXML ()
             {
-            get { return V_; }
-            set { V_ = value; }
             }
 
-        private string I_;
-        public string I
-            {
-            get { return I_; }
-            set { I_ = value; }
-            }
-
-        private string J_;
-        public string J
-            {
-            get { return J_; }
-            set { J_ = value; }
-            }
-
-        private string H_;
-        public string H
-            {
-            get { return H_; }
-            set { H_ = value; }
-            }
-
-        private string K_;
-        public string K
-            {
-            get { return K_; }
-            set { K_ = value; }
-            }
-        };
-
-    public class CProperties
-        {
-        private string Distance_;
-        public string Distance
-            {
-            get { return Distance_; }
-            set { Distance_ = value; }
-            }
-
-        private string Metallicity_;
-        public string Metallicity
-            {
-            get { return Metallicity_; }
-            set { Metallicity_ = value; }
-            }
-
-        private string Mass_;
-        public string Mass
-            {
-            get { return Mass_; }
-            set { Mass_ = value; }
-            }
-
-        private string Radius_;
-        public string Radius
-            {
-            get { return Radius_; }
-            set { Radius_ = value; }
-            }
-
-        private string SPType_;
-        public string SPType
-            {
-            get { return SPType_; }
-            set { SPType_ = value; }
-            }
-
-        private string Age_;
-        public string Age
-            {
-            get { return Age_; }
-            set { Age_ = value; }
-            }
-
-        private string Teff_;
-        public string Teff
-            {
-            get { return Teff_; }
-            set { Teff_ = value; }
-            }
-
-        private string DetectedDisc_;
-        public string DetectedDisc
-            {
-            get { return DetectedDisc_; }
-            set { DetectedDisc_ = value; }
-            }
-
-        private string MagneticField_;
-        public string MagneticField
-            {
-            get { return MagneticField_; }
-            set { MagneticField_ = value; }
-            }
-        };
-
-    public class CStar
-        {
-        private string Name_;
-        public string Name
-            {
-            get { return Name_; }
-            set { Name_ = value; }
-            }
-
-        private string RightAccession_;
-        public string RightAccession
-            {
-            get { return RightAccession_; }
-            set { RightAccession_ = value; }
-            }
-
-        private string Declination_;
-        public string Declination
-            {
-            get { return Declination_; }
-            set { Declination_ = value; }
-            }
-
-        private CMagnitudes Magnitudes_;
-        public CMagnitudes Magnitudes
-            {
-            get { return Magnitudes_; }
-            set { Magnitudes_ = value; }
-            }
-
-        private CProperties Properties_;
-        public CProperties Properties
-            {
-            get { return Properties_; }
-            set { Properties_ = value; }
-            }
-
-        public CStar ()
-            {
-            Magnitudes = new CMagnitudes ();
-            Properties = new CProperties ();
-            }
-        };
-
-    public class CExoplanet
-        {
-        private string Name_;
-        public string Name
-            {
-            get { return Name_; }
-            set { Name_ = value; }
-            }
-
-        private string Mass_;
-        public string Mass
-            {
-            get { return Mass_; }
-            set { Mass_ = value; }
-            }
-
-        private string MassErrorMin_;
-        public string MassErrorMin
-            {
-            get { return MassErrorMin_; }
-            set { MassErrorMin_ = value; }
-            }
-
-        private string MassErrorMax_;
-        public string MassErrorMax
-            {
-            get { return MassErrorMax_; }
-            set { MassErrorMax_ = value; }
-            }
-
-        private string Radius_;
-        public string Radius
-            {
-            get { return Radius_; }
-            set { Radius_ = value; }
-            }
-
-        private string RadiusErrorMin_;
-        public string RadiusErrorMin
-            {
-            get { return RadiusErrorMin_; }
-            set { RadiusErrorMin_ = value; }
-            }
-
-        private string RadiusErrorMax_;
-        public string RadiusErrorMax
-            {
-            get { return RadiusErrorMax_; }
-            set { RadiusErrorMax_ = value; }
-            }
-
-        private string OrbitalPeriod_;
-        public string OrbitalPeriod
-            {
-            get { return OrbitalPeriod_; }
-            set { OrbitalPeriod_ = value; }
-            }
-
-        private string OrbitalPeriodErrorMin_;
-        public string OrbitalPeriodErrorMin
-            {
-            get { return OrbitalPeriodErrorMin_; }
-            set { OrbitalPeriodErrorMin_ = value; }
-            }
-
-        private string OrbitalPeriodErrorMax_;
-        public string OrbitalPeriodErrorMax
-            {
-            get { return OrbitalPeriodErrorMax_; }
-            set { OrbitalPeriodErrorMax_ = value; }
-            }
-
-        private string SemiMajorAxis_;
-        public string SemiMajorAxis
-            {
-            get { return SemiMajorAxis_; }
-            set { SemiMajorAxis_ = value; }
-            }
-
-        private string SemiMajorAxisErrorMin_;
-        public string SemiMajorAxisErrorMin
-            {
-            get { return SemiMajorAxisErrorMin_; }
-            set { SemiMajorAxisErrorMin_ = value; }
-            }
-
-        private string SemiMajorAxisErrorMax_;
-        public string SemiMajorAxisErrorMax
-            {
-            get { return SemiMajorAxisErrorMax_; }
-            set { SemiMajorAxisErrorMax_ = value; }
-            }
-
-        private string Eccentricity_;
-        public string Eccentricity
-            {
-            get { return Eccentricity_; }
-            set { Eccentricity_ = value; }
-            }
-
-        private string EccentricityErrorMin_;
-        public string EccentricityErrorMin
-            {
-            get { return EccentricityErrorMin_; }
-            set { EccentricityErrorMin_ = value; }
-            }
-
-        private string EccentricityErrorMax_;
-        public string EccentricityErrorMax
-            {
-            get { return EccentricityErrorMax_; }
-            set { EccentricityErrorMax_ = value; }
-            }
-
-        private string AngularDistance_;
-        public string AngularDistance
-            {
-            get { return AngularDistance_; }
-            set { AngularDistance_ = value; }
-            }
-
-        private string Inclination_;
-        public string Inclination
-            {
-            get { return Inclination_; }
-            set { Inclination_ = value; }
-            }
-
-        private string InclinationErrorMin_;
-        public string InclinationErrorMin
-            {
-            get { return InclinationErrorMin_; }
-            set { InclinationErrorMin_ = value; }
-            }
-
-        private string InclinationErrorMax_;
-        public string InclinationErrorMax
-            {
-            get { return InclinationErrorMax_; }
-            set { InclinationErrorMax_ = value; }
-            }
-
-        private string TzeroTr_;
-        public string TzeroTr
-            {
-            get { return TzeroTr_; }
-            set { TzeroTr_ = value; }
-            }
-        private string TzeroTrErrorMin_;
-        public string TzeroTrErrorMin
-            {
-            get { return TzeroTrErrorMin_; }
-            set { TzeroTrErrorMin_ = value; }
-            }
-
-        private string TzeroTrErrorMax_;
-        public string TzeroTrErrorMax
-            {
-            get { return TzeroTrErrorMax_; }
-            set { TzeroTrErrorMax_ = value; }
-            }
-
-        private string TzeroTrSec_;
-        public string TzeroTrSec
-            {
-            get { return TzeroTrSec_; }
-            set { TzeroTrSec_ = value; }
-            }
-
-        private string TzeroTrSecErrorMin_;
-        public string TzeroTrSecErrorMin
-            {
-            get { return TzeroTrSecErrorMin_; }
-            set { TzeroTrSecErrorMin_ = value; }
-            }
-
-        private string TzeroTrSecErrorMax_;
-        public string TzeroTrSecErrorMax
-            {
-            get { return TzeroTrSecErrorMax_; }
-            set { TzeroTrSecErrorMax_ = value; }
-            }
-
-        private string LambdaAngle_;
-        public string LambdaAngle
-            {
-            get { return LambdaAngle_; }
-            set { LambdaAngle_ = value; }
-            }
-
-        private string LambdaAngleErrorMin_;
-        public string LambdaAngleErrorMin
-            {
-            get { return LambdaAngleErrorMin_; }
-            set { LambdaAngleErrorMin_ = value; }
-            }
-
-        private string LambdaAngleErrorMax_;
-        public string LambdaAngleErrorMax
-            {
-            get { return LambdaAngleErrorMax_; }
-            set { LambdaAngleErrorMax_ = value; }
-            }
-
-        private string TzeroVr_;
-        public string TzeroVr
-            {
-            get { return TzeroVr_; }
-            set { TzeroVr_ = value; }
-            }
-
-        private string TzeroVrErrorMin_;
-        public string TzeroVrErrorMin
-            {
-            get { return TzeroVrErrorMin_; }
-            set { TzeroVrErrorMin_ = value; }
-            }
-
-        private string TzeroVrErrorMax_;
-        public string TzeroVrErrorMax
-            {
-            get { return TzeroVrErrorMax_; }
-            set { TzeroVrErrorMax_ = value; }
-            }
-
-        private string TemperatureCalculated_;
-        public string TemperatureCalculated
-            {
-            get { return TemperatureCalculated_; }
-            set { TemperatureCalculated_ = value; }
-            }
-
-        private string TemperatureMeasured_;
-        public string TemperatureMeasured
-            {
-            get { return TemperatureMeasured_; }
-            set { TemperatureMeasured_ = value; }
-            }
-
-        private string TemperatureHotPointLo_;
-        public string TemperatureHotPointLo
-            {
-            get { return TemperatureHotPointLo_; }
-            set { TemperatureHotPointLo_ = value; }
-            }
-
-        private string LogG_;
-        public string LogG
-            {
-            get { return LogG_; }
-            set { LogG_ = value; }
-            }
-
-        private string Status_;
-        public string Status
-            {
-            get { return Status_; }
-            set { Status_ = value; }
-            }
-
-        private string Discovered_;
-        public string Discovered
-            {
-            get { return Discovered_; }
-            set { Discovered_ = value; }
-            }
-
-        private string Updated_;
-        public string Updated
-            {
-            get { return Updated_; }
-            set { Updated_ = value; }
-            }
-
-        private string Omega_;
-        public string Omega
-            {
-            get { return Omega_; }
-            set { Omega_ = value; }
-            }
-
-        private string OmegaErrorMin_;
-        public string OmegaErrorMin
-            {
-            get { return OmegaErrorMin_; }
-            set { OmegaErrorMin_ = value; }
-            }
-
-        private string OmegaErrorMax_;
-        public string OmegaErrorMax
-            {
-            get { return OmegaErrorMax_; }
-            set { OmegaErrorMax_ = value; }
-            }
-
-        private string Tperi_;
-        public string Tperi
-            {
-            get { return Tperi_; }
-            set { Tperi_ = value; }
-            }
-
-        private string TperiErrorMin_;
-        public string TperiErrorMin
-            {
-            get { return TperiErrorMin_; }
-            set { TperiErrorMin_ = value; }
-            }
-
-        private string TperiErrorMax_;
-        public string TperiErrorMax
-            {
-            get { return TperiErrorMax_; }
-            set { TperiErrorMax_ = value; }
-            }
-
-        private string DetectionType_;
-        public string DetectionType
-            {
-            get { return DetectionType_; }
-            set { DetectionType_ = value; }
-            }
-
-        private string Molecules_;
-        public string Molecules
-            {
-            get { return Molecules_; }
-            set { Molecules_ = value; }
-            }
-
-        private string ImpactParameter_;
-        public string ImpactParameter
-            {
-            get { return ImpactParameter_; }
-            set { ImpactParameter_ = value; }
-            }
-
-        private string ImpactParameterErrorMin_;
-        public string ImpactParameterErrorMin
-            {
-            get { return ImpactParameterErrorMin_; }
-            set { ImpactParameterErrorMin_ = value; }
-            }
-
-        private string ImpactParameterErrorMax_;
-        public string ImpactParameterErrorMax
-            {
-            get { return ImpactParameterErrorMax_; }
-            set { ImpactParameterErrorMax_ = value; }
-            }
-
-        private string K_;
-        public string K
-            {
-            get { return K_; }
-            set { K_ = value; }
-            }
-
-        private string KErrorMin_;
-        public string KErrorMin
-            {
-            get { return KErrorMin_; }
-            set { KErrorMin_ = value; }
-            }
-
-        private string KErrorMax_;
-        public string KErrorMax
-            {
-            get { return KErrorMax_; }
-            set { KErrorMax_ = value; }
-            }
-
-        private string GeometricAlbedo_;
-        public string GeometricAlbedo
-            {
-            get { return GeometricAlbedo_; }
-            set { GeometricAlbedo_ = value; }
-            }
-
-        private string GeometricAlbedoErrorMin_;
-        public string GeometricAlbedoErrorMin
-            {
-            get { return GeometricAlbedoErrorMin_; }
-            set { GeometricAlbedoErrorMin_ = value; }
-            }
-
-        private string GeometricAlbedoErrorMax_;
-        public string GeometricAlbedoErrorMax
-            {
-            get { return GeometricAlbedoErrorMax_; }
-            set { GeometricAlbedoErrorMax_ = value; }
-            }
-
-        private string Tconj_;
-        public string Tconj
-            {
-            get { return Tconj_; }
-            set { Tconj_ = value; }
-            }
-
-        private string TconjErrorMin_;
-        public string TconjErrorMin
-            {
-            get { return TconjErrorMin_; }
-            set { TconjErrorMin_ = value; }
-            }
-
-        private string TconjErrorMax_;
-        public string TconjErrorMax
-            {
-            get { return TconjErrorMax_; }
-            set { TconjErrorMax_ = value; }
-            }
-
-        private string MassDetectionType_;
-        public string MassDetectionType
-            {
-            get { return MassDetectionType_; }
-            set { MassDetectionType_ = value; }
-            }
-
-        private string RadiusDetectionType_;
-        public string RadiusDetectionType
-            {
-            get { return RadiusDetectionType_; }
-            set { RadiusDetectionType_ = value; }
-            }
-
-        private string AlternateNames_;
-        public string AlternateNames
-            {
-            get { return AlternateNames_; }
-            set { AlternateNames_ = value; }
-            }
-
-        private CStar Star_;
-        public CStar Star
-            {
-            get { return Star_; }
-            set { Star_ = value; }
-            }
-
-        public CExoplanet ()
-            {
-            Star_ = new CStar ();
-            }
-        };
-
-    public class ReadXML : CExoplanet
-        {
         static private XmlReader Reader_ = null;
         static private XmlReader Reader
             {
@@ -611,21 +19,21 @@ namespace ExoplanetLibrary
             set { Reader_ = value; }
             }
 
-        static private string Version_ = "2.0";
+        static private string Version_ = Constant.Version2;
         static private string Version
             {
             get { return Version_; }
             set { Version_ = value; }
             }
 
-        static private string XsdVersion1FileName_ = "C:\\ProgramData\\Exoplanet Library\\schema\\EXOPLANET.V.1.xsd";
+        static private string XsdVersion1FileName_ = Constant.SchemaFolder + "EXOPLANET.V.1.xsd";
         static private string XsdVersion1FileName
             {
             get { return XsdVersion1FileName_; }
             set { XsdVersion1FileName_ = value; }
             }
 
-        static private string XsdVersion2FileName_ = "C:\\ProgramData\\Exoplanet Library\\schema\\EXOPLANET.xsd";
+        static private string XsdVersion2FileName_ = Constant.SchemaFolder + "EXOPLANET.xsd";
         static private string XsdVersion2FileName
             {
             get { return XsdVersion2FileName_; }
@@ -656,11 +64,11 @@ namespace ExoplanetLibrary
             ValidationEventHandler validationEventHandler = new ValidationEventHandler (exoplanetSettingsValidationEventHandler);
             XmlSchema xmlSchema = null;
 
-            if(skipValidation== false)
+            if (skipValidation == false)
                 if (File.Exists (@XsdVersion2FileName) || File.Exists (@XsdVersion1FileName))
-                    if (string.Equals (Version, "2.0"))
+                    if (string.Equals (Version, Constant.Version2))
                         xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion2FileName, FileMode.Open) ), validationEventHandler);
-                    else if (string.Equals (Version, "1.0"))
+                    else if (string.Equals (Version, Constant.Version1))
                         xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion1FileName, FileMode.Open) ), validationEventHandler);
 
             settings.ConformanceLevel = ConformanceLevel.Document;
@@ -681,7 +89,7 @@ namespace ExoplanetLibrary
                 settings.ValidationType = ValidationType.None;
             }
 
-        static public int Read (string xmlFileName, ref ArrayList exoplanets, bool skipValidation)
+        static public int Read (string xmlFileName, ref ArrayList exoplanets, bool skipValidation = false)
             {
             ValidationErrors = "";
 
@@ -699,7 +107,7 @@ namespace ExoplanetLibrary
 
                 while (Reader.Read ())
                     {
-                    CExoplanet exoplanet = new CExoplanet ();
+                    Exoplanet exoplanet = new Exoplanet ();
 
                     ReadExoplanet (exoplanet);
                     ReadMass (exoplanet);
@@ -723,7 +131,7 @@ namespace ExoplanetLibrary
                     ReadDetectionType (exoplanet);
                     ReadMolecules (exoplanet);
 
-                    if (string.Equals (Version, "2.0"))
+                    if (string.Equals (Version, Constant.Version2))
                         {
                         ReadImpactParameter (exoplanet);
                         ReadK (exoplanet);
@@ -754,7 +162,7 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        static void ReadExoplanet (CExoplanet exoplanet)
+        static void ReadExoplanet (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Exoplanet");
 
@@ -762,7 +170,7 @@ namespace ExoplanetLibrary
             exoplanet.Name = Reader.Value;
             }
 
-        static void ReadMass (CExoplanet exoplanet)
+        static void ReadMass (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Mass");
 
@@ -783,7 +191,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadRadius (CExoplanet exoplanet)
+        static void ReadRadius (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Radius");
 
@@ -804,7 +212,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadOrbitalPeriod (CExoplanet exoplanet)
+        static void ReadOrbitalPeriod (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("OrbitalPeriod");
 
@@ -825,7 +233,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadSemiMajorAxis (CExoplanet exoplanet)
+        static void ReadSemiMajorAxis (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("SemiMajorAxis");
 
@@ -846,7 +254,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadEccentricity (CExoplanet exoplanet)
+        static void ReadEccentricity (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Eccentricity");
 
@@ -867,14 +275,14 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadAngularDistance (CExoplanet exoplanet)
+        static void ReadAngularDistance (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("AngularDistance");
             Reader.MoveToFirstAttribute ();
             exoplanet.AngularDistance = Reader.Value;
             }
 
-        static void ReadInclination (CExoplanet exoplanet)
+        static void ReadInclination (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Inclination");
 
@@ -895,7 +303,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadTzeroTr (CExoplanet exoplanet)
+        static void ReadTzeroTr (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("TzeroTr");
 
@@ -916,7 +324,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadTzeroTrSec (CExoplanet exoplanet)
+        static void ReadTzeroTrSec (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("TzeroTrSec");
 
@@ -937,7 +345,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadLambdaAngle (CExoplanet exoplanet)
+        static void ReadLambdaAngle (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("LambdaAngle");
 
@@ -958,7 +366,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadTzeroVr (CExoplanet exoplanet)
+        static void ReadTzeroVr (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("TzeroVr");
 
@@ -979,7 +387,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadTemperature (CExoplanet exoplanet)
+        static void ReadTemperature (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Temperature");
 
@@ -1000,35 +408,35 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadLogG (CExoplanet exoplanet)
+        static void ReadLogG (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("LogG");
             Reader.MoveToFirstAttribute ();
             exoplanet.LogG = Reader.Value;
             }
 
-        static void ReadPublicationStatus (CExoplanet exoplanet)
+        static void ReadPublicationStatus (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("PublicationStatus");
             Reader.MoveToFirstAttribute ();
             exoplanet.Status = Reader.Value;
             }
 
-        static void ReadDiscovered (CExoplanet exoplanet)
+        static void ReadDiscovered (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Discovered");
             Reader.MoveToFirstAttribute ();
             exoplanet.Discovered = Reader.Value;
             }
 
-        static void ReadUpdated (CExoplanet exoplanet)
+        static void ReadUpdated (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Updated");
             Reader.MoveToFirstAttribute ();
             exoplanet.Updated = Reader.Value;
             }
 
-        static void ReadOmega (CExoplanet exoplanet)
+        static void ReadOmega (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Omega");
 
@@ -1049,7 +457,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadTperi (CExoplanet exoplanet)
+        static void ReadTperi (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Tperi");
 
@@ -1070,21 +478,21 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadDetectionType (CExoplanet exoplanet)
+        static void ReadDetectionType (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("DetectionType");
             Reader.MoveToFirstAttribute ();
             exoplanet.DetectionType = Reader.Value;
             }
 
-        static void ReadMolecules (CExoplanet exoplanet)
+        static void ReadMolecules (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Molecules");
             Reader.MoveToFirstAttribute ();
             exoplanet.Molecules = Reader.Value;
             }
 
-        static void ReadImpactParameter (CExoplanet exoplanet)
+        static void ReadImpactParameter (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("ImpactParameter");
 
@@ -1105,7 +513,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadK (CExoplanet exoplanet)
+        static void ReadK (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("K");
 
@@ -1126,7 +534,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadGeometricAlbedo (CExoplanet exoplanet)
+        static void ReadGeometricAlbedo (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("GeometricAlbedo");
 
@@ -1147,7 +555,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadTconj (CExoplanet exoplanet)
+        static void ReadTconj (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Tconj");
 
@@ -1168,28 +576,28 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadMassDetectionType (CExoplanet exoplanet)
+        static void ReadMassDetectionType (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("MassDetectionType");
             Reader.MoveToFirstAttribute ();
             exoplanet.MassDetectionType = Reader.Value;
             }
 
-        static void ReadRadiusDetectionType (CExoplanet exoplanet)
+        static void ReadRadiusDetectionType (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("RadiusDetectionType");
             Reader.MoveToFirstAttribute ();
             exoplanet.RadiusDetectionType = Reader.Value;
             }
 
-        static void ReadAlternateNames (CExoplanet exoplanet)
+        static void ReadAlternateNames (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("AlternateNames");
             Reader.MoveToFirstAttribute ();
             exoplanet.AlternateNames = Reader.Value;
             }
 
-        static void ReadStar (CExoplanet exoplanet)
+        static void ReadStar (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Star");
 
@@ -1210,67 +618,67 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadMagnitudes (CExoplanet exoplanet)
+        static void ReadMagnitudes (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("Magnitudes");
+            Reader.ReadToFollowing ("Magnitude");
 
             while (Reader.MoveToNextAttribute ())
                 {
                 switch (Reader.Name)
                     {
                     case "V":
-                        exoplanet.Star.Magnitudes.V = Reader.Value;
+                        exoplanet.Star.Magnitude.V = Reader.Value;
                         break;
                     case "I":
-                        exoplanet.Star.Magnitudes.I = Reader.Value;
+                        exoplanet.Star.Magnitude.I = Reader.Value;
                         break;
                     case "J":
-                        exoplanet.Star.Magnitudes.J = Reader.Value;
+                        exoplanet.Star.Magnitude.J = Reader.Value;
                         break;
                     case "H":
-                        exoplanet.Star.Magnitudes.H = Reader.Value;
+                        exoplanet.Star.Magnitude.H = Reader.Value;
                         break;
                     case "K":
-                        exoplanet.Star.Magnitudes.K = Reader.Value;
+                        exoplanet.Star.Magnitude.K = Reader.Value;
                         break;
                     }
                 }
             }
 
-        static void ReadProperties (CExoplanet exoplanet)
+        static void ReadProperties (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("Properties");
+            Reader.ReadToFollowing ("Property");
 
             while (Reader.MoveToNextAttribute ())
                 {
                 switch (Reader.Name)
                     {
                     case "Distance":
-                        exoplanet.Star.Properties.Distance = Reader.Value;
+                        exoplanet.Star.Property.Distance = Reader.Value;
                         break;
                     case "Metallicity":
-                        exoplanet.Star.Properties.Metallicity = Reader.Value;
+                        exoplanet.Star.Property.Metallicity = Reader.Value;
                         break;
                     case "Mass":
-                        exoplanet.Star.Properties.Mass = Reader.Value;
+                        exoplanet.Star.Property.Mass = Reader.Value;
                         break;
                     case "Radius":
-                        exoplanet.Star.Properties.Radius = Reader.Value;
+                        exoplanet.Star.Property.Radius = Reader.Value;
                         break;
                     case "SPType":
-                        exoplanet.Star.Properties.SPType = Reader.Value;
+                        exoplanet.Star.Property.SPType = Reader.Value;
                         break;
                     case "Age":
-                        exoplanet.Star.Properties.Age = Reader.Value;
+                        exoplanet.Star.Property.Age = Reader.Value;
                         break;
                     case "Teff":
-                        exoplanet.Star.Properties.Teff = Reader.Value;
+                        exoplanet.Star.Property.Teff = Reader.Value;
                         break;
                     case "DetectedDisc":
-                        exoplanet.Star.Properties.DetectedDisc = Reader.Value;
+                        exoplanet.Star.Property.DetectedDisc = Reader.Value;
                         break;
                     case "MagneticField":
-                        exoplanet.Star.Properties.MagneticField = Reader.Value;
+                        exoplanet.Star.Property.MagneticField = Reader.Value;
                         break;
                     }
                 }

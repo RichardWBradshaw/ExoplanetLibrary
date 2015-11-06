@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Reflection;
 
 namespace ExoplanetLibrary
     {
@@ -9,8 +10,63 @@ namespace ExoplanetLibrary
         public int Count;
         }
 
-   public class Helper
+    static public class Helper      // can not be instantiated, use for a utility class
         {
+#if Singleton                       // needs to be instantiated, but only once
+       private static Helper instance;
+
+       private Helper()
+           {
+           }
+
+       public static Helper Instance
+           {
+           get
+               {
+               if (instance == null)
+                   {
+                   instance = new Helper ();
+                   }
+
+               return instance;
+               }
+           }
+#else
+#endif
+
+        static public string Format (string value, string minimumError, string maximumError)
+            {
+            if (minimumError != null && maximumError != null && minimumError.Length > 0 && maximumError.Length > 0)
+                {
+                if (string.Equals (minimumError, maximumError))
+                    return value + " (+/-" + maximumError + ")";
+                else
+                    return value + " (+" + maximumError + "/-" + minimumError + ")";
+                }
+            else if (value != null && value.Length > 0)
+                return value;
+            else
+                return " - ";
+            }
+
+        static public string Format (string value)
+            {
+            if (value != null && value.Length > 0)
+                return value;
+            else
+                return " - ";
+            }
+
+        static public string ReplaceNonNumerics (string originalString)
+            {
+            if (originalString == "inf")
+                return "";
+            else if (originalString == "nan")
+                return "";
+            else
+                return originalString;
+            }
+
         static public string FormatHMS (string text)
             {
             if (!string.IsNullOrEmpty (text))
@@ -51,14 +107,19 @@ namespace ExoplanetLibrary
             return false;
             }
 
+        static public int NumberOfExoplanets (ArrayList exoplanets)
+            {
+            return exoplanets != null ? exoplanets.Count : 0;
+            }
+
         static public int NumberOfMultiPlanetStars (ArrayList exoplanets)
             {
             exoplanets.Sort (new SortByStarName ());
 
-            CExoplanet previousExoplanet = null;
+            Exoplanet previousExoplanet = null;
             int multiPlanetStars = 0;
 
-            foreach (CExoplanet exoplanet in exoplanets)
+            foreach (Exoplanet exoplanet in exoplanets)
                 {
                 if (previousExoplanet != null)
                     if (string.Equals (exoplanet.Star.Name, previousExoplanet.Star.Name))
@@ -109,10 +170,10 @@ namespace ExoplanetLibrary
             {
             int matches = 0;
 
-            foreach (CExoplanet exoplanet in exoplanets)
+            foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if (exoplanet.Star.Properties.SPType != null)
-                    if (exoplanet.Star.Properties.SPType [0] == type)
+                if (exoplanet.Star.Property.SPType != null)
+                    if (exoplanet.Star.Property.SPType [0] == type)
                         ++matches;
                 }
 
@@ -123,9 +184,9 @@ namespace ExoplanetLibrary
             {
             types = new ArrayList ();
 
-            foreach (CExoplanet exoplanet in exoplanets)
+            foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if (exoplanet.Star.Properties.SPType != null)
+                if (exoplanet.Star.Property.SPType != null)
                     {
                     bool addType = true;
 
@@ -133,7 +194,7 @@ namespace ExoplanetLibrary
                         {
                         StarTypes type = types [index] as StarTypes;
 
-                        if (exoplanet.Star.Properties.SPType.Substring (0, 1) == type.Name)
+                        if (exoplanet.Star.Property.SPType.Substring (0, 1) == type.Name)
                             {
                             ++type.Count;
                             addType = false;
@@ -143,7 +204,7 @@ namespace ExoplanetLibrary
                     if (addType)
                         {
                         StarTypes type = new StarTypes ();
-                        type.Name = exoplanet.Star.Properties.SPType.Substring (0, 1);
+                        type.Name = exoplanet.Star.Property.SPType.Substring (0, 1);
                         type.Count = 1;
 
                         types.Add (type);
@@ -167,115 +228,183 @@ namespace ExoplanetLibrary
 
             for (int index = 0; index < exoplanetArray1.Count; ++index)
                 {
-                CExoplanet exoplanet1 = exoplanetArray1 [index] as CExoplanet;
-                CExoplanet exoplanet2 = exoplanetArray2 [index] as CExoplanet;
+                Exoplanet exoplanet1 = exoplanetArray1 [index] as Exoplanet;
+                Exoplanet exoplanet2 = exoplanetArray2 [index] as Exoplanet;
 
-                if (!AreEqual (exoplanet1, exoplanet2))
+                if (!CompareEquals (exoplanet1, exoplanet2))
+                   return false;
+                }
+
+            return true;
+            }
+
+        public static bool CompareEquals (Exoplanet objectFromCompare, Exoplanet objectToCompare)
+            {
+            if (objectFromCompare == null && objectToCompare == null)
+                return true;
+            else if (objectFromCompare == null && objectToCompare != null)
+                return false;
+            else if (objectFromCompare != null && objectToCompare == null)
+                return false;
+
+            PropertyInfo [] propertyInfoArray = objectFromCompare.GetType ().GetProperties (BindingFlags.Instance | BindingFlags.Public);
+
+            foreach (PropertyInfo propertyInfo in propertyInfoArray)
+                {
+                object dataFromCompare = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectFromCompare, null);
+                object dataToCompare = objectToCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null);
+
+                if (dataFromCompare != null && dataToCompare != null)
+                    {
+                    Type type = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null).GetType ();
+
+                    if (propertyInfo.PropertyType.IsClass && !propertyInfo.PropertyType.FullName.Contains ("System.String"))
+                        {
+                        dynamic convertedFromValue = Convert.ChangeType (dataFromCompare, type);
+                        dynamic convertedToValue = Convert.ChangeType (dataToCompare, type);
+
+                        object result = CompareEquals (convertedFromValue, convertedToValue);
+
+                        if (!( bool )result)
+                            return false;
+                        }
+                    else if (!dataFromCompare.Equals (dataToCompare))
+                        return false;
+                    }
+                else if (dataFromCompare != null && dataToCompare == null)
+                    return false;
+                else if (dataFromCompare == null && dataToCompare != null)
                     return false;
                 }
 
             return true;
             }
 
-        static private bool AreEqual (CExoplanet exoplanet1, CExoplanet exoplanet2)
+        public static bool CompareEquals (Star objectFromCompare, Star objectToCompare)
             {
-            if (!string.Equals (exoplanet1.Name, exoplanet2.Name))
+            if (objectFromCompare == null && objectToCompare == null)
+                return true;
+            else if (objectFromCompare == null && objectToCompare != null)
+                return false;
+            else if (objectFromCompare != null && objectToCompare == null)
                 return false;
 
-            if (!string.Equals (exoplanet1.Mass, exoplanet2.Mass))
-                return false;
+            PropertyInfo [] propertyInfoArray = objectFromCompare.GetType ().GetProperties (BindingFlags.Instance | BindingFlags.Public);
 
-            if (!string.Equals (exoplanet1.Radius, exoplanet2.Radius))
-                return false;
+            foreach (PropertyInfo propertyInfo in propertyInfoArray)
+                {
+                object dataFromCompare = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectFromCompare, null);
+                object dataToCompare = objectToCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null);
 
-            if (!string.Equals (exoplanet1.OrbitalPeriod, exoplanet2.OrbitalPeriod))
-                return false;
+                if (dataFromCompare != null && dataToCompare != null)
+                    {
+                    Type type = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null).GetType ();
 
-            if (!string.Equals (exoplanet1.SemiMajorAxis, exoplanet2.SemiMajorAxis))
-                return false;
+                    if (propertyInfo.PropertyType.IsClass && !propertyInfo.PropertyType.FullName.Contains ("System.String"))
+                        {
+                        dynamic convertedFromValue = Convert.ChangeType (dataFromCompare, type);
+                        dynamic convertedToValue = Convert.ChangeType (dataToCompare, type);
 
-            if (!string.Equals (exoplanet1.Eccentricity, exoplanet2.Eccentricity))
-                return false;
+                        object result = CompareEquals (convertedFromValue, convertedToValue);
 
-            if (!string.Equals (exoplanet1.AngularDistance, exoplanet2.AngularDistance))
-                return false;
-
-            if (!string.Equals (exoplanet1.TzeroTr, exoplanet2.TzeroTr))
-                return false;
-
-            if (!string.Equals (exoplanet1.TzeroTrSec, exoplanet2.TzeroTrSec))
-                return false;
-
-            if (!string.Equals (exoplanet1.LambdaAngle, exoplanet2.LambdaAngle))
-                return false;
-
-            if (!string.Equals (exoplanet1.TzeroVr, exoplanet2.TzeroVr))
-                return false;
-
-            if (!string.Equals (exoplanet1.TemperatureCalculated, exoplanet2.TemperatureCalculated))
-                return false;
-
-            if (!string.Equals (exoplanet1.LogG, exoplanet2.LogG))
-                return false;
-
-            if (!string.Equals (exoplanet1.Status, exoplanet2.Status))
-                return false;
-
-            if (!string.Equals (exoplanet1.Discovered, exoplanet2.Discovered))
-                return false;
-
-            if (!string.Equals (exoplanet1.Updated, exoplanet2.Updated))
-                return false;
-
-            if (!string.Equals (exoplanet1.Omega, exoplanet2.Omega))
-                return false;
-
-            if (!string.Equals (exoplanet1.Tperi, exoplanet2.Tperi))
-                return false;
-
-            if (!string.Equals (exoplanet1.DetectionType, exoplanet2.DetectionType))
-                return false;
-
-            if (!string.Equals (exoplanet1.ImpactParameter, exoplanet2.ImpactParameter))
-                return false;
-
-            if (!string.Equals (exoplanet1.K, exoplanet2.K))
-                return false;
-
-            if (!string.Equals (exoplanet1.GeometricAlbedo, exoplanet2.GeometricAlbedo))
-                return false;
-
-            if (!string.Equals (exoplanet1.Tconj, exoplanet2.Tconj))
-                return false;
-
-            if (!string.Equals (exoplanet1.MassDetectionType, exoplanet2.MassDetectionType))
-                return false;
-
-            if (!string.Equals (exoplanet1.RadiusDetectionType, exoplanet2.RadiusDetectionType))
-                return false;
-
-            if (!string.Equals (exoplanet1.AlternateNames, exoplanet2.AlternateNames))
-                return false;
-
-            if (!string.Equals (exoplanet1.ImpactParameter, exoplanet2.ImpactParameter))
-                return false;
-
-            if (!string.Equals (exoplanet1.K, exoplanet2.K))
-                return false;
-
-            if (!string.Equals (exoplanet1.GeometricAlbedo, exoplanet2.GeometricAlbedo))
-                return false;
-
-            if (!string.Equals (exoplanet1.Tconj, exoplanet2.Tconj))
-                return false;
-
-            if (!string.Equals (exoplanet1.MassDetectionType, exoplanet2.MassDetectionType))
-                return false;
-
-            if (!string.Equals (exoplanet1.RadiusDetectionType, exoplanet2.RadiusDetectionType))
-                return false;
+                        if (!( bool )result)
+                            return false;
+                        }
+                    else if (!dataFromCompare.Equals (dataToCompare))
+                        return false;
+                    }
+                else if (dataFromCompare != null && dataToCompare == null)
+                    return false;
+                else if (dataFromCompare == null && dataToCompare != null)
+                    return false;
+                }
 
             return true;
             }
+
+        public static bool CompareEquals (Magnitude objectFromCompare, Magnitude objectToCompare)
+            {
+            if (objectFromCompare == null && objectToCompare == null)
+                return true;
+            else if (objectFromCompare == null && objectToCompare != null)
+                return false;
+            else if (objectFromCompare != null && objectToCompare == null)
+                return false;
+
+            PropertyInfo [] propertyInfoArray = objectFromCompare.GetType ().GetProperties (BindingFlags.Instance | BindingFlags.Public);
+
+            foreach (PropertyInfo propertyInfo in propertyInfoArray)
+                {
+                object dataFromCompare = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectFromCompare, null);
+                object dataToCompare = objectToCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null);
+
+                if (dataFromCompare != null && dataToCompare != null)
+                    {
+                    Type type = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null).GetType ();
+
+                    if (propertyInfo.PropertyType.IsClass && !propertyInfo.PropertyType.FullName.Contains ("System.String"))
+                        {
+                        dynamic convertedFromValue = Convert.ChangeType (dataFromCompare, type);
+                        dynamic convertedToValue = Convert.ChangeType (dataToCompare, type);
+
+                        object result = CompareEquals (convertedFromValue, convertedToValue);
+
+                        if (!( bool )result)
+                            return false;
+                        }
+                    else if (!dataFromCompare.Equals (dataToCompare))
+                        return false;
+                    }
+                else if (dataFromCompare != null && dataToCompare == null)
+                    return false;
+                else if (dataFromCompare == null && dataToCompare != null)
+                    return false;
+                }
+
+            return true;
+            }
+
+        public static bool CompareEquals (Property objectFromCompare, Property objectToCompare)
+            {
+            if (objectFromCompare == null && objectToCompare == null)
+                return true;
+            else if (objectFromCompare == null && objectToCompare != null)
+                return false;
+            else if (objectFromCompare != null && objectToCompare == null)
+                return false;
+
+            PropertyInfo [] propertyInfoArray = objectFromCompare.GetType ().GetProperties (BindingFlags.Instance | BindingFlags.Public);
+
+            foreach (PropertyInfo propertyInfo in propertyInfoArray)
+                {
+                object dataFromCompare = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectFromCompare, null);
+                object dataToCompare = objectToCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null);
+
+                if (dataFromCompare != null && dataToCompare != null)
+                    {
+                    Type type = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null).GetType ();
+
+                    if (propertyInfo.PropertyType.IsClass && !propertyInfo.PropertyType.FullName.Contains ("System.String"))
+                        {
+                        dynamic convertedFromValue = Convert.ChangeType (dataFromCompare, type);
+                        dynamic convertedToValue = Convert.ChangeType (dataToCompare, type);
+
+                        object result = CompareEquals (convertedFromValue, convertedToValue);
+
+                        if (!( bool )result)
+                            return false;
+                        }
+                    else if (!dataFromCompare.Equals (dataToCompare))
+                        return false;
+                    }
+                else if (dataFromCompare != null && dataToCompare == null)
+                    return false;
+                else if (dataFromCompare == null && dataToCompare != null)
+                    return false;
+                }
+
+            return true;
+            }
+
         }
     }

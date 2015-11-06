@@ -7,21 +7,26 @@ namespace ExoplanetLibraryUnitTest
     [TestClass]
     public class UnitTest
         {
-        static private string UnitTestDataFolder = "C:\\Various Code\\EXOPLANET_LIBRARY\\ExoplanetLibrary\\ProgramData\\Exoplanet Library\\_UnitTestData\\";
+        [TestMethod]
+        public void TestMethodReadCSVs ()
+            {
+            ReadCSV.Read (Constant.UnitTestFolder + "Version1.csv");
+            ReadCSV.Read (Constant.UnitTestFolder + "Version2.csv");
+            }
 
         [TestMethod]
         public void TestMethodVersion1 ()
             {
             ArrayList exoplanetArray = null;
 
-            ReadCSV.Read (UnitTestDataFolder + "Version1.csv");
-            ReadXML.Read (UnitTestDataFolder + "Version1.xml", ref exoplanetArray, true);
-            WriteCSV.Write (UnitTestDataFolder + "Version1TestResults.csv", exoplanetArray, "1.0");
+            ReadCSV.Read (Constant.UnitTestFolder + "Version1.csv");
+            ReadXML.Read (Constant.UnitTestFolder + "Version1.xml", ref exoplanetArray, true);
+            WriteCSV.Write (Constant.UnitTestFolder + "Version1TestResults.csv", exoplanetArray, Constant.Version1);
 
             ArrayList exoplanetArray2 = null;
 
-            ReadCSV.Read (UnitTestDataFolder + "Version1TestResults.csv");
-            ReadXML.Read (UnitTestDataFolder + "Version1TestResults.xml", ref exoplanetArray2, true);
+            ReadCSV.Read (Constant.UnitTestFolder + "Version1TestResults.csv");
+            ReadXML.Read (Constant.UnitTestFolder + "Version1TestResults.xml", ref exoplanetArray2, true);
 
             Assert.IsNotNull (exoplanetArray);
             Assert.IsNotNull (exoplanetArray2);
@@ -34,14 +39,14 @@ namespace ExoplanetLibraryUnitTest
             {
             ArrayList exoplanetArray = null;
 
-            ReadCSV.Read (UnitTestDataFolder + "Version2.csv");
-            ReadXML.Read (UnitTestDataFolder + "Version2.xml", ref exoplanetArray, true);
-            WriteCSV.Write (UnitTestDataFolder + "Version2TestResults.csv", exoplanetArray, "2.0");
+            ReadCSV.Read (Constant.UnitTestFolder + "Version2.csv");
+            ReadXML.Read (Constant.UnitTestFolder + "Version2.xml", ref exoplanetArray, true);
+            WriteCSV.Write (Constant.UnitTestFolder + "Version2TestResults.csv", exoplanetArray, Constant.Version2);
 
             ArrayList exoplanetArray2 = null;
 
-            ReadCSV.Read (UnitTestDataFolder + "Version2TestResults.csv");
-            ReadXML.Read (UnitTestDataFolder + "Version2TestResults.xml", ref exoplanetArray2, true);
+            ReadCSV.Read (Constant.UnitTestFolder + "Version2TestResults.csv");
+            ReadXML.Read (Constant.UnitTestFolder + "Version2TestResults.xml", ref exoplanetArray2, true);
 
             Assert.IsNotNull (exoplanetArray);
             Assert.IsNotNull (exoplanetArray2);
@@ -50,12 +55,91 @@ namespace ExoplanetLibraryUnitTest
             }
 
         [TestMethod]
-        public void TestMethodVersion3 ()
+        public void TestMethodTypeCounters ()
             {
             ArrayList exoplanetArray = null;
 
-            ReadCSV.Read (UnitTestDataFolder + "Version3.csv");
-            ReadXML.Read (UnitTestDataFolder + "Version3.xml", ref exoplanetArray, true);
+            if (System.IO.File.Exists (Constant.UnitTestFolder + "Version2.xml"))
+                ReadXML.Read (Constant.UnitTestFolder + "Version2.xml", ref exoplanetArray, true);
+            else
+                {
+                ReadCSV.Read (Constant.UnitTestFolder + "Version2.csv");
+                ReadXML.Read (Constant.UnitTestFolder + "Version2.xml", ref exoplanetArray, true);
+                }
+
+            Assert.IsNotNull (exoplanetArray);
+
+            Assert.AreEqual (1927, Helper.NumberOfExoplanets (exoplanetArray));
+            Assert.AreEqual (0, Helper.NumberOfTypeOStars (exoplanetArray));
+            Assert.AreEqual (11, Helper.NumberOfTypeBStars (exoplanetArray));
+            Assert.AreEqual (13, Helper.NumberOfTypeAStars (exoplanetArray));
+            Assert.AreEqual (128, Helper.NumberOfTypeFStars (exoplanetArray));
+            Assert.AreEqual (384, Helper.NumberOfTypeGStars (exoplanetArray));
+            Assert.AreEqual (267, Helper.NumberOfTypeKStars (exoplanetArray));
+            Assert.AreEqual (88, Helper.NumberOfTypeMStars (exoplanetArray));
+            Assert.AreEqual (717, Helper.NumberOfMultiPlanetStars (exoplanetArray));
+            }
+
+        [TestMethod]
+        public void TestMethodReadVersion1NValid ()
+            {
+            ArrayList exoplanetArray = null;
+
+            if (System.IO.File.Exists (Constant.UnitTestFolder + "Version1.xml"))
+                ReadXML.Read (Constant.UnitTestFolder + "Version1.xml", ref exoplanetArray);
+            else
+                {
+                ReadCSV.Read (Constant.UnitTestFolder + "Version1.csv");
+                ReadXML.Read (Constant.UnitTestFolder + "Version1.xml", ref exoplanetArray);
+                }
+
+            Assert.IsNotNull (exoplanetArray);
+            }
+
+        [TestMethod]
+        public void TestMethodReadVersion2NValid ()
+            {
+            ArrayList exoplanetArray = null;
+
+            if (System.IO.File.Exists (Constant.UnitTestFolder + "Version2.xml"))
+                ReadXML.Read (Constant.UnitTestFolder + "Version2.xml", ref exoplanetArray);
+            else
+                {
+                ReadCSV.Read (Constant.UnitTestFolder + "Version2.csv");
+                ReadXML.Read (Constant.UnitTestFolder + "Version2.xml", ref exoplanetArray);
+                }
+
+            Assert.IsNotNull (exoplanetArray);
+            }
+
+        [TestMethod]
+        public void TestMethodReadEUCatalogAsCSVNValid ()
+            {
+            ArrayList exoplanetArray = null;
+
+            if (System.IO.File.Exists (Constant.UnitTestFolder + "exoplanet.eu_catalog.xml"))
+                ReadXML.Read (Constant.UnitTestFolder + "Version1.xml", ref exoplanetArray);
+            else
+                {
+                ReadCSV.Read (Constant.UnitTestFolder + "exoplanet.eu_catalog.csv");
+                ReadXML.Read (Constant.UnitTestFolder + "exoplanet.eu_catalog.xml", ref exoplanetArray);
+                }
+
+            Assert.IsNotNull (exoplanetArray);
+            }
+
+        [TestMethod]
+        public void TestMethodReadEUCatalogAsVOTNValid ()
+            {
+            ArrayList exoplanetArray = null;
+
+            if (System.IO.File.Exists (Constant.UnitTestFolder + "exoplanet_catalog.xml"))
+                ReadXML.Read (Constant.UnitTestFolder + "exoplanet_catalog.xml", ref exoplanetArray);
+            else
+                {
+                ReadVOT.Read (Constant.UnitTestFolder + "exoplanet_catalog.vot");
+                ReadXML.Read (Constant.UnitTestFolder + "exoplanet_catalog.eu_catalog.xml", ref exoplanetArray);
+                }
 
             Assert.IsNotNull (exoplanetArray);
             }

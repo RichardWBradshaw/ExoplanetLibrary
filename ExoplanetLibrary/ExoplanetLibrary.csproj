@@ -66,6 +66,10 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Exoplanet.cs">
+      <DependentUpon>EXOPLANET.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ExoplanetSorter.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="ExoplanetDetails.cs">

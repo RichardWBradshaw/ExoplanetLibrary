@@ -2,8 +2,12 @@
 
 namespace ExoplanetLibrary
     {
-    class WriteXML
+    public class WriteXML
         {
+        public WriteXML ()
+            {
+            }
+
         static private XmlWriter Writer_ = null;
         static private XmlWriter Writer
             {
@@ -18,7 +22,7 @@ namespace ExoplanetLibrary
             set { Version_ = value; }
             }
 
-        static public int WriteExoplanet (XmlWriter writer, CExoplanet exoplanet, string version)
+        static public int WriteExoplanet (XmlWriter writer, Exoplanet exoplanet, string version)
             {
             Writer = writer;
             Version = version;
@@ -28,7 +32,7 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        static private void WriteExoplanet (CExoplanet exoplanet)
+        static private void WriteExoplanet (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Exoplanet");
 
@@ -55,7 +59,7 @@ namespace ExoplanetLibrary
             WriteDetectionType (exoplanet);
             WriteMolecules (exoplanet);
 
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
                 WriteImpactParameter (exoplanet);
                 WriteK (exoplanet);
@@ -71,7 +75,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteMass (CExoplanet exoplanet)
+        static private void WriteMass (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Mass");
 
@@ -87,7 +91,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteRadius (CExoplanet exoplanet)
+        static private void WriteRadius (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Radius");
 
@@ -103,7 +107,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteOrbitalPeriod (CExoplanet exoplanet)
+        static private void WriteOrbitalPeriod (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("OrbitalPeriod");
 
@@ -119,7 +123,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteSemiMajorAxis (CExoplanet exoplanet)
+        static private void WriteSemiMajorAxis (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("SemiMajorAxis");
 
@@ -135,7 +139,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteEccentricity (CExoplanet exoplanet)
+        static private void WriteEccentricity (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Eccentricity");
 
@@ -151,7 +155,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteAngularDistance (CExoplanet exoplanet)
+        static private void WriteAngularDistance (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("AngularDistance");
 
@@ -161,7 +165,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteInclination (CExoplanet exoplanet)
+        static private void WriteInclination (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Inclination");
 
@@ -177,7 +181,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteTzeroTr (CExoplanet exoplanet)
+        static private void WriteTzeroTr (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("TzeroTr");
 
@@ -193,7 +197,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteTzeroTrSec (CExoplanet exoplanet)
+        static private void WriteTzeroTrSec (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("TzeroTrSec");
 
@@ -209,7 +213,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteLambdaAngle (CExoplanet exoplanet)
+        static private void WriteLambdaAngle (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("LambdaAngle");
 
@@ -225,7 +229,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteTzeroVr (CExoplanet exoplanet)
+        static private void WriteTzeroVr (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("TzeroVr");
 
@@ -241,7 +245,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteTemperature (CExoplanet exoplanet)
+        static private void WriteTemperature (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Temperature");
 
@@ -257,7 +261,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteLogG (CExoplanet exoplanet)
+        static private void WriteLogG (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("LogG");
 
@@ -267,7 +271,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WritePublicationStatus (CExoplanet exoplanet)
+        static private void WritePublicationStatus (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("PublicationStatus");
 
@@ -277,7 +281,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteDiscovered (CExoplanet exoplanet)
+        static private void WriteDiscovered (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Discovered");
 
@@ -287,7 +291,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteUpdated (CExoplanet exoplanet)
+        static private void WriteUpdated (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Updated");
 
@@ -297,7 +301,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteOmega (CExoplanet exoplanet)
+        static private void WriteOmega (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Omega");
 
@@ -313,7 +317,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteTperi (CExoplanet exoplanet)
+        static private void WriteTperi (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Tperi");
 
@@ -329,7 +333,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteDetectionType (CExoplanet exoplanet)
+        static private void WriteDetectionType (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("DetectionType");
 
@@ -339,7 +343,7 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteMolecules (CExoplanet exoplanet)
+        static private void WriteMolecules (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Molecules");
 
@@ -349,9 +353,9 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteImpactParameter (CExoplanet exoplanet)
+        static private void WriteImpactParameter (Exoplanet exoplanet)
             {
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
                 Writer.WriteStartElement ("ImpactParameter");
 
@@ -368,9 +372,9 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void WriteK (CExoplanet exoplanet)
+        static private void WriteK (Exoplanet exoplanet)
             {
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
                 Writer.WriteStartElement ("K");
 
@@ -387,9 +391,9 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void WriteGeometricAlbedo (CExoplanet exoplanet)
+        static private void WriteGeometricAlbedo (Exoplanet exoplanet)
             {
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
                 Writer.WriteStartElement ("GeometricAlbedo");
 
@@ -406,9 +410,9 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void WriteTconj (CExoplanet exoplanet)
+        static private void WriteTconj (Exoplanet exoplanet)
             {
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
                 Writer.WriteStartElement ("Tconj");
 
@@ -425,9 +429,9 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void WriteMassDetectionType (CExoplanet exoplanet)
+        static private void WriteMassDetectionType (Exoplanet exoplanet)
             {
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
                 Writer.WriteStartElement ("MassDetectionType");
 
@@ -438,9 +442,9 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void WriteRadiusDetectionType (CExoplanet exoplanet)
+        static private void WriteRadiusDetectionType (Exoplanet exoplanet)
             {
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
                 Writer.WriteStartElement ("RadiusDetectionType");
 
@@ -451,9 +455,9 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void WriteAlternateNames (CExoplanet exoplanet)
+        static private void WriteAlternateNames (Exoplanet exoplanet)
             {
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
                 Writer.WriteStartElement ("AlternateNames");
 
@@ -464,7 +468,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void WriteStar (CExoplanet exoplanet)
+        static private void WriteStar (Exoplanet exoplanet)
             {
             Writer.WriteStartElement ("Star");
 
@@ -478,60 +482,60 @@ namespace ExoplanetLibrary
             Writer.WriteEndElement ();
             }
 
-        static private void WriteMagnitudes (CExoplanet exoplanet)
+        static private void WriteMagnitudes (Exoplanet exoplanet)
             {
-            Writer.WriteStartElement ("Magnitudes");
+            Writer.WriteStartElement ("Magnitude");
 
-            if (IsDefine (exoplanet.Star.Magnitudes.V))
-                Writer.WriteAttributeString ("V", exoplanet.Star.Magnitudes.V);
+            if (IsDefine (exoplanet.Star.Magnitude.V))
+                Writer.WriteAttributeString ("V", exoplanet.Star.Magnitude.V);
 
-            if (IsDefine (exoplanet.Star.Magnitudes.I))
-                Writer.WriteAttributeString ("I", exoplanet.Star.Magnitudes.I);
+            if (IsDefine (exoplanet.Star.Magnitude.I))
+                Writer.WriteAttributeString ("I", exoplanet.Star.Magnitude.I);
 
-            if (IsDefine (exoplanet.Star.Magnitudes.J))
-                Writer.WriteAttributeString ("J", exoplanet.Star.Magnitudes.J);
+            if (IsDefine (exoplanet.Star.Magnitude.J))
+                Writer.WriteAttributeString ("J", exoplanet.Star.Magnitude.J);
 
-            if (IsDefine (exoplanet.Star.Magnitudes.H))
-                Writer.WriteAttributeString ("H", exoplanet.Star.Magnitudes.H);
+            if (IsDefine (exoplanet.Star.Magnitude.H))
+                Writer.WriteAttributeString ("H", exoplanet.Star.Magnitude.H);
 
-            if (IsDefine (exoplanet.Star.Magnitudes.K))
-                Writer.WriteAttributeString ("K", exoplanet.Star.Magnitudes.K);
+            if (IsDefine (exoplanet.Star.Magnitude.K))
+                Writer.WriteAttributeString ("K", exoplanet.Star.Magnitude.K);
 
             Writer.WriteEndElement ();
             }
 
-        static private void WriteProperties (CExoplanet exoplanet)
+        static private void WriteProperties (Exoplanet exoplanet)
             {
-            Writer.WriteStartElement ("Properties");
+            Writer.WriteStartElement ("Property");
 
-            if (IsDefine (exoplanet.Star.Properties.Distance))
-                Writer.WriteAttributeString ("Distance", exoplanet.Star.Properties.Distance);
+            if (IsDefine (exoplanet.Star.Property.Distance))
+                Writer.WriteAttributeString ("Distance", exoplanet.Star.Property.Distance);
 
-            if (IsDefine (exoplanet.Star.Properties.Metallicity))
-                Writer.WriteAttributeString ("Metallicity", exoplanet.Star.Properties.Metallicity);
+            if (IsDefine (exoplanet.Star.Property.Metallicity))
+                Writer.WriteAttributeString ("Metallicity", exoplanet.Star.Property.Metallicity);
 
-            if (IsDefine (exoplanet.Star.Properties.Mass))
-                Writer.WriteAttributeString ("Mass", exoplanet.Star.Properties.Mass);
+            if (IsDefine (exoplanet.Star.Property.Mass))
+                Writer.WriteAttributeString ("Mass", exoplanet.Star.Property.Mass);
 
-            if (IsDefine (exoplanet.Star.Properties.Radius))
-                Writer.WriteAttributeString ("Radius", exoplanet.Star.Properties.Radius);
+            if (IsDefine (exoplanet.Star.Property.Radius))
+                Writer.WriteAttributeString ("Radius", exoplanet.Star.Property.Radius);
 
-            if (IsDefine (exoplanet.Star.Properties.SPType))
-                Writer.WriteAttributeString ("SPType", exoplanet.Star.Properties.SPType);
+            if (IsDefine (exoplanet.Star.Property.SPType))
+                Writer.WriteAttributeString ("SPType", exoplanet.Star.Property.SPType);
 
-            if (IsDefine (exoplanet.Star.Properties.Age))
-                Writer.WriteAttributeString ("Age", exoplanet.Star.Properties.Age);
+            if (IsDefine (exoplanet.Star.Property.Age))
+                Writer.WriteAttributeString ("Age", exoplanet.Star.Property.Age);
 
-            if (IsDefine (exoplanet.Star.Properties.Teff))
-                Writer.WriteAttributeString ("Teff", exoplanet.Star.Properties.Teff);
+            if (IsDefine (exoplanet.Star.Property.Teff))
+                Writer.WriteAttributeString ("Teff", exoplanet.Star.Property.Teff);
 
-            if (string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version2))
                 {
-                if (IsDefine (exoplanet.Star.Properties.DetectedDisc))
-                    Writer.WriteAttributeString ("DetectedDisc", exoplanet.Star.Properties.DetectedDisc);
+                if (IsDefine (exoplanet.Star.Property.DetectedDisc))
+                    Writer.WriteAttributeString ("DetectedDisc", exoplanet.Star.Property.DetectedDisc);
 
-                if (IsDefine (exoplanet.Star.Properties.MagneticField))
-                    Writer.WriteAttributeString ("MagneticField", exoplanet.Star.Properties.MagneticField);
+                if (IsDefine (exoplanet.Star.Property.MagneticField))
+                    Writer.WriteAttributeString ("MagneticField", exoplanet.Star.Property.MagneticField);
                 }
 
             Writer.WriteEndElement ();

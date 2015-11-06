@@ -5,7 +5,11 @@ namespace ExoplanetLibrary
     {
     public class WriteCSV
         {
-        static private string Version_ = "2.0";
+        public WriteCSV ()
+            {
+            }
+
+        static private string Version_ = Constant.Version2;
         static private string Version
             {
             get { return Version_; }
@@ -16,7 +20,7 @@ namespace ExoplanetLibrary
             {
             Version = version;
 
-            if (string.Equals (Version, "1.0") || string.Equals (Version, "2.0"))
+            if (string.Equals (Version, Constant.Version1) || string.Equals (Version, Constant.Version2))
                 {
                 TextWriter writer = null;
 
@@ -24,7 +28,7 @@ namespace ExoplanetLibrary
                     {
                     WriteFirstLine (writer);
 
-                    foreach (CExoplanet exoplanet in exoplanets)
+                    foreach (Exoplanet exoplanet in exoplanets)
                         if (exoplanet.Name.Length > 0)
                             Write (writer, exoplanet);
                     }
@@ -35,7 +39,7 @@ namespace ExoplanetLibrary
 
         static private int WriteFirstLine (TextWriter textWriter)
             {
-            if (string.Equals (Version, "1.0"))
+            if (string.Equals (Version, Constant.Version1))
                 textWriter.WriteLine ("# name, mass, mass_error_min, mass_error_max, radius, radius_error_min, " +
                                 "radius_error_max, orbital_period, orbital_period_err_min, orbital_period_err_max, " +
                                 "semi_major_axis, semi_major_axis_error_min, semi_major_axis_error_max, eccentricity, " +
@@ -46,7 +50,7 @@ namespace ExoplanetLibrary
                                 "omega, omega_error_min, omega_error_max, tperi, tperi_error_min, tperi_error_max, detection_type, molecules, " +
                                 "star_name, ra, dec, mag_v, mag_i, mag_j, mag_h, mag_k, star_distance, star_metallicity, " +
                                 "star_mass, star_radius, star_sp_type, star_age, star_teff");
-            else if (string.Equals (Version, "2.0"))
+            else if (string.Equals (Version, Constant.Version2))
                 textWriter.WriteLine ("# name,mass,mass_error_min,mass_error_max,radius,radius_error_min," +
                                 "radius_error_max,orbital_period,orbital_period_error_min,orbital_period_error_max," +
                                 "semi_major_axis,semi_major_axis_error_min,semi_major_axis_error_max,eccentricity," +
@@ -60,20 +64,20 @@ namespace ExoplanetLibrary
                                 "radius_detection_type,alternate_names,molecules,star_name,ra,dec,mag_v,mag_i,mag_j,mag_h,mag_k,star_distance,star_metallicity," +
                                 "star_mass,star_radius,star_sp_type,star_age,star_teff,star_detected_disc,star_magnetic_field");
 
-                return 0;
+            return 0;
             }
 
-        static public int Write (TextWriter textWriter, CExoplanet exoplanet)
+        static public int Write (TextWriter textWriter, Exoplanet exoplanet)
             {
-            if (string.Equals (Version, "1.0"))
+            if (string.Equals (Version, Constant.Version1))
                 return WriteVersion1 (textWriter, exoplanet);
-            else if (string.Equals (Version, "2.0"))
+            else if (string.Equals (Version, Constant.Version2))
                 return WriteVersion2 (textWriter, exoplanet);
 
             return 0;
             }
 
-        static public int WriteVersion1 (TextWriter textWriter, CExoplanet exoplanet)
+        static public int WriteVersion1 (TextWriter textWriter, Exoplanet exoplanet)
             {
             WriteLine (textWriter, exoplanet.Name);
             WriteLine (textWriter, exoplanet.Mass);
@@ -125,23 +129,23 @@ namespace ExoplanetLibrary
             WriteLine (textWriter, exoplanet.Star.Name);
             WriteLine (textWriter, exoplanet.Star.RightAccession);
             WriteLine (textWriter, exoplanet.Star.Declination);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.V);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.I);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.J);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.H);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.K);
-            WriteLine (textWriter, exoplanet.Star.Properties.Distance);
-            WriteLine (textWriter, exoplanet.Star.Properties.Metallicity);
-            WriteLine (textWriter, exoplanet.Star.Properties.Mass);
-            WriteLine (textWriter, exoplanet.Star.Properties.Radius);
-            WriteLine (textWriter, exoplanet.Star.Properties.SPType);
-            WriteLine (textWriter, exoplanet.Star.Properties.Age);
-            WriteLastLine (textWriter, exoplanet.Star.Properties.Teff);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.V);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.I);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.J);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.H);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.K);
+            WriteLine (textWriter, exoplanet.Star.Property.Distance);
+            WriteLine (textWriter, exoplanet.Star.Property.Metallicity);
+            WriteLine (textWriter, exoplanet.Star.Property.Mass);
+            WriteLine (textWriter, exoplanet.Star.Property.Radius);
+            WriteLine (textWriter, exoplanet.Star.Property.SPType);
+            WriteLine (textWriter, exoplanet.Star.Property.Age);
+            WriteLastLine (textWriter, exoplanet.Star.Property.Teff);
 
             return 0;
             }
 
-        static public int WriteVersion2 (TextWriter textWriter, CExoplanet exoplanet)
+        static public int WriteVersion2 (TextWriter textWriter, Exoplanet exoplanet)
             {
             WriteLine (textWriter, exoplanet.Name);
             WriteLine (textWriter, exoplanet.Mass);
@@ -208,20 +212,20 @@ namespace ExoplanetLibrary
             WriteLine (textWriter, exoplanet.Star.Name);
             WriteLine (textWriter, exoplanet.Star.RightAccession);
             WriteLine (textWriter, exoplanet.Star.Declination);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.V);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.I);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.J);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.H);
-            WriteLine (textWriter, exoplanet.Star.Magnitudes.K);
-            WriteLine (textWriter, exoplanet.Star.Properties.Distance);
-            WriteLine (textWriter, exoplanet.Star.Properties.Metallicity);
-            WriteLine (textWriter, exoplanet.Star.Properties.Mass);
-            WriteLine (textWriter, exoplanet.Star.Properties.Radius);
-            WriteLine (textWriter, exoplanet.Star.Properties.SPType);
-            WriteLine (textWriter, exoplanet.Star.Properties.Age);
-            WriteLine (textWriter, exoplanet.Star.Properties.Teff);
-            WriteLine (textWriter, exoplanet.Star.Properties.DetectedDisc);
-            WriteLastLine (textWriter, exoplanet.Star.Properties.MagneticField);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.V);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.I);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.J);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.H);
+            WriteLine (textWriter, exoplanet.Star.Magnitude.K);
+            WriteLine (textWriter, exoplanet.Star.Property.Distance);
+            WriteLine (textWriter, exoplanet.Star.Property.Metallicity);
+            WriteLine (textWriter, exoplanet.Star.Property.Mass);
+            WriteLine (textWriter, exoplanet.Star.Property.Radius);
+            WriteLine (textWriter, exoplanet.Star.Property.SPType);
+            WriteLine (textWriter, exoplanet.Star.Property.Age);
+            WriteLine (textWriter, exoplanet.Star.Property.Teff);
+            WriteLine (textWriter, exoplanet.Star.Property.DetectedDisc);
+            WriteLastLine (textWriter, exoplanet.Star.Property.MagneticField);
 
             return 0;
             }
