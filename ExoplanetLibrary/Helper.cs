@@ -228,16 +228,25 @@ namespace ExoplanetLibrary
 
             for (int index = 0; index < exoplanetArray1.Count; ++index)
                 {
+#if more_code
                 Exoplanet exoplanet1 = exoplanetArray1 [index] as Exoplanet;
                 Exoplanet exoplanet2 = exoplanetArray2 [index] as Exoplanet;
 
                 if (!CompareEquals (exoplanet1, exoplanet2))
                    return false;
+#else
+                object object1 = exoplanetArray1 [index];
+                object object2 = exoplanetArray2 [index];
+
+                if (!CompareEquals (object1, object2))
+                    return false;
+#endif
                 }
 
             return true;
             }
 
+#if more_code
         public static bool CompareEquals (Exoplanet objectFromCompare, Exoplanet objectToCompare)
             {
             if (objectFromCompare == null && objectToCompare == null)
@@ -405,6 +414,43 @@ namespace ExoplanetLibrary
 
             return true;
             }
+#else
+        public static bool CompareEquals (object objectFromCompare, object objectToCompare)
+            {
+            if (objectFromCompare == null && objectToCompare == null)
+                return true;
+            else if (objectFromCompare == null && objectToCompare != null)
+                return false;
+            else if (objectFromCompare != null && objectToCompare == null)
+                return false;
 
+            PropertyInfo [] propertyInfoArray = objectFromCompare.GetType ().GetProperties (BindingFlags.Instance | BindingFlags.Public);
+
+            foreach (PropertyInfo propertyInfo in propertyInfoArray)
+                {
+                object dataFromCompare = objectFromCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectFromCompare, null);
+                object dataToCompare = objectToCompare.GetType ().GetProperty (propertyInfo.Name).GetValue (objectToCompare, null);
+
+                if (dataFromCompare != null && dataToCompare != null)
+                    {
+                    if (propertyInfo.PropertyType.IsClass && !propertyInfo.PropertyType.FullName.Contains ("System.String"))
+                        {
+                        object result = CompareEquals (dataFromCompare, dataToCompare);
+
+                        if (!( bool )result)
+                            return false;
+                        }
+                    else if (!dataFromCompare.Equals (dataToCompare))
+                        return false;
+                    }
+                else if (dataFromCompare != null && dataToCompare == null)
+                    return false;
+                else if (dataFromCompare == null && dataToCompare != null)
+                    return false;
+                }
+
+            return true;
+            }
+#endif
         }
     }
