@@ -89,11 +89,11 @@ namespace ExoplanetLibrary
                 settings.ValidationType = ValidationType.None;
             }
 
-        static public int Read (string xmlFileName, ref ArrayList exoplanets, bool skipValidation = false)
+        static public ArrayList Read (string xmlFileName, bool skipValidation = false)
             {
-            ValidationErrors = "";
+            ArrayList exoplanets = new ArrayList ();
 
-            exoplanets = new ArrayList ();
+            ValidationErrors = "";
 
             if (File.Exists (xmlFileName))
                 {
@@ -159,7 +159,7 @@ namespace ExoplanetLibrary
             if (ValidationErrors.Length > 0)
                 MessageBox.Show (ValidationErrors);
 
-            return 0;
+            return exoplanets;
             }
 
         static void ReadExoplanet (Exoplanet exoplanet)

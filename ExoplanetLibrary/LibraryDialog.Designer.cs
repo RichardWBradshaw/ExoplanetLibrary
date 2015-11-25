@@ -17,93 +17,284 @@ namespace ExoplanetLibrary
 
         private void InitializeComponent ( )
             {
-            menuStrip1 = new System.Windows.Forms.MenuStrip();
-            fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            fileSeparator = new System.Windows.Forms.ToolStripSeparator();
-            exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
-            SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.starFiltersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allClassificationsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeOMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeBMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeAMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeFMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeKMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeMMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detectFiltersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allDetectionMethodsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.primaryTransitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radialVelocityMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.microlensingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imagingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pulsarMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.astrometryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tTVMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            fileMenuItem,
-            helpMenuItem});
-            menuStrip1.Location = new System.Drawing.Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new System.Drawing.Size(784, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenuItem,
+            this.settingsMenuItem,
+            this.helpMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileMenuItem
             // 
-            fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            openMenuItem,
-            saveAsMenuItem,
-            fileSeparator,
-            exitMenuItem});
-            fileMenuItem.Name = "fileMenuItem";
-            fileMenuItem.Size = new System.Drawing.Size(37, 20);
-            fileMenuItem.Text = "File";
+            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openMenuItem,
+            this.saveAsMenuItem,
+            this.fileSeparator,
+            this.exitMenuItem});
+            this.fileMenuItem.Name = "fileMenuItem";
+            this.fileMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileMenuItem.Text = "File";
             // 
             // openMenuItem
             // 
-            openMenuItem.Name = "openMenuItem";
-            openMenuItem.Size = new System.Drawing.Size(139, 22);
-            openMenuItem.Text = "Open ...";
+            this.openMenuItem.Name = "openMenuItem";
+            this.openMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.openMenuItem.Text = "Open ...";
             // 
             // saveAsMenuItem
             // 
-            saveAsMenuItem.Name = "saveAsMenuItem";
-            saveAsMenuItem.Size = new System.Drawing.Size(139, 22);
-            saveAsMenuItem.Text = "Save as .CSV";
+            this.saveAsMenuItem.Name = "saveAsMenuItem";
+            this.saveAsMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.saveAsMenuItem.Text = "Save as .CSV";
             // 
             // fileSeparator
             // 
-            fileSeparator.Name = "fileSeparator";
-            fileSeparator.Size = new System.Drawing.Size(136, 6);
+            this.fileSeparator.Name = "fileSeparator";
+            this.fileSeparator.Size = new System.Drawing.Size(136, 6);
             // 
             // exitMenuItem
             // 
-            exitMenuItem.Name = "exitMenuItem";
-            exitMenuItem.Size = new System.Drawing.Size(139, 22);
-            exitMenuItem.Text = "Exit";
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.exitMenuItem.Text = "Exit";
+            // 
+            // settingsMenuItem
+            // 
+            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.starFiltersMenuItem,
+            this.detectFiltersMenuItem});
+            this.settingsMenuItem.Name = "settingsMenuItem";
+            this.settingsMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsMenuItem.Text = "Settings";
+            // 
+            // starFiltersMenuItem
+            // 
+            this.starFiltersMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allClassificationsMenuItem,
+            this.typeOMenuItem,
+            this.typeBMenuItem,
+            this.typeAMenuItem,
+            this.typeFMenuItem,
+            this.typeGMenuItem,
+            this.typeKMenuItem,
+            this.typeMMenuItem});
+            this.starFiltersMenuItem.Name = "starFiltersMenuItem";
+            this.starFiltersMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.starFiltersMenuItem.Text = "Star Classifications";
+            // 
+            // allClassificationsMenuItem
+            // 
+            this.allClassificationsMenuItem.Checked = true;
+            this.allClassificationsMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.allClassificationsMenuItem.Name = "allClassificationsMenuItem";
+            this.allClassificationsMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.allClassificationsMenuItem.Text = "All Classifications";
+            this.allClassificationsMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.allClassificationsMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // typeOMenuItem
+            // 
+            this.typeOMenuItem.Name = "typeOMenuItem";
+            this.typeOMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.typeOMenuItem.Text = "Type O";
+            this.typeOMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.typeOMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // typeBMenuItem
+            // 
+            this.typeBMenuItem.Name = "typeBMenuItem";
+            this.typeBMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.typeBMenuItem.Text = "Type B";
+            this.typeBMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.typeBMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // typeAMenuItem
+            // 
+            this.typeAMenuItem.Name = "typeAMenuItem";
+            this.typeAMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.typeAMenuItem.Text = "Type A";
+            this.typeAMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.typeAMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // typeFMenuItem
+            // 
+            this.typeFMenuItem.Name = "typeFMenuItem";
+            this.typeFMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.typeFMenuItem.Text = "Type F";
+            this.typeFMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.typeFMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // typeGMenuItem
+            // 
+            this.typeGMenuItem.Name = "typeGMenuItem";
+            this.typeGMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.typeGMenuItem.Text = "Type G";
+            this.typeGMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.typeGMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // typeKMenuItem
+            // 
+            this.typeKMenuItem.Name = "typeKMenuItem";
+            this.typeKMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.typeKMenuItem.Text = "Type K";
+            this.typeKMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.typeKMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // typeMMenuItem
+            // 
+            this.typeMMenuItem.Name = "typeMMenuItem";
+            this.typeMMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.typeMMenuItem.Text = "Type M";
+            this.typeMMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.typeMMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // detectFiltersMenuItem
+            // 
+            this.detectFiltersMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allDetectionMethodsMenuItem,
+            this.primaryTransitMenuItem,
+            this.radialVelocityMenuItem,
+            this.microlensingMenuItem,
+            this.imagingMenuItem,
+            this.pulsarMenuItem,
+            this.astrometryMenuItem,
+            this.tTVMenuItem});
+            this.detectFiltersMenuItem.Name = "detectFiltersMenuItem";
+            this.detectFiltersMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.detectFiltersMenuItem.Text = "Detect Methods";
+            // 
+            // allDetectionMethodsMenuItem
+            // 
+            this.allDetectionMethodsMenuItem.Checked = true;
+            this.allDetectionMethodsMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.allDetectionMethodsMenuItem.Name = "allDetectionMethodsMenuItem";
+            this.allDetectionMethodsMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.allDetectionMethodsMenuItem.Text = "All Detection Methods";
+            this.allDetectionMethodsMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.allDetectionMethodsMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // primaryTransitMenuItem
+            // 
+            this.primaryTransitMenuItem.Name = "primaryTransitMenuItem";
+            this.primaryTransitMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.primaryTransitMenuItem.Text = "Primary Transit";
+            this.primaryTransitMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.primaryTransitMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // radialVelocityMenuItem
+            // 
+            this.radialVelocityMenuItem.Name = "radialVelocityMenuItem";
+            this.radialVelocityMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.radialVelocityMenuItem.Text = "Radial Velocity";
+            this.radialVelocityMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.radialVelocityMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // microlensingMenuItem
+            // 
+            this.microlensingMenuItem.Name = "microlensingMenuItem";
+            this.microlensingMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.microlensingMenuItem.Text = "Microlensing";
+            this.microlensingMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.microlensingMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // imagingMenuItem
+            // 
+            this.imagingMenuItem.Name = "imagingMenuItem";
+            this.imagingMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.imagingMenuItem.Text = "Imaging";
+            this.imagingMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.imagingMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // pulsarMenuItem
+            // 
+            this.pulsarMenuItem.Name = "pulsarMenuItem";
+            this.pulsarMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.pulsarMenuItem.Text = "Pulsar";
+            this.pulsarMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.pulsarMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // astrometryMenuItem
+            // 
+            this.astrometryMenuItem.Name = "astrometryMenuItem";
+            this.astrometryMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.astrometryMenuItem.Text = "Astrometry";
+            this.astrometryMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.astrometryMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // tTVMenuItem
+            // 
+            this.tTVMenuItem.Name = "tTVMenuItem";
+            this.tTVMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.tTVMenuItem.Text = "TTV";
+            this.tTVMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.tTVMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
             // helpMenuItem
             // 
-            helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            aboutMenuItem});
-            helpMenuItem.Name = "helpMenuItem";
-            helpMenuItem.Size = new System.Drawing.Size(44, 20);
-            helpMenuItem.Text = "Help";
+            this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutMenuItem});
+            this.helpMenuItem.Name = "helpMenuItem";
+            this.helpMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpMenuItem.Text = "Help";
             // 
             // aboutMenuItem
             // 
-            aboutMenuItem.Name = "aboutMenuItem";
-            aboutMenuItem.Size = new System.Drawing.Size(209, 22);
-            aboutMenuItem.Text = "About Exoplanet Library...";
+            this.aboutMenuItem.Name = "aboutMenuItem";
+            this.aboutMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.aboutMenuItem.Text = "About Exoplanet Library...";
             // 
             // LibraryDialog
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            ClientSize = new System.Drawing.Size(784, 341);
-            Controls.Add(menuStrip1);
-            Name = "LibraryDialog";
-            ShowIcon = false;
-            ShowInTaskbar = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            Text = "Exoplanet Library";
-            TopMost = true;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(784, 341);
+            this.Controls.Add(this.menuStrip1);
+            this.Name = "LibraryDialog";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.Text = "Exoplanet Library";
+            this.TopMost = true;
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
             }
 
@@ -115,6 +306,25 @@ namespace ExoplanetLibrary
         private ToolStripMenuItem helpMenuItem;
         private ToolStripMenuItem aboutMenuItem;
         private ToolStripMenuItem saveAsMenuItem;
+        private ToolStripMenuItem settingsMenuItem;
+        private ToolStripMenuItem starFiltersMenuItem;
+        private ToolStripMenuItem typeOMenuItem;
+        private ToolStripMenuItem detectFiltersMenuItem;
+        private ToolStripMenuItem allClassificationsMenuItem;
+        private ToolStripMenuItem typeBMenuItem;
+        private ToolStripMenuItem typeAMenuItem;
+        private ToolStripMenuItem typeFMenuItem;
+        private ToolStripMenuItem typeGMenuItem;
+        private ToolStripMenuItem typeKMenuItem;
+        private ToolStripMenuItem typeMMenuItem;
+        private ToolStripMenuItem primaryTransitMenuItem;
+        private ToolStripMenuItem radialVelocityMenuItem;
+        private ToolStripMenuItem microlensingMenuItem;
+        private ToolStripMenuItem imagingMenuItem;
+        private ToolStripMenuItem pulsarMenuItem;
+        private ToolStripMenuItem astrometryMenuItem;
+        private ToolStripMenuItem tTVMenuItem;
+        private ToolStripMenuItem allDetectionMethodsMenuItem;
         }
     }
 

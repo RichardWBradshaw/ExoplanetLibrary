@@ -48,6 +48,9 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NPlot">
+      <HintPath>..\..\..\nplot-0.9.10.0\bin\net\2.0\release\NPlot.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +74,12 @@
       <DependentUpon>EXOPLANET.xsd</DependentUpon>
     </Compile>
     <Compile Include="ExoplanetSorter.cs" />
+    <Compile Include="VisualizationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizationDialog.Designer.cs">
+      <DependentUpon>VisualizationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="ExoplanetDetails.cs">
       <SubType>Form</SubType>
@@ -97,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExoplanetDetails.resx">
       <DependentUpon>ExoplanetDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizationDialog.resx">
+      <DependentUpon>VisualizationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LibraryDialog.resx">
       <DependentUpon>LibraryDialog.cs</DependentUpon>

@@ -16,6 +16,8 @@ namespace ExoplanetLibrary
             LvwColumnSorter = new ListViewColumnSorter ();
             ExoplanetListView.ListViewItemSorter = LvwColumnSorter;
 
+            Filter = new Filters ();
+
             openMenuItem.Click += new EventHandler (open_Click);
             exitMenuItem.Click += new EventHandler (exit_Click);
             saveAsMenuItem.Click += new EventHandler (saveAs_Click);
@@ -69,18 +71,25 @@ namespace ExoplanetLibrary
             set { LvwColumnSorter_ = value; }
             }
 
-        private bool AddPlanetDetails_ = true;
-        public bool AddPlanetDetails
+        private CheckState AddPlanetDetails_ = CheckState.Unchecked;
+        public CheckState AddPlanetDetails
             {
             get { return AddPlanetDetails_; }
             set { AddPlanetDetails_ = value; }
             }
 
-        private bool AddStarDetails_ = true;
-        public bool AddStarDetails
+        private CheckState AddStarDetails_ = CheckState.Checked;
+        public CheckState AddStarDetails
             {
             get { return AddStarDetails_; }
             set { AddStarDetails_ = value; }
+            }
+
+        private Filters Filter_ = null;
+        public Filters Filter
+            {
+            get { return Filter_; }
+            set { Filter_ = value; }
             }
 
         private void MyResizeBegin (object sender, System.EventArgs e)
@@ -115,79 +124,89 @@ namespace ExoplanetLibrary
             ExoplanetListView.GridLines = true;
             ExoplanetListView.Sorting = SortOrder.Ascending;
 
-            AddItemsToListView (ExoplanetListView, true);
+            AddItemsToListView (ExoplanetListView, true, true);
             ExoplanetListView.ColumnClick += new ColumnClickEventHandler (ExoplanetListView_ColumnClick);
             ExoplanetListView.Click += new EventHandler (ExoplanetListView_Click);
             Controls.Add (ExoplanetListView);
             }
 
-        private void UpdateExoplanetListView ()
+        private void UpdateExoplanetListView (bool rebuildArray)
             {
             Cursor.Current = Cursors.WaitCursor;
 
             for (int index = ExoplanetListView.Items.Count - 1; index >= 0; --index)
                 ExoplanetListView.Items.RemoveAt (index);
 
-            AddItemsToListView (ExoplanetListView, false);
+            AddItemsToListView (ExoplanetListView, false, rebuildArray);
             Cursor.Current = Cursors.Default;
             }
 
-        private void AddItemsToListView (ListView listView, bool addColumns)
+        private void AddColumnsToListView (ListView listView)
             {
-            if (ExoplanetsArray != null)
-                ExoplanetsArray.Clear ();
+            listView.Columns.Add ("Name", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("M (Mjup)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("R (Rjup)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Period (day)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Semi-Major Axis (AU)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Eccentricity", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Angular Distance", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Inclination (deg)", -2, HorizontalAlignment.Left);
 
-            ExoplanetsArray = null;
-            ReadXML.Read (XmlFileName, ref ExoplanetsArray_);
+            if (AddPlanetDetails == CheckState.Checked)
+                {
+                listView.Columns.Add ("T0 (JD)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("T0-sec (JD)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Lambda Angle (deg)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Tvr (JD)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Tcalc. (K)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Tmeas. (K)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Hot pt (deg)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Log(g)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Pub. Status", -2, HorizontalAlignment.Left);
+                }
+
+            listView.Columns.Add ("Discovered", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Updated", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Detection Type", -2, HorizontalAlignment.Left);
+
+            if (AddPlanetDetails == CheckState.Checked)
+                {
+                listView.Columns.Add ("Omega (deg)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Molecules", -2, HorizontalAlignment.Left);
+                }
+
+            listView.Columns.Add ("Star Name", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("RA", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Declination", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("SPType", -2, HorizontalAlignment.Left);
+
+            if (AddStarDetails == CheckState.Checked)
+                {
+                listView.Columns.Add ("Age", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Distance", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("M (Msun)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("R (Rsun)", -2, HorizontalAlignment.Left);
+                }
+            }
+
+        private void AddItemsToListView (ListView listView, bool addColumns, bool rebuildArray)
+            {
+            if (rebuildArray)
+                {
+                if (ExoplanetsArray != null)
+                    ExoplanetsArray.Clear ();
+
+                ExoplanetsArray = ReadXML.Read (XmlFileName);
+                }
+            else
+                {
+                for (int index = ExoplanetListView.Items.Count - 1; index >= 0; --index)
+                    ExoplanetListView.Items.RemoveAt (index);
+                }
 
             if (addColumns)
-                {
-                listView.Columns.Add ("Name", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("M (Mjup)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("R (Rjup)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Period (day)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Semi-Major Axis (AU)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Eccentricity", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Angular Distance", -2, HorizontalAlignment.Left);
+                AddColumnsToListView (listView);
 
-                if (AddPlanetDetails)
-                    {
-                    listView.Columns.Add ("Inclination (deg)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("T0 (JD)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("T0-sec (JD)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Lambda Angle (deg)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Tvr (JD)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Tcalc. (K)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Tmeas. (K)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Hot pt (deg)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Log(g)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Pub. Status", -2, HorizontalAlignment.Left);
-                    }
-
-                listView.Columns.Add ("Discovered", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Updated", -2, HorizontalAlignment.Left);
-
-                if (AddPlanetDetails)
-                    {
-                    listView.Columns.Add ("Omega (deg)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Detection Type", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Molecules", -2, HorizontalAlignment.Left);
-                    }
-
-                listView.Columns.Add ("Star Name", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("RA", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Declination", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("SPType", -2, HorizontalAlignment.Left);
-
-                if (AddStarDetails)
-                    {
-
-                    listView.Columns.Add ("Age", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("Distance", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("M (Msun)", -2, HorizontalAlignment.Left);
-                    listView.Columns.Add ("R (Rsun)", -2, HorizontalAlignment.Left);
-                    }
-                }
 #if walk_enumerator
             IEnumerator ExoplanettEnumerator = m_exoplanets.GetEnumerator ( );
             ExoplanetEnumerator.Reset();
@@ -199,6 +218,9 @@ namespace ExoplanetLibrary
 #else
             foreach (Exoplanet exoplanet in ExoplanetsArray)
                 {
+                if (!Helper.MatchesFilter (exoplanet, Filter))
+                    continue;
+
                 ListViewItem item = new ListViewItem (exoplanet.Name, 0);
 
                 item.SubItems.Add (exoplanet.Mass);
@@ -207,10 +229,10 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (exoplanet.SemiMajorAxis);
                 item.SubItems.Add (exoplanet.Eccentricity);
                 item.SubItems.Add (exoplanet.AngularDistance);
+                item.SubItems.Add (exoplanet.Inclination);
 
-                if (AddPlanetDetails)
+                if (AddPlanetDetails == CheckState.Checked)
                     {
-                    item.SubItems.Add (exoplanet.Inclination);
                     item.SubItems.Add (exoplanet.TzeroTr);
                     item.SubItems.Add (exoplanet.TzeroTrSec);
                     item.SubItems.Add (exoplanet.LambdaAngle);
@@ -224,11 +246,11 @@ namespace ExoplanetLibrary
 
                 item.SubItems.Add (exoplanet.Discovered);
                 item.SubItems.Add (exoplanet.Updated);
+                item.SubItems.Add (exoplanet.DetectionType);
 
-                if (AddPlanetDetails)
+                if (AddPlanetDetails == CheckState.Checked)
                     {
                     item.SubItems.Add (exoplanet.Omega);
-                    item.SubItems.Add (exoplanet.DetectionType);
                     item.SubItems.Add (exoplanet.Molecules);
                     }
 
@@ -237,7 +259,7 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.Declination));
                 item.SubItems.Add (exoplanet.Star.Property.SPType);
 
-                if (AddStarDetails)
+                if (AddStarDetails == CheckState.Checked)
                     {
                     item.SubItems.Add (exoplanet.Star.Property.Age);
                     item.SubItems.Add (exoplanet.Star.Property.Distance);
@@ -283,10 +305,8 @@ namespace ExoplanetLibrary
             {
             if (ExoplanetListView.SelectedItems.Count == 1)
                 {
-                ArrayList types = null;
+                ArrayList types = Helper.NumberOfStarTypes (ExoplanetsArray);
                 string StarTypesString = null;
-
-                Helper.NumberOfStarTypes (ExoplanetsArray, ref types);
 
                 for (int index = 0; index < types.Count; ++index)
                     {
@@ -348,7 +368,7 @@ namespace ExoplanetLibrary
                             XmlFileName = openFileDialog.FileName;
                             }
 
-                        UpdateExoplanetListView ();
+                        UpdateExoplanetListView (true);
 
                         Cursor.Current = Cursors.Default;
                         }
@@ -407,6 +427,146 @@ namespace ExoplanetLibrary
         public void ExoplanetDetailsClosed ()
             {
             ExoplanetDetails = null;
+            }
+
+        private void MenuCheckBox_CheckStateChanged (object sender, EventArgs e)
+            {
+            if (sender == allClassificationsMenuItem)
+                {
+                Filter.AllStarTypesEnabled = allClassificationsMenuItem.CheckState;
+                }
+            else if (sender == typeOMenuItem)
+                {
+                Filter.TypeOEnabled = typeOMenuItem.CheckState;
+                }
+            else if (sender == typeBMenuItem)
+                {
+                Filter.TypeBEnabled = typeBMenuItem.CheckState;
+                }
+            else if (sender == typeAMenuItem)
+                {
+                Filter.TypeAEnabled = typeAMenuItem.CheckState;
+                }
+            else if (sender == typeFMenuItem)
+                {
+                Filter.TypeFEnabled = typeFMenuItem.CheckState;
+                }
+            else if (sender == typeGMenuItem)
+                {
+                Filter.TypeGEnabled = typeGMenuItem.CheckState;
+                }
+            else if (sender == typeKMenuItem)
+                {
+                Filter.TypeKEnabled = typeKMenuItem.CheckState;
+                }
+            else if (sender == typeMMenuItem)
+                {
+                Filter.TypeMEnabled = typeMMenuItem.CheckState;
+                }
+            ///
+            else if (sender == allDetectionMethodsMenuItem)
+                {
+                Filter.AllDetectionTypesEnabled = allDetectionMethodsMenuItem.CheckState;
+                }
+            else if (sender == primaryTransitMenuItem)
+                {
+                Filter.PrimaryTransitEnabled = primaryTransitMenuItem.CheckState;
+                }
+            else if (sender == radialVelocityMenuItem)
+                {
+                Filter.RadialVelocityEnabled = radialVelocityMenuItem.CheckState;
+                }
+            else if (sender == microlensingMenuItem)
+                {
+                Filter.MicrolensingEnabled = microlensingMenuItem.CheckState;
+                }
+            else if (sender == imagingMenuItem)
+                {
+                Filter.ImagingEnabled = imagingMenuItem.CheckState;
+                }
+            else if (sender == pulsarMenuItem)
+                {
+                Filter.PulsarEnabled = pulsarMenuItem.CheckState;
+                }
+            else if (sender == astrometryMenuItem)
+                {
+                Filter.AstrometryEnabled = astrometryMenuItem.CheckState;
+                }
+            else if (sender == tTVMenuItem)
+                {
+                Filter.TTVEnabled = tTVMenuItem.CheckState;
+                }
+
+            AddItemsToListView (ExoplanetListView, false, false);
+            }
+
+        private void MenuCheckBox_Click (object sender, EventArgs e)
+            {
+            if (sender == allClassificationsMenuItem)
+                {
+                allClassificationsMenuItem.Checked = allClassificationsMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == typeOMenuItem)
+                {
+                typeOMenuItem.Checked = typeOMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == typeBMenuItem)
+                {
+                typeBMenuItem.Checked = typeBMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == typeAMenuItem)
+                {
+                typeAMenuItem.Checked = typeAMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == typeFMenuItem)
+                {
+                typeFMenuItem.Checked = typeFMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == typeGMenuItem)
+                {
+                typeGMenuItem.Checked = typeGMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == typeKMenuItem)
+                {
+                typeKMenuItem.Checked = typeKMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == typeMMenuItem)
+                {
+                typeMMenuItem.Checked = typeMMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            ///
+            else if (sender == allDetectionMethodsMenuItem)
+                {
+                allDetectionMethodsMenuItem.Checked = allDetectionMethodsMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == primaryTransitMenuItem)
+                {
+                primaryTransitMenuItem.Checked = primaryTransitMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == radialVelocityMenuItem)
+                {
+                radialVelocityMenuItem.Checked = radialVelocityMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == microlensingMenuItem)
+                {
+                microlensingMenuItem.Checked = microlensingMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == imagingMenuItem)
+                {
+                imagingMenuItem.Checked = imagingMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == pulsarMenuItem)
+                {
+                pulsarMenuItem.Checked = pulsarMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == astrometryMenuItem)
+                {
+                astrometryMenuItem.Checked = astrometryMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == tTVMenuItem)
+                {
+                tTVMenuItem.Checked = tTVMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
             }
         }
     }

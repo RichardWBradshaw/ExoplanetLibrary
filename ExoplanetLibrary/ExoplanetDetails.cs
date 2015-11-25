@@ -174,16 +174,16 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.Updated));
                 DetailsListView.Items.Add (item);
 
+                item = new ListViewItem ("Detection Type", 0);
+                item.SubItems.Add (exoplanet.DetectionType);
+                DetailsListView.Items.Add (item);
+
                 item = new ListViewItem ("Omega (deg)", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Omega, exoplanet.OmegaErrorMin, exoplanet.OmegaErrorMax));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Tperi (JD)", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Tperi, exoplanet.TperiErrorMin, exoplanet.TperiErrorMax));
-                DetailsListView.Items.Add (item);
-
-                item = new ListViewItem ("Detection Type", 0);
-                item.SubItems.Add (exoplanet.DetectionType);
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Molecules", 0);
@@ -214,7 +214,7 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.RadiusDetectionType));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("AlternateNames", 0);
+                item = new ListViewItem ("Alternate Names", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.AlternateNames));
                 DetailsListView.Items.Add (item);
 
