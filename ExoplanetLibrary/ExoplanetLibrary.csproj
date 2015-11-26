@@ -74,6 +74,7 @@
       <DependentUpon>EXOPLANET.xsd</DependentUpon>
     </Compile>
     <Compile Include="ExoplanetSorter.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="VisualizationDialog.cs">
       <SubType>Form</SubType>
     </Compile>

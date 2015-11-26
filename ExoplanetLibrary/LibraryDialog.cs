@@ -12,11 +12,11 @@ namespace ExoplanetLibrary
             {
             InitializeComponent ();
 
+            ReadLastUsedSettings ();
+
             CreateExoplanetListView ();
             LvwColumnSorter = new ListViewColumnSorter ();
             ExoplanetListView.ListViewItemSorter = LvwColumnSorter;
-
-            Filter = new Filters ();
 
             openMenuItem.Click += new EventHandler (open_Click);
             exitMenuItem.Click += new EventHandler (exit_Click);
@@ -29,7 +29,7 @@ namespace ExoplanetLibrary
             SizeChanged += new System.EventHandler (MyResize);
             }
 
-        private string XmlFileName_ = Constant.ProgramDataFolder + "kepler.xml";
+        private string XmlFileName_ = "";
         public string XmlFileName
             {
             get { return XmlFileName_; }
@@ -200,77 +200,69 @@ namespace ExoplanetLibrary
                 }
             else
                 {
-                for (int index = ExoplanetListView.Items.Count - 1; index >= 0; --index)
-                    ExoplanetListView.Items.RemoveAt (index);
+                if (ExoplanetListView != null)
+                    for (int index = ExoplanetListView.Items.Count - 1; index >= 0; --index)
+                        ExoplanetListView.Items.RemoveAt (index);
                 }
 
             if (addColumns)
                 AddColumnsToListView (listView);
 
-#if walk_enumerator
-            IEnumerator ExoplanettEnumerator = m_exoplanets.GetEnumerator ( );
-            ExoplanetEnumerator.Reset();
-
-            while ( ExoplanetEnumerator.MoveNext ( ) )
-                {
-                CExoplanet exoplanet = ExoplanetEnumerator.Current as CExoplanet;
-                }
-#else
-            foreach (Exoplanet exoplanet in ExoplanetsArray)
-                {
-                if (!Helper.MatchesFilter (exoplanet, Filter))
-                    continue;
-
-                ListViewItem item = new ListViewItem (exoplanet.Name, 0);
-
-                item.SubItems.Add (exoplanet.Mass);
-                item.SubItems.Add (exoplanet.Radius);
-                item.SubItems.Add (exoplanet.OrbitalPeriod);
-                item.SubItems.Add (exoplanet.SemiMajorAxis);
-                item.SubItems.Add (exoplanet.Eccentricity);
-                item.SubItems.Add (exoplanet.AngularDistance);
-                item.SubItems.Add (exoplanet.Inclination);
-
-                if (AddPlanetDetails == CheckState.Checked)
+            if (ExoplanetsArray != null)
+                foreach (Exoplanet exoplanet in ExoplanetsArray)
                     {
-                    item.SubItems.Add (exoplanet.TzeroTr);
-                    item.SubItems.Add (exoplanet.TzeroTrSec);
-                    item.SubItems.Add (exoplanet.LambdaAngle);
-                    item.SubItems.Add (exoplanet.TzeroVr);
-                    item.SubItems.Add (exoplanet.TemperatureCalculated);
-                    item.SubItems.Add (exoplanet.TemperatureMeasured);
-                    item.SubItems.Add (exoplanet.TemperatureHotPointLo);
-                    item.SubItems.Add (exoplanet.LogG);
-                    item.SubItems.Add (exoplanet.Status);
+                    if (!Helper.MatchesFilter (exoplanet, Filter))
+                        continue;
+
+                    ListViewItem item = new ListViewItem (exoplanet.Name, 0);
+
+                    item.SubItems.Add (exoplanet.Mass);
+                    item.SubItems.Add (exoplanet.Radius);
+                    item.SubItems.Add (exoplanet.OrbitalPeriod);
+                    item.SubItems.Add (exoplanet.SemiMajorAxis);
+                    item.SubItems.Add (exoplanet.Eccentricity);
+                    item.SubItems.Add (exoplanet.AngularDistance);
+                    item.SubItems.Add (exoplanet.Inclination);
+
+                    if (AddPlanetDetails == CheckState.Checked)
+                        {
+                        item.SubItems.Add (exoplanet.TzeroTr);
+                        item.SubItems.Add (exoplanet.TzeroTrSec);
+                        item.SubItems.Add (exoplanet.LambdaAngle);
+                        item.SubItems.Add (exoplanet.TzeroVr);
+                        item.SubItems.Add (exoplanet.TemperatureCalculated);
+                        item.SubItems.Add (exoplanet.TemperatureMeasured);
+                        item.SubItems.Add (exoplanet.TemperatureHotPointLo);
+                        item.SubItems.Add (exoplanet.LogG);
+                        item.SubItems.Add (exoplanet.Status);
+                        }
+
+                    item.SubItems.Add (exoplanet.Discovered);
+                    item.SubItems.Add (exoplanet.Updated);
+                    item.SubItems.Add (exoplanet.DetectionType);
+
+                    if (AddPlanetDetails == CheckState.Checked)
+                        {
+                        item.SubItems.Add (exoplanet.Omega);
+                        item.SubItems.Add (exoplanet.Molecules);
+                        }
+
+                    item.SubItems.Add (exoplanet.Star.Name);
+                    item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.RightAccession));
+                    item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.Declination));
+                    item.SubItems.Add (exoplanet.Star.Property.SPType);
+
+                    if (AddStarDetails == CheckState.Checked)
+                        {
+                        item.SubItems.Add (exoplanet.Star.Property.Age);
+                        item.SubItems.Add (exoplanet.Star.Property.Distance);
+                        item.SubItems.Add (exoplanet.Star.Property.Mass);
+                        item.SubItems.Add (exoplanet.Star.Property.Radius);
+                        }
+
+                    item.Tag = exoplanet;
+                    listView.Items.Add (item);
                     }
-
-                item.SubItems.Add (exoplanet.Discovered);
-                item.SubItems.Add (exoplanet.Updated);
-                item.SubItems.Add (exoplanet.DetectionType);
-
-                if (AddPlanetDetails == CheckState.Checked)
-                    {
-                    item.SubItems.Add (exoplanet.Omega);
-                    item.SubItems.Add (exoplanet.Molecules);
-                    }
-
-                item.SubItems.Add (exoplanet.Star.Name);
-                item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.RightAccession));
-                item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.Declination));
-                item.SubItems.Add (exoplanet.Star.Property.SPType);
-
-                if (AddStarDetails == CheckState.Checked)
-                    {
-                    item.SubItems.Add (exoplanet.Star.Property.Age);
-                    item.SubItems.Add (exoplanet.Star.Property.Distance);
-                    item.SubItems.Add (exoplanet.Star.Property.Mass);
-                    item.SubItems.Add (exoplanet.Star.Property.Radius);
-                    }
-
-                item.Tag = exoplanet;
-                listView.Items.Add (item);
-                }
-#endif
             }
 
         private void ExoplanetListView_ColumnClick (object sender, ColumnClickEventArgs e)
@@ -424,6 +416,12 @@ namespace ExoplanetLibrary
             About.ShowDialog ();     // modal
             }
 
+        private void LibraryDialog_FormClosing ( object sender, FormClosingEventArgs e )
+            {
+            Settings.WriteFileName (XmlFileName);
+            Settings.WriteFilter (Filter);
+            }
+
         public void ExoplanetDetailsClosed ()
             {
             ExoplanetDetails = null;
@@ -431,11 +429,7 @@ namespace ExoplanetLibrary
 
         private void MenuCheckBox_CheckStateChanged (object sender, EventArgs e)
             {
-            if (sender == allClassificationsMenuItem)
-                {
-                Filter.AllStarTypesEnabled = allClassificationsMenuItem.CheckState;
-                }
-            else if (sender == typeOMenuItem)
+            if (sender == typeOMenuItem)
                 {
                 Filter.TypeOEnabled = typeOMenuItem.CheckState;
                 }
@@ -463,11 +457,11 @@ namespace ExoplanetLibrary
                 {
                 Filter.TypeMEnabled = typeMMenuItem.CheckState;
                 }
-            ///
-            else if (sender == allDetectionMethodsMenuItem)
+            else if (sender == unknownStarTypeMenuItem)
                 {
-                Filter.AllDetectionTypesEnabled = allDetectionMethodsMenuItem.CheckState;
+                Filter.UnknownStarEnabled = unknownStarTypeMenuItem.CheckState;
                 }
+            ///
             else if (sender == primaryTransitMenuItem)
                 {
                 Filter.PrimaryTransitEnabled = primaryTransitMenuItem.CheckState;
@@ -496,17 +490,17 @@ namespace ExoplanetLibrary
                 {
                 Filter.TTVEnabled = tTVMenuItem.CheckState;
                 }
+            else if (sender == allDetectionMethodsMenuItem)
+                {
+                Filter.UnknownDetectionEnabled = allDetectionMethodsMenuItem.CheckState;
+                }
 
             AddItemsToListView (ExoplanetListView, false, false);
             }
 
         private void MenuCheckBox_Click (object sender, EventArgs e)
             {
-            if (sender == allClassificationsMenuItem)
-                {
-                allClassificationsMenuItem.Checked = allClassificationsMenuItem.CheckState == CheckState.Checked ? false : true;
-                }
-            else if (sender == typeOMenuItem)
+            if (sender == typeOMenuItem)
                 {
                 typeOMenuItem.Checked = typeOMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
@@ -534,11 +528,11 @@ namespace ExoplanetLibrary
                 {
                 typeMMenuItem.Checked = typeMMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
-            ///
-            else if (sender == allDetectionMethodsMenuItem)
+            else if (sender == unknownStarTypeMenuItem)
                 {
-                allDetectionMethodsMenuItem.Checked = allDetectionMethodsMenuItem.CheckState == CheckState.Checked ? false : true;
+                unknownStarTypeMenuItem.Checked = unknownStarTypeMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
+            ///
             else if (sender == primaryTransitMenuItem)
                 {
                 primaryTransitMenuItem.Checked = primaryTransitMenuItem.CheckState == CheckState.Checked ? false : true;
@@ -566,6 +560,36 @@ namespace ExoplanetLibrary
             else if (sender == tTVMenuItem)
                 {
                 tTVMenuItem.Checked = tTVMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == allDetectionMethodsMenuItem)
+                {
+                allDetectionMethodsMenuItem.Checked = allDetectionMethodsMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            }
+
+        private void ReadLastUsedSettings ()
+            {
+            XmlFileName = Settings.ReadFileName ();
+
+            if (( Filter = Settings.ReadFilter () ) != null)
+                {
+                typeOMenuItem.CheckState = Filter.TypeOEnabled;
+                typeBMenuItem.CheckState = Filter.TypeBEnabled;
+                typeAMenuItem.CheckState = Filter.TypeAEnabled;
+                typeFMenuItem.CheckState = Filter.TypeFEnabled;
+                typeGMenuItem.CheckState = Filter.TypeGEnabled;
+                typeKMenuItem.CheckState = Filter.TypeKEnabled;
+                typeMMenuItem.CheckState = Filter.TypeMEnabled;
+                unknownStarTypeMenuItem.CheckState = Filter.UnknownStarEnabled;
+
+                primaryTransitMenuItem.CheckState = Filter.PrimaryTransitEnabled;
+                radialVelocityMenuItem.CheckState = Filter.RadialVelocityEnabled;
+                microlensingMenuItem.CheckState = Filter.MicrolensingEnabled;
+                imagingMenuItem.CheckState = Filter.ImagingEnabled;
+                pulsarMenuItem.CheckState = Filter.PulsarEnabled;
+                astrometryMenuItem.CheckState = Filter.AstrometryEnabled;
+                tTVMenuItem.CheckState = Filter.TTVEnabled;
+                allDetectionMethodsMenuItem.CheckState = Filter.UnknownDetectionEnabled;
                 }
             }
         }

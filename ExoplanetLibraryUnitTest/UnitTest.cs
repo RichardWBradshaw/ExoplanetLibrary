@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Windows.Forms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ExoplanetLibrary;
 
@@ -86,11 +87,11 @@ namespace ExoplanetLibraryUnitTest
             ArrayList exoplanetArray = null;
 
             if (System.IO.File.Exists (Constant.UnitTestFolder + "Version1.xml"))
-                exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version1.xml" );
+                exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version1.xml");
             else
                 {
                 ReadCSV.Read (Constant.UnitTestFolder + "Version1.csv");
-                exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version1.xml" );
+                exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version1.xml");
                 }
 
             Assert.IsNotNull (exoplanetArray);
@@ -106,7 +107,7 @@ namespace ExoplanetLibraryUnitTest
             else
                 {
                 ReadCSV.Read (Constant.UnitTestFolder + "Version2.csv");
-                exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version2.xml" );
+                exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version2.xml");
                 }
 
             Assert.IsNotNull (exoplanetArray);
@@ -118,7 +119,7 @@ namespace ExoplanetLibraryUnitTest
             ArrayList exoplanetArray = null;
 
             if (System.IO.File.Exists (Constant.UnitTestFolder + "exoplanet.eu_catalog.xml"))
-                exoplanetArray =  ReadXML.Read (Constant.UnitTestFolder + "Version1.xml");
+                exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version1.xml");
             else
                 {
                 ReadCSV.Read (Constant.UnitTestFolder + "exoplanet.eu_catalog.csv");
@@ -142,6 +143,55 @@ namespace ExoplanetLibraryUnitTest
                 }
 
             Assert.IsNotNull (exoplanetArray);
+            }
+
+        [TestMethod]
+        public void TestSettingsReadWrite ()
+            {
+            Filters keeper = Settings.ReadFilter ();
+
+            Filters test1 = new Filters ();
+            test1.TypeOEnabled = CheckState.Checked;
+            test1.TypeBEnabled = CheckState.Checked;
+            test1.TypeAEnabled = CheckState.Checked;
+            test1.TypeFEnabled = CheckState.Checked;
+            test1.TypeGEnabled = CheckState.Checked;
+            test1.TypeKEnabled = CheckState.Checked;
+            test1.TypeMEnabled = CheckState.Checked;
+            test1.UnknownStarEnabled = CheckState.Checked;
+            test1.UnknownDetectionEnabled = CheckState.Checked;
+            test1.PrimaryTransitEnabled = CheckState.Checked;
+            test1.RadialVelocityEnabled = CheckState.Checked;
+            test1.MicrolensingEnabled = CheckState.Checked;
+            test1.ImagingEnabled = CheckState.Checked;
+            test1.PulsarEnabled = CheckState.Checked;
+            test1.AstrometryEnabled = CheckState.Checked;
+            test1.TTVEnabled = CheckState.Checked;
+
+            Settings.WriteFilter (test1);
+
+            Filters test2 = Settings.ReadFilter ();
+
+            Settings.WriteFilter (keeper);
+
+            Assert.IsNotNull (test1);
+            Assert.IsNotNull (test2);
+            Assert.AreEqual (test1.UnknownStarEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.TypeOEnabled, test2.TypeOEnabled);
+            Assert.AreEqual (test1.TypeBEnabled, test2.TypeBEnabled);
+            Assert.AreEqual (test1.TypeAEnabled, test2.TypeAEnabled);
+            Assert.AreEqual (test1.TypeFEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.TypeFEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.TypeGEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.TypeMEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.UnknownDetectionEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.PrimaryTransitEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.RadialVelocityEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.MicrolensingEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.ImagingEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.PulsarEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.AstrometryEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.TTVEnabled, test2.UnknownStarEnabled);
             }
         }
     }

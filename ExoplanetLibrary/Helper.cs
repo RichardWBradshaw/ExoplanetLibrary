@@ -7,12 +7,9 @@ namespace ExoplanetLibrary
     {
     public class Filters
         {
-        private CheckState AllStarTypesEnabled_ = CheckState.Checked;
-        public CheckState AllStarTypesEnabled
-            {
-            get { return AllStarTypesEnabled_; }
-            set { AllStarTypesEnabled_ = value; }
-            }
+        //
+        // “Oh Be A Fine Girl, Kiss Me.”
+        //
 
         private CheckState TypeOEnabled_ = CheckState.Unchecked;
         public CheckState TypeOEnabled
@@ -63,14 +60,14 @@ namespace ExoplanetLibrary
             set { TypeMEnabled_ = value; }
             }
 
-        ///
-
-        public CheckState AllDetectionTypesEnabled_ = CheckState.Checked;
-        public CheckState AllDetectionTypesEnabled
+        private CheckState UnknownStarEnabled_ = CheckState.Checked;
+        public CheckState UnknownStarEnabled
             {
-            get { return AllDetectionTypesEnabled_; }
-            set { AllDetectionTypesEnabled_ = value; }
+            get { return UnknownStarEnabled_; }
+            set { UnknownStarEnabled_ = value; }
             }
+
+        ///
 
         private CheckState PrimaryTransitEnabled_ = CheckState.Unchecked;
         public CheckState PrimaryTransitEnabled
@@ -119,6 +116,13 @@ namespace ExoplanetLibrary
             {
             get { return TTVEnabled_; }
             set { TTVEnabled_ = value; }
+            }
+
+        public CheckState UnknownDetectionEnabled_ = CheckState.Checked;
+        public CheckState UnknownDetectionEnabled
+            {
+            get { return UnknownDetectionEnabled_; }
+            set { UnknownDetectionEnabled_ = value; }
             }
         }
 
@@ -582,7 +586,7 @@ namespace ExoplanetLibrary
                 return true;
             else
                 {
-                if (filter.AllStarTypesEnabled == CheckState.Checked)
+                if (filter.UnknownStarEnabled == CheckState.Checked)
                     return true;
                 else if (!IsStarTypeDefined (exoplanet))
                     return false;
@@ -611,7 +615,7 @@ namespace ExoplanetLibrary
                 return true;
             else
                 {
-                if (filter.AllDetectionTypesEnabled == CheckState.Checked)
+                if (filter.UnknownDetectionEnabled == CheckState.Checked)
                     return true;
                 else if (!IsDetectionDefined (exoplanet))
                     return false;
