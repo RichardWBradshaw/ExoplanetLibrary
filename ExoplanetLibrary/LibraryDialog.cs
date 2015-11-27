@@ -410,13 +410,27 @@ namespace ExoplanetLibrary
                 }
             }
 
+        private void launchExoplanetEu_Click (object sender, System.EventArgs e)
+            {
+            string url = "http://exoplanet.eu";
+
+            System.Diagnostics.Process.Start (url);
+            }
+
+        private void launchExoplanetEuCatalog_Click (object sender, EventArgs e)
+            {
+            string url = "http://exoplanet.eu//catalog";
+
+            System.Diagnostics.Process.Start (url);
+            }
+
         private void about_Click (object sender, System.EventArgs e)
             {
             About = new AboutBox ();
             About.ShowDialog ();     // modal
             }
 
-        private void LibraryDialog_FormClosing ( object sender, FormClosingEventArgs e )
+        private void LibraryDialog_FormClosing (object sender, FormClosingEventArgs e)
             {
             Settings.WriteFileName (XmlFileName);
             Settings.WriteFilter (Filter);
