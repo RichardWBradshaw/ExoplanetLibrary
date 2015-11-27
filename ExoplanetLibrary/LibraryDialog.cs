@@ -211,7 +211,7 @@ namespace ExoplanetLibrary
             if (ExoplanetsArray != null)
                 foreach (Exoplanet exoplanet in ExoplanetsArray)
                     {
-                    if (!Helper.MatchesFilter (exoplanet, Filter))
+                    if (!Settings.MatchesFilter (exoplanet, Filter))
                         continue;
 
                     ListViewItem item = new ListViewItem (exoplanet.Name, 0);
