@@ -353,12 +353,20 @@ namespace ExoplanetLibrary
 
         public static bool IsPrimaryTransit (Exoplanet exoplanet)
             {
-            return exoplanet.DetectionType.Equals ("Primary Transit", StringComparison.OrdinalIgnoreCase) ? true : false;
+            if (exoplanet.DetectionType.Equals ("Primary Transit", StringComparison.OrdinalIgnoreCase) ||
+                exoplanet.DetectionType.Equals ("Detected by Transit", StringComparison.OrdinalIgnoreCase))
+                return true;
+            else
+                return false;
             }
 
         public static bool IsRadialVelocity (Exoplanet exoplanet)
             {
-            return exoplanet.DetectionType.Equals ("Radial Velocity", StringComparison.OrdinalIgnoreCase) ? true : false;
+            if (exoplanet.DetectionType.Equals ("Radial Velocity", StringComparison.OrdinalIgnoreCase) ||
+                exoplanet.DetectionType.Equals ("Detected by Radial Velocity", StringComparison.OrdinalIgnoreCase))
+                return true;
+            else
+                return false;
             }
 
         public static bool IsMicrolensing (Exoplanet exoplanet)

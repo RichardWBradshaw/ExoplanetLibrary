@@ -10,7 +10,7 @@ namespace ExoplanetLibrary
             {
             }
 
-        static private string Version_ = "2.0";
+        static private string Version_ = Constant.Version2;
         static private string Version
             {
             get { return Version_; }
@@ -27,7 +27,7 @@ namespace ExoplanetLibrary
                 settings = new XmlWriterSettings ();
 
                 settings.IndentChars = "\t";
-                settings.NewLineHandling = System.Xml.NewLineHandling.Entitize;
+                settings.NewLineHandling = NewLineHandling.Entitize;
                 settings.Indent = true;
                 settings.NewLineChars = "\n";
 
@@ -333,6 +333,54 @@ namespace ExoplanetLibrary
             exoplanet.Star.Property.MagneticField = strings [78].ToString ();
             }
 
+        public static void StreamRead (string csvFileName)
+            {
+            if (File.Exists (csvFileName))
+                {
+                XmlWriter writer = null;
+                XmlWriterSettings settings = null;
+
+                settings = new XmlWriterSettings ();
+
+                settings.IndentChars = "\t";
+                settings.NewLineHandling = NewLineHandling.Entitize;
+                settings.Indent = true;
+                settings.NewLineChars = "\n";
+
+                string xmlFileName = "";
+
+                if (csvFileName.EndsWith (".txt"))
+                    xmlFileName = csvFileName.Replace (".txt", ".xml");
+                else
+                    xmlFileName = csvFileName.Replace (".csv", ".xml");
+
+                IsValidVersion (csvFileName);
+
+                if (string.Equals (Version, Constant.Version1) || string.Equals (Version, Constant.Version2))
+                    {
+                    writer = XmlWriter.Create (xmlFileName, settings);
+
+                    writer.WriteStartElement ("Exoplanets");
+                    writer.WriteAttributeString ("version", Version);
+
+                    using (StreamReader stream = new StreamReader (csvFileName))
+                        {
+                        if (stream != null)
+                            {
+                            string line = null;
+
+                            while (( line = stream.ReadLine () ) != null)
+                                {
+                                WriteExoplanet (writer, line);
+                                }
+                            }
+                        }
+
+                    writer.WriteEndElement ();
+                    writer.Close ();
+                    }
+                }
+            }
         }
     }
 
