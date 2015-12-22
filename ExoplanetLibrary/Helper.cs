@@ -706,6 +706,22 @@ namespace ExoplanetLibrary
             return array;
             }
 
+        public static ArrayList PlanetsWithEccentrity (ArrayList exoplanets)
+            {
+            ArrayList array = new ArrayList();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (exoplanet.Eccentricity != null)
+                    if (exoplanet.Eccentricity.Length > 0)
+                        array.Add(exoplanet);
+                }
+
+            array.Sort(new SortByExoplanetEccentricity());
+
+            return array;
+            }
+
         public static ArrayList PlanetsWithMassAndRadius (ArrayList exoplanets)
             {
             ArrayList array = new ArrayList ();

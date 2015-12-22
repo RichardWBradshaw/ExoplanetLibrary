@@ -474,6 +474,16 @@ namespace ExoplanetLibrary
         private void plotting_Click5 (object sender, System.EventArgs e)
             {
             if (Visualization == null)
+                Visualization = new VisualizationDialog(this);
+
+            Plotting.VisualizeEccentricity(Visualization.plotSurface2D1, ExoplanetsArray);
+            Visualization.Show();
+            Visualization.BringToFront();
+            }
+
+        private void plotting_Click10 (object sender, System.EventArgs e)
+            {
+            if (Visualization == null)
                 Visualization = new VisualizationDialog (this);
 
             Plotting.VisualizeMassAndRadius (Visualization.plotSurface2D1, ExoplanetsArray);

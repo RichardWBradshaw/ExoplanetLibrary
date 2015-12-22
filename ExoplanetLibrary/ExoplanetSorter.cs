@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ExoplanetLibrary
     {
-    public class SortByStarName : IComparer
+    sealed public class SortByStarName : IComparer
         {
         public SortByStarName ()
             {
@@ -22,7 +22,7 @@ namespace ExoplanetLibrary
             }
         }
 
-    public class SortByExoplanetName : IComparer
+    sealed public class SortByExoplanetName : IComparer
         {
         public SortByExoplanetName ()
             {
@@ -41,7 +41,7 @@ namespace ExoplanetLibrary
             }
         }
 
-    public class SortByExoplanetMass : IComparer
+    sealed public class SortByExoplanetMass : IComparer
         {
         public SortByExoplanetMass ()
             {
@@ -67,7 +67,7 @@ namespace ExoplanetLibrary
             }
         }
 
-    public class SortByExoplanetRadius : IComparer
+    sealed public class SortByExoplanetRadius : IComparer
         {
         public SortByExoplanetRadius ()
             {
@@ -93,7 +93,7 @@ namespace ExoplanetLibrary
             }
         }
 
-    public class SortByExoplanetOrbitalPeriod : IComparer
+    sealed public class SortByExoplanetOrbitalPeriod : IComparer
         {
         public SortByExoplanetOrbitalPeriod ()
             {
@@ -116,6 +116,32 @@ namespace ExoplanetLibrary
                 compareResults = ObjectCompare.Compare (exoplanet1.OrbitalPeriod, exoplanet2.OrbitalPeriod);
 
             return ( -compareResults );
+            }
+        }
+
+    sealed public class SortByExoplanetEccentricity : IComparer
+        {
+        public SortByExoplanetEccentricity ()
+            {
+            }
+
+        private CaseInsensitiveComparer ObjectCompare = new CaseInsensitiveComparer();
+
+        int IComparer.Compare (Object x, Object y)
+            {
+            Exoplanet exoplanet1, exoplanet2;
+            double dx, dy;
+            int compareResults;
+
+            exoplanet1 = (Exoplanet) x;
+            exoplanet2 = (Exoplanet) y;
+
+            if (double.TryParse(exoplanet1.Eccentricity, out dx) && double.TryParse(exoplanet2.Eccentricity, out dy))
+                compareResults = ObjectCompare.Compare(dx, dy);
+            else
+                compareResults = ObjectCompare.Compare(exoplanet1.Eccentricity, exoplanet2.Eccentricity);
+
+            return (-compareResults);
             }
         }
     }

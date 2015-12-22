@@ -51,6 +51,7 @@ namespace ExoplanetLibrary
             this.plottingMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.plottingMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.plottingMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.plottingMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -133,7 +134,8 @@ namespace ExoplanetLibrary
             this.plottingMenuItem2,
             this.plottingMenuItem3,
             this.plottingMenuItem4,
-            this.plottingMenuItem5});
+            this.plottingMenuItem5,
+            this.plottingMenuItem10});
             this.settingsMenuItem.Name = "settingsMenuItem";
             this.settingsMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsMenuItem.Text = "Settings";
@@ -328,8 +330,15 @@ namespace ExoplanetLibrary
             // 
             this.plottingMenuItem5.Name = "plottingMenuItem5";
             this.plottingMenuItem5.Size = new System.Drawing.Size(238, 22);
-            this.plottingMenuItem5.Text = "Visualize Masses and Radii...";
+            this.plottingMenuItem5.Text = "Visualize Eccentrities...";
             this.plottingMenuItem5.Click += new System.EventHandler(this.plotting_Click5);
+            // 
+            // plottingMenuItem10
+            // 
+            this.plottingMenuItem10.Name = "plottingMenuItem5";
+            this.plottingMenuItem10.Size = new System.Drawing.Size(238, 22);
+            this.plottingMenuItem10.Text = "Visualize Masses and Radii...";
+            this.plottingMenuItem10.Click += new System.EventHandler(this.plotting_Click10);
             // 
             // helpMenuItem
             // 
@@ -400,6 +409,7 @@ namespace ExoplanetLibrary
         private ToolStripMenuItem plottingMenuItem3;
         private ToolStripMenuItem plottingMenuItem4;
         private ToolStripMenuItem plottingMenuItem5;
+        private ToolStripMenuItem plottingMenuItem10;
         }
     }
 

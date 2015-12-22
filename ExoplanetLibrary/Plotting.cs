@@ -25,6 +25,76 @@ namespace ExoplanetLibrary
             set { ColorFromStarType_ = value; }
             }
 
+        static public void VisualizeMassAndRadius (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
+            {
+            ArrayList array = Helper.PlanetsWithMassAndRadius(exoplanets);
+
+            double[] masses = new System.Double[array.Count];
+            double[] radii = new System.Double[array.Count];
+            int counter = 0;
+
+            foreach (Exoplanet exoplanet in array)
+                {
+                double mass = 0.0, radius = 0.0;
+
+                if (double.TryParse(exoplanet.Mass, out mass) == true)
+                    if (double.TryParse(exoplanet.Radius, out radius) == true)
+                        {
+                        masses[counter] = mass;
+                        radii[counter] = radius;
+                        counter++;
+                        }
+                }
+
+            plotSurface.Clear();
+            plotSurface.Title = "Mass & Radius Plot";
+            plotSurface.BackColor = System.Drawing.Color.White;
+
+            NPlot.Grid p = new Grid();
+            plotSurface.Add(p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+
+            PointPlot pointPlot = new PointPlot();
+            pointPlot.AbscissaData = masses;
+            pointPlot.DataSource = radii;
+            pointPlot.Label = "Radius (Rjup)";
+            pointPlot.Marker.Color = System.Drawing.Color.Blue;
+            pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
+
+            plotSurface.Add(pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+
+            Font titleFont = new Font("Arial", 12);
+            Font axisFont = new Font("Arial", 10);
+            Font tickFont = new Font("Arial", 8);
+
+            plotSurface.XAxis1.Label = "Mass (Mjup)";
+            plotSurface.XAxis1.NumberFormat = "{0:0}";
+            plotSurface.XAxis1.TicksLabelAngle = 0;
+            plotSurface.XAxis1.TickTextNextToAxis = true;
+            plotSurface.XAxis1.FlipTicksLabel = true;
+            plotSurface.XAxis1.LabelOffset = 25;
+            plotSurface.XAxis1.LabelOffsetAbsolute = true;
+            plotSurface.XAxis1.LabelFont = axisFont;
+            plotSurface.XAxis1.TickTextFont = tickFont;
+
+            plotSurface.YAxis1.Label = "Radius (Rjup)";
+            plotSurface.YAxis1.NumberFormat = "{0:0.0}";
+            plotSurface.YAxis1.LabelFont = axisFont;
+            plotSurface.YAxis1.TickTextFont = tickFont;
+
+            if (IncludeLegend == true)
+                {
+                NPlot.Legend legend = new NPlot.Legend();
+
+                legend.AttachTo(PlotSurface2D.XAxisPosition.Top, PlotSurface2D.YAxisPosition.Right);
+                legend.VerticalEdgePlacement = NPlot.Legend.Placement.Inside;
+                legend.HorizontalEdgePlacement = NPlot.Legend.Placement.Outside;
+                legend.BorderStyle = NPlot.LegendBase.BorderType.Line;
+                plotSurface.Legend = legend;
+                }
+
+            plotSurface.Refresh();
+            }
+
         static public void VisualizeStars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
             {
             ArrayList stars = Helper.GetStars (exoplanets);
@@ -157,14 +227,14 @@ namespace ExoplanetLibrary
             NPlot.Grid p = new Grid ();
             plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-            PointPlot pointPlot = new PointPlot ();
-            pointPlot.AbscissaData = indexes;
-            pointPlot.DataSource = radii;
-            pointPlot.Label = "Index";
-            pointPlot.Marker.Color = System.Drawing.Color.Blue;
-            pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
+            LinePlot linePlot = new LinePlot();
+            linePlot.AbscissaData = indexes;
+            linePlot.DataSource = radii;
+            linePlot.Label = "Index";
+            linePlot.Color = System.Drawing.Color.Blue;
+            linePlot.Pen.Width = 2F;
 
-            plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+            plotSurface.Add(linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
             Font titleFont = new Font ("Arial", 12);
             Font axisFont = new Font ("Arial", 10);
@@ -226,14 +296,14 @@ namespace ExoplanetLibrary
             NPlot.Grid p = new Grid ();
             plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-            PointPlot pointPlot = new PointPlot ();
-            pointPlot.AbscissaData = indexes;
-            pointPlot.DataSource = masses;
-            pointPlot.Label = "Index";
-            pointPlot.Marker.Color = System.Drawing.Color.Blue;
-            pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
+            LinePlot linePlot = new LinePlot();
+            linePlot.AbscissaData = indexes;
+            linePlot.DataSource = masses;
+            linePlot.Label = "Index";
+            linePlot.Color = System.Drawing.Color.Blue;
+            linePlot.Pen.Width = 2F;
 
-            plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+            plotSurface.Add(linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
             Font titleFont = new Font ("Arial", 12);
             Font axisFont = new Font ("Arial", 10);
@@ -251,76 +321,6 @@ namespace ExoplanetLibrary
 
             plotSurface.YAxis1.Label = "Mass (Mjup)";
             plotSurface.YAxis1.NumberFormat = "{0:0}";
-            plotSurface.YAxis1.LabelFont = axisFont;
-            plotSurface.YAxis1.TickTextFont = tickFont;
-
-            if (IncludeLegend == true)
-                {
-                NPlot.Legend legend = new NPlot.Legend ();
-
-                legend.AttachTo (PlotSurface2D.XAxisPosition.Top, PlotSurface2D.YAxisPosition.Right);
-                legend.VerticalEdgePlacement = NPlot.Legend.Placement.Inside;
-                legend.HorizontalEdgePlacement = NPlot.Legend.Placement.Outside;
-                legend.BorderStyle = NPlot.LegendBase.BorderType.Line;
-                plotSurface.Legend = legend;
-                }
-
-            plotSurface.Refresh ();
-            }
-
-        static public void VisualizeMassAndRadius (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
-            {
-            ArrayList array = Helper.PlanetsWithMassAndRadius (exoplanets);
-
-            double [] masses = new System.Double [array.Count];
-            double [] radii = new System.Double [array.Count];
-            int counter = 0;
-
-            foreach (Exoplanet exoplanet in array)
-                {
-                double mass = 0.0, radius = 0.0;
-
-                if (double.TryParse (exoplanet.Mass, out mass) == true)
-                    if (double.TryParse (exoplanet.Radius, out radius) == true)
-                        {
-                        masses [counter] = mass;
-                        radii [counter] = radius;
-                        counter++;
-                        }
-                }
-
-            plotSurface.Clear ();
-            plotSurface.Title = "Mass & Radius Plot";
-            plotSurface.BackColor = System.Drawing.Color.White;
-
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
-            PointPlot pointPlot = new PointPlot ();
-            pointPlot.AbscissaData = masses;
-            pointPlot.DataSource = radii;
-            pointPlot.Label = "Radius (Rjup)";
-            pointPlot.Marker.Color = System.Drawing.Color.Blue;
-            pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
-
-            plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
-            Font titleFont = new Font ("Arial", 12);
-            Font axisFont = new Font ("Arial", 10);
-            Font tickFont = new Font ("Arial", 8);
-
-            plotSurface.XAxis1.Label = "Mass (Mjup)";
-            plotSurface.XAxis1.NumberFormat = "{0:0}";
-            plotSurface.XAxis1.TicksLabelAngle = 0;
-            plotSurface.XAxis1.TickTextNextToAxis = true;
-            plotSurface.XAxis1.FlipTicksLabel = true;
-            plotSurface.XAxis1.LabelOffset = 25;
-            plotSurface.XAxis1.LabelOffsetAbsolute = true;
-            plotSurface.XAxis1.LabelFont = axisFont;
-            plotSurface.XAxis1.TickTextFont = tickFont;
-
-            plotSurface.YAxis1.Label = "Radius (Rjup)";
-            plotSurface.YAxis1.NumberFormat = "{0:0.0}";
             plotSurface.YAxis1.LabelFont = axisFont;
             plotSurface.YAxis1.TickTextFont = tickFont;
 
@@ -365,14 +365,14 @@ namespace ExoplanetLibrary
             NPlot.Grid p = new Grid ();
             plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-            PointPlot pointPlot = new PointPlot ();
-            pointPlot.AbscissaData = indexes;
-            pointPlot.DataSource = orbitalPeriods;
-            pointPlot.Label = "Index";
-            pointPlot.Marker.Color = System.Drawing.Color.Blue;
-            pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
+            LinePlot linePlot = new LinePlot();
+            linePlot.AbscissaData = indexes;
+            linePlot.DataSource = orbitalPeriods;
+            linePlot.Label = "Index";
+            linePlot.Color = System.Drawing.Color.Blue;
+            linePlot.Pen.Width = 2F;
 
-            plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+            plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
             Font titleFont = new Font ("Arial", 12);
             Font axisFont = new Font ("Arial", 10);
@@ -406,135 +406,63 @@ namespace ExoplanetLibrary
 
             plotSurface.Refresh ();
             }
-        //static public void VisualizeStars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
-        //    {
-        //    //NPlot.Windows.PlotSurface2D plotSurface = new NPlot.Windows.PlotSurface2D ();
 
-        //    PointPlot npPlot1 = new PointPlot ();
-        //    //PointPlot npPlot2 = new PointPlot ();
-        //    //PointPlot npPlot3 = new PointPlot ();
+        static public void VisualizeEccentricity (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
+            {
+            ArrayList array = Helper.PlanetsWithEccentrity(exoplanets);
 
-        //    //Font definitions:
-        //    Font TitleFont = new Font ("Arial", 12);
-        //    Font AxisFont = new Font ("Arial", 10);
-        //    Font TickFont = new Font ("Arial", 8);
+            double[] eccentricities = new System.Double[array.Count];
+            double[] indexes = new System.Double[array.Count];
+            int counter = 0;
 
-        //    //Legend definition:
-        //    NPlot.Legend npLegend = new NPlot.Legend ();
+            foreach (Exoplanet exoplanet in array)
+                {
+                double eccentricity = 0.0;
 
-        //    //DateTime [] X1 = new DateTime [50];
-        //    //DateTime [] X2 = new DateTime [50];
-        //    //int [] Y1 = new int [50];
-        //    //int [] Y2 = new int [50];
+                if (double.TryParse(exoplanet.Eccentricity, out eccentricity) == true)
+                    {
+                    eccentricities[counter] = eccentricity;
+                    indexes[counter] = counter + 1;
+                    counter++;
+                    }
+                }
 
-        //    //Random r1 = new Random ();
-        //    //Random r2 = new Random ();
+            plotSurface.Clear();
+            plotSurface.Title = "Eccentricity Plot";
+            plotSurface.BackColor = System.Drawing.Color.White;
 
-        //    //for (int i = 0; i < 50; i++)
-        //    //    {
-        //    //    X1 [i] = DateTime.Now.Date.AddDays (i);
-        //    //    X2 [i] = DateTime.Now.Date.AddDays (i);
-        //    //    Y1 [i] = r1.Next (100);
-        //    //    Y2 [i] = r2.Next (300);
-        //    //    }
-        //    double [] declination = new System.Double [2000];
-        //    double [] accession = new System.Double [2000];
-        //    int counter = 0;
+            NPlot.Grid p = new Grid();
+            plotSurface.Add(p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-        //    foreach (Exoplanet exoplanet in exoplanets)
-        //        {
-        //        if (exoplanet.Star.Declination != null)
-        //            if (exoplanet.Star.RightAccession != null)
-        //                {
-        //                double dec = 0.0, ra = 0.0;
+            LinePlot linePlot = new LinePlot();
+            linePlot.AbscissaData = indexes;
+            linePlot.DataSource = eccentricities;
+            linePlot.Label = "Index";
+            linePlot.Color = System.Drawing.Color.Blue;
+            linePlot.Pen.Width = 2F;
 
-        //                if (double.TryParse (exoplanet.Star.Declination, out dec) == true)
-        //                    if (double.TryParse (exoplanet.Star.RightAccession, out ra) == true)
-        //                        {
-        //                        declination [counter] = dec;
-        //                        accession [counter] = ra;
-        //                        counter++;
-        //                        }
+            plotSurface.Add(linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-        //                }
+            Font titleFont = new Font("Arial", 12);
+            Font axisFont = new Font("Arial", 10);
+            Font tickFont = new Font("Arial", 8);
 
-        //        if (counter == 2000)
-        //            break;
-        //        }
+            plotSurface.XAxis1.Label = "Index";
+            plotSurface.XAxis1.NumberFormat = "{0:0}";
+            plotSurface.XAxis1.TicksLabelAngle = 0;
+            plotSurface.XAxis1.TickTextNextToAxis = true;
+            plotSurface.XAxis1.FlipTicksLabel = true;
+            plotSurface.XAxis1.LabelOffset = 25;
+            plotSurface.XAxis1.LabelOffsetAbsolute = true;
+            plotSurface.XAxis1.LabelFont = axisFont;
+            plotSurface.XAxis1.TickTextFont = tickFont;
 
-        //    //Prepare PlotSurface:
-        //    plotSurface.Clear ();
-        //    plotSurface.Title = "Point Graph";
-        //    plotSurface.BackColor = System.Drawing.Color.White;
+            plotSurface.YAxis1.Label = "Eccentricity";
+            plotSurface.YAxis1.NumberFormat = "{0:0.00}";
+            plotSurface.YAxis1.LabelFont = axisFont;
+            plotSurface.YAxis1.TickTextFont = tickFont;
 
-
-        //    //Left Y axis grid:
-        //    NPlot.Grid p = new Grid ();
-        //    plotSurface.Add (p, NPlot.PlotSurface2D.XAxisPosition.Bottom, NPlot.PlotSurface2D.YAxisPosition.Left);
-
-        //    npPlot1.AbscissaData = accession;// X1;
-        //    npPlot1.DataSource = declination;//Y1
-        //    npPlot1.Label = "Declination (dd:mm:ss)";
-        //    npPlot1.Marker.Color = System.Drawing.Color.Blue;
-
-        //    ////Weight:
-        //    //npPlot1.AbscissaData = X1;
-        //    //npPlot1.DataSource = Y1;
-        //    //npPlot1.Label = "Declination (dd:mm:ss)";
-        //    //npPlot1.Marker.Color = System.Drawing.Color.Blue;
-
-        //    ////Height
-        //    //npPlot2.AbscissaData = X2;
-        //    //npPlot2.DataSource = Y2;
-        //    //npPlot2.Label = "Right Accession (hh:mm:ss)";
-        //    //npPlot2.Marker.Color = System.Drawing.Color.Green;
-
-
-        //    plotSurface.Add (npPlot1, NPlot.PlotSurface2D.XAxisPosition.Bottom, NPlot.PlotSurface2D.YAxisPosition.Left);
-        //    //plotSurface.Add (npPlot2, NPlot.PlotSurface2D.XAxisPosition.Bottom, NPlot.PlotSurface2D.YAxisPosition.Left);
-
-
-
-        //    //X axis
-        //    plotSurface.XAxis1.Label = "Right Accession (hh:mm:ss)";
-        //    plotSurface.XAxis1.NumberFormat = "{0:0.0}"; //"yyyy-MM-dd";
-        //    plotSurface.XAxis1.TicksLabelAngle = 90;
-        //    plotSurface.XAxis1.TickTextNextToAxis = true;
-        //    plotSurface.XAxis1.FlipTicksLabel = true;
-        //    plotSurface.XAxis1.LabelOffset = 110;
-        //    plotSurface.XAxis1.LabelOffsetAbsolute = true;
-        //    plotSurface.XAxis1.LabelFont = AxisFont;
-        //    plotSurface.XAxis1.TickTextFont = TickFont;
-
-
-        //    //Y axis
-        //    plotSurface.YAxis1.Label = "Declination (dd:mm:ss)";
-        //    plotSurface.YAxis1.NumberFormat = "{0:0.0}";
-        //    plotSurface.YAxis1.LabelFont = AxisFont;
-        //    plotSurface.YAxis1.TickTextFont = TickFont;
-
-        //    //Add legend:
-        //    npLegend.AttachTo (NPlot.PlotSurface2D.XAxisPosition.Top, NPlot.PlotSurface2D.YAxisPosition.Right);
-        //    npLegend.VerticalEdgePlacement = NPlot.Legend.Placement.Inside;
-        //    npLegend.HorizontalEdgePlacement = NPlot.Legend.Placement.Outside;
-        //    npLegend.BorderStyle = NPlot.LegendBase.BorderType.Line;
-        //    plotSurface.Legend = npLegend;
-
-
-        //    //Update PlotSurface:
-        //    plotSurface.Refresh ();
-
-
-        //    ////Save PlotSurface to MemoryStream, stream output as GIF file:
-        //    //Response.Buffer = true;
-        //    //Response.ContentType = "image/gif";
-
-        //    //MemoryStream memStream = new MemoryStream ();
-
-        //    //plotSurface.Bitmap.Save (memStream, System.Drawing.Imaging.ImageFormat.Gif);
-        //    //memStream.WriteTo (Response.OutputStream);
-        //    //Response.End ();
-        //    }
+            plotSurface.Refresh();
+            }
         }
-
     }
