@@ -2,33 +2,20 @@
     {
     partial class VisualizationDialog
         {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose (bool disposing)
             {
             if (disposing && ( components != null ))
-                {
                 components.Dispose ();
-                }
+
             base.Dispose (disposing);
             }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent ()
             {
             this.plotSurface2D1 = new NPlot.Windows.PlotSurface2D();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // plotSurface2D1
@@ -39,11 +26,11 @@
             this.plotSurface2D1.DateTimeToolTip = false;
             this.plotSurface2D1.Legend = null;
             this.plotSurface2D1.LegendZOrder = -1;
-            this.plotSurface2D1.Location = new System.Drawing.Point(10, 10);
+            this.plotSurface2D1.Location = new System.Drawing.Point(-5, -1);
             this.plotSurface2D1.Name = "plotSurface2D1";
             this.plotSurface2D1.RightMenu = null;
             this.plotSurface2D1.ShowCoordinates = true;
-            this.plotSurface2D1.Size = new System.Drawing.Size(662, 349);
+            this.plotSurface2D1.Size = new System.Drawing.Size(685, 370);
             this.plotSurface2D1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             this.plotSurface2D1.TabIndex = 0;
             this.plotSurface2D1.Text = "plotSurface2D1";
@@ -54,19 +41,23 @@
             this.plotSurface2D1.YAxis1 = null;
             this.plotSurface2D1.YAxis2 = null;
             // 
-            // GraphicsDialog
+            // VisualizationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(684, 371);
             this.Controls.Add(this.plotSurface2D1);
-            this.Name = "GraphicsDialog";
+            this.Name = "VisualizationDialog";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Visualization";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Visualization_FormClosing);
             this.ResumeLayout(false);
 
             }
 
-        #endregion
-        private NPlot.Windows.PlotSurface2D plotSurface2D1;
+        public NPlot.Windows.PlotSurface2D plotSurface2D1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         }
     }

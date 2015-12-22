@@ -43,6 +43,13 @@ namespace ExoplanetLibrary
             set { ExoplanetDetails_ = value; }
             }
 
+        private VisualizationDialog Visualization_ = null;
+        public VisualizationDialog Visualization
+            {
+            get { return Visualization_; }
+            set { Visualization_ = value; }
+            }
+
         private AboutBox About_ = null;
         public AboutBox About
             {
@@ -424,6 +431,56 @@ namespace ExoplanetLibrary
             System.Diagnostics.Process.Start (url);
             }
 
+        private void plotting_Click1 (object sender, System.EventArgs e)
+            {
+            if (Visualization == null)
+                Visualization = new VisualizationDialog (this);
+
+            Plotting.VisualizeStars (Visualization.plotSurface2D1, ExoplanetsArray);
+            Visualization.Show ();
+            Visualization.BringToFront ();
+            }
+
+        private void plotting_Click2 (object sender, System.EventArgs e)
+            {
+            if (Visualization == null)
+                Visualization = new VisualizationDialog (this);
+
+            Plotting.VisualizeMass (Visualization.plotSurface2D1, ExoplanetsArray);
+            Visualization.Show ();
+            Visualization.BringToFront ();
+            }
+
+        private void plotting_Click3 (object sender, System.EventArgs e)
+            {
+            if (Visualization == null)
+                Visualization = new VisualizationDialog (this);
+
+            Plotting.VisualizeRadius (Visualization.plotSurface2D1, ExoplanetsArray);
+            Visualization.Show ();
+            Visualization.BringToFront ();
+            }
+
+        private void plotting_Click4 (object sender, System.EventArgs e)
+            {
+            if (Visualization == null)
+                Visualization = new VisualizationDialog (this);
+
+            Plotting.VisualizeOrbitalPeriod (Visualization.plotSurface2D1, ExoplanetsArray);
+            Visualization.Show ();
+            Visualization.BringToFront ();
+            }
+
+        private void plotting_Click5 (object sender, System.EventArgs e)
+            {
+            if (Visualization == null)
+                Visualization = new VisualizationDialog (this);
+
+            Plotting.VisualizeMassAndRadius (Visualization.plotSurface2D1, ExoplanetsArray);
+            Visualization.Show ();
+            Visualization.BringToFront ();
+            }
+
         private void about_Click (object sender, System.EventArgs e)
             {
             About = new AboutBox ();
@@ -434,6 +491,12 @@ namespace ExoplanetLibrary
             {
             Settings.WriteFileName (XmlFileName);
             Settings.WriteFilter (Filter);
+            }
+
+        public void VisualizationClosed ()
+            {
+            //Visualization.plotSurface2D1 = null;
+            Visualization = null;
             }
 
         public void ExoplanetDetailsClosed ()

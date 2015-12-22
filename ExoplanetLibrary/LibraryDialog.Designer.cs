@@ -17,13 +17,16 @@ namespace ExoplanetLibrary
 
         private void InitializeComponent ( )
             {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LibraryDialog));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.launchExoplanetEuMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.launchExoplanetEUCatalogsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.starFiltersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeOMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,10 +46,13 @@ namespace ExoplanetLibrary
             this.astrometryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tTVMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allDetectionMethodsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plottingMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.plottingMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.plottingMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.plottingMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.plottingMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.launchExoplanetEuMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,25 +85,26 @@ namespace ExoplanetLibrary
             // openMenuItem
             // 
             this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(276, 22);
             this.openMenuItem.Text = "Open ...";
             // 
             // saveAsMenuItem
             // 
             this.saveAsMenuItem.Name = "saveAsMenuItem";
-            this.saveAsMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.saveAsMenuItem.Size = new System.Drawing.Size(276, 22);
             this.saveAsMenuItem.Text = "Save as .CSV";
             // 
             // fileSeparator
             // 
             this.fileSeparator.Name = "fileSeparator";
-            this.fileSeparator.Size = new System.Drawing.Size(278, 6);
+            this.fileSeparator.Size = new System.Drawing.Size(273, 6);
             // 
-            // exitMenuItem
+            // launchExoplanetEuMenuItem
             // 
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(281, 22);
-            this.exitMenuItem.Text = "Exit";
+            this.launchExoplanetEuMenuItem.Name = "launchExoplanetEuMenuItem";
+            this.launchExoplanetEuMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.launchExoplanetEuMenuItem.Text = "Launch http://exoplanet.eu ...";
+            this.launchExoplanetEuMenuItem.Click += new System.EventHandler(this.launchExoplanetEu_Click);
             // 
             // launchExoplanetEUCatalogsMenuItem
             // 
@@ -106,11 +113,27 @@ namespace ExoplanetLibrary
             this.launchExoplanetEUCatalogsMenuItem.Text = "Launch http://exoplanet.eu/Catalog ...";
             this.launchExoplanetEUCatalogsMenuItem.Click += new System.EventHandler(this.launchExoplanetEuCatalog_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(273, 6);
+            // 
+            // exitMenuItem
+            // 
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.exitMenuItem.Text = "Exit";
+            // 
             // settingsMenuItem
             // 
             this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.starFiltersMenuItem,
-            this.detectFiltersMenuItem});
+            this.detectFiltersMenuItem,
+            this.plottingMenuItem1,
+            this.plottingMenuItem2,
+            this.plottingMenuItem3,
+            this.plottingMenuItem4,
+            this.plottingMenuItem5});
             this.settingsMenuItem.Name = "settingsMenuItem";
             this.settingsMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsMenuItem.Text = "Settings";
@@ -127,7 +150,7 @@ namespace ExoplanetLibrary
             this.typeMMenuItem,
             this.unknownStarTypeMenuItem});
             this.starFiltersMenuItem.Name = "starFiltersMenuItem";
-            this.starFiltersMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.starFiltersMenuItem.Size = new System.Drawing.Size(238, 22);
             this.starFiltersMenuItem.Text = "Star Classifications";
             // 
             // typeOMenuItem
@@ -206,7 +229,7 @@ namespace ExoplanetLibrary
             this.tTVMenuItem,
             this.allDetectionMethodsMenuItem});
             this.detectFiltersMenuItem.Name = "detectFiltersMenuItem";
-            this.detectFiltersMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.detectFiltersMenuItem.Size = new System.Drawing.Size(238, 22);
             this.detectFiltersMenuItem.Text = "Detect Methods";
             // 
             // primaryTransitMenuItem
@@ -273,6 +296,41 @@ namespace ExoplanetLibrary
             this.allDetectionMethodsMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.allDetectionMethodsMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
+            // plottingMenuItem1
+            // 
+            this.plottingMenuItem1.Name = "plottingMenuItem1";
+            this.plottingMenuItem1.Size = new System.Drawing.Size(238, 22);
+            this.plottingMenuItem1.Text = "Visualize Stars and Exoplanets...";
+            this.plottingMenuItem1.Click += new System.EventHandler(this.plotting_Click1);
+            // 
+            // plottingMenuItem2
+            // 
+            this.plottingMenuItem2.Name = "plottingMenuItem2";
+            this.plottingMenuItem2.Size = new System.Drawing.Size(238, 22);
+            this.plottingMenuItem2.Text = "Visualize Masses...";
+            this.plottingMenuItem2.Click += new System.EventHandler(this.plotting_Click2);
+            // 
+            // plottingMenuItem3
+            // 
+            this.plottingMenuItem3.Name = "plottingMenuItem3";
+            this.plottingMenuItem3.Size = new System.Drawing.Size(238, 22);
+            this.plottingMenuItem3.Text = "Visualize Radii...";
+            this.plottingMenuItem3.Click += new System.EventHandler(this.plotting_Click3);
+            // 
+            // plottingMenuItem4
+            // 
+            this.plottingMenuItem4.Name = "plottingMenuItem4";
+            this.plottingMenuItem4.Size = new System.Drawing.Size(238, 22);
+            this.plottingMenuItem4.Text = "Visualize Orbital Period...";
+            this.plottingMenuItem4.Click += new System.EventHandler(this.plotting_Click4);
+            // 
+            // plottingMenuItem5
+            // 
+            this.plottingMenuItem5.Name = "plottingMenuItem5";
+            this.plottingMenuItem5.Size = new System.Drawing.Size(238, 22);
+            this.plottingMenuItem5.Text = "Visualize Masses and Radii...";
+            this.plottingMenuItem5.Click += new System.EventHandler(this.plotting_Click5);
+            // 
             // helpMenuItem
             // 
             this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -287,18 +345,6 @@ namespace ExoplanetLibrary
             this.aboutMenuItem.Size = new System.Drawing.Size(209, 22);
             this.aboutMenuItem.Text = "About Exoplanet Library...";
             // 
-            // launchExoplanetEuMenuItem
-            // 
-            this.launchExoplanetEuMenuItem.Name = "launchExoplanetEuMenuItem";
-            this.launchExoplanetEuMenuItem.Size = new System.Drawing.Size(281, 22);
-            this.launchExoplanetEuMenuItem.Text = "Launch http://exoplanet.eu ...";
-            this.launchExoplanetEuMenuItem.Click += new System.EventHandler(this.launchExoplanetEu_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(278, 6);
-            // 
             // LibraryDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,12 +352,11 @@ namespace ExoplanetLibrary
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 341);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LibraryDialog";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Exoplanet Library";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LibraryDialog_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -350,6 +395,11 @@ namespace ExoplanetLibrary
         private ToolStripMenuItem launchExoplanetEUCatalogsMenuItem;
         private ToolStripMenuItem launchExoplanetEuMenuItem;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem plottingMenuItem1;
+        private ToolStripMenuItem plottingMenuItem2;
+        private ToolStripMenuItem plottingMenuItem3;
+        private ToolStripMenuItem plottingMenuItem4;
+        private ToolStripMenuItem plottingMenuItem5;
         }
     }
 
