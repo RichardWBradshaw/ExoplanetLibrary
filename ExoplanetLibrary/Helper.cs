@@ -118,9 +118,9 @@ namespace ExoplanetLibrary
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if (exoplanet.Star != null )
+                if (exoplanet.Star != null)
                     if (string.Equals (exoplanet.Star.Name, name))
-                            ++numberOfPlanets;
+                        ++numberOfPlanets;
                 }
 
             return numberOfPlanets;
@@ -505,8 +505,6 @@ namespace ExoplanetLibrary
                 return true;
             else if (property == "Tconj")
                 return true;
-            else if (property == "GeometricAlbedo")
-                return true;
 
             return false;
             }
@@ -565,8 +563,6 @@ namespace ExoplanetLibrary
                     GetMinimum (exoplanet.GeometricAlbedo, ref minimum);
                 else if (property == "Tconj")
                     GetMinimum (exoplanet.Tconj, ref minimum);
-                else if (property == "GeometricAlbedo")
-                    GetMinimum (exoplanet.GeometricAlbedo, ref minimum);
                 }
 
             return minimum;
@@ -658,14 +654,29 @@ namespace ExoplanetLibrary
             return stars;
             }
 
-        public static ArrayList PlanetsWithMass (ArrayList exoplanets)
+        static bool IsDefined (string value)
+            {
+            if (value != null)
+                if (value.Length > 0)
+                    return true;
+
+            return false;
+            }
+
+        public static ArrayList PlanetsWithMass (ArrayList exoplanets, bool includeErrors)
             {
             ArrayList array = new ArrayList ();
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if (exoplanet.Mass != null)
-                    if (exoplanet.Mass.Length > 0)
+                if (IsDefined (exoplanet.Mass))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.MassErrorMax))
+                            if (IsDefined (exoplanet.MassErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
                         array.Add (exoplanet);
                 }
 
@@ -674,14 +685,20 @@ namespace ExoplanetLibrary
             return array;
             }
 
-        public static ArrayList PlanetsWithRadius (ArrayList exoplanets)
+        public static ArrayList PlanetsWithRadius (ArrayList exoplanets, bool includeErrors)
             {
             ArrayList array = new ArrayList ();
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if (exoplanet.Radius != null)
-                    if (exoplanet.Radius.Length > 0)
+                if (IsDefined (exoplanet.Radius))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.RadiusErrorMax))
+                            if (IsDefined (exoplanet.RadiusErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
                         array.Add (exoplanet);
                 }
 
@@ -690,14 +707,20 @@ namespace ExoplanetLibrary
             return array;
             }
 
-        public static ArrayList PlanetsWithOrbitalPeriods (ArrayList exoplanets)
+        public static ArrayList PlanetsWithOrbitalPeriods (ArrayList exoplanets, bool includeErrors)
             {
             ArrayList array = new ArrayList ();
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if (exoplanet.OrbitalPeriod != null)
-                    if (exoplanet.OrbitalPeriod.Length > 0)
+                if (IsDefined (exoplanet.OrbitalPeriod))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.OrbitalPeriodErrorMax))
+                            if (IsDefined (exoplanet.OrbitalPeriodErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
                         array.Add (exoplanet);
                 }
 
@@ -706,18 +729,342 @@ namespace ExoplanetLibrary
             return array;
             }
 
-        public static ArrayList PlanetsWithEccentrity (ArrayList exoplanets)
+        public static ArrayList PlanetsWithSemiMajorAxis (ArrayList exoplanets, bool includeErrors)
             {
-            ArrayList array = new ArrayList();
+            ArrayList array = new ArrayList ();
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if (exoplanet.Eccentricity != null)
-                    if (exoplanet.Eccentricity.Length > 0)
-                        array.Add(exoplanet);
+                if (IsDefined (exoplanet.SemiMajorAxis))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.SemiMajorAxisErrorMax))
+                            if (IsDefined (exoplanet.SemiMajorAxisErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
                 }
 
-            array.Sort(new SortByExoplanetEccentricity());
+            array.Sort (new SortByExoplanetSemiMajorAxis ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithEccentrity (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.Eccentricity))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.EccentricityErrorMax))
+                            if (IsDefined (exoplanet.EccentricityErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetEccentricity ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithAngularDistance (ArrayList exoplanets)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.AngularDistance))
+                    array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetAngularDistance ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithInclination (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.Inclination))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.InclinationErrorMax))
+                            if (IsDefined (exoplanet.InclinationErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetInclination ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithTzeroTr (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.TzeroTr))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.TzeroTrErrorMax))
+                            if (IsDefined (exoplanet.TzeroTrErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetTzeroTr ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithTzeroTrSec (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.TzeroTrSec))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.TzeroTrSecErrorMax))
+                            if (IsDefined (exoplanet.TzeroTrSecErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetTzeroTrSec ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithLambdaAngle (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.LambdaAngle))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.LambdaAngleErrorMax))
+                            if (IsDefined (exoplanet.LambdaAngleErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetLambdaAngle ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithTzeroVr (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.TzeroVr))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.TzeroVrErrorMax))
+                            if (IsDefined (exoplanet.TzeroVrErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetTzeroVr ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithTemperatureCalculated (ArrayList exoplanets)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.TemperatureCalculated))
+                    array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetTemperatureCalculated ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithTemperatureMeasured (ArrayList exoplanets)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.TemperatureMeasured))
+                    array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetTemperatureMeasured ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithLogG (ArrayList exoplanets)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.LogG))
+                    array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetLogG ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithOmega (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.Omega))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.OmegaErrorMax))
+                            if (IsDefined (exoplanet.OmegaErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetOmega ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithTperi (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.Tperi))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.TperiErrorMax))
+                            if (IsDefined (exoplanet.TperiErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetTperi ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithK (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.K))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.KErrorMax))
+                            if (IsDefined (exoplanet.KErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetK ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithGeometricAlbedo (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.GeometricAlbedo))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.GeometricAlbedoErrorMax))
+                            if (IsDefined (exoplanet.GeometricAlbedoErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetGeometricAlbedo ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithTconj (ArrayList exoplanets, bool includeErrors)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.Tconj))
+                    if (includeErrors)
+                        {
+                        if (IsDefined (exoplanet.TconjErrorMax))
+                            if (IsDefined (exoplanet.TconjErrorMin))
+                                array.Add (exoplanet);
+                        }
+                    else
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetTconj ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithEccentricityAndMass (ArrayList exoplanets)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (IsDefined (exoplanet.Eccentricity))
+                    if (IsDefined (exoplanet.Mass))
+                        array.Add (exoplanet);
+                }
+
+            array.Sort (new SortByExoplanetEccentricity ());
 
             return array;
             }
@@ -728,11 +1075,9 @@ namespace ExoplanetLibrary
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if(exoplanet.Mass != null )
-                    if (exoplanet.Mass.Length > 0)
-                        if (exoplanet.Radius != null)
-                            if (exoplanet.Radius.Length > 0)
-                                array.Add (exoplanet);
+                if (IsDefined (exoplanet.Mass))
+                    if (IsDefined (exoplanet.Radius))
+                        array.Add (exoplanet);
                 }
 
             array.Sort (new SortByExoplanetMass ());

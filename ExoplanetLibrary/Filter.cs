@@ -91,18 +91,18 @@ namespace ExoplanetLibrary
 
         private void Filter_FormClosing (object sender, FormClosingEventArgs e)
             {
-            Filters filter = new Filters ();
+            //Filters filter = new Filters ();
 
-            filter.TypeOEnabled = TypeO.Checked;
-            filter.TypeBEnabled = TypeB.Checked;
-            filter.TypeAEnabled = TypeA.Checked;
-            filter.TypeFEnabled = TypeF.Checked;
-            filter.TypeGEnabled = TypeG.Checked;
-            filter.TypeKEnabled = TypeK.Checked;
-            filter.TypeMEnabled = TypeM.Checked;
-            filter.AllTypesEnabled = AllTypes.Checked;
-            //if (ParentDialog != null)
-            //    ParentDialog.ExoplanetDetailsClosed ();
+            //filter.TypeOEnabled = TypeO.Checked;
+            //filter.TypeBEnabled = TypeB.Checked;
+            //filter.TypeAEnabled = TypeA.Checked;
+            //filter.TypeFEnabled = TypeF.Checked;
+            //filter.TypeGEnabled = TypeG.Checked;
+            //filter.TypeKEnabled = TypeK.Checked;
+            //filter.TypeMEnabled = TypeM.Checked;
+            //filter.AllTypesEnabled = AllTypes.Checked;
+            ////if (ParentDialog != null)
+            ////    ParentDialog.ExoplanetDetailsClosed ();
             }
 
         }

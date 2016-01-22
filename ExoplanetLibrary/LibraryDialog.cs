@@ -24,9 +24,9 @@ namespace ExoplanetLibrary
 
             aboutMenuItem.Click += new EventHandler (about_Click);
 
-            ResizeBegin += new System.EventHandler (MyResizeBegin);
-            ResizeEnd += new System.EventHandler (MyResizeEnd);
-            SizeChanged += new System.EventHandler (MyResize);
+            ResizeBegin += new EventHandler (MyResizeBegin);
+            ResizeEnd += new EventHandler (MyResizeEnd);
+            SizeChanged += new EventHandler (MyResize);
             }
 
         private string XmlFileName_ = "";
@@ -431,62 +431,11 @@ namespace ExoplanetLibrary
             System.Diagnostics.Process.Start (url);
             }
 
-        private void plotting_Click1 (object sender, System.EventArgs e)
+        private void visualize_Click (object sender, System.EventArgs e)
             {
             if (Visualization == null)
                 Visualization = new VisualizationDialog (this);
 
-            Plotting.VisualizeStars (Visualization.plotSurface2D1, ExoplanetsArray);
-            Visualization.Show ();
-            Visualization.BringToFront ();
-            }
-
-        private void plotting_Click2 (object sender, System.EventArgs e)
-            {
-            if (Visualization == null)
-                Visualization = new VisualizationDialog (this);
-
-            Plotting.VisualizeMass (Visualization.plotSurface2D1, ExoplanetsArray);
-            Visualization.Show ();
-            Visualization.BringToFront ();
-            }
-
-        private void plotting_Click3 (object sender, System.EventArgs e)
-            {
-            if (Visualization == null)
-                Visualization = new VisualizationDialog (this);
-
-            Plotting.VisualizeRadius (Visualization.plotSurface2D1, ExoplanetsArray);
-            Visualization.Show ();
-            Visualization.BringToFront ();
-            }
-
-        private void plotting_Click4 (object sender, System.EventArgs e)
-            {
-            if (Visualization == null)
-                Visualization = new VisualizationDialog (this);
-
-            Plotting.VisualizeOrbitalPeriod (Visualization.plotSurface2D1, ExoplanetsArray);
-            Visualization.Show ();
-            Visualization.BringToFront ();
-            }
-
-        private void plotting_Click5 (object sender, System.EventArgs e)
-            {
-            if (Visualization == null)
-                Visualization = new VisualizationDialog(this);
-
-            Plotting.VisualizeEccentricity(Visualization.plotSurface2D1, ExoplanetsArray);
-            Visualization.Show();
-            Visualization.BringToFront();
-            }
-
-        private void plotting_Click10 (object sender, System.EventArgs e)
-            {
-            if (Visualization == null)
-                Visualization = new VisualizationDialog (this);
-
-            Plotting.VisualizeMassAndRadius (Visualization.plotSurface2D1, ExoplanetsArray);
             Visualization.Show ();
             Visualization.BringToFront ();
             }
@@ -505,7 +454,6 @@ namespace ExoplanetLibrary
 
         public void VisualizationClosed ()
             {
-            //Visualization.plotSurface2D1 = null;
             Visualization = null;
             }
 

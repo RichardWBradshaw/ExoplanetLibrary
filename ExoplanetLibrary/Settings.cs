@@ -117,13 +117,44 @@ namespace ExoplanetLibrary
             set { TTVEnabled_ = value; }
             }
 
-        public CheckState UnknownDetectionEnabled_ = CheckState.Checked;
+        private CheckState UnknownDetectionEnabled_ = CheckState.Checked;
         public CheckState UnknownDetectionEnabled
             {
             get { return UnknownDetectionEnabled_; }
             set { UnknownDetectionEnabled_ = value; }
             }
         }
+
+    //
+    //
+    //
+
+    public class Visualization  //  needs_work fix the static's below
+        {
+        static private CheckState IncludeErrorBars_ = CheckState.Checked;
+        static public CheckState IncludeErrorBars
+            {
+            get { return IncludeErrorBars_; }
+            set { IncludeErrorBars_ = value; }
+            }
+
+        static private CheckState ColorFromStarType_ = CheckState.Checked;
+        static public CheckState ColorFromStarType
+            {
+            get { return ColorFromStarType_; }
+            set { ColorFromStarType_ = value; }
+            }
+
+        Visualization ()
+            {
+            IncludeErrorBars = CheckState.Unchecked;
+            ColorFromStarType = CheckState.Unchecked;
+            }
+        }
+
+    //
+    //
+    //
 
     public class Settings
         {
@@ -151,6 +182,9 @@ namespace ExoplanetLibrary
                 subkey.SetValue ("AstrometryEnabled", filter.AstrometryEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("TTVEnabled", filter.TTVEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("UnknownDetectionEnabled", filter.UnknownDetectionEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+
+                subkey.SetValue ("IncudeErrorBars", Visualization.IncludeErrorBars == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+                subkey.SetValue ("ColorFromStarType", Visualization.ColorFromStarType == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 }
 
             if (key != null)
@@ -184,6 +218,9 @@ namespace ExoplanetLibrary
                 filter.AstrometryEnabled = ReadValue (subkey, "AstrometryEnabled");
                 filter.TTVEnabled = ReadValue (subkey, "TTVEnabled");
                 filter.UnknownDetectionEnabled = ReadValue (subkey, "UnknownDetectionEnabled");
+
+                Visualization.IncludeErrorBars = ReadValue (subkey, "IncudeErrorBars");
+                Visualization.ColorFromStarType = ReadValue (subkey, "ColorFromStarType");
                 }
 
             if (key != null)
