@@ -129,7 +129,7 @@ namespace ExoplanetLibrary
     //
     //
 
-    public class Visualization  //  needs_work fix the static's below
+    public class Visualization
         {
         static private CheckState IncludeErrorBars_ = CheckState.Checked;
         static public CheckState IncludeErrorBars
