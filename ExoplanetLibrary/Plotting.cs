@@ -59,6 +59,13 @@ namespace ExoplanetLibrary
             set { LineColor_ = value; }
             }
 
+        static private Color PointColor_ = Color.Black;
+        static private Color PointColor
+            {
+            get { return PointColor_; }
+            set { PointColor_ = value; }
+            }
+
         static private Color BackgroundColor_ = BackgroundColor;
         static private Color BackgroundColor
             {
@@ -1247,7 +1254,7 @@ namespace ExoplanetLibrary
             PointPlot pointPlot = new PointPlot ();
             pointPlot.AbscissaData = masses;
             pointPlot.DataSource = radii;
-            pointPlot.Marker.Color = LineColor;
+            pointPlot.Marker.Color = PointColor;
             pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
 
             plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
@@ -1291,7 +1298,7 @@ namespace ExoplanetLibrary
             PointPlot pointPlot = new PointPlot ();
             pointPlot.AbscissaData = masses;
             pointPlot.DataSource = eccentricities;
-            pointPlot.Marker.Color = LineColor;
+            pointPlot.Marker.Color = PointColor;
             pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
 
             plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
@@ -1386,7 +1393,7 @@ namespace ExoplanetLibrary
                                             }
                                     }
                                 else
-                                    pointPlot.Marker.Color = LineColor;
+                                    pointPlot.Marker.Color = PointColor;
 
                                 plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
                                 }

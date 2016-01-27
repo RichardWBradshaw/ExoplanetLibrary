@@ -1,26 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle ("Exoplanet Library")]
-[assembly: AssemblyDescription ("Planet data are the latest data known. They are taken from:" +
-"Latest published papers or professional preprints, conferences, first-hand updated data on professional websites. These presently are:\r\n" +
-"o Anglo-Australian Planet Search\r\n" +
-"o California & Carnegie Planet Search\r\n" +
-"o Geneva Extrasolar Planet Search Programmes\r\n" +
-"o Transatlantic Exoplanet Survey\r\n" +
-"o University of Texas - Dept. of Astronomy\r\n" +
-"o HAT and HATS\r\n" +
-"o WASP\r\n" +
-"o NASA Exoplanet Archive\r\n" +
-"o Kepler\r\n" +
+[assembly: AssemblyDescription ("This program uses the .VOT or .CSV data from http://exoplanet.eu \r\n" +
 "\r\n" +
-"The original data can be found at http://exoplanet.eu " +
+"The data is converted into a custom .XML format with a defined .XSD for validation.\r\n" +
 "\r\n" +
-"This program reads the .csv or .vot files and creates a custom .xml file with a .xsd for validation."
+"Graphics utilizes 'NPlot' a free .NET library.  More details can be found at http://www.netcontrols.org/nplot \r\n"
 )]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Author:  RichardWBradshaw@Outlook.com")]
