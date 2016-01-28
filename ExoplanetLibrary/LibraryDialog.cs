@@ -24,9 +24,9 @@ namespace ExoplanetLibrary
 
             aboutMenuItem.Click += new EventHandler (about_Click);
 
-            ResizeBegin += new EventHandler (MyResizeBegin);
-            ResizeEnd += new EventHandler (MyResizeEnd);
-            SizeChanged += new EventHandler (MyResize);
+            ResizeBegin += new EventHandler (LibraryResizeBegin);
+            ResizeEnd += new EventHandler (LibraryResizeEnd);
+            SizeChanged += new EventHandler (LibraryResize);
             }
 
         private string XmlFileName_ = "";
@@ -99,15 +99,15 @@ namespace ExoplanetLibrary
             set { Filter_ = value; }
             }
 
-        private void MyResizeBegin (object sender, System.EventArgs e)
+        private void LibraryResizeBegin (object sender, System.EventArgs e)
             {
             }
 
-        private void MyResizeEnd (object sender, System.EventArgs e)
+        private void LibraryResizeEnd (object sender, System.EventArgs e)
             {
             }
 
-        private void MyResize (object sender, System.EventArgs e)
+        private void LibraryResize (object sender, System.EventArgs e)
             {
             Control control = ( Control )sender;
 

@@ -145,10 +145,26 @@ namespace ExoplanetLibrary
             set { ColorFromStarType_ = value; }
             }
 
+        static private CheckState LogXAxis_ = CheckState.Checked;
+        static public CheckState LogXAxis
+            {
+            get { return LogXAxis_; }
+            set { LogXAxis_ = value; }
+            }
+
+        static private CheckState LogYAxis_ = CheckState.Checked;
+        static public CheckState LogYAxis
+            {
+            get { return LogYAxis_; }
+            set { LogYAxis_ = value; }
+            }
+
         Visualization ()
             {
             IncludeErrorBars = CheckState.Unchecked;
             ColorFromStarType = CheckState.Unchecked;
+            LogXAxis = CheckState.Unchecked;
+            LogYAxis = CheckState.Unchecked;
             }
         }
 
@@ -185,6 +201,9 @@ namespace ExoplanetLibrary
 
                 subkey.SetValue ("IncudeErrorBars", Visualization.IncludeErrorBars == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("ColorFromStarType", Visualization.ColorFromStarType == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+
+                subkey.SetValue ("LogXAxis", Visualization.LogXAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+                subkey.SetValue ("LogYAxis", Visualization.LogYAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 }
 
             if (key != null)
@@ -221,6 +240,8 @@ namespace ExoplanetLibrary
 
                 Visualization.IncludeErrorBars = ReadValue (subkey, "IncudeErrorBars");
                 Visualization.ColorFromStarType = ReadValue (subkey, "ColorFromStarType");
+                Visualization.IncludeErrorBars = ReadValue (subkey, "LogXAxis");
+                Visualization.ColorFromStarType = ReadValue (subkey, "LogYAxis");
                 }
 
             if (key != null)

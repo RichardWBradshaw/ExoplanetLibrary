@@ -31,32 +31,41 @@ namespace ExoplanetLibrary
             ParentDialog = parent;
             InitializeComponent ();
 
-            ResizeBegin += new EventHandler (MyResizeBegin);
-            ResizeEnd += new EventHandler (MyResizeEnd);
-            SizeChanged += new EventHandler (MyResize);
+            ResizeBegin += new EventHandler (VisualizationResizeBegin);
+            ResizeEnd += new EventHandler (VisualizationResizeEnd);
+            SizeChanged += new EventHandler (VisualizationResize);
 
             errorBarsToolStripMenuItem.Checked = Visualization.IncludeErrorBars == CheckState.Checked ? true : false;
             colorFromStarTypeToolStripMenuItem.Checked = Visualization.ColorFromStarType == CheckState.Checked ? true : false;
+            logXAxisToolStripMenuItem .Checked = Visualization.LogXAxis == CheckState.Checked ? true : false;
+            logYAxisToolStripMenuItem.Checked = Visualization.LogYAxis == CheckState.Checked ? true : false;
 
             RefreshGraphics ();
             }
 
-        private void MyResizeBegin (object sender, System.EventArgs e)
+        private void VisualizationResizeBegin (object sender, System.EventArgs e)
             {
             }
 
-        private void MyResizeEnd (object sender, System.EventArgs e)
-            {
-            }
-
-        private void MyResize (object sender, System.EventArgs e)
+        private void VisualizationResizeEnd (object sender, System.EventArgs e)
             {
             Control control = ( Control )sender;
 
             if (PlotSurface2D != null)
                 {
-                PlotSurface2D.Height = Size.Height - ( 20 + 24 );
-                PlotSurface2D.Width = Size.Width - 10;
+                PlotSurface2D.Height = Size.Height - ( 27 + 20 + 20 );
+                PlotSurface2D.Width = Size.Width - ( 0 + 8 + 8 );
+                }
+            }
+
+        private void VisualizationResize (object sender, System.EventArgs e)
+            {
+            Control control = ( Control )sender;
+
+            if (PlotSurface2D != null)
+                {
+                PlotSurface2D.Height = Size.Height - ( 27 + 20 + 20 );
+                PlotSurface2D.Width = Size.Width - ( 0 + 8 + 8 );
                 }
             }
 
@@ -308,6 +317,20 @@ namespace ExoplanetLibrary
                 if(PlotType == PlotTypes.Stars)
                     RefreshGraphics ();
                 }
+            else if (sender == logXAxisToolStripMenuItem)
+                {
+                Visualization.LogXAxis = logXAxisToolStripMenuItem.CheckState;
+
+                if (PlotType == PlotTypes.MassAndRadius || PlotType == PlotTypes.EccentricityAndMass)
+                    RefreshGraphics ();
+                }
+            else if (sender == logYAxisToolStripMenuItem)
+                {
+                Visualization.LogYAxis = logYAxisToolStripMenuItem.CheckState;
+
+                if (PlotType == PlotTypes.MassAndRadius || PlotType == PlotTypes.EccentricityAndMass)
+                    RefreshGraphics ();
+                }
             }
 
         private void MenuCheckBox_Click (object sender, EventArgs e)
@@ -319,6 +342,14 @@ namespace ExoplanetLibrary
             else if (sender == colorFromStarTypeToolStripMenuItem)
                 {
                 colorFromStarTypeToolStripMenuItem.Checked = colorFromStarTypeToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == logXAxisToolStripMenuItem)
+                {
+                logXAxisToolStripMenuItem.Checked = logXAxisToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == logYAxisToolStripMenuItem)
+                {
+                logYAxisToolStripMenuItem.Checked = logYAxisToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
             }
 

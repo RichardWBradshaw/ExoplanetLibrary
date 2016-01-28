@@ -1248,9 +1248,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Mass & Radius Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             PointPlot pointPlot = new PointPlot ();
             pointPlot.AbscissaData = masses;
             pointPlot.DataSource = radii;
@@ -1259,7 +1256,12 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-            VisualizeAxis (plotSurface, "Mass (Mjup)", "{0:0}", "Radius (Rjup)", "{0:0.0}", false);
+            double minimumX = Helper.GetMinimum (masses);
+            double maximumX = Helper.GetMaximum (masses);
+            double minimumY = Helper.GetMinimum (radii);
+            double maximumY = Helper.GetMaximum (radii);
+
+            VisualizeLogAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Radius (Rjup)", "{0:0.00}", Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -1292,9 +1294,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Eccentricity & Mass Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             PointPlot pointPlot = new PointPlot ();
             pointPlot.AbscissaData = masses;
             pointPlot.DataSource = eccentricities;
@@ -1303,7 +1302,12 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-            VisualizeAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Eccentricity", "{0:0.00}", false);
+            double minimumX = Helper.GetMinimum (eccentricities);
+            double maximumX = Helper.GetMaximum (eccentricities);
+            double minimumY = Helper.GetMinimum (masses);
+            double maximumY = Helper.GetMaximum (masses);
+
+            VisualizeLogAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Eccentricity", "{0:0.00}", Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -1427,27 +1431,66 @@ namespace ExoplanetLibrary
             plotSurface.XAxis1.LabelFont = axisFont;
             plotSurface.XAxis1.TickTextFont = tickFont;
             plotSurface.XAxis1.Reversed = reversed;
-
-#if trying_log_axis
-            double ymin = 0.0, ymax = 70.0;
-
-            plotSurface.YAxis1.WorldMin = 0.0;
-            plotSurface.YAxis1.WorldMax = 70.0;
-            LogAxis logAxisY = new LogAxis (ymin, ymax);// plotSurface.YAxis1);
-            //logAxisY.WorldMin = ymin;
-            //logAxisY.WorldMax = ymax;
-            logAxisY.Label = yAxisLabel;
-            logAxisY.NumberFormat = yAxisFormat;
-            logAxisY.LabelFont = axisFont;
-            logAxisY.TickTextFont = tickFont;
-
-            plotSurface.YAxis1 = logAxisY;
-#else
             plotSurface.YAxis1.Label = yAxisLabel;
             plotSurface.YAxis1.NumberFormat = yAxisFormat;
             plotSurface.YAxis1.LabelFont = axisFont;
             plotSurface.YAxis1.TickTextFont = tickFont;
-#endif
+            }
+
+        static private void VisualizeLogAxis (NPlot.Windows.PlotSurface2D plotSurface, string xAxisLabel, string xAxisFormat, string yAxisLabel, string yAxisFormat,
+            CheckState logX, double minimumX, double maximumX, CheckState logY, double minimumY, double maximumY)
+            {
+            Font axisFont = new Font ("Arial", 10);
+            Font tickFont = new Font ("Arial", 8);
+
+            plotSurface.XAxis1.Label = xAxisLabel;
+            plotSurface.XAxis1.NumberFormat = xAxisFormat;
+            plotSurface.XAxis1.TicksLabelAngle = 0;
+            plotSurface.XAxis1.TickTextNextToAxis = true;
+            plotSurface.XAxis1.FlipTicksLabel = true;
+            plotSurface.XAxis1.LabelOffset = 25;
+            plotSurface.XAxis1.LabelOffsetAbsolute = true;
+            plotSurface.XAxis1.LabelFont = axisFont;
+            plotSurface.XAxis1.TickTextFont = tickFont;
+            plotSurface.YAxis1.Label = yAxisLabel;
+            plotSurface.YAxis1.NumberFormat = yAxisFormat;
+            plotSurface.YAxis1.LabelFont = axisFont;
+            plotSurface.YAxis1.TickTextFont = tickFont;
+
+            Grid g = new Grid ();
+            g.VerticalGridType = ( logY == CheckState.Checked ) ? Grid.GridType.Fine : Grid.GridType.Coarse;
+            g.HorizontalGridType = ( logX == CheckState.Checked ) ? Grid.GridType.Fine : Grid.GridType.Coarse;
+            plotSurface.Add (g);
+
+            if (logX == CheckState.Checked)
+                {
+                LogAxis logAxisX = new LogAxis (plotSurface.XAxis1);
+                logAxisX.WorldMin = minimumX;
+                logAxisX.WorldMax = maximumX;
+                plotSurface.XAxis1 = logAxisX;
+                }
+            else
+                {
+                LinearAxis XAxis = new LinearAxis (plotSurface.XAxis1);
+                XAxis.WorldMin = minimumX;
+                XAxis.WorldMax = maximumX;
+                plotSurface.XAxis1 = XAxis;
+                }
+
+            if (logY == CheckState.Checked)
+                {
+                LogAxis logAxisY = new LogAxis (plotSurface.YAxis1);
+                logAxisY.WorldMin = minimumY;
+                logAxisY.WorldMax = maximumY;
+                plotSurface.YAxis1 = logAxisY;
+                }
+            else
+                {
+                LinearAxis YAxis = new LinearAxis (plotSurface.YAxis1);
+                YAxis.WorldMin = minimumY;
+                YAxis.WorldMax = maximumY;
+                plotSurface.XAxis1 = YAxis;
+                }
             }
 
         static private void VisualizeErrorBar (NPlot.Windows.PlotSurface2D plotSurface, double value, double maximumError, double minimumError, int counter)

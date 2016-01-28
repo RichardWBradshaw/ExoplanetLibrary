@@ -38,7 +38,10 @@
             this.geometricAlbedoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tconjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.refreshViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.printStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.massVsRadiusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eccentricityVsMassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +49,8 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorBarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorFromStarTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.logXAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logYAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,11 +62,11 @@
             this.PlotSurface2D.DateTimeToolTip = false;
             this.PlotSurface2D.Legend = null;
             this.PlotSurface2D.LegendZOrder = -1;
-            this.PlotSurface2D.Location = new System.Drawing.Point(-5, 27);
+            this.PlotSurface2D.Location = new System.Drawing.Point(0, 27);
             this.PlotSurface2D.Name = "PlotSurface2D";
             this.PlotSurface2D.RightMenu = null;
             this.PlotSurface2D.ShowCoordinates = true;
-            this.PlotSurface2D.Size = new System.Drawing.Size(685, 342);
+            this.PlotSurface2D.Size = new System.Drawing.Size(885, 430);
             this.PlotSurface2D.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             this.PlotSurface2D.TabIndex = 0;
             this.PlotSurface2D.Text = "PlotSurface2D";
@@ -83,7 +85,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip.Size = new System.Drawing.Size(884, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -256,12 +258,31 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(167, 6);
             // 
+            // refreshViewToolStripMenuItem
+            // 
+            this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
+            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.refreshViewToolStripMenuItem.Text = "Refresh View";
+            this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.visualizeRefreshView_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
+            // 
             // printStripMenuItem
             // 
             this.printStripMenuItem.Name = "printStripMenuItem";
             this.printStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.printStripMenuItem.Text = "Print...";
             this.printStripMenuItem.Click += new System.EventHandler(this.visualizePrint_Click);
+            // 
+            // printPreviewToolStripMenuItem
+            // 
+            this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.printPreviewToolStripMenuItem.Text = "Print Preview...";
+            this.printPreviewToolStripMenuItem.Click += new System.EventHandler(this.visualizePrintPreview_Click);
             // 
             // pointToolStripMenuItem
             // 
@@ -298,7 +319,9 @@
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.errorBarsToolStripMenuItem,
-            this.colorFromStarTypeToolStripMenuItem});
+            this.colorFromStarTypeToolStripMenuItem,
+            this.logXAxisToolStripMenuItem,
+            this.logYAxisToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.settingsToolStripMenuItem.Text = "Settings...";
@@ -319,31 +342,28 @@
             this.colorFromStarTypeToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.colorFromStarTypeToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
-            // refreshViewToolStripMenuItem
+            // logXAxisToolStripMenuItem
             // 
-            this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
-            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.refreshViewToolStripMenuItem.Text = "Refresh View";
-            this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.visualizeRefreshView_Click);
+            this.logXAxisToolStripMenuItem.Name = "logXAxisToolStripMenuItem";
+            this.logXAxisToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.logXAxisToolStripMenuItem.Text = "Log X Axis";
+            this.logXAxisToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.logXAxisToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
-            // printPreviewToolStripMenuItem
+            // logYAxisToolStripMenuItem
             // 
-            this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.printPreviewToolStripMenuItem.Text = "Print Preview...";
-            this.printPreviewToolStripMenuItem.Click += new System.EventHandler(this.visualizePrintPreview_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
+            this.logYAxisToolStripMenuItem.Name = "logYAxisToolStripMenuItem";
+            this.logYAxisToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.logYAxisToolStripMenuItem.Text = "Log Y Axis";
+            this.logYAxisToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.logYAxisToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
             // VisualizationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(684, 371);
+            this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.PlotSurface2D);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -394,5 +414,7 @@
         private System.Windows.Forms.ToolStripMenuItem refreshViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem logXAxisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logYAxisToolStripMenuItem;
         }
     }
