@@ -1084,5 +1084,27 @@ namespace ExoplanetLibrary
 
             return array;
             }
+
+        public static double GetMinimum (double [] values)
+            {
+            double minimum = double.MaxValue;
+
+            foreach (double value in values)
+                if (value < minimum)
+                    minimum = value;
+
+            return minimum;
+            }
+
+        public static double GetMaximum (double [] values)
+            {
+            double maximum = double.MinValue;
+
+            foreach (double value in values)
+                if (value > maximum)
+                    maximum = value;
+
+            return maximum;
+            }
         }
     }
