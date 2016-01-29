@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ExoplanetLibrary;
-using System.Reflection;
 using System.IO;
 
 namespace ExoplanetLibraryUnitTest
