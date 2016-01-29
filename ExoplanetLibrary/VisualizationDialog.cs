@@ -284,7 +284,7 @@ namespace ExoplanetLibrary
                     Plotting.VisualizeMassAndRadius (PlotSurface2D, ParentDialog.ExoplanetsArray);
                     break;
                 case PlotTypes.EccentricityAndMass:
-                    Plotting.VisualizeEccentricityAndMass (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    Plotting.VisualizeMassAndEccentricity (PlotSurface2D, ParentDialog.ExoplanetsArray);
                     break;
                 }
             }
@@ -321,14 +321,14 @@ namespace ExoplanetLibrary
                 {
                 Visualization.LogXAxis = logXAxisToolStripMenuItem.CheckState;
 
-                if (PlotType == PlotTypes.MassAndRadius || PlotType == PlotTypes.EccentricityAndMass)
+                if (PlotType != PlotTypes.Stars)
                     RefreshGraphics ();
                 }
             else if (sender == logYAxisToolStripMenuItem)
                 {
                 Visualization.LogYAxis = logYAxisToolStripMenuItem.CheckState;
 
-                if (PlotType == PlotTypes.MassAndRadius || PlotType == PlotTypes.EccentricityAndMass)
+                if (PlotType != PlotTypes.Stars)
                     RefreshGraphics ();
                 }
             }

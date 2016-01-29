@@ -46,9 +46,9 @@ namespace ExoplanetLibrary
             this.astrometryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tTVMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allDetectionMethodsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,8 +127,8 @@ namespace ExoplanetLibrary
             this.detectFiltersMenuItem,
             this.visualizationToolStripMenuItem});
             this.settingsMenuItem.Name = "settingsMenuItem";
-            this.settingsMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsMenuItem.Text = "Settings";
+            this.settingsMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.settingsMenuItem.Text = "Tools";
             // 
             // starFiltersMenuItem
             // 
@@ -148,7 +148,7 @@ namespace ExoplanetLibrary
             // typeOMenuItem
             // 
             this.typeOMenuItem.Name = "typeOMenuItem";
-            this.typeOMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.typeOMenuItem.Size = new System.Drawing.Size(130, 22);
             this.typeOMenuItem.Text = "Type O";
             this.typeOMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.typeOMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -156,7 +156,7 @@ namespace ExoplanetLibrary
             // typeBMenuItem
             // 
             this.typeBMenuItem.Name = "typeBMenuItem";
-            this.typeBMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.typeBMenuItem.Size = new System.Drawing.Size(130, 22);
             this.typeBMenuItem.Text = "Type B";
             this.typeBMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.typeBMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -164,7 +164,7 @@ namespace ExoplanetLibrary
             // typeAMenuItem
             // 
             this.typeAMenuItem.Name = "typeAMenuItem";
-            this.typeAMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.typeAMenuItem.Size = new System.Drawing.Size(130, 22);
             this.typeAMenuItem.Text = "Type A";
             this.typeAMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.typeAMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -172,7 +172,7 @@ namespace ExoplanetLibrary
             // typeFMenuItem
             // 
             this.typeFMenuItem.Name = "typeFMenuItem";
-            this.typeFMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.typeFMenuItem.Size = new System.Drawing.Size(130, 22);
             this.typeFMenuItem.Text = "Type F";
             this.typeFMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.typeFMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -180,7 +180,7 @@ namespace ExoplanetLibrary
             // typeGMenuItem
             // 
             this.typeGMenuItem.Name = "typeGMenuItem";
-            this.typeGMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.typeGMenuItem.Size = new System.Drawing.Size(130, 22);
             this.typeGMenuItem.Text = "Type G";
             this.typeGMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.typeGMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -188,7 +188,7 @@ namespace ExoplanetLibrary
             // typeKMenuItem
             // 
             this.typeKMenuItem.Name = "typeKMenuItem";
-            this.typeKMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.typeKMenuItem.Size = new System.Drawing.Size(130, 22);
             this.typeKMenuItem.Text = "Type K";
             this.typeKMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.typeKMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -196,7 +196,7 @@ namespace ExoplanetLibrary
             // typeMMenuItem
             // 
             this.typeMMenuItem.Name = "typeMMenuItem";
-            this.typeMMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.typeMMenuItem.Size = new System.Drawing.Size(130, 22);
             this.typeMMenuItem.Text = "Type M";
             this.typeMMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.typeMMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -204,7 +204,7 @@ namespace ExoplanetLibrary
             // unknownStarTypeMenuItem
             // 
             this.unknownStarTypeMenuItem.Name = "unknownStarTypeMenuItem";
-            this.unknownStarTypeMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unknownStarTypeMenuItem.Size = new System.Drawing.Size(130, 22);
             this.unknownStarTypeMenuItem.Text = "Unknown?";
             this.unknownStarTypeMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.unknownStarTypeMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -288,6 +288,13 @@ namespace ExoplanetLibrary
             this.allDetectionMethodsMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.allDetectionMethodsMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
+            // visualizationToolStripMenuItem
+            // 
+            this.visualizationToolStripMenuItem.Name = "visualizationToolStripMenuItem";
+            this.visualizationToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.visualizationToolStripMenuItem.Text = "Visualization...";
+            this.visualizationToolStripMenuItem.Click += new System.EventHandler(this.visualize_Click);
+            // 
             // helpMenuItem
             // 
             this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -301,13 +308,6 @@ namespace ExoplanetLibrary
             this.aboutMenuItem.Name = "aboutMenuItem";
             this.aboutMenuItem.Size = new System.Drawing.Size(209, 22);
             this.aboutMenuItem.Text = "About Exoplanet Library...";
-            // 
-            // visualizationToolStripMenuItem
-            // 
-            this.visualizationToolStripMenuItem.Name = "visualizationToolStripMenuItem";
-            this.visualizationToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.visualizationToolStripMenuItem.Text = "Visualization...";
-            this.visualizationToolStripMenuItem.Click += new System.EventHandler (this.visualize_Click);
             // 
             // LibraryDialog
             // 

@@ -663,6 +663,19 @@ namespace ExoplanetLibrary
             return false;
             }
 
+        static bool IsNegativeOrZero (string value)
+            {
+            double x;
+
+            if (value != null)
+                if (value.Length > 0)
+                    if( double.TryParse(value, out x))
+                        if( x <= 0.0)
+                            return true;
+
+            return false;
+            }
+
         public static ArrayList PlanetsWithMass (ArrayList exoplanets, bool includeErrors)
             {
             ArrayList array = new ArrayList ();
@@ -987,14 +1000,18 @@ namespace ExoplanetLibrary
             return array;
             }
 
-        public static ArrayList PlanetsWithK (ArrayList exoplanets, bool includeErrors)
+        public static ArrayList PlanetsWithK (ArrayList exoplanets, bool includeErrors, bool excludeNegatives)
             {
             ArrayList array = new ArrayList ();
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
                 if (IsDefined (exoplanet.K))
-                    if (includeErrors)
+                    if (excludeNegatives && IsNegativeOrZero (exoplanet.K))
+                        {
+                        ;
+                        }
+                    else if (includeErrors)
                         {
                         if (IsDefined (exoplanet.KErrorMax))
                             if (IsDefined (exoplanet.KErrorMin))

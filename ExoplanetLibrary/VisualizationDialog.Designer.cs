@@ -117,8 +117,8 @@
             this.printStripMenuItem,
             this.printPreviewToolStripMenuItem});
             this.visualizationToolStripMenuItem.Name = "visualizationToolStripMenuItem";
-            this.visualizationToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-            this.visualizationToolStripMenuItem.Text = "Data && Error Bars";
+            this.visualizationToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.visualizationToolStripMenuItem.Text = "Linear Diagrams";
             // 
             // massToolStripMenuItem
             // 
@@ -291,8 +291,8 @@
             this.eccentricityVsMassToolStripMenuItem,
             this.rightAccessionVsDeclinationToolStripMenuItem});
             this.pointToolStripMenuItem.Name = "pointToolStripMenuItem";
-            this.pointToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.pointToolStripMenuItem.Text = "Point";
+            this.pointToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.pointToolStripMenuItem.Text = "Point Diagrams";
             // 
             // massVsRadiusToolStripMenuItem
             // 
@@ -305,7 +305,7 @@
             // 
             this.eccentricityVsMassToolStripMenuItem.Name = "eccentricityVsMassToolStripMenuItem";
             this.eccentricityVsMassToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.eccentricityVsMassToolStripMenuItem.Text = "Eccentricity vs Mass";
+            this.eccentricityVsMassToolStripMenuItem.Text = "Mass vs Eccentricity";
             this.eccentricityVsMassToolStripMenuItem.Click += new System.EventHandler(this.visualizeEccentricityVersusMass_Click);
             // 
             // rightAccessionVsDeclinationToolStripMenuItem
@@ -330,7 +330,7 @@
             // 
             this.errorBarsToolStripMenuItem.Name = "errorBarsToolStripMenuItem";
             this.errorBarsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.errorBarsToolStripMenuItem.Text = "IncludeError Bars";
+            this.errorBarsToolStripMenuItem.Text = "Include Error Bars";
             this.errorBarsToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.errorBarsToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 

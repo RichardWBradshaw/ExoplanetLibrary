@@ -87,6 +87,13 @@ namespace ExoplanetLibrary
             set { OnTopZOrder_ = value; }
             }
 
+        static private double AlmostZero_ = 0.0001;
+        static private double AlmostZero
+            {
+            get { return AlmostZero_; }
+            set { AlmostZero_ = value; }
+            }
+
         static public void VisualizeMass (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
             {
             ArrayList array = Helper.PlanetsWithMass (exoplanets, false);
@@ -111,9 +118,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Mass Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.OrdinateData = YAxis;
@@ -121,8 +125,11 @@ namespace ExoplanetLibrary
             linePlot.Pen.Width = LinePenWidth;
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeMassErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Mass (Mjup)", "{0:0.0}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeMassErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Mass (Mjup)", "{0:0.0}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -130,7 +137,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeMassErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeMassErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -143,7 +150,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.Mass, out mass) == true)
                         if (double.TryParse (exoplanet.MassErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.MassErrorMin, out minimumError) == true)
+                                {
+                                if (mass + maximumError > maximumY)
+                                    maximumY = mass + maximumError;
+
+                                if (mass - minimumError < minimumY)
+                                    minimumY = mass - minimumError;
+
                                 VisualizeErrorBar (plotSurface, mass, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -174,9 +189,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Radius Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -185,8 +197,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Radius (Rjup)", "{0:0.0}", false);
-            VisualizeRadiusErrorBars (plotSurface, array);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeRadiusErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Radius (Rjup)", "{0:0.0}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -194,7 +209,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeRadiusErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeRadiusErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -207,7 +222,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.Radius, out radius) == true)
                         if (double.TryParse (exoplanet.RadiusErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.RadiusErrorMin, out minimumError) == true)
+                                {
+                                if (radius + maximumError > maximumY)
+                                    maximumY = radius + maximumError;
+
+                                if (radius - minimumError < minimumY)
+                                    minimumY = radius - minimumError;
+
                                 VisualizeErrorBar (plotSurface, radius, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -238,9 +261,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Orbital Period Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -249,8 +269,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeOrbitalPeriodErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Orbital Period (day)", "{0:0.0}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeOrbitalPeriodErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Orbital Period (day)", "{0:0.0}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -258,7 +281,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeOrbitalPeriodErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeOrbitalPeriodErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -271,7 +294,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.OrbitalPeriod, out orbitalPeriod) == true)
                         if (double.TryParse (exoplanet.OrbitalPeriodErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.OrbitalPeriodErrorMin, out minimumError) == true)
+                                {
+                                if (orbitalPeriod + maximumError > maximumY)
+                                    maximumY = orbitalPeriod + maximumError;
+
+                                if (orbitalPeriod - minimumError < minimumY)
+                                    minimumY = orbitalPeriod - minimumError;
+
                                 VisualizeErrorBar (plotSurface, orbitalPeriod, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -302,9 +333,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Semi-major Axis Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -313,8 +341,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeSemiMajorAxisErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Semi-major Axis (AU)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeSemiMajorAxisErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Semi-major Axis (AU)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -322,7 +353,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeSemiMajorAxisErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeSemiMajorAxisErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -335,7 +366,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.SemiMajorAxis, out semiMajorAxis) == true)
                         if (double.TryParse (exoplanet.SemiMajorAxisErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.SemiMajorAxisErrorMin, out minimumError) == true)
+                                {
+                                if (semiMajorAxis + maximumError > maximumY)
+                                    maximumY = semiMajorAxis + maximumError;
+
+                                if (semiMajorAxis - minimumError < minimumY)
+                                    minimumY = semiMajorAxis - minimumError;
+
                                 VisualizeErrorBar (plotSurface, semiMajorAxis, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -366,9 +405,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Eccentricity Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -377,8 +413,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeEccentricityErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Eccentricity", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeEccentricityErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Eccentricity", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -386,7 +425,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeEccentricityErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeEccentricityErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -400,8 +439,16 @@ namespace ExoplanetLibrary
                         if (double.TryParse (exoplanet.EccentricityErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.EccentricityErrorMin, out minimumError) == true)
                                 {
-                                if (maximumError < 10.0 * eccentricity)
+                                if (maximumError < 10.0 * eccentricity) // kludge for bad data
+                                    {
+                                    if (eccentricity + maximumError > maximumY)
+                                        maximumY = eccentricity + maximumError;
+
+                                    if (eccentricity - minimumError < minimumY)
+                                        minimumY = eccentricity - minimumError;
+
                                     VisualizeErrorBar (plotSurface, eccentricity, maximumError, -minimumError, counter);
+                                    }
                                 }
 
                     ++counter;
@@ -433,9 +480,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Angular Distance Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -444,7 +488,10 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Angular Distance", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Angular Distance", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -476,9 +523,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Inclination Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -487,8 +531,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeInclinationErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Inclination (deg)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeInclinationErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Inclination (deg)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -496,7 +543,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeInclinationErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeInclinationErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -509,7 +556,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.Inclination, out inclination) == true)
                         if (double.TryParse (exoplanet.InclinationErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.InclinationErrorMin, out minimumError) == true)
+                                {
+                                if (inclination + maximumError > maximumY)
+                                    maximumY = inclination + maximumError;
+
+                                if (inclination - minimumError < minimumY)
+                                    minimumY = inclination - minimumError;
+
                                 VisualizeErrorBar (plotSurface, inclination, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -540,9 +595,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "T0 Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -551,8 +603,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeTzeroTrErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "T0 (JD)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeTzeroTrErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "T0 (JD)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -560,7 +615,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeTzeroTrErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeTzeroTrErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -573,7 +628,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.TzeroTr, out tzerotr) == true)
                         if (double.TryParse (exoplanet.TzeroTrErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.TzeroTrErrorMin, out minimumError) == true)
+                                {
+                                if (tzerotr + maximumError > maximumY)
+                                    maximumY = tzerotr + maximumError;
+
+                                if (tzerotr - minimumError < minimumY)
+                                    minimumY = tzerotr - minimumError;
+
                                 VisualizeErrorBar (plotSurface, tzerotr, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -604,9 +667,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "T0-Sec Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -615,8 +675,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeTzeroTrSecErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0.0}", "T0-Sec (JD)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeTzeroTrSecErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0.0}", "T0-Sec (JD)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -624,7 +687,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeTzeroTrSecErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeTzeroTrSecErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -637,7 +700,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.TzeroTrSec, out tzeroTrSec) == true)
                         if (double.TryParse (exoplanet.TzeroTrSecErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.TzeroTrSecErrorMin, out minimumError) == true)
+                                {
+                                if (tzeroTrSec + maximumError > maximumY)
+                                    maximumY = tzeroTrSec + maximumError;
+
+                                if (tzeroTrSec - minimumError < minimumY)
+                                    minimumY = tzeroTrSec - minimumError;
+
                                 VisualizeErrorBar (plotSurface, tzeroTrSec, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -668,9 +739,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Lambda Angle Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = YAxis;
             linePlot.DataSource = XAxis;
@@ -679,8 +747,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeLambdaAngleErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Lambda Angle (deg)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeLambdaAngleErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Lambda Angle (deg)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -688,7 +759,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeLambdaAngleErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeLambdaAngleErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -701,7 +772,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.LambdaAngle, out lambdaAngle) == true)
                         if (double.TryParse (exoplanet.LambdaAngleErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.LambdaAngleErrorMin, out minimumError) == true)
+                                {
+                                if (lambdaAngle + maximumError > maximumY)
+                                    maximumY = lambdaAngle + maximumError;
+
+                                if (lambdaAngle - minimumError < minimumY)
+                                    minimumY = lambdaAngle - minimumError;
+
                                 VisualizeErrorBar (plotSurface, lambdaAngle, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -732,9 +811,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "TVR Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -743,8 +819,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeTzeroVrErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "TVR (JD)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeTzeroVrErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "TVR (JD)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -752,7 +831,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeTzeroVrErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeTzeroVrErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -765,7 +844,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.TzeroVr, out tzeroVr) == true)
                         if (double.TryParse (exoplanet.TzeroVrErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.TzeroVrErrorMin, out minimumError) == true)
+                                {
+                                if (tzeroVr + maximumError > maximumY)
+                                    maximumY = tzeroVr + maximumError;
+
+                                if (tzeroVr - minimumError < minimumY)
+                                    minimumY = tzeroVr - minimumError;
+
                                 VisualizeErrorBar (plotSurface, tzeroVr, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -796,9 +883,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Temperature Calculated Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -807,7 +891,10 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Temperature Calculated (K)", "{0:0}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Temperature Calculated (K)", "{0:0}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -839,9 +926,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Temperature Measured Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -850,8 +934,12 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Temperature Measured (K)", "{0:0}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Temperature Measured (K)", "{0:0}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
+
             AddInteraction (plotSurface);
 
             plotSurface.Refresh ();
@@ -881,9 +969,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Log(g) Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -892,8 +977,14 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Log(g)", "{0:0.00}", false);
+            double minimumX = Helper.GetMinimum (XAxis);
+            double maximumX = Helper.GetMaximum (XAxis);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Log(g)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
+
             AddInteraction (plotSurface);
 
             plotSurface.Refresh ();
@@ -923,9 +1014,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Omega Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -934,8 +1022,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeOmegaErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Omega (deg)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeOmegaErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Omega (deg)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -943,7 +1034,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeOmegaErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeOmegaErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -956,7 +1047,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.Omega, out omega) == true)
                         if (double.TryParse (exoplanet.OmegaErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.OmegaErrorMin, out minimumError) == true)
+                                {
+                                if (omega + maximumError > maximumY)
+                                    maximumY = omega + maximumError;
+
+                                if (omega - minimumError < minimumY)
+                                    minimumY = omega - minimumError;
+
                                 VisualizeErrorBar (plotSurface, omega, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -987,9 +1086,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Tperi Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -998,8 +1094,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeTperiErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Tperi (JD)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeTperiErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Tperi (JD)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -1007,7 +1106,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeTperiErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeTperiErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -1020,7 +1119,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.Tperi, out tperi) == true)
                         if (double.TryParse (exoplanet.TperiErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.TperiErrorMin, out minimumError) == true)
+                                {
+                                if (tperi + maximumError > maximumY)
+                                    maximumY = tperi + maximumError;
+
+                                if (tperi - minimumError < minimumY)
+                                    minimumY = tperi - minimumError;
+
                                 VisualizeErrorBar (plotSurface, tperi, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -1029,7 +1136,7 @@ namespace ExoplanetLibrary
 
         static public void VisualizeK (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
             {
-            ArrayList array = Helper.PlanetsWithK (exoplanets, false);
+            ArrayList array = Helper.PlanetsWithK (exoplanets, false, true);
 
             double [] XAxis = new double [array.Count];
             double [] YAxis = new double [array.Count];
@@ -1051,9 +1158,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "K Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -1062,8 +1166,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeKErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "K (m/s)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeKErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "K (m/s)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -1071,7 +1178,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeKErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeKErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -1084,7 +1191,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.K, out k) == true)
                         if (double.TryParse (exoplanet.KErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.KErrorMin, out minimumError) == true)
+                                {
+                                if (k + maximumError > maximumY)
+                                    maximumY = k + maximumError;
+
+                                if (k - minimumError < minimumY)
+                                    minimumY = k - minimumError;
+
                                 VisualizeErrorBar (plotSurface, k, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -1115,9 +1230,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Geometric Albedo Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -1126,8 +1238,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeGeometricAlbedoErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Geometri Albedo", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeGeometricAlbedoErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Geometri Albedo", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -1135,7 +1250,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeGeometricAlbedoErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeGeometricAlbedoErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -1148,7 +1263,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.GeometricAlbedo, out geometricAlbedo) == true)
                         if (double.TryParse (exoplanet.GeometricAlbedoErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.GeometricAlbedoErrorMin, out minimumError) == true)
+                                {
+                                if (geometricAlbedo + maximumError > maximumY)
+                                    maximumY = geometricAlbedo + maximumError;
+
+                                if (geometricAlbedo - minimumError < minimumY)
+                                    minimumY = geometricAlbedo - minimumError;
+
                                 VisualizeErrorBar (plotSurface, geometricAlbedo, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -1179,9 +1302,6 @@ namespace ExoplanetLibrary
             plotSurface.Title = "Tconj Plot";
             plotSurface.BackColor = BackgroundColor;
 
-            NPlot.Grid p = new Grid ();
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
             LinePlot linePlot = new LinePlot ();
             linePlot.AbscissaData = XAxis;
             linePlot.DataSource = YAxis;
@@ -1190,8 +1310,11 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            VisualizeTconjErrorBars (plotSurface, array);
-            VisualizeAxis (plotSurface, "Index", "{0:0}", "Tconj (JD)", "{0:0.00}", false);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
+
+            VisualizeTconjErrorBars (plotSurface, array, ref minimumY, ref maximumY);
+            VisualizeLogYAxis (plotSurface, "Index", "{0:0}", "Tconj (JD)", "{0:0.00}", Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -1199,7 +1322,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeTconjErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array)
+        static public void VisualizeTconjErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, ref double minimumY, ref double maximumY)
             {
             if (Visualization.IncludeErrorBars == CheckState.Checked)
                 {
@@ -1212,7 +1335,15 @@ namespace ExoplanetLibrary
                     if (double.TryParse (exoplanet.Tconj, out tconj) == true)
                         if (double.TryParse (exoplanet.TconjErrorMax, out maximumError) == true)
                             if (double.TryParse (exoplanet.TconjErrorMin, out minimumError) == true)
+                                {
+                                if (tconj + maximumError > maximumY)
+                                    maximumY = tconj + maximumError;
+
+                                if (tconj - minimumError < minimumY)
+                                    minimumY = tconj - minimumError;
+
                                 VisualizeErrorBar (plotSurface, tconj, maximumError, -minimumError, counter);
+                                }
 
                     ++counter;
                     }
@@ -1261,7 +1392,7 @@ namespace ExoplanetLibrary
             double minimumY = Helper.GetMinimum (radii);
             double maximumY = Helper.GetMaximum (radii);
 
-            VisualizeLogAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Radius (Rjup)", "{0:0.00}", Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
+            VisualizeLogXYAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Radius (Rjup)", "{0:0.00}", Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -1269,7 +1400,7 @@ namespace ExoplanetLibrary
             plotSurface.Refresh ();
             }
 
-        static public void VisualizeEccentricityAndMass (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
+        static public void VisualizeMassAndEccentricity (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
             {
             ArrayList array = Helper.PlanetsWithEccentricityAndMass (exoplanets);
 
@@ -1291,7 +1422,7 @@ namespace ExoplanetLibrary
                 }
 
             plotSurface.Clear ();
-            plotSurface.Title = "Eccentricity & Mass Plot";
+            plotSurface.Title = "Mass & Eccentricity Plot";
             plotSurface.BackColor = BackgroundColor;
 
             PointPlot pointPlot = new PointPlot ();
@@ -1302,12 +1433,12 @@ namespace ExoplanetLibrary
 
             plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-            double minimumX = Helper.GetMinimum (eccentricities);
-            double maximumX = Helper.GetMaximum (eccentricities);
-            double minimumY = Helper.GetMinimum (masses);
-            double maximumY = Helper.GetMaximum (masses);
+            double minimumX = Helper.GetMinimum (masses);
+            double maximumX = Helper.GetMaximum (masses);
+            double minimumY = Helper.GetMinimum (eccentricities);
+            double maximumY = Helper.GetMaximum (eccentricities);
 
-            VisualizeLogAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Eccentricity", "{0:0.00}", Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
+            VisualizeLogXYAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Eccentricity", "{0:0.00}", Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -1437,7 +1568,56 @@ namespace ExoplanetLibrary
             plotSurface.YAxis1.TickTextFont = tickFont;
             }
 
-        static private void VisualizeLogAxis (NPlot.Windows.PlotSurface2D plotSurface, string xAxisLabel, string xAxisFormat, string yAxisLabel, string yAxisFormat,
+        static private void VisualizeLogYAxis (NPlot.Windows.PlotSurface2D plotSurface, string xAxisLabel, string xAxisFormat, string yAxisLabel, string yAxisFormat,
+            CheckState logY, double minimumY, double maximumY)
+            {
+            if (logY == CheckState.Checked)
+                if (minimumY <= 0.0)
+                    minimumY = AlmostZero;
+
+            if (logY == CheckState.Checked)
+                if (maximumY <= 0.0)
+                    maximumY = AlmostZero;
+
+            Font axisFont = new Font ("Arial", 10);
+            Font tickFont = new Font ("Arial", 8);
+
+            plotSurface.XAxis1.Label = xAxisLabel;
+            plotSurface.XAxis1.NumberFormat = xAxisFormat;
+            plotSurface.XAxis1.TicksLabelAngle = 0;
+            plotSurface.XAxis1.TickTextNextToAxis = true;
+            plotSurface.XAxis1.FlipTicksLabel = true;
+            plotSurface.XAxis1.LabelOffset = 25;
+            plotSurface.XAxis1.LabelOffsetAbsolute = true;
+            plotSurface.XAxis1.LabelFont = axisFont;
+            plotSurface.XAxis1.TickTextFont = tickFont;
+            plotSurface.YAxis1.Label = yAxisLabel;
+            plotSurface.YAxis1.NumberFormat = yAxisFormat;
+            plotSurface.YAxis1.LabelFont = axisFont;
+            plotSurface.YAxis1.TickTextFont = tickFont;
+
+            Grid g = new Grid ();
+            g.VerticalGridType = ( logY == CheckState.Checked ) ? Grid.GridType.Fine : Grid.GridType.Coarse;
+            g.HorizontalGridType = Grid.GridType.Coarse;
+            plotSurface.Add (g);
+
+            if (logY == CheckState.Checked)
+                {
+                LogAxis logAxisY = new LogAxis (plotSurface.YAxis1);
+                logAxisY.WorldMin = minimumY;
+                logAxisY.WorldMax = maximumY;
+                plotSurface.YAxis1 = logAxisY;
+                }
+            else
+                {
+                LinearAxis YAxis = new LinearAxis (plotSurface.YAxis1);
+                YAxis.WorldMin = minimumY;
+                YAxis.WorldMax = maximumY;
+                plotSurface.YAxis1 = YAxis;
+                }
+            }
+
+        static private void VisualizeLogXYAxis (NPlot.Windows.PlotSurface2D plotSurface, string xAxisLabel, string xAxisFormat, string yAxisLabel, string yAxisFormat,
             CheckState logX, double minimumX, double maximumX, CheckState logY, double minimumY, double maximumY)
             {
             Font axisFont = new Font ("Arial", 10);
@@ -1458,6 +1638,7 @@ namespace ExoplanetLibrary
             plotSurface.YAxis1.TickTextFont = tickFont;
 
             Grid g = new Grid ();
+
             g.VerticalGridType = ( logY == CheckState.Checked ) ? Grid.GridType.Fine : Grid.GridType.Coarse;
             g.HorizontalGridType = ( logX == CheckState.Checked ) ? Grid.GridType.Fine : Grid.GridType.Coarse;
             plotSurface.Add (g);
@@ -1465,6 +1646,7 @@ namespace ExoplanetLibrary
             if (logX == CheckState.Checked)
                 {
                 LogAxis logAxisX = new LogAxis (plotSurface.XAxis1);
+
                 logAxisX.WorldMin = minimumX;
                 logAxisX.WorldMax = maximumX;
                 plotSurface.XAxis1 = logAxisX;
@@ -1472,6 +1654,7 @@ namespace ExoplanetLibrary
             else
                 {
                 LinearAxis XAxis = new LinearAxis (plotSurface.XAxis1);
+
                 XAxis.WorldMin = minimumX;
                 XAxis.WorldMax = maximumX;
                 plotSurface.XAxis1 = XAxis;
@@ -1480,6 +1663,7 @@ namespace ExoplanetLibrary
             if (logY == CheckState.Checked)
                 {
                 LogAxis logAxisY = new LogAxis (plotSurface.YAxis1);
+
                 logAxisY.WorldMin = minimumY;
                 logAxisY.WorldMax = maximumY;
                 plotSurface.YAxis1 = logAxisY;
@@ -1487,15 +1671,25 @@ namespace ExoplanetLibrary
             else
                 {
                 LinearAxis YAxis = new LinearAxis (plotSurface.YAxis1);
+
                 YAxis.WorldMin = minimumY;
                 YAxis.WorldMax = maximumY;
-                plotSurface.XAxis1 = YAxis;
+                plotSurface.YAxis1 = YAxis;
                 }
             }
 
         static private void VisualizeErrorBar (NPlot.Windows.PlotSurface2D plotSurface, double value, double maximumError, double minimumError, int counter)
             {
             counter += 1;
+
+            if (Visualization.LogYAxis == CheckState.Checked)
+                {
+                if (value + maximumError <= 0.0)
+                    return;
+
+                if (value + minimumError <= 0.0)
+                    return;
+                }
 
             VisualizeErrorBarVerticalLine (plotSurface, value, maximumError, minimumError, counter);
             VisualizeErrorBarHorizontalLine (plotSurface, value, maximumError, counter);
@@ -1566,16 +1760,7 @@ namespace ExoplanetLibrary
 
         static public void AddInteraction (NPlot.Windows.PlotSurface2D plotSurface)
             {
-            //plotSurface.AddInteraction (new NPlot.Windows.PlotSurface2D.Interactions.HorizontalDrag ());
-            //plotSurface.AddInteraction (new NPlot.Windows.PlotSurface2D.Interactions.HorizontalGuideline ());
-            //plotSurface.AddInteraction (new NPlot.Windows.PlotSurface2D.Interactions.VerticalDrag ());
-            //plotSurface.AddInteraction (new NPlot.Windows.PlotSurface2D.Interactions.VerticalGuideline ());
-
-            //plotSurface.AddInteraction (new NPlot.Windows.PlotSurface2D.Interactions.AxisDrag (true));
-
             plotSurface.AddInteraction (new NPlot.Windows.PlotSurface2D.Interactions.RubberBandSelection ());
-
-            //plotSurface.AddInteraction (new NPlot.Windows.PlotSurface2D.Interactions.MouseWheelZoom ());
             }
         }
     }
