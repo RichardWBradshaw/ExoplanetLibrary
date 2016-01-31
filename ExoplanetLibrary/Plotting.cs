@@ -729,8 +729,8 @@ namespace ExoplanetLibrary
 
                 if (double.TryParse (exoplanet.LambdaAngle, out lambdaAngle) == true)
                     {
-                    XAxis [counter] = lambdaAngle;
-                    YAxis [counter] = counter + 1;
+                    YAxis [counter] = lambdaAngle;
+                    XAxis [counter] = counter + 1;
                     counter++;
                     }
                 }
