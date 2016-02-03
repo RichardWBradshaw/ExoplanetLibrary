@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace ExoplanetLibrary
     {
@@ -37,7 +38,7 @@ namespace ExoplanetLibrary
 
             errorBarsToolStripMenuItem.Checked = Visualization.IncludeErrorBars == CheckState.Checked ? true : false;
             colorFromStarTypeToolStripMenuItem.Checked = Visualization.ColorFromStarType == CheckState.Checked ? true : false;
-            logXAxisToolStripMenuItem .Checked = Visualization.LogXAxis == CheckState.Checked ? true : false;
+            logXAxisToolStripMenuItem.Checked = Visualization.LogXAxis == CheckState.Checked ? true : false;
             logYAxisToolStripMenuItem.Checked = Visualization.LogYAxis == CheckState.Checked ? true : false;
 
             RefreshGraphics ();
@@ -218,71 +219,113 @@ namespace ExoplanetLibrary
 
         private void RefreshGraphics ()
             {
+            ArrayList array = null;
+
             switch (PlotType)
                 {
                 case PlotTypes.Mass:
-                    Plotting.VisualizeMass (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.Radius:
-                    Plotting.VisualizeRadius (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.OrbitalPeriod:
-                    Plotting.VisualizeOrbitalPeriod (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithOrbitalPeriods(ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.SemiMajorAxis:
-                    Plotting.VisualizeSemiMajorAxis (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithSemiMajorAxis (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.Eccentricity:
-                    Plotting.VisualizeEccentricity (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithEccentricity(ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.AngularDistance:
-                    Plotting.VisualizeAngularDistance (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithAngularDistance (ParentDialog.ExoplanetsArray);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.Inclination:
-                    Plotting.VisualizeInclination (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithInclination (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.TzeroTr:
-                    Plotting.VisualizeTzeroTr (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithTzeroTr (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.TzeroTrSec:
-                    Plotting.VisualizeTzeroTrSec (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithTzeroTrSec (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.LambdaAngle:
-                    Plotting.VisualizeLambdaAngle (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithLambdaAngle (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.TzeroVr:
-                    Plotting.VisualizeTzeroVr (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithTzeroVr (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.TemperatureCalculated:
-                    Plotting.VisualizeTemperatureCalculated (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithTemperatureCalculated (ParentDialog.ExoplanetsArray);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.TemperatureMeasured:
-                    Plotting.VisualizeTemperatureMeasured (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithTemperatureMeasured (ParentDialog.ExoplanetsArray);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.LogG:
-                    Plotting.VisualizeLogG (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithLogG (ParentDialog.ExoplanetsArray);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.Omega:
-                    Plotting.VisualizeOmega (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithOmega (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.Tperi:
-                    Plotting.VisualizeTperi (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithTperi (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.K:
-                    Plotting.VisualizeK (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithK (ParentDialog.ExoplanetsArray, false, true);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.GeometricAlbedo:
-                    Plotting.VisualizeGeometricAlbedo (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithGeometricAlbedo (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.Tconj:
-                    Plotting.VisualizeTconj (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    array = Helper.PlanetsWithTconj (ParentDialog.ExoplanetsArray, false);
+                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
+
                 case PlotTypes.Stars:
                     Plotting.VisualizeStars (PlotSurface2D, ParentDialog.ExoplanetsArray);
                     break;
+
                 case PlotTypes.MassAndRadius:
                     Plotting.VisualizeMassAndRadius (PlotSurface2D, ParentDialog.ExoplanetsArray);
                     break;
+
                 case PlotTypes.EccentricityAndMass:
                     Plotting.VisualizeMassAndEccentricity (PlotSurface2D, ParentDialog.ExoplanetsArray);
                     break;
@@ -314,7 +357,7 @@ namespace ExoplanetLibrary
                 {
                 Visualization.ColorFromStarType = colorFromStarTypeToolStripMenuItem.CheckState;
 
-                if(PlotType == PlotTypes.Stars)
+                if (PlotType == PlotTypes.Stars)
                     RefreshGraphics ();
                 }
             else if (sender == logXAxisToolStripMenuItem)

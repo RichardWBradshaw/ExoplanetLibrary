@@ -764,7 +764,7 @@ namespace ExoplanetLibrary
             return array;
             }
 
-        public static ArrayList PlanetsWithEccentrity (ArrayList exoplanets, bool includeErrors)
+        public static ArrayList PlanetsWithEccentricity (ArrayList exoplanets, bool includeErrors)
             {
             ArrayList array = new ArrayList ();
 
