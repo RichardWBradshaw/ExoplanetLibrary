@@ -158,10 +158,11 @@ namespace ExoplanetLibrary
             listView.Columns.Add ("Eccentricity", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Angular Distance", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Inclination (deg)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("T0 (JD)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Omega (deg)", -2, HorizontalAlignment.Left);
 
             if (AddPlanetDetails == CheckState.Checked)
                 {
-                listView.Columns.Add ("T0 (JD)", -2, HorizontalAlignment.Left);
                 listView.Columns.Add ("T0-sec (JD)", -2, HorizontalAlignment.Left);
                 listView.Columns.Add ("Lambda Angle (deg)", -2, HorizontalAlignment.Left);
                 listView.Columns.Add ("Tvr (JD)", -2, HorizontalAlignment.Left);
@@ -175,12 +176,6 @@ namespace ExoplanetLibrary
             listView.Columns.Add ("Discovered", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Updated", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Detection Type", -2, HorizontalAlignment.Left);
-
-            if (AddPlanetDetails == CheckState.Checked)
-                {
-                listView.Columns.Add ("Omega (deg)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Molecules", -2, HorizontalAlignment.Left);
-                }
 
             listView.Columns.Add ("Star Name", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("RA", -2, HorizontalAlignment.Left);
@@ -230,10 +225,11 @@ namespace ExoplanetLibrary
                     item.SubItems.Add (exoplanet.Eccentricity);
                     item.SubItems.Add (exoplanet.AngularDistance);
                     item.SubItems.Add (exoplanet.Inclination);
+                    item.SubItems.Add (exoplanet.TzeroTr);
+                    item.SubItems.Add (exoplanet.Omega);
 
                     if (AddPlanetDetails == CheckState.Checked)
                         {
-                        item.SubItems.Add (exoplanet.TzeroTr);
                         item.SubItems.Add (exoplanet.TzeroTrSec);
                         item.SubItems.Add (exoplanet.LambdaAngle);
                         item.SubItems.Add (exoplanet.TzeroVr);
@@ -247,12 +243,6 @@ namespace ExoplanetLibrary
                     item.SubItems.Add (exoplanet.Discovered);
                     item.SubItems.Add (exoplanet.Updated);
                     item.SubItems.Add (exoplanet.DetectionType);
-
-                    if (AddPlanetDetails == CheckState.Checked)
-                        {
-                        item.SubItems.Add (exoplanet.Omega);
-                        item.SubItems.Add (exoplanet.Molecules);
-                        }
 
                     item.SubItems.Add (exoplanet.Star.Name);
                     item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.RightAccession));
@@ -297,24 +287,6 @@ namespace ExoplanetLibrary
                 Exoplanet exoplanet = ( Exoplanet )ExoplanetListView.SelectedItems [0].Tag;
 
                 displayAllDetails (exoplanet);
-                }
-            }
-
-        private void ExoplanetListView_DoubleClick (object sender, EventArgs e)
-            {
-            if (ExoplanetListView.SelectedItems.Count == 1)
-                {
-                ArrayList types = Helper.NumberOfStarTypes (ExoplanetsArray);
-                string StarTypesString = null;
-
-                for (int index = 0; index < types.Count; ++index)
-                    {
-                    StarTypes type = types [index] as StarTypes;
-
-                    StarTypesString += "\rNumber of Type " + type.Name + "   " + type.Count.ToString ();
-                    }
-
-                MessageBox.Show ("Number of Exoplanets " + ExoplanetsArray.Count + "\rMulti-Planet Stars " + Helper.NumberOfMultiPlanetStars (ExoplanetsArray) + StarTypesString);
                 }
             }
 
@@ -422,6 +394,7 @@ namespace ExoplanetLibrary
             string url = "http://exoplanet.eu";
 
             System.Diagnostics.Process.Start (url);
+            Settings.WriteLastVisit (System.DateTime.Now);
             }
 
         private void launchExoplanetEuCatalog_Click (object sender, EventArgs e)
@@ -429,6 +402,7 @@ namespace ExoplanetLibrary
             string url = "http://exoplanet.eu//catalog";
 
             System.Diagnostics.Process.Start (url);
+            Settings.WriteLastVisit (System.DateTime.Now);
             }
 
         private void visualize_Click (object sender, System.EventArgs e)
@@ -627,5 +601,6 @@ namespace ExoplanetLibrary
                 allDetectionMethodsMenuItem.CheckState = Filter.UnknownDetectionEnabled;
                 }
             }
+
         }
     }

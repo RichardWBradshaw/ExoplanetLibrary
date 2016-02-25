@@ -17,8 +17,6 @@ namespace ExoplanetLibrary
             textBoxDescription.Text = AssemblyDescription;
             }
 
-        #region Assembly Attribute Accessors
-
         public string AssemblyTitle
             {
             get
@@ -53,7 +51,8 @@ namespace ExoplanetLibrary
                     {
                     return "";
                     }
-                return ( ( AssemblyDescriptionAttribute )attributes [0] ).Description;
+                return ( ( AssemblyDescriptionAttribute )attributes [0] ).Description + "\r\n" +
+                       "http://exoplanet.eu was last visited on " + Settings.ReadLastVisit ();
                 }
             }
 
@@ -95,6 +94,5 @@ namespace ExoplanetLibrary
                 return ( ( AssemblyCompanyAttribute )attributes [0] ).Company;
                 }
             }
-        #endregion
         }
     }

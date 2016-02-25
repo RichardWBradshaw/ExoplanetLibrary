@@ -42,10 +42,31 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.printStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToClipBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.massVsRadiusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eccentricityVsMassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightAccessionVsDeclinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.massVsRadiusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsOrbitalPeriodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsSemiMajorAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsEccentricityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsAngularDistanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsOmegaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsInclinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsT0ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsTperiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.massVsKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.radiusVsMassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsOrbitalPeriodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsSemiMajorAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsEccentricityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsAngularDistanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsOmegaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsInclinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsT0ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsTperiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusVsKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorBarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorFromStarTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,7 +136,8 @@
             this.refreshViewToolStripMenuItem,
             this.toolStripSeparator2,
             this.printStripMenuItem,
-            this.printPreviewToolStripMenuItem});
+            this.printPreviewToolStripMenuItem,
+            this.copyToClipBoardToolStripMenuItem});
             this.visualizationToolStripMenuItem.Name = "visualizationToolStripMenuItem";
             this.visualizationToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.visualizationToolStripMenuItem.Text = "Linear Diagrams";
@@ -123,176 +145,215 @@
             // massToolStripMenuItem
             // 
             this.massToolStripMenuItem.Name = "massToolStripMenuItem";
-            this.massToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.massToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.massToolStripMenuItem.Text = "Mass";
             this.massToolStripMenuItem.Click += new System.EventHandler(this.visualizeMass_Click);
             // 
             // radiiToolStripMenuItem
             // 
             this.radiiToolStripMenuItem.Name = "radiiToolStripMenuItem";
-            this.radiiToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.radiiToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.radiiToolStripMenuItem.Text = "Radii";
             this.radiiToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadii_Click);
             // 
             // orbitalPeriodToolStripMenuItem
             // 
             this.orbitalPeriodToolStripMenuItem.Name = "orbitalPeriodToolStripMenuItem";
-            this.orbitalPeriodToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.orbitalPeriodToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.orbitalPeriodToolStripMenuItem.Text = "Orbital Period";
             this.orbitalPeriodToolStripMenuItem.Click += new System.EventHandler(this.visualizeOrbitalPeriod_Click);
             // 
             // semiMajorAxisToolStripMenuItem
             // 
             this.semiMajorAxisToolStripMenuItem.Name = "semiMajorAxisToolStripMenuItem";
-            this.semiMajorAxisToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.semiMajorAxisToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.semiMajorAxisToolStripMenuItem.Text = "Semi-Major Axis";
             this.semiMajorAxisToolStripMenuItem.Click += new System.EventHandler(this.visualizeSemiMajorAxis_Click);
             // 
             // eccentricityToolStripMenuItem
             // 
             this.eccentricityToolStripMenuItem.Name = "eccentricityToolStripMenuItem";
-            this.eccentricityToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.eccentricityToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.eccentricityToolStripMenuItem.Text = "Eccentricity";
             this.eccentricityToolStripMenuItem.Click += new System.EventHandler(this.visualizeEccentricity_Click);
             // 
             // angularDistanceToolStripMenuItem
             // 
             this.angularDistanceToolStripMenuItem.Name = "angularDistanceToolStripMenuItem";
-            this.angularDistanceToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.angularDistanceToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.angularDistanceToolStripMenuItem.Text = "Angular Distance";
             this.angularDistanceToolStripMenuItem.Click += new System.EventHandler(this.visualizeAngularDistance_Click);
             // 
             // inclinationToolStripMenuItem
             // 
             this.inclinationToolStripMenuItem.Name = "inclinationToolStripMenuItem";
-            this.inclinationToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.inclinationToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.inclinationToolStripMenuItem.Text = "Inclination";
             this.inclinationToolStripMenuItem.Click += new System.EventHandler(this.visualizeInclination_Click);
             // 
             // t0ToolStripMenuItem
             // 
             this.t0ToolStripMenuItem.Name = "t0ToolStripMenuItem";
-            this.t0ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.t0ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.t0ToolStripMenuItem.Text = "T0";
             this.t0ToolStripMenuItem.Click += new System.EventHandler(this.visualizeT0_Click);
             // 
             // t0secToolStripMenuItem
             // 
             this.t0secToolStripMenuItem.Name = "t0secToolStripMenuItem";
-            this.t0secToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.t0secToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.t0secToolStripMenuItem.Text = "T0-sec";
             this.t0secToolStripMenuItem.Click += new System.EventHandler(this.visualizeT0sec_Click);
             // 
             // lambdaAngleToolStripMenuItem
             // 
             this.lambdaAngleToolStripMenuItem.Name = "lambdaAngleToolStripMenuItem";
-            this.lambdaAngleToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.lambdaAngleToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.lambdaAngleToolStripMenuItem.Text = "Lambda Angle";
             this.lambdaAngleToolStripMenuItem.Click += new System.EventHandler(this.visualizeLambdaAngle_Click);
             // 
             // tvrToolStripMenuItem
             // 
             this.tvrToolStripMenuItem.Name = "tvrToolStripMenuItem";
-            this.tvrToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.tvrToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.tvrToolStripMenuItem.Text = "Tvr";
             this.tvrToolStripMenuItem.Click += new System.EventHandler(this.visualizeTvr_Click);
             // 
             // tcalcToolStripMenuItem
             // 
             this.tcalcToolStripMenuItem.Name = "tcalcToolStripMenuItem";
-            this.tcalcToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.tcalcToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.tcalcToolStripMenuItem.Text = "Tcalc";
             this.tcalcToolStripMenuItem.Click += new System.EventHandler(this.visualizeTcalc_Click);
             // 
             // tmeasToolStripMenuItem
             // 
             this.tmeasToolStripMenuItem.Name = "tmeasToolStripMenuItem";
-            this.tmeasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.tmeasToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.tmeasToolStripMenuItem.Text = "Tmeas";
             this.tmeasToolStripMenuItem.Click += new System.EventHandler(this.visualizeTmeas_Click);
             // 
             // loggToolStripMenuItem
             // 
             this.loggToolStripMenuItem.Name = "loggToolStripMenuItem";
-            this.loggToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.loggToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.loggToolStripMenuItem.Text = "Log(g)";
             this.loggToolStripMenuItem.Click += new System.EventHandler(this.visualizeLogG_Click);
             // 
             // omegaToolStripMenuItem
             // 
             this.omegaToolStripMenuItem.Name = "omegaToolStripMenuItem";
-            this.omegaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.omegaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.omegaToolStripMenuItem.Text = "Omega";
             this.omegaToolStripMenuItem.Click += new System.EventHandler(this.visualizeOmega_Click);
             // 
             // tperiToolStripMenuItem
             // 
             this.tperiToolStripMenuItem.Name = "tperiToolStripMenuItem";
-            this.tperiToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.tperiToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.tperiToolStripMenuItem.Text = "Tperi";
             this.tperiToolStripMenuItem.Click += new System.EventHandler(this.visualizeTperi_Click);
             // 
             // kToolStripMenuItem
             // 
             this.kToolStripMenuItem.Name = "kToolStripMenuItem";
-            this.kToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.kToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.kToolStripMenuItem.Text = "K";
             this.kToolStripMenuItem.Click += new System.EventHandler(this.visualizeK_Click);
             // 
             // geometricAlbedoToolStripMenuItem
             // 
             this.geometricAlbedoToolStripMenuItem.Name = "geometricAlbedoToolStripMenuItem";
-            this.geometricAlbedoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.geometricAlbedoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.geometricAlbedoToolStripMenuItem.Text = "Geometric Albedo";
             this.geometricAlbedoToolStripMenuItem.Click += new System.EventHandler(this.visualizeGeometricAlbedo_Click);
             // 
             // tconjToolStripMenuItem
             // 
             this.tconjToolStripMenuItem.Name = "tconjToolStripMenuItem";
-            this.tconjToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.tconjToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.tconjToolStripMenuItem.Text = "Tconj";
             this.tconjToolStripMenuItem.Click += new System.EventHandler(this.visualizeTconj_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(167, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // refreshViewToolStripMenuItem
             // 
             this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
-            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.refreshViewToolStripMenuItem.Text = "Refresh View";
             this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.visualizeRefreshView_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
             // 
             // printStripMenuItem
             // 
             this.printStripMenuItem.Name = "printStripMenuItem";
-            this.printStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.printStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.printStripMenuItem.Text = "Print...";
             this.printStripMenuItem.Click += new System.EventHandler(this.visualizePrint_Click);
             // 
             // printPreviewToolStripMenuItem
             // 
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.printPreviewToolStripMenuItem.Text = "Print Preview...";
             this.printPreviewToolStripMenuItem.Click += new System.EventHandler(this.visualizePrintPreview_Click);
+            // 
+            // copyToClipBoardToolStripMenuItem
+            // 
+            this.copyToClipBoardToolStripMenuItem.Name = "copyToClipBoardToolStripMenuItem";
+            this.copyToClipBoardToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.copyToClipBoardToolStripMenuItem.Text = "Copy to Clip  Board";
+            this.copyToClipBoardToolStripMenuItem.Click += new System.EventHandler(this.visualizeCopyToClipBoard_Click);
             // 
             // pointToolStripMenuItem
             // 
             this.pointToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rightAccessionVsDeclinationToolStripMenuItem,
+            this.toolStripSeparator3,
             this.massVsRadiusToolStripMenuItem,
-            this.eccentricityVsMassToolStripMenuItem,
-            this.rightAccessionVsDeclinationToolStripMenuItem});
+            this.massVsOrbitalPeriodToolStripMenuItem,
+            this.massVsSemiMajorAxisToolStripMenuItem,
+            this.massVsEccentricityToolStripMenuItem,
+            this.massVsAngularDistanceToolStripMenuItem,
+            this.massVsOmegaToolStripMenuItem,
+            this.massVsInclinationToolStripMenuItem,
+            this.massVsT0ToolStripMenuItem,
+            this.massVsTperiToolStripMenuItem,
+            this.massVsKToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.radiusVsMassToolStripMenuItem,
+            this.radiusVsOrbitalPeriodToolStripMenuItem,
+            this.radiusVsSemiMajorAxisToolStripMenuItem,
+            this.radiusVsEccentricityToolStripMenuItem,
+            this.radiusVsAngularDistanceToolStripMenuItem,
+            this.radiusVsOmegaToolStripMenuItem,
+            this.radiusVsInclinationToolStripMenuItem,
+            this.radiusVsT0ToolStripMenuItem,
+            this.radiusVsTperiToolStripMenuItem,
+            this.radiusVsKToolStripMenuItem});
             this.pointToolStripMenuItem.Name = "pointToolStripMenuItem";
             this.pointToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.pointToolStripMenuItem.Text = "Point Diagrams";
+            // 
+            // rightAccessionVsDeclinationToolStripMenuItem
+            // 
+            this.rightAccessionVsDeclinationToolStripMenuItem.Name = "rightAccessionVsDeclinationToolStripMenuItem";
+            this.rightAccessionVsDeclinationToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.rightAccessionVsDeclinationToolStripMenuItem.Text = "Right Accession vs Declination";
+            this.rightAccessionVsDeclinationToolStripMenuItem.Click += new System.EventHandler(this.visualizeStars_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(232, 6);
             // 
             // massVsRadiusToolStripMenuItem
             // 
@@ -301,19 +362,143 @@
             this.massVsRadiusToolStripMenuItem.Text = "Mass vs Radius";
             this.massVsRadiusToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusRadius_Click);
             // 
-            // eccentricityVsMassToolStripMenuItem
+            // massVsOrbitalPeriodToolStripMenuItem
             // 
-            this.eccentricityVsMassToolStripMenuItem.Name = "eccentricityVsMassToolStripMenuItem";
-            this.eccentricityVsMassToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.eccentricityVsMassToolStripMenuItem.Text = "Mass vs Eccentricity";
-            this.eccentricityVsMassToolStripMenuItem.Click += new System.EventHandler(this.visualizeEccentricityVersusMass_Click);
+            this.massVsOrbitalPeriodToolStripMenuItem.Name = "massVsOrbitalPeriodToolStripMenuItem";
+            this.massVsOrbitalPeriodToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsOrbitalPeriodToolStripMenuItem.Text = "Mass vs Orbital Period";
+            this.massVsOrbitalPeriodToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusOrbitalPeriod_Click);
             // 
-            // rightAccessionVsDeclinationToolStripMenuItem
+            // massVsSemiMajorAxisToolStripMenuItem
             // 
-            this.rightAccessionVsDeclinationToolStripMenuItem.Name = "rightAccessionVsDeclinationToolStripMenuItem";
-            this.rightAccessionVsDeclinationToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.rightAccessionVsDeclinationToolStripMenuItem.Text = "Right Accession vs Declination";
-            this.rightAccessionVsDeclinationToolStripMenuItem.Click += new System.EventHandler(this.visualizeStars_Click);
+            this.massVsSemiMajorAxisToolStripMenuItem.Name = "massVsSemiMajorAxisToolStripMenuItem";
+            this.massVsSemiMajorAxisToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsSemiMajorAxisToolStripMenuItem.Text = "Mass vs Semi-Major Axis";
+            this.massVsSemiMajorAxisToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusSemiMajorAxis_Click);
+            // 
+            // massVsEccentricityToolStripMenuItem
+            // 
+            this.massVsEccentricityToolStripMenuItem.Name = "massVsEccentricityToolStripMenuItem";
+            this.massVsEccentricityToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsEccentricityToolStripMenuItem.Text = "Mass vs Eccentricity";
+            this.massVsEccentricityToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusEccentricity_Click);
+            // 
+            // massVsAngularDistanceToolStripMenuItem
+            // 
+            this.massVsAngularDistanceToolStripMenuItem.Name = "massVsAngularDistanceToolStripMenuItem";
+            this.massVsAngularDistanceToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsAngularDistanceToolStripMenuItem.Text = "Mass vs Angular Distance";
+            this.massVsAngularDistanceToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusAngularDistance_Click);
+            // 
+            // massVsOmegaToolStripMenuItem
+            // 
+            this.massVsOmegaToolStripMenuItem.Name = "massVsOmegaToolStripMenuItem";
+            this.massVsOmegaToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsOmegaToolStripMenuItem.Text = "Mass vs Omega";
+            this.massVsOmegaToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusOmega_Click);
+            // 
+            // massVsInclinationToolStripMenuItem
+            // 
+            this.massVsInclinationToolStripMenuItem.Name = "massVsInclinationToolStripMenuItem";
+            this.massVsInclinationToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsInclinationToolStripMenuItem.Text = "Mass vs Inclination";
+            this.massVsInclinationToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusInclination_Click);
+            // 
+            // massVsT0ToolStripMenuItem
+            // 
+            this.massVsT0ToolStripMenuItem.Name = "massVsT0ToolStripMenuItem";
+            this.massVsT0ToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsT0ToolStripMenuItem.Text = "Mass vs T0";
+            this.massVsT0ToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusTzeroTr_Click);
+            // 
+            // massVsTperiToolStripMenuItem
+            // 
+            this.massVsTperiToolStripMenuItem.Name = "massVsTperiToolStripMenuItem";
+            this.massVsTperiToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsTperiToolStripMenuItem.Text = "Mass vs Tperi";
+            this.massVsTperiToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusTperi_Click);
+            // 
+            // massVsKToolStripMenuItem
+            // 
+            this.massVsKToolStripMenuItem.Name = "massVsKToolStripMenuItem";
+            this.massVsKToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.massVsKToolStripMenuItem.Text = "Mass vs K";
+            this.massVsKToolStripMenuItem.Click += new System.EventHandler(this.visualizeMassVersusK_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(232, 6);
+            // 
+            // radiusVsMassToolStripMenuItem
+            // 
+            this.radiusVsMassToolStripMenuItem.Name = "radiusVsMassToolStripMenuItem";
+            this.radiusVsMassToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsMassToolStripMenuItem.Text = "Radius vs Mass";
+            this.radiusVsMassToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusMass_Click);
+            // 
+            // radiusVsOrbitalPeriodToolStripMenuItem
+            // 
+            this.radiusVsOrbitalPeriodToolStripMenuItem.Name = "radiusVsOrbitalPeriodToolStripMenuItem";
+            this.radiusVsOrbitalPeriodToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsOrbitalPeriodToolStripMenuItem.Text = "Radius vs Orbital Period";
+            this.radiusVsOrbitalPeriodToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusOrbitalPeriod_Click);
+            // 
+            // radiusVsSemiMajorAxisToolStripMenuItem
+            // 
+            this.radiusVsSemiMajorAxisToolStripMenuItem.Name = "radiusVsSemiMajorAxisToolStripMenuItem";
+            this.radiusVsSemiMajorAxisToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsSemiMajorAxisToolStripMenuItem.Text = "Radius vs Semi-Major Axis";
+            this.radiusVsSemiMajorAxisToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusSemiMajorAxis_Click);
+            // 
+            // radiusVsEccentricityToolStripMenuItem
+            // 
+            this.radiusVsEccentricityToolStripMenuItem.Name = "radiusVsEccentricityToolStripMenuItem";
+            this.radiusVsEccentricityToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsEccentricityToolStripMenuItem.Text = "Radius vs Eccentricity";
+            this.radiusVsEccentricityToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusEccentricity_Click);
+            // 
+            // radiusVsAngularDistanceToolStripMenuItem
+            // 
+            this.radiusVsAngularDistanceToolStripMenuItem.Name = "radiusVsAngularDistanceToolStripMenuItem";
+            this.radiusVsAngularDistanceToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsAngularDistanceToolStripMenuItem.Text = "Radius vs Angular Distance";
+            this.radiusVsAngularDistanceToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusAngularDistance_Click);
+            // 
+            // radiusVsOmegaToolStripMenuItem
+            // 
+            this.radiusVsOmegaToolStripMenuItem.Name = "radiusVsOmegaToolStripMenuItem";
+            this.radiusVsOmegaToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsOmegaToolStripMenuItem.Text = "Radius vs Omega";
+            this.radiusVsOmegaToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusOmega_Click);
+            // 
+            // radiusVsInclinationToolStripMenuItem
+            // 
+            this.radiusVsInclinationToolStripMenuItem.Name = "radiusVsInclinationToolStripMenuItem";
+            this.radiusVsInclinationToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsInclinationToolStripMenuItem.Text = "Radius vs Inclination";
+            this.radiusVsInclinationToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusInclination_Click);
+            // 
+            // radiusVsT0ToolStripMenuItem
+            // 
+            this.radiusVsT0ToolStripMenuItem.Name = "radiusVsT0ToolStripMenuItem";
+            this.radiusVsT0ToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsT0ToolStripMenuItem.Text = "Radius vs T0";
+            this.radiusVsT0ToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusTzeroTr_Click);
+            // 
+            // radiusVsTperiToolStripMenuItem
+            // 
+            this.radiusVsTperiToolStripMenuItem.Name = "radiusVsTperiToolStripMenuItem";
+            this.radiusVsTperiToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsTperiToolStripMenuItem.Text = "Radius vs Tperi";
+            this.radiusVsTperiToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusTperi_Click);
+            // 
+            // radiusVsKToolStripMenuItem
+            // 
+            this.radiusVsKToolStripMenuItem.Name = "radiusVsKToolStripMenuItem";
+            this.radiusVsKToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.radiusVsKToolStripMenuItem.Text = "Radius vs K";
+            this.radiusVsKToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusK_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -401,7 +586,7 @@
         private System.Windows.Forms.ToolStripMenuItem tperiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pointToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem massVsRadiusToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eccentricityVsMassToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsEccentricityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem geometricAlbedoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tconjToolStripMenuItem;
@@ -416,5 +601,26 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem logXAxisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logYAxisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsOrbitalPeriodToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsSemiMajorAxisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsAngularDistanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsOmegaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsMassToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsOrbitalPeriodToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsSemiMajorAxisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsEccentricityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsAngularDistanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsOmegaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToClipBoardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsInclinationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsT0ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsTperiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem massVsKToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsInclinationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsT0ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsTperiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusVsKToolStripMenuItem;
         }
     }

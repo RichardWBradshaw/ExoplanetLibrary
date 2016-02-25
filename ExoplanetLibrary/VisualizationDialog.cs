@@ -198,6 +198,8 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
+        ///
+
         private void visualizeMassVersusRadius_Click (object sender, System.EventArgs e)
             {
             PlotType = PlotTypes.MassAndRadius;
@@ -206,7 +208,122 @@ namespace ExoplanetLibrary
 
         private void visualizeEccentricityVersusMass_Click (object sender, System.EventArgs e)
             {
-            PlotType = PlotTypes.EccentricityAndMass;
+            PlotType = PlotTypes.MassAndEccentricity;
+            RefreshGraphics ();
+            }
+        private void visualizeMassVersusOrbitalPeriod_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndOrbitalPeriod;
+            RefreshGraphics ();
+            }
+
+        private void visualizeMassVersusSemiMajorAxis_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndSemiMajorAxis;
+            RefreshGraphics ();
+            }
+
+        private void visualizeMassVersusEccentricity_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndEccentricity;
+            RefreshGraphics ();
+            }
+
+        private void visualizeMassVersusAngularDistance_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndAngularDistance;
+            RefreshGraphics ();
+            }
+
+        private void visualizeMassVersusOmega_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndOmega;
+            RefreshGraphics ();
+            }
+
+        private void visualizeMassVersusInclination_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndInclination;
+            RefreshGraphics ();
+            }
+
+        private void visualizeMassVersusTzeroTr_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndTzeroTr;
+            RefreshGraphics ();
+            }
+
+        private void visualizeMassVersusTperi_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndTperi;
+            RefreshGraphics ();
+            }
+
+        private void visualizeMassVersusK_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.MassAndK;
+            RefreshGraphics ();
+            }
+
+        ///
+
+        private void visualizeRadiusVersusMass_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndMass;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusOrbitalPeriod_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndOrbitalPeriod;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusSemiMajorAxis_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndSemiMajorAxis;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusEccentricity_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndEccentricity;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusAngularDistance_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndAngularDistance;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusOmega_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndOmega;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusInclination_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndInclination;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusTzeroTr_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndTzeroTr;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusTperi_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndTperi;
+            RefreshGraphics ();
+            }
+
+        private void visualizeRadiusVersusK_Click (object sender, EventArgs e)
+            {
+            PlotType = PlotTypes.RadiusAndK;
             RefreshGraphics ();
             }
 
@@ -234,7 +351,7 @@ namespace ExoplanetLibrary
                     break;
 
                 case PlotTypes.OrbitalPeriod:
-                    array = Helper.PlanetsWithOrbitalPeriods(ParentDialog.ExoplanetsArray, false);
+                    array = Helper.PlanetsWithOrbitalPeriods (ParentDialog.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
@@ -244,7 +361,7 @@ namespace ExoplanetLibrary
                     break;
 
                 case PlotTypes.Eccentricity:
-                    array = Helper.PlanetsWithEccentricity(ParentDialog.ExoplanetsArray, false);
+                    array = Helper.PlanetsWithEccentricity (ParentDialog.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
@@ -318,16 +435,133 @@ namespace ExoplanetLibrary
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
-                case PlotTypes.Stars:
-                    Plotting.VisualizeStars (PlotSurface2D, ParentDialog.ExoplanetsArray);
-                    break;
+                //
 
                 case PlotTypes.MassAndRadius:
-                    Plotting.VisualizeMassAndRadius (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithRadius (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndRadius);
                     break;
 
-                case PlotTypes.EccentricityAndMass:
-                    Plotting.VisualizeMassAndEccentricity (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                case PlotTypes.MassAndOrbitalPeriod:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithOrbitalPeriods (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndOrbitalPeriod);
+                    break;
+
+                case PlotTypes.MassAndSemiMajorAxis:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithSemiMajorAxis (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndSemiMajorAxis);
+                    break;
+
+                case PlotTypes.MassAndEccentricity:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithEccentricity (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndEccentricity);
+                    break;
+
+                case PlotTypes.MassAndAngularDistance:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithAngularDistance (array) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndAngularDistance);
+                    break;
+
+                case PlotTypes.MassAndOmega:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithOmega (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndOmega);
+                    break;
+
+                case PlotTypes.MassAndInclination:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithInclination (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndInclination);
+                    break;
+
+                case PlotTypes.MassAndTzeroTr:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithTzeroTr (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndTzeroTr);
+                    break;
+
+                case PlotTypes.MassAndTperi:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithTperi (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndTperi);
+                    break;
+
+                case PlotTypes.MassAndK:
+                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithK (array, false, true) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndK);
+                    break;
+                //
+
+                case PlotTypes.RadiusAndMass:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithMass (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndMass);
+                    break;
+
+                case PlotTypes.RadiusAndOrbitalPeriod:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithOrbitalPeriods (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndOrbitalPeriod);
+                    break;
+
+                case PlotTypes.RadiusAndSemiMajorAxis:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithSemiMajorAxis (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndSemiMajorAxis);
+                    break;
+
+                case PlotTypes.RadiusAndEccentricity:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithEccentricity (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndEccentricity);
+                    break;
+
+                case PlotTypes.RadiusAndAngularDistance:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithAngularDistance (array) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndAngularDistance);
+                    break;
+
+                case PlotTypes.RadiusAndOmega:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithOmega (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndOmega);
+                    break;
+
+                case PlotTypes.RadiusAndInclination:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithInclination (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndInclination);
+                    break;
+
+                case PlotTypes.RadiusAndTzeroTr:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithTzeroTr (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndTzeroTr);
+                    break;
+
+                case PlotTypes.RadiusAndTperi:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithTperi (array, false) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndTperi);
+                    break;
+
+                case PlotTypes.RadiusAndK:
+                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
+                        if (( array = Helper.PlanetsWithK (array, false, true) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndK);
+                    break;
+
+                //
+
+                case PlotTypes.Stars:
+                    Plotting.VisualizeStars (PlotSurface2D, ParentDialog.ExoplanetsArray);
                     break;
                 }
             }
@@ -340,6 +574,11 @@ namespace ExoplanetLibrary
         private void visualizePrintPreview_Click (object sender, EventArgs e)
             {
             PlotSurface2D.Print (true);
+            }
+
+        private void visualizeCopyToClipBoard_Click (object sender, EventArgs e)
+            {
+            PlotSurface2D.CopyToClipboard ();
             }
 
         ///
@@ -395,6 +634,5 @@ namespace ExoplanetLibrary
                 logYAxisToolStripMenuItem.Checked = logYAxisToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
             }
-
         }
     }

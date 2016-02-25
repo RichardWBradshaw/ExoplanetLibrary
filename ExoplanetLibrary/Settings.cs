@@ -284,6 +284,40 @@ namespace ExoplanetLibrary
             return xmlFileName;
             }
 
+        static public int WriteLastVisit (System.DateTime dateTime)
+            {
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary") : null;
+
+            if (subkey != null)
+                subkey.SetValue ("LastVisit", dateTime.ToString (), RegistryValueKind.String);
+
+            if (key != null)
+                key.Close ();
+
+            return 0;
+            }
+
+        static public string ReadLastVisit ()
+            {
+            string dateTime = "";
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey subkey = key != null ? key.OpenSubKey ("Software\\ExoplanetLibrary") : null;
+
+            if (subkey != null)
+                {
+                object obj = subkey.GetValue ("LastVisit");
+
+                if (obj != null)
+                    dateTime = obj as string;
+                }
+
+            if (key != null)
+                key.Close ();
+
+            return dateTime;
+            }
+
         static private CheckState ReadValue (RegistryKey subkey, string name)
             {
             object obj = subkey.GetValue (name);

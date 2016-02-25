@@ -35,8 +35,26 @@ namespace ExoplanetLibrary
         GeometricAlbedo = 18,
         Tconj = 19,
         MassAndRadius = 20,
-        EccentricityAndMass = 21,
-        Stars = 22,
+        MassAndOrbitalPeriod = 21,
+        MassAndSemiMajorAxis = 22,
+        MassAndEccentricity = 23,
+        MassAndAngularDistance = 24,
+        MassAndOmega = 25,
+        MassAndInclination = 26,
+        MassAndTzeroTr = 27,
+        MassAndTperi = 28,
+        MassAndK = 29,
+        RadiusAndMass = 30,
+        RadiusAndOrbitalPeriod = 31,
+        RadiusAndSemiMajorAxis = 32,
+        RadiusAndEccentricity = 33,
+        RadiusAndAngularDistance = 34,
+        RadiusAndOmega = 35,
+        RadiusAndInclination = 36,
+        RadiusAndTzeroTr = 37,
+        RadiusAndTperi = 38,
+        RadiusAndK = 39,
+        Stars = 100,
         };
 
     public class Plotting
@@ -96,6 +114,12 @@ namespace ExoplanetLibrary
 
         static public void VisualizeLinearDiagrams (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets, PlotTypes plotType)
             {
+            if (exoplanets == null)
+                return;
+
+            if (exoplanets.Count == 0)
+                return;
+
             double [] XAxis = new double [exoplanets.Count];
             double [] YAxis = new double [exoplanets.Count];
             int counter = 0;
@@ -366,95 +390,174 @@ namespace ExoplanetLibrary
                 }
             }
 
-        //
-        //
-        //
-
-        static public void VisualizeMassAndRadius (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
+        static public void VisualizePointDiagrams (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets, PlotTypes plotType)
             {
-            ArrayList array = Helper.PlanetsWithMassAndRadius (exoplanets);
+            if (exoplanets == null)
+                return;
 
-            double [] masses = new double [array.Count];
-            double [] radii = new double [array.Count];
+            if (exoplanets.Count == 0)
+                return;
+
+            double [] XAxis = new double [exoplanets.Count];
+            double [] YAxis = new double [exoplanets.Count];
             int counter = 0;
 
-            foreach (Exoplanet exoplanet in array)
+            foreach (Exoplanet exoplanet in exoplanets)
                 {
-                double mass = 0.0, radius = 0.0;
+                double xvalue = 0.0, yvalue = 0.0;
+                bool isValid = false;
 
-                if (double.TryParse (exoplanet.Mass, out mass) == true)
-                    if (double.TryParse (exoplanet.Radius, out radius) == true)
-                        {
-                        masses [counter] = mass;
-                        radii [counter] = radius;
-                        counter++;
-                        }
+                switch (plotType)
+                    {
+                    case PlotTypes.MassAndRadius:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Radius, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndOrbitalPeriod:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.OrbitalPeriod, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndSemiMajorAxis:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.SemiMajorAxis, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndEccentricity:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Eccentricity, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndAngularDistance:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.AngularDistance, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndOmega:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Omega, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndInclination:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Inclination, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndTzeroTr:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.TzeroTr, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndTperi:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Tperi, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.MassAndK:
+                        if (double.TryParse (exoplanet.Mass, out xvalue) == true)
+                            if (double.TryParse (exoplanet.K, out yvalue) == true)
+                                isValid = true;
+                        break;
+                    //
+
+                    case PlotTypes.RadiusAndMass:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Mass, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndOrbitalPeriod:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.OrbitalPeriod, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndSemiMajorAxis:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.SemiMajorAxis, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndEccentricity:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Eccentricity, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndAngularDistance:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.AngularDistance, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndOmega:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Omega, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndInclination:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Inclination, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndTzeroTr:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.TzeroTr, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndTperi:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.Tperi, out yvalue) == true)
+                                isValid = true;
+                        break;
+
+                    case PlotTypes.RadiusAndK:
+                        if (double.TryParse (exoplanet.Radius, out xvalue) == true)
+                            if (double.TryParse (exoplanet.K, out yvalue) == true)
+                                isValid = true;
+                        break;
+                    }
+
+                if (isValid)
+                    {
+                    YAxis [counter] = yvalue;
+                    XAxis [counter] = xvalue;
+                    counter++;
+                    }
+
                 }
 
             plotSurface.Clear ();
             plotSurface.BackColor = BackgroundColor;
 
             PointPlot pointPlot = new PointPlot ();
-            pointPlot.AbscissaData = masses;
-            pointPlot.DataSource = radii;
+            pointPlot.AbscissaData = XAxis;
+            pointPlot.DataSource = YAxis;
             pointPlot.Marker.Color = PointColor;
             pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
 
             plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
 
-            double minimumX = Helper.GetMinimum (masses);
-            double maximumX = Helper.GetMaximum (masses);
-            double minimumY = Helper.GetMinimum (radii);
-            double maximumY = Helper.GetMaximum (radii);
+            double minimumX = Helper.GetMinimum (XAxis);
+            double maximumX = Helper.GetMaximum (XAxis);
+            double minimumY = Helper.GetMinimum (YAxis);
+            double maximumY = Helper.GetMaximum (YAxis);
 
-            VisualizeLogXYAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Radius (Rjup)", "{0:0.00}", Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
+            VisualizeLogXYAxis (plotSurface, plotType, Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
-
-            AddInteraction (plotSurface);
-
-            plotSurface.Refresh ();
-            }
-
-        static public void VisualizeMassAndEccentricity (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
-            {
-            ArrayList array = Helper.PlanetsWithEccentricityAndMass (exoplanets);
-
-            double [] eccentricities = new double [array.Count];
-            double [] masses = new double [array.Count];
-            int counter = 0;
-
-            foreach (Exoplanet exoplanet in array)
-                {
-                double eccentricity = 0.0, mass = 0.0;
-
-                if (double.TryParse (exoplanet.Eccentricity, out eccentricity) == true)
-                    if (double.TryParse (exoplanet.Mass, out mass) == true)
-                        {
-                        eccentricities [counter] = eccentricity;
-                        masses [counter] = mass;
-                        counter++;
-                        }
-                }
-
-            plotSurface.Clear ();
-            plotSurface.BackColor = BackgroundColor;
-
-            PointPlot pointPlot = new PointPlot ();
-            pointPlot.AbscissaData = masses;
-            pointPlot.DataSource = eccentricities;
-            pointPlot.Marker.Color = PointColor;
-            pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
-
-            plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
-            double minimumX = Helper.GetMinimum (masses);
-            double maximumX = Helper.GetMaximum (masses);
-            double minimumY = Helper.GetMinimum (eccentricities);
-            double maximumY = Helper.GetMaximum (eccentricities);
-
-            VisualizeLogXYAxis (plotSurface, "Mass (Mjup)", "{0:0.00}", "Eccentricity", "{0:0.00}", Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
-            VisualizeLegend (plotSurface);
-
             AddInteraction (plotSurface);
 
             plotSurface.Refresh ();
@@ -462,6 +565,12 @@ namespace ExoplanetLibrary
 
         static public void VisualizeStars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
             {
+            if (exoplanets == null)
+                return;
+
+            if (exoplanets.Count == 0)
+                return;
+
             ArrayList stars = Helper.GetStars (exoplanets);
 
             plotSurface.Clear ();
@@ -487,7 +596,6 @@ namespace ExoplanetLibrary
 
                                 pointPlot.AbscissaData = accession;
                                 pointPlot.DataSource = declination;
-                                pointPlot.Label = "Declination (dd:mm:ss)";
 
                                 declination [0] = dec;
                                 accession [0] = ra;
@@ -548,7 +656,7 @@ namespace ExoplanetLibrary
                         }
                 }
 
-            VisualizeAxis (plotSurface, "Right Accession (degrees)", "{0:0}", "Declination (degrees)", "{0:0.0}", true);
+            VisualizeAxis (plotSurface, "Right Accession 2000 (degrees)", "{0:0}", "Declination 2000 (degrees)", "{0:0.0}", true);
             VisualizeLegend (plotSurface);
 
             AddInteraction (plotSurface);
@@ -671,10 +779,6 @@ namespace ExoplanetLibrary
                 if (minimumY <= 0.0)
                     minimumY = AlmostZero;
 
-            if (logY == CheckState.Checked)
-                if (maximumY <= 0.0)
-                    maximumY = AlmostZero;
-
             Font axisFont = new Font ("Arial", 10);
             Font tickFont = new Font ("Arial", 8);
 
@@ -713,9 +817,125 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void VisualizeLogXYAxis (NPlot.Windows.PlotSurface2D plotSurface, string xAxisLabel, string xAxisFormat, string yAxisLabel, string yAxisFormat,
-            CheckState logX, double minimumX, double maximumX, CheckState logY, double minimumY, double maximumY)
+        static private void VisualizeLogXYAxis (NPlot.Windows.PlotSurface2D plotSurface, PlotTypes plotType, CheckState logX, double minimumX, double maximumX, CheckState logY, double minimumY, double maximumY)
             {
+            string xAxisLabel = "";
+            string xAxisFormat = "{0:0.00}";
+            string yAxisLabel = "";
+            string yAxisFormat = "{0:0.00}";
+
+            switch (plotType)
+                {
+                case PlotTypes.MassAndRadius:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "Radius (Rjup)";
+                    break;
+
+                case PlotTypes.MassAndOrbitalPeriod:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "Orbital Period (day)";
+                    break;
+
+                case PlotTypes.MassAndSemiMajorAxis:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "Semi-Major Axis (AU)";
+                    break;
+
+                case PlotTypes.MassAndEccentricity:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "Eccentricity";
+                    break;
+
+                case PlotTypes.MassAndAngularDistance:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "Angular Distance (deg)";
+                    break;
+
+                case PlotTypes.MassAndOmega:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "Omega (deg)";
+                    break;
+
+                case PlotTypes.MassAndInclination:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "Inclination (deg)";
+                    break;
+
+                case PlotTypes.MassAndTzeroTr:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "T0 (JD)";
+                    break;
+
+                case PlotTypes.MassAndTperi:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "Tperi (JD)";
+                    break;
+
+                case PlotTypes.MassAndK:
+                    xAxisLabel = "Mass (Mjup)";
+                    yAxisLabel = "K (JD)";
+                    break;
+                //
+
+                case PlotTypes.RadiusAndMass:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "Mass (Mjup)";
+                    break;
+
+                case PlotTypes.RadiusAndOrbitalPeriod:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "Orbital Period (day)";
+                    break;
+
+                case PlotTypes.RadiusAndSemiMajorAxis:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "Semi-Major Axis (AU)";
+                    break;
+
+                case PlotTypes.RadiusAndEccentricity:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "Eccentricity";
+                    break;
+
+                case PlotTypes.RadiusAndAngularDistance:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "Angular Distance (deg)";
+                    break;
+
+                case PlotTypes.RadiusAndOmega:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "Omega (deg)";
+                    break;
+
+                case PlotTypes.RadiusAndInclination:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "Incination (deg)";
+                    break;
+
+                case PlotTypes.RadiusAndTzeroTr:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "T0 (JD)";
+                    break;
+
+                case PlotTypes.RadiusAndTperi:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "Tperi (JD)";
+                    break;
+
+                case PlotTypes.RadiusAndK:
+                    xAxisLabel = "Radius (Rjup)";
+                    yAxisLabel = "K (JD)";
+                    break;
+                }
+
+            if (logX == CheckState.Checked)
+                if (minimumX <= 0.0)
+                    minimumX = AlmostZero;
+
+            if (logY == CheckState.Checked)
+                if (minimumY <= 0.0)
+                    minimumY = AlmostZero;
+
             Font axisFont = new Font ("Arial", 10);
             Font tickFont = new Font ("Arial", 8);
 

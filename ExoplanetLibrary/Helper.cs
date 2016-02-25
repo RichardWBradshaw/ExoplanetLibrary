@@ -6,8 +6,33 @@ namespace ExoplanetLibrary
     {
     public class StarTypes
         {
-        public string Name;
-        public int Count;
+        private string Name_ = "";
+        public string Name
+            {
+            get { return Name_; }
+            set { Name_ = value; }
+            }
+
+        private int Count_ = 0;
+        public int Count
+            {
+            get { return Count_; }
+            set { Count_ = value; }
+            }
+
+        private int NumberOfPlanets_ = 0;
+        public int NumberOfPlanets
+            {
+            get { return NumberOfPlanets_; }
+            set { NumberOfPlanets_ = value; }
+            }
+
+        private bool IsSpectualType_ = false;
+        public bool IsSpectualType
+            {
+            get { return IsSpectualType_; }
+            set { IsSpectualType_ = value; }
+            }
         }
 
     static public class Helper      // can not be instantiated, use for a utility class
@@ -220,13 +245,82 @@ namespace ExoplanetLibrary
                         StarTypes type = new StarTypes ();
                         type.Name = exoplanet.Star.Property.SPType.Substring (0, 1);
                         type.Count = 1;
-
+                        type.IsSpectualType = ( type.Name == "O" || type.Name == "B" || type.Name == "A" ||
+                                                type.Name == "F" || type.Name == "G" || type.Name == "K" ||
+                                                type.Name == "M" )
+                                                ? true : false;
                         types.Add (type);
                         }
                     }
                 }
 
             return types;
+            }
+
+        static public ArrayList NumberOfStarsOfType (ArrayList exoplanets, char type)
+            {
+            ArrayList stars = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (exoplanet.Star.Property.SPType != null)
+                    if (exoplanet.Star.Property.SPType [0] == type)
+                        if (exoplanet.Star.Name != null)
+                            {
+                            bool addStar = true;
+
+                            for (int index = 0; index < stars.Count && addStar; ++index)
+                                {
+                                StarTypes star = stars [index] as StarTypes;
+
+                                if (exoplanet.Star.Name == star.Name)
+                                    {
+                                    ++star.Count;
+                                    addStar = false;
+                                    }
+                                }
+
+                            if (addStar)
+                                {
+                                StarTypes star = new StarTypes ();
+                                star.Name = exoplanet.Star.Name;
+                                star.Count = 0;
+                                star.IsSpectualType = false; //( type.Name == "O" || type.Name == "B" || type.Name == "A" ||
+                                                             //type.Name == "F" || type.Name == "G" || type.Name == "K" ||
+                                                             //type.Name == "M" )
+                                                             //? true : false;
+                                stars.Add (star);
+                                }
+                            }
+                }
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                for (int index = 0; index < stars.Count; ++index)
+                    {
+                    StarTypes star = stars [index] as StarTypes;
+
+                    if (exoplanet.Star.Name == star.Name)
+                        {
+                        ++star.NumberOfPlanets;
+                        }
+                    }
+                }
+
+            return stars;
+            }
+
+        static public int GetNumberOfExoplanetsByNumberOfExoplanetsStars (ArrayList stars, int numberOfPlanets)
+            {
+            int counter = 0;
+
+            foreach (StarTypes star in stars)
+                {
+                if (star.NumberOfPlanets == numberOfPlanets)
+                    ++counter;
+                }
+
+            return counter;
             }
 
         static public bool AreEqual (ArrayList exoplanetArray1, ArrayList exoplanetArray2)
@@ -669,8 +763,8 @@ namespace ExoplanetLibrary
 
             if (value != null)
                 if (value.Length > 0)
-                    if( double.TryParse(value, out x))
-                        if( x <= 0.0)
+                    if (double.TryParse (value, out x))
+                        if (x <= 0.0)
                             return true;
 
             return false;
