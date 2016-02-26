@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Microsoft.Win32;
 
 namespace ExoplanetLibrary
@@ -346,27 +345,28 @@ namespace ExoplanetLibrary
                 return true;
             else
                 {
-                if (filter.UnknownStarEnabled == CheckState.Checked)
-                    return true;
-                else if (!IsStarTypeDefined (exoplanet))
-                    return false;
-                else if (IsTypeO (exoplanet))
-                    return filter.TypeOEnabled == CheckState.Checked ? true : false;
-                else if (IsTypeB (exoplanet))
-                    return filter.TypeBEnabled == CheckState.Checked ? true : false;
-                else if (IsTypeA (exoplanet))
-                    return filter.TypeAEnabled == CheckState.Checked ? true : false;
-                else if (IsTypeF (exoplanet))
-                    return filter.TypeFEnabled == CheckState.Checked ? true : false;
-                else if (IsTypeG (exoplanet))
-                    return filter.TypeGEnabled == CheckState.Checked ? true : false;
-                else if (IsTypeK (exoplanet))
-                    return filter.TypeKEnabled == CheckState.Checked ? true : false;
-                else if (IsTypeM (exoplanet))
-                    return filter.TypeMEnabled == CheckState.Checked ? true : false;
+                if (exoplanet.IsStarTypeDefined ())
+                    {
+                    if (exoplanet.IsTypeO ())
+                        return filter.TypeOEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsTypeB ())
+                        return filter.TypeBEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsTypeA ())
+                        return filter.TypeAEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsTypeF ())
+                        return filter.TypeFEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsTypeG ())
+                        return filter.TypeGEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsTypeK ())
+                        return filter.TypeKEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsTypeM ())
+                        return filter.TypeMEnabled == CheckState.Checked ? true : false;
+                    else
+                        return filter.UnknownStarEnabled == CheckState.Checked ? true : false;
+                    }
+                else
+                    return filter.UnknownStarEnabled == CheckState.Checked ? true : false;
                 }
-
-            return false;
             }
 
         public static bool MatchesDetectionFilter (Exoplanet exoplanet, Filters filter)
@@ -375,115 +375,29 @@ namespace ExoplanetLibrary
                 return true;
             else
                 {
-                if (filter.UnknownDetectionEnabled == CheckState.Checked)
-                    return true;
-                else if (!IsDetectionDefined (exoplanet))
-                    return false;
-                else if (IsPrimaryTransit (exoplanet))
-                    return filter.PrimaryTransitEnabled == CheckState.Checked ? true : false;
-                else if (IsRadialVelocity (exoplanet))
-                    return filter.RadialVelocityEnabled == CheckState.Checked ? true : false;
-                else if (IsMicrolensing (exoplanet))
-                    return filter.MicrolensingEnabled == CheckState.Checked ? true : false;
-                else if (IsImaging (exoplanet))
-                    return filter.ImagingEnabled == CheckState.Checked ? true : false;
-                else if (IsPulsar (exoplanet))
-                    return filter.PulsarEnabled == CheckState.Checked ? true : false;
-                else if (IsAstrometry (exoplanet))
-                    return filter.AstrometryEnabled == CheckState.Checked ? true : false;
-                else if (IsTTV (exoplanet))
-                    return filter.TTVEnabled == CheckState.Checked ? true : false;
+                if (exoplanet.IsDetectionDefined ())
+                    {
+                    if (exoplanet.IsPrimaryTransit ())
+                        return filter.PrimaryTransitEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsRadialVelocity ())
+                        return filter.RadialVelocityEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsMicrolensing ())
+                        return filter.MicrolensingEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsImaging ())
+                        return filter.ImagingEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsPulsar ())
+                        return filter.PulsarEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsAstrometry ())
+                        return filter.AstrometryEnabled == CheckState.Checked ? true : false;
+                    else if (exoplanet.IsTTV ())
+                        return filter.TTVEnabled == CheckState.Checked ? true : false;
+                    else
+                        return filter.UnknownDetectionEnabled == CheckState.Checked ? true : false;
+                    }
+                else
+                    return filter.UnknownDetectionEnabled == CheckState.Checked ? true : false;
                 }
-
-            return false;
             }
 
-        public static bool IsStarTypeDefined (Exoplanet exoplanet)
-            {
-            return exoplanet.Star.Property.SPType != null ? true : false;
-            }
-
-        public static bool IsTypeO (Exoplanet exoplanet)
-            {
-            return exoplanet.Star.Property.SPType.Substring (0, 1) == "O" ? true : false;
-            }
-
-        public static bool IsTypeB (Exoplanet exoplanet)
-            {
-            return exoplanet.Star.Property.SPType.Substring (0, 1) == "B" ? true : false;
-            }
-
-        public static bool IsTypeA (Exoplanet exoplanet)
-            {
-            return exoplanet.Star.Property.SPType.Substring (0, 1) == "A" ? true : false;
-            }
-
-        public static bool IsTypeF (Exoplanet exoplanet)
-            {
-            return exoplanet.Star.Property.SPType.Substring (0, 1) == "F" ? true : false;
-            }
-
-        public static bool IsTypeG (Exoplanet exoplanet)
-            {
-            return exoplanet.Star.Property.SPType.Substring (0, 1) == "G" ? true : false;
-            }
-
-        public static bool IsTypeK (Exoplanet exoplanet)
-            {
-            return exoplanet.Star.Property.SPType.Substring (0, 1) == "K" ? true : false;
-            }
-
-        public static bool IsTypeM (Exoplanet exoplanet)
-            {
-            return exoplanet.Star.Property.SPType.Substring (0, 1) == "M" ? true : false;
-            }
-
-        public static bool IsDetectionDefined (Exoplanet exoplanet)
-            {
-            return exoplanet.DetectionType != null ? true : false;
-            }
-
-        public static bool IsPrimaryTransit (Exoplanet exoplanet)
-            {
-            if (exoplanet.DetectionType.Equals ("Primary Transit", StringComparison.OrdinalIgnoreCase) ||
-                exoplanet.DetectionType.Equals ("Detected by Transit", StringComparison.OrdinalIgnoreCase))
-                return true;
-            else
-                return false;
-            }
-
-        public static bool IsRadialVelocity (Exoplanet exoplanet)
-            {
-            if (exoplanet.DetectionType.Equals ("Radial Velocity", StringComparison.OrdinalIgnoreCase) ||
-                exoplanet.DetectionType.Equals ("Detected by Radial Velocity", StringComparison.OrdinalIgnoreCase))
-                return true;
-            else
-                return false;
-            }
-
-        public static bool IsMicrolensing (Exoplanet exoplanet)
-            {
-            return exoplanet.DetectionType.Equals ("Microlensing", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
-
-        public static bool IsImaging (Exoplanet exoplanet)
-            {
-            return exoplanet.DetectionType.Equals ("Imaging", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
-
-        public static bool IsPulsar (Exoplanet exoplanet)
-            {
-            return exoplanet.DetectionType.Equals ("Pulsar", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
-
-        public static bool IsAstrometry (Exoplanet exoplanet)
-            {
-            return exoplanet.DetectionType.Equals ("Astrometry", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
-
-        public static bool IsTTV (Exoplanet exoplanet)
-            {
-            return exoplanet.DetectionType.Equals ("TTV", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
         }
     }

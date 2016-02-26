@@ -341,227 +341,227 @@ namespace ExoplanetLibrary
             switch (PlotType)
                 {
                 case PlotTypes.Mass:
-                    array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.Radius:
-                    array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.OrbitalPeriod:
-                    array = Helper.PlanetsWithOrbitalPeriods (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithOrbitalPeriods (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.SemiMajorAxis:
-                    array = Helper.PlanetsWithSemiMajorAxis (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithSemiMajorAxis (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.Eccentricity:
-                    array = Helper.PlanetsWithEccentricity (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithEccentricity (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.AngularDistance:
-                    array = Helper.PlanetsWithAngularDistance (ParentDialog.ExoplanetsArray);
+                    array = Exoplanets.PlanetsWithAngularDistance (Exoplanets.ExoplanetsArray);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.Inclination:
-                    array = Helper.PlanetsWithInclination (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithInclination (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.TzeroTr:
-                    array = Helper.PlanetsWithTzeroTr (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithTzeroTr (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.TzeroTrSec:
-                    array = Helper.PlanetsWithTzeroTrSec (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithTzeroTrSec (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.LambdaAngle:
-                    array = Helper.PlanetsWithLambdaAngle (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithLambdaAngle (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.TzeroVr:
-                    array = Helper.PlanetsWithTzeroVr (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithTzeroVr (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.TemperatureCalculated:
-                    array = Helper.PlanetsWithTemperatureCalculated (ParentDialog.ExoplanetsArray);
+                    array = Exoplanets.PlanetsWithTemperatureCalculated (Exoplanets.ExoplanetsArray);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.TemperatureMeasured:
-                    array = Helper.PlanetsWithTemperatureMeasured (ParentDialog.ExoplanetsArray);
+                    array = Exoplanets.PlanetsWithTemperatureMeasured (Exoplanets.ExoplanetsArray);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.LogG:
-                    array = Helper.PlanetsWithLogG (ParentDialog.ExoplanetsArray);
+                    array = Exoplanets.PlanetsWithLogG (Exoplanets.ExoplanetsArray);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.Omega:
-                    array = Helper.PlanetsWithOmega (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithOmega (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.Tperi:
-                    array = Helper.PlanetsWithTperi (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithTperi (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.K:
-                    array = Helper.PlanetsWithK (ParentDialog.ExoplanetsArray, false, true);
+                    array = Exoplanets.PlanetsWithK (Exoplanets.ExoplanetsArray, false, true);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.GeometricAlbedo:
-                    array = Helper.PlanetsWithGeometricAlbedo (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithGeometricAlbedo (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 case PlotTypes.Tconj:
-                    array = Helper.PlanetsWithTconj (ParentDialog.ExoplanetsArray, false);
+                    array = Exoplanets.PlanetsWithTconj (Exoplanets.ExoplanetsArray, false);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
                 //
 
                 case PlotTypes.MassAndRadius:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithRadius (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithRadius (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndRadius);
                     break;
 
                 case PlotTypes.MassAndOrbitalPeriod:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithOrbitalPeriods (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithOrbitalPeriods (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndOrbitalPeriod);
                     break;
 
                 case PlotTypes.MassAndSemiMajorAxis:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithSemiMajorAxis (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithSemiMajorAxis (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndSemiMajorAxis);
                     break;
 
                 case PlotTypes.MassAndEccentricity:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithEccentricity (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithEccentricity (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndEccentricity);
                     break;
 
                 case PlotTypes.MassAndAngularDistance:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithAngularDistance (array) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithAngularDistance (array) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndAngularDistance);
                     break;
 
                 case PlotTypes.MassAndOmega:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithOmega (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithOmega (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndOmega);
                     break;
 
                 case PlotTypes.MassAndInclination:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithInclination (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithInclination (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndInclination);
                     break;
 
                 case PlotTypes.MassAndTzeroTr:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithTzeroTr (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithTzeroTr (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndTzeroTr);
                     break;
 
                 case PlotTypes.MassAndTperi:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithTperi (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithTperi (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndTperi);
                     break;
 
                 case PlotTypes.MassAndK:
-                    if (( array = Helper.PlanetsWithMass (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithK (array, false, true) ) != null)
+                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithK (array, false, true) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndK);
                     break;
                 //
 
                 case PlotTypes.RadiusAndMass:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithMass (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithMass (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndMass);
                     break;
 
                 case PlotTypes.RadiusAndOrbitalPeriod:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithOrbitalPeriods (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithOrbitalPeriods (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndOrbitalPeriod);
                     break;
 
                 case PlotTypes.RadiusAndSemiMajorAxis:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithSemiMajorAxis (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithSemiMajorAxis (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndSemiMajorAxis);
                     break;
 
                 case PlotTypes.RadiusAndEccentricity:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithEccentricity (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithEccentricity (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndEccentricity);
                     break;
 
                 case PlotTypes.RadiusAndAngularDistance:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithAngularDistance (array) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithAngularDistance (array) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndAngularDistance);
                     break;
 
                 case PlotTypes.RadiusAndOmega:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithOmega (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithOmega (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndOmega);
                     break;
 
                 case PlotTypes.RadiusAndInclination:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithInclination (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithInclination (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndInclination);
                     break;
 
                 case PlotTypes.RadiusAndTzeroTr:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithTzeroTr (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithTzeroTr (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndTzeroTr);
                     break;
 
                 case PlotTypes.RadiusAndTperi:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithTperi (array, false) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithTperi (array, false) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndTperi);
                     break;
 
                 case PlotTypes.RadiusAndK:
-                    if (( array = Helper.PlanetsWithRadius (ParentDialog.ExoplanetsArray, false) ) != null)
-                        if (( array = Helper.PlanetsWithK (array, false, true) ) != null)
+                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false) ) != null)
+                        if (( array = Exoplanets.PlanetsWithK (array, false, true) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndK);
                     break;
 
                 //
 
                 case PlotTypes.Stars:
-                    Plotting.VisualizeStars (PlotSurface2D, ParentDialog.ExoplanetsArray);
+                    Plotting.VisualizeStars (PlotSurface2D, Exoplanets.ExoplanetsArray);
                     break;
                 }
             }

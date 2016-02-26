@@ -482,7 +482,7 @@ namespace ExoplanetLibrary
             {
             Reader.ReadToFollowing ("DetectionType");
             Reader.MoveToFirstAttribute ();
-            exoplanet.DetectionType = Reader.Value;
+            exoplanet.DetectionType = Reader.Value.Trim ();
             }
 
         static void ReadMolecules (Exoplanet exoplanet)
@@ -666,7 +666,7 @@ namespace ExoplanetLibrary
                         exoplanet.Star.Property.Radius = Reader.Value;
                         break;
                     case "SPType":
-                        exoplanet.Star.Property.SPType = Reader.Value;
+                        exoplanet.Star.Property.SPType = Reader.Value.Trim ();
                         break;
                     case "Age":
                         exoplanet.Star.Property.Age = Reader.Value;

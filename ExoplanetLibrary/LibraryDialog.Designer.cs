@@ -318,7 +318,6 @@ namespace ExoplanetLibrary
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LibraryDialog";
-            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Exoplanet Library";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LibraryDialog_FormClosing);

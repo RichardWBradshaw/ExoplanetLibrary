@@ -33,7 +33,7 @@ namespace ExoplanetLibraryUnitTest
             Assert.IsNotNull (exoplanetArray);
             Assert.IsNotNull (exoplanetArray2);
             Assert.AreEqual (exoplanetArray.Count, exoplanetArray2.Count);
-            Assert.AreEqual (Helper.AreEqual (exoplanetArray, exoplanetArray2), true);
+            Assert.AreEqual (Exoplanets.AreEqual (exoplanetArray, exoplanetArray2), true);
             }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace ExoplanetLibraryUnitTest
             Assert.IsNotNull (exoplanetArray);
             Assert.IsNotNull (exoplanetArray2);
             Assert.AreEqual (exoplanetArray.Count, exoplanetArray2.Count);
-            Assert.AreEqual (Helper.AreEqual (exoplanetArray, exoplanetArray2), true);
+            Assert.AreEqual (Exoplanets.AreEqual (exoplanetArray, exoplanetArray2), true);
             }
 
         [TestMethod]
@@ -71,15 +71,15 @@ namespace ExoplanetLibraryUnitTest
 
             Assert.IsNotNull (exoplanetArray);
 
-            Assert.AreEqual (Helper.NumberOfExoplanets (exoplanetArray), 1927);
-            Assert.AreEqual (Helper.NumberOfTypeOStars (exoplanetArray), 0);
-            Assert.AreEqual (Helper.NumberOfTypeBStars (exoplanetArray), 11);
-            Assert.AreEqual (Helper.NumberOfTypeAStars (exoplanetArray), 13);
-            Assert.AreEqual (Helper.NumberOfTypeFStars (exoplanetArray), 128);
-            Assert.AreEqual (Helper.NumberOfTypeGStars (exoplanetArray), 384);
-            Assert.AreEqual (Helper.NumberOfTypeKStars (exoplanetArray), 267);
-            Assert.AreEqual (Helper.NumberOfTypeMStars (exoplanetArray), 88);
-            Assert.AreEqual (Helper.NumberOfMultiPlanetStars (exoplanetArray), 717);
+            Assert.AreEqual (Exoplanets.NumberOfExoplanets (exoplanetArray), 1927);
+            Assert.AreEqual (Exoplanets.NumberOfTypeOStars (exoplanetArray), 0);
+            Assert.AreEqual (Exoplanets.NumberOfTypeBStars (exoplanetArray), 11);
+            Assert.AreEqual (Exoplanets.NumberOfTypeAStars (exoplanetArray), 13);
+            Assert.AreEqual (Exoplanets.NumberOfTypeFStars (exoplanetArray), 128);
+            Assert.AreEqual (Exoplanets.NumberOfTypeGStars (exoplanetArray), 384);
+            Assert.AreEqual (Exoplanets.NumberOfTypeKStars (exoplanetArray), 267);
+            Assert.AreEqual (Exoplanets.NumberOfTypeMStars (exoplanetArray), 88);
+            Assert.AreEqual (Exoplanets.NumberOfMultiPlanetStars (exoplanetArray), 717);
             }
 
         [TestMethod]

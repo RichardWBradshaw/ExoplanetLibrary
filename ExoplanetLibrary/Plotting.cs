@@ -34,26 +34,26 @@ namespace ExoplanetLibrary
         K = 17,
         GeometricAlbedo = 18,
         Tconj = 19,
-        MassAndRadius = 20,
-        MassAndOrbitalPeriod = 21,
-        MassAndSemiMajorAxis = 22,
-        MassAndEccentricity = 23,
-        MassAndAngularDistance = 24,
-        MassAndOmega = 25,
-        MassAndInclination = 26,
-        MassAndTzeroTr = 27,
-        MassAndTperi = 28,
-        MassAndK = 29,
-        RadiusAndMass = 30,
-        RadiusAndOrbitalPeriod = 31,
-        RadiusAndSemiMajorAxis = 32,
-        RadiusAndEccentricity = 33,
-        RadiusAndAngularDistance = 34,
-        RadiusAndOmega = 35,
-        RadiusAndInclination = 36,
-        RadiusAndTzeroTr = 37,
-        RadiusAndTperi = 38,
-        RadiusAndK = 39,
+        MassAndRadius = 30,
+        MassAndOrbitalPeriod = 31,
+        MassAndSemiMajorAxis = 32,
+        MassAndEccentricity = 33,
+        MassAndAngularDistance = 34,
+        MassAndOmega = 35,
+        MassAndInclination = 36,
+        MassAndTzeroTr = 37,
+        MassAndTperi = 38,
+        MassAndK = 39,
+        RadiusAndMass = 40,
+        RadiusAndOrbitalPeriod = 41,
+        RadiusAndSemiMajorAxis = 42,
+        RadiusAndEccentricity = 43,
+        RadiusAndAngularDistance = 44,
+        RadiusAndOmega = 45,
+        RadiusAndInclination = 46,
+        RadiusAndTzeroTr = 47,
+        RadiusAndTperi = 48,
+        RadiusAndK = 49,
         Stars = 100,
         };
 
@@ -571,7 +571,7 @@ namespace ExoplanetLibrary
             if (exoplanets.Count == 0)
                 return;
 
-            ArrayList stars = Helper.GetStars (exoplanets);
+            ArrayList stars = Exoplanets.GetStars (exoplanets);
 
             plotSurface.Clear ();
             plotSurface.BackColor = BackgroundColor;
@@ -600,7 +600,7 @@ namespace ExoplanetLibrary
                                 declination [0] = dec;
                                 accession [0] = ra;
 
-                                switch (Helper.NumberOfExoplanets (exoplanets, star.Name))
+                                switch (Exoplanets.NumberOfExoplanets (exoplanets, star.Name))
                                     {
                                     case 1:
                                         pointPlot.Marker.Type = Marker.MarkerType.FilledCircle;

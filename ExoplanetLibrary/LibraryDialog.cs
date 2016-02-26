@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Collections;
 using System.IO;
 
 namespace ExoplanetLibrary
@@ -62,13 +61,6 @@ namespace ExoplanetLibrary
             {
             get { return ExoplanetListView_; }
             set { ExoplanetListView_ = value; }
-            }
-
-        private ArrayList ExoplanetsArray_ = null;
-        public ArrayList ExoplanetsArray
-            {
-            get { return ExoplanetsArray_; }
-            set { ExoplanetsArray_ = value; }
             }
 
         private ListViewColumnSorter LvwColumnSorter_ = null;
@@ -195,10 +187,10 @@ namespace ExoplanetLibrary
             {
             if (rebuildArray)
                 {
-                if (ExoplanetsArray != null)
-                    ExoplanetsArray.Clear ();
+                if (Exoplanets.ExoplanetsArray != null)
+                    Exoplanets.ExoplanetsArray.Clear ();
 
-                ExoplanetsArray = ReadXML.Read (XmlFileName);
+                Exoplanets.ExoplanetsArray = ReadXML.Read (XmlFileName);
                 }
             else
                 {
@@ -210,8 +202,8 @@ namespace ExoplanetLibrary
             if (addColumns)
                 AddColumnsToListView (listView);
 
-            if (ExoplanetsArray != null)
-                foreach (Exoplanet exoplanet in ExoplanetsArray)
+            if (Exoplanets.ExoplanetsArray != null)
+                foreach (Exoplanet exoplanet in Exoplanets.ExoplanetsArray)
                     {
                     if (!Settings.MatchesFilter (exoplanet, Filter))
                         continue;
@@ -379,7 +371,7 @@ namespace ExoplanetLibrary
                         if (!fileName.EndsWith (".csv"))
                             fileName = fileName + ".csv";
 
-                        WriteCSV.Write (fileName, ExoplanetsArray, Constant.Version1);
+                        WriteCSV.Write (fileName, Exoplanets.ExoplanetsArray, Constant.Version1);
                         }
                     }
                 catch (Exception ex)
