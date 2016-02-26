@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace ExoplanetLibrary
     {
@@ -548,6 +549,39 @@ namespace ExoplanetLibrary
         public bool IsTTV ()
             {
             return DetectionType.Equals ("TTV", StringComparison.OrdinalIgnoreCase) ? true : false;
+            }
+
+        public bool IsMultipleDetection (Filters filter)
+            {
+            if (filter.PrimaryTransitEnabled == CheckState.Checked)
+                if (DetectionType.Contains ("Primary Transit"))
+                    return true;
+
+            if (filter.RadialVelocityEnabled == CheckState.Checked)
+                if (DetectionType.Contains ("Radial Velocity"))
+                    return true;
+
+            if (filter.MicrolensingEnabled == CheckState.Checked)
+                if (DetectionType.Contains ("Microlensing"))
+                    return true;
+
+            if (filter.ImagingEnabled == CheckState.Checked)
+                if (DetectionType.Contains ("Imaging"))
+                    return true;
+
+            if (filter.PulsarEnabled == CheckState.Checked)
+                if (DetectionType.Contains ("Pulsar"))
+                    return true;
+
+            if (filter.AstrometryEnabled == CheckState.Checked)
+                if (DetectionType.Contains ("Astrometry"))
+                    return true;
+
+            if (filter.TTVEnabled == CheckState.Checked)
+                if (DetectionType.Contains ("TTV"))
+                    return true;
+
+            return false;
             }
         }
 

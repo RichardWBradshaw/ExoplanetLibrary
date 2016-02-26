@@ -377,7 +377,9 @@ namespace ExoplanetLibrary
                 {
                 if (exoplanet.IsDetectionDefined ())
                     {
-                    if (exoplanet.IsPrimaryTransit ())
+                    if (exoplanet.IsMultipleDetection (filter))
+                        return true;
+                    else if (exoplanet.IsPrimaryTransit ())
                         return filter.PrimaryTransitEnabled == CheckState.Checked ? true : false;
                     else if (exoplanet.IsRadialVelocity ())
                         return filter.RadialVelocityEnabled == CheckState.Checked ? true : false;
