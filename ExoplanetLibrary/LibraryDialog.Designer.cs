@@ -49,6 +49,8 @@ namespace ExoplanetLibrary
             this.visualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +75,8 @@ namespace ExoplanetLibrary
             this.launchExoplanetEuMenuItem,
             this.launchExoplanetEUCatalogsMenuItem,
             this.toolStripSeparator1,
+            this.compareToolStripMenuItem,
+            this.toolStripSeparator2,
             this.exitMenuItem});
             this.fileMenuItem.Name = "fileMenuItem";
             this.fileMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -309,6 +313,18 @@ namespace ExoplanetLibrary
             this.aboutMenuItem.Size = new System.Drawing.Size(209, 22);
             this.aboutMenuItem.Text = "About Exoplanet Library...";
             // 
+            // compareToolStripMenuItem
+            // 
+            this.compareToolStripMenuItem.Name = "compareToolStripMenuItem";
+            this.compareToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.compareToolStripMenuItem.Text = "Compare ...";
+            this.compareToolStripMenuItem.Click += new System.EventHandler(this.compare_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(273, 6);
+            // 
             // LibraryDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,6 +375,8 @@ namespace ExoplanetLibrary
         private ToolStripMenuItem launchExoplanetEuMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem visualizationToolStripMenuItem;
+        private ToolStripMenuItem compareToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
         }
     }
 

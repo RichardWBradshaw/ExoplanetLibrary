@@ -712,35 +712,75 @@ namespace ExoplanetLibrary
             return counter;
             }
 
-        static public bool AreEqual (ArrayList exoplanetArray1, ArrayList exoplanetArray2)
+        static public bool AreEqual (ArrayList array1, ArrayList array2)
             {
-            if (exoplanetArray1 == null)
+            if (array1 == null)
                 return false;
 
-            if (exoplanetArray2 == null)
+            if (array2 == null)
                 return false;
 
-            if (exoplanetArray1.Count != exoplanetArray2.Count)
+            if (array1.Count != array2.Count)
                 return false;
 
-            for (int index = 0; index < exoplanetArray1.Count; ++index)
+            for (int index = 0; index < array1.Count; ++index)
                 {
-#if more_code
-                Exoplanet exoplanet1 = exoplanetArray1 [index] as Exoplanet;
-                Exoplanet exoplanet2 = exoplanetArray2 [index] as Exoplanet;
-
-                if (!CompareEquals (exoplanet1, exoplanet2))
-                   return false;
-#else
-                object object1 = exoplanetArray1 [index];
-                object object2 = exoplanetArray2 [index];
+                object object1 = array1 [index];
+                object object2 = array2 [index];
 
                 if (!Helper.CompareEquals (object1, object2))
                     return false;
-#endif
                 }
 
             return true;
             }
+
+        static public string Compare (ArrayList array1, ArrayList array2)
+            {
+            string stringer = "";
+
+            array1.Sort (new SortByExoplanetName ());
+            array2.Sort (new SortByExoplanetName ());
+
+            for (int index = 0; index < array1.Count; ++index)
+                {
+                object object1 = array1 [index];
+                object object2 = GetByName( array2, (array1 [index] as Exoplanet).Name );
+
+                if (object2 == null)
+                    {
+                    stringer += "Added     '" + ( array1 [index] as Exoplanet ).Name + "'\r\n";
+                    }
+                else if (!Helper.CompareEquals (object1, object2))
+                    {
+                    stringer += "Different '" + ( array1 [index] as Exoplanet ).Name + "'\r\n";
+                    }
+                }
+
+            for (int index = 0; index < array2.Count; ++index)
+                {
+                object object1 = array2 [index];
+                object object2 = GetByName (array1, ( array2 [index] as Exoplanet ).Name);
+
+                if (object2 == null)
+                    {
+                    stringer += "Missing   '" + ( array2 [index] as Exoplanet ).Name + "'\r\n";
+                    }
+                }
+
+            return stringer;
+            }
+
+        static private object GetByName (ArrayList array, string name)
+            {
+            foreach (Exoplanet exoplanet in array)
+                {
+                if (exoplanet.Name == name)
+                    return exoplanet;
+                }
+
+            return null;
+            }
+
         }
     }

@@ -421,6 +421,47 @@ namespace ExoplanetLibrary
                 }
             }
 
+        private void compare_Click (object sender, System.EventArgs e)
+            {
+            string xmlFileName = "";
+
+            if (open (out xmlFileName) == 0)
+                {
+                System.Collections.ArrayList array2 = ReadXML.Read (xmlFileName);
+
+                MessageBox.Show (Exoplanets.Compare (Exoplanets.ExoplanetsArray, array2));
+                }
+            }
+
+        private int open (out string fileName)
+            {
+            OpenFileDialog openFileDialog = new OpenFileDialog ();
+
+            openFileDialog.InitialDirectory = Constant.ProgramDataFolder;
+            openFileDialog.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+
+            fileName = "";
+
+            if (openFileDialog.ShowDialog () == DialogResult.OK)
+                {
+                try
+                    {
+                    if (openFileDialog.OpenFile () != null)
+                        {
+                        fileName = openFileDialog.FileName;
+                        }
+                    }
+                catch (Exception ex)
+                    {
+                    MessageBox.Show ("Error: " + ex.Message);
+                    }
+                }
+
+            return 0;
+            }
+
         private void launchExoplanetEu_Click (object sender, System.EventArgs e)
             {
             string url = "http://exoplanet.eu";

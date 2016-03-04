@@ -84,6 +84,8 @@ namespace ExoplanetLibrary
                 settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
                 settings.Schemas.Add (xmlSchema);
                 settings.ValidationEventHandler += new ValidationEventHandler (exoplanetSettingsValidationEventHandler);
+
+                fileStream.Close ();
                 }
             else
                 settings.ValidationType = ValidationType.None;
