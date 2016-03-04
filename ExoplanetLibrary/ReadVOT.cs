@@ -25,7 +25,7 @@ namespace ExoplanetLibrary
 
         static public int Read (string votFileName)
             {
-            if (System.IO.File.Exists (votFileName))
+            if (File.Exists (votFileName))
                 {
                 XmlWriter writer = null;
                 XmlWriterSettings settings = null;
@@ -305,6 +305,8 @@ namespace ExoplanetLibrary
                         ++column;
                     }
                 }
+
+            exoplanet.CorrectErrors ();
 
             WriteXML.WriteExoplanet (writer, exoplanet, Version);
 

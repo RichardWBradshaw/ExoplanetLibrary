@@ -283,8 +283,7 @@ namespace ExoplanetLibrary
                             if (double.TryParse (exoplanet.Eccentricity, out value) == true)
                                 if (double.TryParse (exoplanet.EccentricityErrorMax, out maximumError) == true)
                                     if (double.TryParse (exoplanet.EccentricityErrorMin, out minimumError) == true)
-                                        if (maximumError < 10.0 * value) // kludge for bad data
-                                            isValid = true;
+                                        isValid = true;
                             break;
 
                         case PlotTypes.AngularDistance:
@@ -468,6 +467,7 @@ namespace ExoplanetLibrary
                             if (double.TryParse (exoplanet.K, out yvalue) == true)
                                 isValid = true;
                         break;
+
                     //
 
                     case PlotTypes.RadiusAndMass:

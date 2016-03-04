@@ -1449,7 +1449,7 @@
 		<AlternateNames />
 		<Star Name="BD+49 828" ra="45.641666678" dec="49.730000025">
 			<Magnitude V="9.38" />
-			<Property Metallicity="-0.19" Mass="1.52" Radius="7.6" SPType="KO" Age="2.3" Teff="4943.0" />
+			<Property Metallicity="-0.19" Mass="1.52" Radius="7.6" SPType="K0" Age="2.3" Teff="4943.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="BD-061339 b">
@@ -2637,7 +2637,7 @@
 		<AlternateNames />
 		<Star Name="CoRoT-29" ra="278.9042" dec="6.4797">
 			<Magnitude V="15.35" />
-			<Property Distance="765.0" Metallicity="0.2" Mass="0.976" Radius="0.9" SPType="KOV" Age="4.5" Teff="5260.0" />
+			<Property Distance="765.0" Metallicity="0.2" Mass="0.976" Radius="0.9" SPType="K0V" Age="4.5" Teff="5260.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="CoRoT-3 b">
@@ -4089,7 +4089,7 @@
 		<AlternateNames alternateNames="59 Vir b" />
 		<Star Name="GJ 504" ra="199.1958" dec="9.4242">
 			<Magnitude V="5.22" />
-			<Property Distance="17.56" Metallicity="0.28" Mass="1.22" SPType="GOV" Age="0.16" Teff="6234.0" />
+			<Property Distance="17.56" Metallicity="0.28" Mass="1.22" SPType="G0V" Age="0.16" Teff="6234.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GJ 667C b">
@@ -4823,7 +4823,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="25.645" errorMin="0.0235" errorMax="0.0235" />
 		<SemiMajorAxis semiMajorAxis="0.1254" errorMin="0.0001" errorMax="0.0001" />
-		<Eccentricity eccentricity="0.094" errorMin="86.0" errorMax="86.0" />
+		<Eccentricity eccentricity="0.094" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr />
@@ -5219,7 +5219,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="61.03" errorMin="3.81" errorMax="3.81" />
 		<SemiMajorAxis semiMajorAxis="0.208317" errorMin="2e-05" errorMax="2e-05" />
-		<Eccentricity eccentricity="0.0" errorMin="0.001" errorMax="0.001" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance angularDistance="0.044323" />
 		<Inclination inclination="84.0" errorMin="6.0" errorMax="6.0" />
 		<TzeroTr />
@@ -8676,7 +8676,7 @@
 		<AlternateNames />
 		<Star Name="HD 109246" ra="188.0291667" dec="74.4894444">
 			<Magnitude V="8.77" />
-			<Property Distance="65.6" Metallicity="0.1" Mass="1.01" Radius="1.02" SPType="GOV" Teff="5844.0" />
+			<Property Distance="65.6" Metallicity="0.1" Mass="1.01" Radius="1.02" SPType="G0V" Teff="5844.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 109271 b">
@@ -9311,7 +9311,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="318.0" errorMin="2.0" errorMax="2.0" />
 		<SemiMajorAxis semiMajorAxis="0.93" errorMin="0.01" errorMax="0.01" />
-		<Eccentricity eccentricity="0.0" errorMin="0.26" errorMax="0.26" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr />
@@ -9567,7 +9567,7 @@
 		<AlternateNames />
 		<Star Name="HD 122430" ra="210.5916667" dec="-27.4297222">
 			<Magnitude V="5.48" />
-			<Property Distance="135.0" Metallicity="-0.05" Mass="1.39" Radius="22.9" SPType=" K3III" Age="3.11" Teff="4300.0" />
+			<Property Distance="135.0" Metallicity="-0.05" Mass="1.39" Radius="22.9" SPType="K3III" Age="3.11" Teff="4300.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 125595 b">
@@ -11126,7 +11126,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="176.3" errorMin="0.39" errorMax="0.39" />
 		<SemiMajorAxis semiMajorAxis="0.76" />
-		<Eccentricity eccentricity="0.112" errorMin="3.1" errorMax="3.1" />
+		<Eccentricity eccentricity="0.112" />
 		<AngularDistance angularDistance="0.006032" />
 		<Inclination />
 		<TzeroTr />
@@ -12999,7 +12999,7 @@
 		<AlternateNames />
 		<Star Name="HD 171238" ra="278.6833333" dec="-28.0722222">
 			<Magnitude V="8.66" />
-			<Property Distance="50.28" Metallicity="0.17" Mass="0.943" SPType="KOV" Age="4.92" Teff="5467.0" />
+			<Property Distance="50.28" Metallicity="0.17" Mass="0.943" SPType="K0V" Age="4.92" Teff="5467.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 17156 b">
@@ -14352,7 +14352,7 @@
 		<AlternateNames />
 		<Star Name="HD 200964" ra="316.6666667" dec="3.8030556">
 			<Magnitude V="6.64" />
-			<Property Distance="68.4" Metallicity="-0.15" Mass="1.44" Radius="4.3" SPType="KO" Age="3.0" Teff="5164.0" />
+			<Property Distance="68.4" Metallicity="-0.15" Mass="1.44" Radius="4.3" SPType="K0" Age="3.0" Teff="5164.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 200964 c">
@@ -14385,7 +14385,7 @@
 		<AlternateNames />
 		<Star Name="HD 200964" ra="316.6666667" dec="3.8030556">
 			<Magnitude V="6.64" />
-			<Property Distance="68.4" Metallicity="-0.15" Mass="1.44" Radius="4.3" SPType="KO" Age="3.0" Teff="5164.0" />
+			<Property Distance="68.4" Metallicity="-0.15" Mass="1.44" Radius="4.3" SPType="K0" Age="3.0" Teff="5164.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 202206 b">
@@ -15845,7 +15845,7 @@
 		<Radius radius="0.1433" errorMin="0.0077" errorMax="0.0077" />
 		<OrbitalPeriod orbitalPeriod="3.0937" errorMin="0.0004" errorMax="0.0004" />
 		<SemiMajorAxis semiMajorAxis="0.0382" errorMin="0.0003" errorMax="0.0003" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.13" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr tzero_tr="2457126.7001" errorMin="0.001" errorMax="0.001" />
@@ -15878,7 +15878,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="6.765" errorMin="0.005" errorMax="0.005" />
 		<SemiMajorAxis semiMajorAxis="0.064" errorMin="0.001" errorMax="0.001" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.26" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr tzero_tr="2457129.46" errorMin="0.45" errorMax="0.45" />
@@ -19401,7 +19401,7 @@
 		<AlternateNames />
 		<Star Name="HD 62509" ra="116.325" dec="28.0261111">
 			<Magnitude V="1.15" />
-			<Property Distance="10.34" Metallicity="0.19" Mass="1.47" Radius="9.3" SPType=" K0IIIb" Teff="4666.0" />
+			<Property Distance="10.34" Metallicity="0.19" Mass="1.47" Radius="9.3" SPType="K0IIIb" Teff="4666.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 63454 b">
@@ -19962,7 +19962,7 @@
 		<AlternateNames />
 		<Star Name="HD 7199" ra="17.6958333" dec="-66.1880556">
 			<Magnitude V="8.06" />
-			<Property Distance="36.0" Metallicity="0.28" Mass="0.89" Radius="0.96" SPType="KOIV/V" Age="6.79" Teff="5386.0" />
+			<Property Distance="36.0" Metallicity="0.28" Mass="0.89" Radius="0.96" SPType="K0IV/V" Age="6.79" Teff="5386.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 72659 b">
@@ -20894,7 +20894,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="3700.0" errorMin="840.0" errorMax="840.0" />
 		<SemiMajorAxis semiMajorAxis="4.23" errorMin="0.09" errorMax="0.09" />
-		<Eccentricity eccentricity="0.0" errorMin="0.07" errorMax="0.07" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr />
@@ -21257,7 +21257,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="85.2" errorMin="0.1" errorMax="0.1" />
 		<SemiMajorAxis semiMajorAxis="0.44" errorMin="0.005" errorMax="0.005" />
-		<Eccentricity eccentricity="0.0" errorMin="0.05" errorMax="0.05" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr />
@@ -22668,7 +22668,7 @@
 		<AlternateNames />
 		<Star Name="HIP 67851" ra="208.466666684" dec="-35.314444462">
 			<Magnitude V="6.17" />
-			<Property Distance="65.96" Metallicity="0.0" Mass="1.63" Radius="5.52" SPType="KOIII" Teff="4890.0" />
+			<Property Distance="65.96" Metallicity="0.0" Mass="1.63" Radius="5.52" SPType="K0III" Teff="4890.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 67851 c">
@@ -22701,7 +22701,7 @@
 		<AlternateNames />
 		<Star Name="HIP 67851" ra="208.466666684" dec="-35.314444462">
 			<Magnitude V="6.17" />
-			<Property Distance="65.96" Metallicity="0.0" Mass="1.63" Radius="5.52" SPType="KOIII" Teff="4890.0" />
+			<Property Distance="65.96" Metallicity="0.0" Mass="1.63" Radius="5.52" SPType="K0III" Teff="4890.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 70849 b">
@@ -24260,7 +24260,7 @@
 		<Radius radius="0.168" errorMin="0.02" errorMax="0.02" />
 		<OrbitalPeriod orbitalPeriod="3.00516" errorMin="1e-05" errorMax="1e-05" />
 		<SemiMajorAxis semiMajorAxis="0.038" errorMin="0.001" errorMax="0.001" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.35" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination inclination="88.27" errorMin="1.83" errorMax="1.73" />
 		<TzeroTr />
@@ -24953,7 +24953,7 @@
 		<Radius radius="0.196" />
 		<OrbitalPeriod orbitalPeriod="16.14569" errorMin="3e-05" errorMax="3e-05" />
 		<SemiMajorAxis semiMajorAxis="0.117" errorMin="0.003" errorMax="0.003" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.4" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination inclination="89.56" errorMin="0.64" errorMax="0.44" />
 		<TzeroTr />
@@ -51980,7 +51980,7 @@
 		<Radius radius="0.145" errorMin="0.02" errorMax="0.021" />
 		<OrbitalPeriod orbitalPeriod="384.843" errorMin="0.012" errorMax="0.007" />
 		<SemiMajorAxis semiMajorAxis="1.046" errorMin="0.015" errorMax="0.019" />
-		<Eccentricity eccentricity="0.035" errorMin="0.75" errorMax="0.75" />
+		<Eccentricity eccentricity="0.035" />
 		<AngularDistance />
 		<Inclination inclination="89.806" errorMin="0.049" errorMax="0.134" />
 		<TzeroTr tzero_tr="2455147.9788" errorMin="0.0135" errorMax="0.0135" />
@@ -53853,7 +53853,7 @@
 		<AlternateNames />
 		<Star Name="Kepler-66" ra="293.9833" dec="46.6878">
 			<Magnitude V="15.3" />
-			<Property Distance="1107.0" Metallicity="0.012" Mass="1.038" Radius="0.966" SPType="GOV" Age="1.0" Teff="5962.0" />
+			<Property Distance="1107.0" Metallicity="0.012" Mass="1.038" Radius="0.966" SPType="G0V" Age="1.0" Teff="5962.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Kepler-67 b">
@@ -59141,7 +59141,7 @@
 		<Radius radius="1.137" errorMin="0.037" errorMax="0.037" />
 		<OrbitalPeriod orbitalPeriod="1.7554137" errorMin="3.6e-06" errorMax="1.8e-06" />
 		<SemiMajorAxis semiMajorAxis="0.02918" errorMin="0.00045" errorMax="0.00045" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.06" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination inclination="83.63" errorMin="0.25" errorMax="0.25" />
 		<TzeroTr tzero_tr="6406.11126" errorMin="0.00012" errorMax="0.00012" />
@@ -59174,7 +59174,7 @@
 		<Radius radius="1.085" errorMin="0.028" errorMax="0.046" />
 		<OrbitalPeriod orbitalPeriod="9.289715" errorMin="1e-05" errorMax="1e-05" />
 		<SemiMajorAxis semiMajorAxis="0.0917" errorMin="0.0014" errorMax="0.0014" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.13" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination inclination="89.49" errorMin="0.64" errorMax="0.35" />
 		<TzeroTr tzero_tr="6649.54972" errorMin="0.00033" errorMax="0.00033" />
@@ -60725,7 +60725,7 @@
 		<Radius radius="1.3" errorMin="0.03" errorMax="0.05" />
 		<OrbitalPeriod orbitalPeriod="4.465633" errorMin="4e-06" errorMax="4e-06" />
 		<SemiMajorAxis semiMajorAxis="0.0533" errorMin="0.0007" errorMax="0.0007" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.2" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination inclination="89.2" errorMin="0.6" errorMax="0.6" />
 		<TzeroTr tzero_tr="2455737.9396" errorMin="0.0003" errorMax="0.0003" />
@@ -61179,7 +61179,7 @@
 		<AlternateNames />
 		<Star Name="WASP-67" ra="295.7458333" dec="-19.9494444">
 			<Magnitude V="12.5" />
-			<Property Distance="225.0" Metallicity="-0.07" Mass="0.87" Radius="0.87" SPType="kov" Teff="5200.0" />
+			<Property Distance="225.0" Metallicity="-0.07" Mass="0.87" Radius="0.87" SPType="K0V" Teff="5200.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WASP-68 b">
@@ -61913,7 +61913,7 @@
 		<Radius radius="1.63" errorMin="0.09" errorMax="0.09" />
 		<OrbitalPeriod orbitalPeriod="3.916243" errorMin="3e-06" errorMax="3e-06" />
 		<SemiMajorAxis semiMajorAxis="0.0562" errorMin="0.0012" errorMax="0.0012" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.5" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination inclination="82.1" errorMin="0.04" errorMax="0.04" />
 		<TzeroTr tzero_tr="2456235.5639" errorMin="0.0005" errorMax="0.0005" />
@@ -61946,7 +61946,7 @@
 		<Radius radius="1.72" errorMin="0.05" errorMax="0.06" />
 		<OrbitalPeriod orbitalPeriod="3.9501907" errorMin="3e-06" errorMax="4.4e-06" />
 		<SemiMajorAxis semiMajorAxis="0.055" errorMin="0.001" errorMax="0.001" />
-		<Eccentricity eccentricity="0.0" errorMin="0.0" errorMax="0.13" />
+		<Eccentricity eccentricity="0.0" />
 		<AngularDistance />
 		<Inclination inclination="88.7" errorMin="0.7" errorMax="0.7" />
 		<TzeroTr />

@@ -492,15 +492,52 @@ namespace ExoplanetLibrary
 
         public bool IsType (string type)
             {
-            if (Star.Property.SPType.Substring (0, 1) == type)
-                {
-                int value;
+            if (IsStarTypeDefined ())
+                if (Star.Property.SPType != null)
+                    if (Star.Property.SPType.Substring (0, 1) == type)
+                        {
+                        int value;
 
-                if (int.TryParse (Star.Property.SPType.Substring (1, 1), out value))
-                    return true;
-                }
+                        if (Star.Property.SPType.Length >= 2)
+                            {
+                            if (int.TryParse (Star.Property.SPType.Substring (1, 1), out value))
+                                return true;
+                            }
+                        else
+                            return true;
+                        }
 
             return false;
+            }
+
+        public void CorrectErrors ()
+            {
+            string [] errors = { "KO", "GOV", "KOV", "kov", "KOIII", "KOIV/V" };
+            string [] corrections = { "K0", "G0V", "K0V", "K0V", "K0III", "K0IV/V" };
+
+            if (Star.Property.SPType != null)
+                for (int index = 0; index < errors.Length; ++index)
+                    {
+                    int length = errors [index].Length;
+
+                    if (Star.Property.SPType.Length == length)
+                        if (Star.Property.SPType.Substring (0, length) == errors [index])
+                            Star.Property.SPType = corrections [index];
+                    }
+
+            if (Helper.IsDefined (Eccentricity))
+                {
+                double value, maximumError, minimumError;
+
+                if (double.TryParse (Eccentricity, out value) == true)
+                    if (double.TryParse (EccentricityErrorMax, out maximumError) == true)
+                        if (double.TryParse (EccentricityErrorMin, out minimumError) == true)
+                            if (maximumError > 10.0 * value)
+                                {
+                                EccentricityErrorMax = "";
+                                EccentricityErrorMin = "";
+                                }
+                }
             }
 
         public bool IsDetectionDefined ()

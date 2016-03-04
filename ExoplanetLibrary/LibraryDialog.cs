@@ -126,8 +126,47 @@ namespace ExoplanetLibrary
             AddItemsToListView (ExoplanetListView, true, true);
             ExoplanetListView.ColumnClick += new ColumnClickEventHandler (ExoplanetListView_ColumnClick);
             ExoplanetListView.Click += new EventHandler (ExoplanetListView_Click);
+            ExoplanetListView.PreviewKeyDown += new PreviewKeyDownEventHandler (ExoplanetListView_PreviewKey);
+            ExoplanetListView.KeyDown += new KeyEventHandler (ExoplanetListView_Key);
+            ExoplanetListView.KeyUp += new KeyEventHandler (ExoplanetListView_Key);
             Controls.Add (ExoplanetListView);
             }
+
+        //
+        // Down, Up, PageDown and PageUp are special, hence ExoplanetListView_PreviewKey and ExoplanetListView_Key
+        //
+        private void ExoplanetListView_PreviewKey (object sender, PreviewKeyDownEventArgs e)
+            {
+            switch (e.KeyCode)
+                {
+                case Keys.Down:
+                case Keys.Up:
+                case Keys.PageDown:
+                case Keys.PageUp:
+                    e.IsInputKey = true;
+                    break;
+                }
+            }
+
+        void ExoplanetListView_Key (object sender, KeyEventArgs e)
+            {
+            switch (e.KeyCode)
+                {
+                case Keys.Down:
+                case Keys.Up:
+                case Keys.PageDown:
+                case Keys.PageUp:
+                    if (ExoplanetListView.SelectedItems.Count == 1)
+                        {
+                        Exoplanet exoplanet = ( Exoplanet )ExoplanetListView.SelectedItems [0].Tag;
+
+                        displayAllDetails (exoplanet);
+                        Focus ();
+                        }
+                    break;
+                }
+            }
+
 
         private void UpdateExoplanetListView (bool rebuildArray)
             {
@@ -279,6 +318,7 @@ namespace ExoplanetLibrary
                 Exoplanet exoplanet = ( Exoplanet )ExoplanetListView.SelectedItems [0].Tag;
 
                 displayAllDetails (exoplanet);
+                Focus ();
                 }
             }
 
@@ -296,7 +336,7 @@ namespace ExoplanetLibrary
             {
             OpenFileDialog openFileDialog = new OpenFileDialog ();
 
-            openFileDialog.InitialDirectory = "c:\\ProgramData\\Exoplanet Library\\";
+            openFileDialog.InitialDirectory = Constant.ProgramDataFolder;
             openFileDialog.Filter = "xml files (*.xml)|*.xml|csv files (*.csv)|*.csv|vot files (*.vot)|*.vot|All files (*.*)|*.*";
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
@@ -352,7 +392,7 @@ namespace ExoplanetLibrary
             {
             SaveFileDialog saveFileDialog = new SaveFileDialog ();
 
-            saveFileDialog.InitialDirectory = "c:\\ProgramData\\Exoplanet Library\\";
+            saveFileDialog.InitialDirectory = Constant.ProgramDataFolder;
             saveFileDialog.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
             saveFileDialog.FilterIndex = 1;
             saveFileDialog.RestoreDirectory = true;

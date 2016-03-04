@@ -33,7 +33,7 @@ namespace ExoplanetLibrary
             set { XsdVersion1FileName_ = value; }
             }
 
-        static private string XsdVersion2FileName_ = Constant.SchemaFolder + "EXOPLANET.xsd";
+        static private string XsdVersion2FileName_ = Constant.SchemaFolder + "EXOPLANET.V.2.xsd";
         static private string XsdVersion2FileName
             {
             get { return XsdVersion2FileName_; }
@@ -145,6 +145,8 @@ namespace ExoplanetLibrary
                     ReadStar (exoplanet);
                     ReadMagnitudes (exoplanet);
                     ReadProperties (exoplanet);
+
+                    exoplanet.CorrectErrors ();
 
                     if (!string.IsNullOrEmpty (exoplanet.Name))
                         exoplanets.Add (( object )exoplanet);

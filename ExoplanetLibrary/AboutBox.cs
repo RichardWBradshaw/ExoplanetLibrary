@@ -9,9 +9,9 @@ namespace ExoplanetLibrary
         public AboutBox ()
             {
             InitializeComponent ();
-            Text = String.Format ("About {0}", AssemblyTitle);
+            Text = string.Format ("About {0}", AssemblyTitle);
             labelProductName.Text = AssemblyProduct;
-            labelVersion.Text = String.Format ("Version {0}", AssemblyVersion);
+            labelVersion.Text = string.Format ("Version {0}", AssemblyVersion);
             labelCopyright.Text = AssemblyCopyright;
             labelCompanyName.Text = AssemblyCompany;
             textBoxDescription.Text = AssemblyDescription;

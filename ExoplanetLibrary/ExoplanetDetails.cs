@@ -84,7 +84,7 @@ namespace ExoplanetLibrary
             AddItemsToListView (DetailsListView, false, null);
             }
 
-        private void AddItemsToListView (ListView listView, bool addColumns, ExoplanetLibrary.Exoplanet exoplanet)
+        private void AddItemsToListView (ListView listView, bool addColumns, Exoplanet exoplanet)
             {
             if (addColumns)
                 {

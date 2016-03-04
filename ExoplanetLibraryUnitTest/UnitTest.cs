@@ -61,7 +61,7 @@ namespace ExoplanetLibraryUnitTest
             {
             ArrayList exoplanetArray = null;
 
-            if (System.IO.File.Exists (Constant.UnitTestFolder + "Version2.xml"))
+            if (File.Exists (Constant.UnitTestFolder + "Version2.xml"))
                 exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version2.xml", true);
             else
                 {
@@ -73,11 +73,11 @@ namespace ExoplanetLibraryUnitTest
 
             Assert.AreEqual (Exoplanets.NumberOfExoplanets (exoplanetArray), 1927);
             Assert.AreEqual (Exoplanets.NumberOfTypeOStars (exoplanetArray), 0);
-            Assert.AreEqual (Exoplanets.NumberOfTypeBStars (exoplanetArray), 11);
-            Assert.AreEqual (Exoplanets.NumberOfTypeAStars (exoplanetArray), 13);
-            Assert.AreEqual (Exoplanets.NumberOfTypeFStars (exoplanetArray), 128);
-            Assert.AreEqual (Exoplanets.NumberOfTypeGStars (exoplanetArray), 384);
-            Assert.AreEqual (Exoplanets.NumberOfTypeKStars (exoplanetArray), 267);
+            Assert.AreEqual (Exoplanets.NumberOfTypeBStars (exoplanetArray), 8);
+            Assert.AreEqual (Exoplanets.NumberOfTypeAStars (exoplanetArray), 12);
+            Assert.AreEqual (Exoplanets.NumberOfTypeFStars (exoplanetArray), 126);
+            Assert.AreEqual (Exoplanets.NumberOfTypeGStars (exoplanetArray), 381);
+            Assert.AreEqual (Exoplanets.NumberOfTypeKStars (exoplanetArray), 270);
             Assert.AreEqual (Exoplanets.NumberOfTypeMStars (exoplanetArray), 88);
             Assert.AreEqual (Exoplanets.NumberOfMultiPlanetStars (exoplanetArray), 717);
             }
@@ -87,7 +87,7 @@ namespace ExoplanetLibraryUnitTest
             {
             ArrayList exoplanetArray = null;
 
-            if (System.IO.File.Exists (Constant.UnitTestFolder + "Version1.xml"))
+            if (File.Exists (Constant.UnitTestFolder + "Version1.xml"))
                 exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version1.xml");
             else
                 {
@@ -103,7 +103,7 @@ namespace ExoplanetLibraryUnitTest
             {
             ArrayList exoplanetArray = null;
 
-            if (System.IO.File.Exists (Constant.UnitTestFolder + "Version2.xml"))
+            if (File.Exists (Constant.UnitTestFolder + "Version2.xml"))
                 exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version2.xml");
             else
                 {
@@ -119,7 +119,7 @@ namespace ExoplanetLibraryUnitTest
             {
             ArrayList exoplanetArray = null;
 
-            if (System.IO.File.Exists (Constant.UnitTestFolder + "exoplanet.eu_catalog.xml"))
+            if (File.Exists (Constant.UnitTestFolder + "exoplanet.eu_catalog.xml"))
                 exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version1.xml");
             else
                 {
@@ -135,7 +135,7 @@ namespace ExoplanetLibraryUnitTest
             {
             ArrayList exoplanetArray = null;
 
-            if (System.IO.File.Exists (Constant.UnitTestFolder + "exoplanet_catalog.xml"))
+            if (File.Exists (Constant.UnitTestFolder + "exoplanet_catalog.xml"))
                 exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "exoplanet_catalog.xml");
             else
                 {
@@ -160,7 +160,7 @@ namespace ExoplanetLibraryUnitTest
             test1.TypeKEnabled = CheckState.Checked;
             test1.TypeMEnabled = CheckState.Checked;
             test1.UnknownStarEnabled = CheckState.Checked;
-            test1.UnknownDetectionEnabled = CheckState.Checked;
+            
             test1.PrimaryTransitEnabled = CheckState.Checked;
             test1.RadialVelocityEnabled = CheckState.Checked;
             test1.MicrolensingEnabled = CheckState.Checked;
@@ -168,6 +168,7 @@ namespace ExoplanetLibraryUnitTest
             test1.PulsarEnabled = CheckState.Checked;
             test1.AstrometryEnabled = CheckState.Checked;
             test1.TTVEnabled = CheckState.Checked;
+            test1.UnknownDetectionEnabled = CheckState.Checked;
 
             Settings.WriteFilter (test1);
 
@@ -177,22 +178,24 @@ namespace ExoplanetLibraryUnitTest
 
             Assert.IsNotNull (test1);
             Assert.IsNotNull (test2);
-            Assert.AreEqual (test1.UnknownStarEnabled, test2.UnknownStarEnabled);
+            
             Assert.AreEqual (test1.TypeOEnabled, test2.TypeOEnabled);
             Assert.AreEqual (test1.TypeBEnabled, test2.TypeBEnabled);
             Assert.AreEqual (test1.TypeAEnabled, test2.TypeAEnabled);
-            Assert.AreEqual (test1.TypeFEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.TypeFEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.TypeGEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.TypeMEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.UnknownDetectionEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.PrimaryTransitEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.RadialVelocityEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.MicrolensingEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.ImagingEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.PulsarEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.AstrometryEnabled, test2.UnknownStarEnabled);
-            Assert.AreEqual (test1.TTVEnabled, test2.UnknownStarEnabled);
+            Assert.AreEqual (test1.TypeFEnabled, test2.TypeFEnabled);
+            Assert.AreEqual (test1.TypeGEnabled, test2.TypeGEnabled);
+            Assert.AreEqual (test1.TypeKEnabled, test2.TypeKEnabled);
+            Assert.AreEqual (test1.TypeMEnabled, test2.TypeMEnabled);
+            Assert.AreEqual (test1.UnknownStarEnabled, test2.UnknownStarEnabled);
+
+            Assert.AreEqual (test1.PrimaryTransitEnabled, test2.PrimaryTransitEnabled);
+            Assert.AreEqual (test1.RadialVelocityEnabled, test2.RadialVelocityEnabled);
+            Assert.AreEqual (test1.MicrolensingEnabled, test2.MicrolensingEnabled);
+            Assert.AreEqual (test1.ImagingEnabled, test2.ImagingEnabled);
+            Assert.AreEqual (test1.PulsarEnabled, test2.PulsarEnabled);
+            Assert.AreEqual (test1.AstrometryEnabled, test2.AstrometryEnabled);
+            Assert.AreEqual (test1.TTVEnabled, test2.TTVEnabled);
+            Assert.AreEqual (test1.UnknownDetectionEnabled, test2.UnknownDetectionEnabled);
             }
 
         [TestMethod]

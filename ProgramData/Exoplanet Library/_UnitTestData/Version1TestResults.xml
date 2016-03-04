@@ -2467,7 +2467,7 @@
 		<Molecules molecules="CH4" />
 		<Star Name="GJ 504" ra="199.1958" dec="9.4242">
 			<Magnitude V="5.22" />
-			<Property Distance="17.56" Metallicity="0.28" Mass="1.22" SPType="GOV" Age="0.16" Teff="6234" />
+			<Property Distance="17.56" Metallicity="0.28" Mass="1.22" SPType="G0V" Age="0.16" Teff="6234" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GJ 667C b">
@@ -2917,7 +2917,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="25.645" errorMin="0.0235" errorMax="0.0235" />
 		<SemiMajorAxis semiMajorAxis="0.1254" errorMin="0.0001" errorMax="0.0001" />
-		<Eccentricity eccentricity="0.094" errorMin="86" errorMax="86" />
+		<Eccentricity eccentricity="0.094" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr />
@@ -3325,7 +3325,7 @@
 		<Molecules molecules="H2O; K" />
 		<Star Name="HAT-P-1" ra="344.4458333" dec="38.675">
 			<Magnitude V="10.4" />
-			<Property Distance="139" Metallicity="0.13" Mass="1.151" Radius="1.174" SPType="GOV" Age="3.6" Teff="5980" />
+			<Property Distance="139" Metallicity="0.13" Mass="1.151" Radius="1.174" SPType="G0V" Age="3.6" Teff="5980" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HAT-P-11 b">
@@ -5483,7 +5483,7 @@
 		<Molecules />
 		<Star Name="HD 109246" ra="188.0291667" dec="74.4894444">
 			<Magnitude V="8.77" />
-			<Property Distance="65.6" Metallicity="0.1" Mass="1.01" Radius="1.02" SPType="GOV" Teff="5844" />
+			<Property Distance="65.6" Metallicity="0.1" Mass="1.01" Radius="1.02" SPType="G0V" Teff="5844" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 109271 b">
@@ -5959,7 +5959,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="318" errorMin="2" errorMax="2" />
 		<SemiMajorAxis semiMajorAxis="0.93" errorMin="0.01" errorMax="0.01" />
-		<Eccentricity eccentricity="0" errorMin="0.26" errorMax="0.26" />
+		<Eccentricity eccentricity="0" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr />
@@ -6159,7 +6159,7 @@
 		<Molecules />
 		<Star Name="HD 122430" ra="210.5916667" dec="-27.4297222">
 			<Magnitude V="5.48" />
-			<Property Distance="135" Metallicity="-0.05" Mass="1.39" Radius="22.9" SPType=" K3III" Age="3.11" Teff="4300" />
+			<Property Distance="135" Metallicity="-0.05" Mass="1.39" Radius="22.9" SPType="K3III" Age="3.11" Teff="4300" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 125595 b">
@@ -7259,7 +7259,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="176.3" errorMin="0.39" errorMax="0.39" />
 		<SemiMajorAxis semiMajorAxis="0.76" />
-		<Eccentricity eccentricity="0.112" errorMin="3.1" errorMax="3.1" />
+		<Eccentricity eccentricity="0.112" />
 		<AngularDistance angularDistance="0.006032" />
 		<Inclination />
 		<TzeroTr />
@@ -8603,7 +8603,7 @@
 		<Molecules />
 		<Star Name="HD 171238" ra="278.6833333" dec="-28.0722222">
 			<Magnitude V="8.66" />
-			<Property Distance="50.28" Metallicity="0.17" Mass="0.943" SPType="KOV" Age="4.92" Teff="5467" />
+			<Property Distance="50.28" Metallicity="0.17" Mass="0.943" SPType="K0V" Age="4.92" Teff="5467" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 17156 b">
@@ -9721,7 +9721,7 @@
 		<Molecules />
 		<Star Name="HD 200964" ra="316.6666667" dec="3.8030556">
 			<Magnitude V="6.64" />
-			<Property Distance="68.4" Metallicity="-0.15" Mass="1.44" Radius="4.3" SPType="KO" Age="3" Teff="5164" />
+			<Property Distance="68.4" Metallicity="-0.15" Mass="1.44" Radius="4.3" SPType="K0" Age="3" Teff="5164" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 200964 c">
@@ -9747,7 +9747,7 @@
 		<Molecules />
 		<Star Name="HD 200964" ra="316.6666667" dec="3.8030556">
 			<Magnitude V="6.64" />
-			<Property Distance="68.4" Metallicity="-0.15" Mass="1.44" Radius="4.3" SPType="KO" Age="3" Teff="5164" />
+			<Property Distance="68.4" Metallicity="-0.15" Mass="1.44" Radius="4.3" SPType="K0" Age="3" Teff="5164" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 202206 b">
@@ -13517,7 +13517,7 @@
 		<Molecules />
 		<Star Name="HD 62509" ra="116.325" dec="28.0261111">
 			<Magnitude V="1.15" />
-			<Property Distance="10.34" Metallicity="0.19" Mass="1.47" Radius="9.3" SPType=" K0IIIb" Teff="4666" />
+			<Property Distance="10.34" Metallicity="0.19" Mass="1.47" Radius="9.3" SPType="K0IIIb" Teff="4666" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 63454 b">
@@ -13525,7 +13525,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="2.818049" errorMin="7.10E-05" errorMax="7.10E-05" />
 		<SemiMajorAxis semiMajorAxis="0.036" />
-		<Eccentricity eccentricity="2.00E-05" errorMin="0.022" errorMax="0.022" />
+		<Eccentricity eccentricity="2.00E-05" />
 		<AngularDistance angularDistance="0.001006" />
 		<Inclination />
 		<TzeroTr />
@@ -13907,7 +13907,7 @@
 		<Molecules />
 		<Star Name="HD 7199" ra="17.6958333" dec="-66.1880556">
 			<Magnitude V="8.06" />
-			<Property Distance="36" Metallicity="0.28" Mass="0.89" Radius="0.96" SPType="KOIV/V" Age="6.79" Teff="5386" />
+			<Property Distance="36" Metallicity="0.28" Mass="0.89" Radius="0.96" SPType="K0IV/V" Age="6.79" Teff="5386" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 72659 b">
@@ -14227,7 +14227,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="3.971" errorMin="0.001" errorMax="0.001" />
 		<SemiMajorAxis semiMajorAxis="0.049" errorMin="0.004" errorMax="0.004" />
-		<Eccentricity eccentricity="0" errorMin="0.04" errorMax="0.04" />
+		<Eccentricity eccentricity="0" />
 		<AngularDistance angularDistance="0.000821" />
 		<Inclination />
 		<TzeroTr />
@@ -14297,7 +14297,7 @@
 		<Molecules />
 		<Star Name="HD 7924" ra="20.4958333" dec="76.7102778">
 			<Magnitude V="7.185" />
-			<Property Distance="16.8" Metallicity="-0.15" Mass="0.832" Radius="0.78" SPType="KOV" Teff="5177" />
+			<Property Distance="16.8" Metallicity="-0.15" Mass="0.832" Radius="0.78" SPType="K0V" Teff="5177" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 79498 b">
@@ -14591,7 +14591,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="3700" errorMin="840" errorMax="840" />
 		<SemiMajorAxis semiMajorAxis="4.23" errorMin="0.09" errorMax="0.09" />
-		<Eccentricity eccentricity="0" errorMin="0.07" errorMax="0.07" />
+		<Eccentricity eccentricity="0" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr />
@@ -14877,7 +14877,7 @@
 		<Radius />
 		<OrbitalPeriod orbitalPeriod="85.2" errorMin="0.1" errorMax="0.1" />
 		<SemiMajorAxis semiMajorAxis="0.44" errorMin="0.005" errorMax="0.005" />
-		<Eccentricity eccentricity="0" errorMin="0.05" errorMax="0.05" />
+		<Eccentricity eccentricity="0" />
 		<AngularDistance />
 		<Inclination />
 		<TzeroTr />
@@ -20979,7 +20979,7 @@
 		<Molecules />
 		<Star Name="Kepler-66" ra="293.9833" dec="46.6878">
 			<Magnitude V="15.3" />
-			<Property Distance="1107" Metallicity="0.012" Mass="1.038" Radius="0.966" SPType="GOV" Age="1" Teff="5962" />
+			<Property Distance="1107" Metallicity="0.012" Mass="1.038" Radius="0.966" SPType="G0V" Age="1" Teff="5962" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Kepler-67 b">
@@ -24419,7 +24419,7 @@
 		<Radius radius="1.736" errorMin="0.092" errorMax="0.092" />
 		<OrbitalPeriod orbitalPeriod="1.0914222" errorMin="1.10E-06" errorMax="1.10E-06" />
 		<SemiMajorAxis semiMajorAxis="0.02293" errorMin="0.00078" errorMax="0.00078" />
-		<Eccentricity eccentricity="0" errorMin="0.01" errorMax="0.01" />
+		<Eccentricity eccentricity="0" />
 		<AngularDistance angularDistance="5.40E-05" />
 		<Inclination inclination="86" errorMin="3" errorMax="3" />
 		<TzeroTr tzero_tr="2454508.976" errorMin="0.00028" errorMax="0.00028" />
@@ -25893,7 +25893,7 @@
 		<Molecules />
 		<Star Name="WASP-67" ra="295.7458333" dec="-19.9494444">
 			<Magnitude V="12.5" />
-			<Property Distance="225" Metallicity="-0.07" Mass="0.87" Radius="0.87" SPType="kov" Teff="5200" />
+			<Property Distance="225" Metallicity="-0.07" Mass="0.87" Radius="0.87" SPType="K0V" Teff="5200" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WASP-68 b">

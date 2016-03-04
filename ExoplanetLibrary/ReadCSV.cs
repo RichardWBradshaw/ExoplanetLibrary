@@ -133,7 +133,7 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        static private void AssignFromVersion1 (String [] strings, Exoplanet exoplanet)
+        static private void AssignFromVersion1 (string [] strings, Exoplanet exoplanet)
             {
             exoplanet.Name = strings [0].ToString ();
 
@@ -222,7 +222,7 @@ namespace ExoplanetLibrary
             exoplanet.Star.Property.Teff = Helper.ReplaceNonNumerics (strings [61].ToString ());
             }
 
-        static private void AssignFromVersion2 (String [] strings, Exoplanet exoplanet)
+        static private void AssignFromVersion2 (string [] strings, Exoplanet exoplanet)
             {
             exoplanet.Name = strings [0].ToString ();
 

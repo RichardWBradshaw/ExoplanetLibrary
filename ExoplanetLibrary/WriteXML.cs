@@ -27,6 +27,8 @@ namespace ExoplanetLibrary
             Writer = writer;
             Version = version;
 
+            exoplanet.CorrectErrors ();
+
             WriteExoplanet (exoplanet);
 
             return 0;
