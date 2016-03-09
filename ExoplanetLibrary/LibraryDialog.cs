@@ -678,6 +678,5 @@ namespace ExoplanetLibrary
                 allDetectionMethodsMenuItem.CheckState = Filter.UnknownDetectionEnabled;
                 }
             }
-
         }
     }
