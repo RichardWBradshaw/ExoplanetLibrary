@@ -143,6 +143,8 @@ namespace ExoplanetLibrary
                 case Keys.Up:
                 case Keys.PageDown:
                 case Keys.PageUp:
+                case Keys.Home:
+                case Keys.End:
                     e.IsInputKey = true;
                     break;
                 }
@@ -156,6 +158,8 @@ namespace ExoplanetLibrary
                 case Keys.Up:
                 case Keys.PageDown:
                 case Keys.PageUp:
+                case Keys.Home:
+                case Keys.End:
                     if (ExoplanetListView.SelectedItems.Count == 1)
                         {
                         Exoplanet exoplanet = ( Exoplanet )ExoplanetListView.SelectedItems [0].Tag;
