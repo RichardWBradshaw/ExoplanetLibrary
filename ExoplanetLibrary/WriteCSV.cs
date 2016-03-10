@@ -167,7 +167,7 @@ namespace ExoplanetLibrary
             WriteLine (textWriter, exoplanet.InclinationErrorMin);
             WriteLine (textWriter, exoplanet.InclinationErrorMax);
             WriteLine (textWriter, exoplanet.AngularDistance);
-            WriteLine (textWriter, exoplanet.Discovered);
+            WriteLine (textWriter, Helper.FormatDateXML2CSV(exoplanet.Discovered));
             WriteLine (textWriter, exoplanet.Updated);
             WriteLine (textWriter, exoplanet.Omega);
             WriteLine (textWriter, exoplanet.OmegaErrorMin);

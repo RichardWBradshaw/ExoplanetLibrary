@@ -187,7 +187,7 @@ namespace ExoplanetLibrary
 
             exoplanet.Status = strings [36].ToString ();
 
-            exoplanet.Discovered = strings [37].ToString ();
+            exoplanet.Discovered = Helper.FormatDateCSV2XML( strings [37].ToString ());
 
             exoplanet.Updated = strings [38].ToString ();
 

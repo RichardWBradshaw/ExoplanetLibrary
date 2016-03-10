@@ -234,6 +234,10 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Distance));
                 DetailsListView.Items.Add (item);
 
+                item = new ListViewItem ("Metallicity", 0);
+                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity));
+                DetailsListView.Items.Add (item);
+
                 item = new ListViewItem ("Mass (Msun)", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Mass));
                 DetailsListView.Items.Add (item);

@@ -132,6 +132,41 @@ namespace ExoplanetLibrary
             return false;
             }
 
+        //
+        // CSV date format is 2016-02-23, where as XML date format is 02/23/2016
+        //
+        static public string FormatDateCSV2XML (string text)
+            {
+            if (!string.IsNullOrEmpty (text))
+                {
+                char [] delimiterChars = { '/' };
+                string [] strings = text.Split (delimiterChars);
+
+                if (strings.Length == 3)
+                    {
+                    text = strings [2] + "-" + strings [0] + "-" + strings [1];
+                    }
+                }
+
+            return text;
+            }
+
+        static public string FormatDateXML2CSV (string text)
+            {
+            if (!string.IsNullOrEmpty (text))
+                {
+                char [] delimiterChars = { '-' };
+                string [] strings = text.Split (delimiterChars);
+
+                if (strings.Length == 3)
+                    {
+                    text = strings [2] + "/" + strings [0] + "/" + strings [1];
+                    }
+                }
+
+            return text;
+            }
+
         public static bool CompareEquals (object objectFromCompare, object objectToCompare)
             {
             if (objectFromCompare == null && objectToCompare == null)
