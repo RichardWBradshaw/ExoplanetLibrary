@@ -8,8 +8,9 @@ namespace ExoplanetLibrary
     public enum ErrorBar
         {
         None = 0,
-        VerticalLine = 1,
-        VerticalNHorizontalLines = 2
+        LinearPlots = 1,
+        PointPlots = 2,
+        LinearNPointPlots = 3,
         }
 
     public enum PlotTypes
@@ -63,7 +64,7 @@ namespace ExoplanetLibrary
             {
             }
 
-        static private ErrorBar ErrorBars_ = ErrorBar.VerticalLine;
+        static private ErrorBar ErrorBars_ = ErrorBar.LinearPlots;
         static private ErrorBar ErrorBars
             {
             get { return ErrorBars_; }
@@ -556,11 +557,149 @@ namespace ExoplanetLibrary
             double minimumY = Helper.GetMinimum (YAxis);
             double maximumY = Helper.GetMaximum (YAxis);
 
+            VisualizeErrorBars (plotSurface, exoplanets, plotType, ref minimumX, ref maximumX, ref minimumY, ref maximumY);
             VisualizeLogXYAxis (plotSurface, plotType, Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
             AddInteraction (plotSurface);
 
             plotSurface.Refresh ();
+            }
+
+        static public void VisualizeErrorBars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList array, PlotTypes plotType, ref double minimumX, ref double maximumX, ref double minimumY, ref double maximumY)
+            {
+            if (Visualization.IncludeErrorBars == CheckState.Checked)
+                {
+                foreach (Exoplanet exoplanet in array)
+                    {
+                    double xValue = 0.0, maximumXError = 0.0, minimumXError = 0.0;
+                    double yValue = 0.0, maximumYError = 0.0, minimumYError = 0.0;
+                    bool isValid = false;
+
+                    if (plotType >= PlotTypes.MassAndRadius && plotType <= PlotTypes.MassAndK)
+                        {
+                        if (double.TryParse (exoplanet.Mass, out xValue) == true)
+                            if (double.TryParse (exoplanet.MassErrorMax, out maximumXError) == true)
+                                if (double.TryParse (exoplanet.MassErrorMin, out minimumXError) == true)
+                                    isValid = true;
+                        }
+                    else if (plotType >= PlotTypes.MassAndRadius && plotType <= PlotTypes.RadiusAndK)
+                        {
+                        if (double.TryParse (exoplanet.Radius, out xValue) == true)
+                            if (double.TryParse (exoplanet.RadiusErrorMax, out maximumXError) == true)
+                                if (double.TryParse (exoplanet.RadiusErrorMin, out minimumXError) == true)
+                                    isValid = true;
+                        }
+
+                    if (isValid)
+                        {
+                        isValid = false;
+
+                        switch (plotType)
+                            {
+                            case PlotTypes.MassAndRadius:  // x-axis is mass and to y-axis is radius
+                                if (double.TryParse (exoplanet.Radius, out yValue) == true)
+                                    if (double.TryParse (exoplanet.RadiusErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.RadiusErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+                            case PlotTypes.RadiusAndMass:  // x-axis is radius and to y-axis is mass
+                                if (double.TryParse (exoplanet.Mass, out yValue) == true)
+                                    if (double.TryParse (exoplanet.MassErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.MassErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+                            case PlotTypes.MassAndOrbitalPeriod:
+                            case PlotTypes.RadiusAndOrbitalPeriod:
+                                if (double.TryParse (exoplanet.OrbitalPeriod, out yValue) == true)
+                                    if (double.TryParse (exoplanet.OrbitalPeriodErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.OrbitalPeriodErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+                            case PlotTypes.MassAndSemiMajorAxis:
+                            case PlotTypes.RadiusAndSemiMajorAxis:
+                                if (double.TryParse (exoplanet.SemiMajorAxis, out yValue) == true)
+                                    if (double.TryParse (exoplanet.SemiMajorAxisErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.SemiMajorAxisErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+                            case PlotTypes.MassAndEccentricity:
+                            case PlotTypes.RadiusAndEccentricity:
+                                if (double.TryParse (exoplanet.Eccentricity, out yValue) == true)
+                                    if (double.TryParse (exoplanet.EccentricityErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.EccentricityErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+                            case PlotTypes.MassAndAngularDistance:
+                            case PlotTypes.RadiusAndAngularDistance:
+                                isValid = false;
+                                break;
+
+                            case PlotTypes.MassAndOmega:
+                            case PlotTypes.RadiusAndOmega:
+                                if (double.TryParse (exoplanet.Omega, out yValue) == true)
+                                    if (double.TryParse (exoplanet.OmegaErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.OmegaErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+                            case PlotTypes.MassAndInclination:
+                            case PlotTypes.RadiusAndInclination:
+                                if (double.TryParse (exoplanet.Inclination, out yValue) == true)
+                                    if (double.TryParse (exoplanet.InclinationErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.InclinationErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+                            case PlotTypes.MassAndTzeroTr:
+                            case PlotTypes.RadiusAndTzeroTr:
+                                if (double.TryParse (exoplanet.TzeroTr, out yValue) == true)
+                                    if (double.TryParse (exoplanet.TzeroTrErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.TzeroTrErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+
+                            case PlotTypes.MassAndTperi:
+                            case PlotTypes.RadiusAndTperi:
+                                if (double.TryParse (exoplanet.Tperi, out yValue) == true)
+                                    if (double.TryParse (exoplanet.TperiErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.TperiErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+
+                            case PlotTypes.MassAndK:
+                            case PlotTypes.RadiusAndK:
+                                if (double.TryParse (exoplanet.K, out yValue) == true)
+                                    if (double.TryParse (exoplanet.KErrorMax, out maximumYError) == true)
+                                        if (double.TryParse (exoplanet.KErrorMin, out minimumYError) == true)
+                                            isValid = true;
+                                break;
+                            }
+                        }
+
+                    if (isValid)
+                        {
+                        if (yValue + maximumYError > maximumY)
+                            maximumY = yValue + maximumYError;
+
+                        if (yValue - minimumYError < minimumY)
+                            minimumY = yValue - minimumYError;
+
+                        if (xValue + maximumXError > maximumX)
+                            maximumX = xValue + maximumXError;
+
+                        if (xValue - minimumXError < minimumX)
+                            minimumX = xValue - minimumXError;
+
+                        VisualizeErrorBar (plotSurface, xValue, maximumXError, -minimumXError, yValue, maximumYError, -minimumYError);
+                        }
+                    }
+                }
             }
 
         static public void VisualizeStars (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
@@ -1008,13 +1147,11 @@ namespace ExoplanetLibrary
                 }
 
             VisualizeErrorBarVerticalLine (plotSurface, value, maximumError, minimumError, counter);
-            VisualizeErrorBarHorizontalLine (plotSurface, value, maximumError, counter);
-            VisualizeErrorBarHorizontalLine (plotSurface, value, minimumError, counter);
             }
 
         static private void VisualizeErrorBarVerticalLine (NPlot.Windows.PlotSurface2D plotSurface, double value, double maximumError, double minimumError, int counter)
             {
-            if (ErrorBars == ErrorBar.VerticalLine || ErrorBars == ErrorBar.VerticalNHorizontalLines)
+            if (ErrorBars == ErrorBar.LinearPlots || ErrorBars == ErrorBar.LinearNPointPlots)
                 {
                 double [] errors = new double [2];
                 double [] XAxis = new double [2];
@@ -1034,25 +1171,65 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void VisualizeErrorBarHorizontalLine (NPlot.Windows.PlotSurface2D plotSurface, double value, double errorValue, int counter)
+        static private void VisualizeErrorBar (NPlot.Windows.PlotSurface2D plotSurface,
+            double xValue, double maximumXError, double minimumXError, double yValue, double maximumYError, double minimumYError)
             {
-            if (ErrorBars == ErrorBar.VerticalNHorizontalLines)
+            if (Visualization.LogXAxis == CheckState.Checked)
                 {
-                double [] errors = new double [2];
-                double [] XAxis = new double [2];
+                if (xValue + maximumXError <= 0.0)
+                    return;
 
-                errors [0] = value + errorValue;
-                errors [1] = value + errorValue;
-                XAxis [0] = counter - 0.4;
-                XAxis [1] = counter + 0.4;
+                if (xValue + minimumXError <= 0.0)
+                    return;
+                }
+
+            if (Visualization.LogYAxis == CheckState.Checked)
+                {
+                if (yValue + maximumYError <= 0.0)
+                    return;
+
+                if (yValue + minimumYError <= 0.0)
+                    return;
+                }
+
+            VisualizeErrorBar2 (plotSurface, xValue, maximumXError, minimumXError, yValue, maximumYError, minimumYError);
+            }
+
+        static private void VisualizeErrorBar2 (NPlot.Windows.PlotSurface2D plotSurface, double xValue, double maximumXError, double minimumXError, double yValue, double maximumYError, double minimumYError)
+            {
+            if (ErrorBars == ErrorBar.PointPlots || ErrorBars == ErrorBar.LinearNPointPlots)
+                {
+                double [] errors = new double [2];          // vertical error bar
+                double [] xAxis = new double [2];
+
+                errors [0] = yValue + maximumYError;
+                errors [1] = yValue + minimumYError;
+                xAxis [0] = xValue;
+                xAxis [1] = xValue;
 
                 LinePlot linePlot = new LinePlot ();
 
-                linePlot.AbscissaData = XAxis;
+                linePlot.AbscissaData = xAxis;
                 linePlot.DataSource = errors;
                 linePlot.Color = Color.Black;
                 linePlot.Pen.Width = 1F;
                 plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+
+                double [] errors2 = new double [2];         // horizontal error bar
+                double [] yAxis = new double [2];
+
+                errors2 [0] = xValue + maximumXError;
+                errors2 [1] = xValue + minimumXError;
+                yAxis [0] = yValue;
+                yAxis [1] = yValue;
+
+                LinePlot linePlot2 = new LinePlot ();
+
+                linePlot2.AbscissaData = errors2;
+                linePlot2.DataSource = yAxis;
+                linePlot2.Color = Color.Black;
+                linePlot2.Pen.Width = 1F;
+                plotSurface.Add (linePlot2, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
                 }
             }
 

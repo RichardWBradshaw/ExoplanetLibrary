@@ -38,7 +38,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Exoplanet");
 
-            Writer.WriteAttributeString ("name", exoplanet.Name);
+            Writer.WriteAttributeString ("name", exoplanet.Name.Trim());
 
             WriteMass (exoplanet);
             WriteRadius (exoplanet);

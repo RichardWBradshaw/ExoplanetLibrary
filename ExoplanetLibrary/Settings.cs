@@ -158,6 +158,13 @@ namespace ExoplanetLibrary
             set { LogYAxis_ = value; }
             }
 
+        static private CheckState IncludeDuplicates_ = CheckState.Unchecked;
+        static public CheckState IncludeDuplicates
+            {
+            get { return IncludeDuplicates_; }
+            set { IncludeDuplicates_ = value; }
+            }
+
         Visualization ()
             {
             IncludeErrorBars = CheckState.Unchecked;
@@ -203,6 +210,8 @@ namespace ExoplanetLibrary
 
                 subkey.SetValue ("LogXAxis", Visualization.LogXAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("LogYAxis", Visualization.LogYAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+
+                subkey.SetValue ("IncludeDuplicates", Visualization.IncludeDuplicates == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 }
 
             if (key != null)
@@ -225,7 +234,7 @@ namespace ExoplanetLibrary
                 filter.TypeFEnabled = ReadValue (subkey, "StarTypeFEnabled");
                 filter.TypeGEnabled = ReadValue (subkey, "StarTypeGEnabled");
                 filter.TypeKEnabled = ReadValue (subkey, "StarTypeKEnabled");
-                filter.TypeMEnabled = ReadValue (subkey, "StarTypeKEnabled");
+                filter.TypeMEnabled = ReadValue (subkey, "StarTypeMEnabled");
                 filter.UnknownStarEnabled = ReadValue (subkey, "UnknownStarEnabled");
 
                 filter.PrimaryTransitEnabled = ReadValue (subkey, "PrimaryTransitEnabled");
@@ -239,8 +248,9 @@ namespace ExoplanetLibrary
 
                 Visualization.IncludeErrorBars = ReadValue (subkey, "IncudeErrorBars");
                 Visualization.ColorFromStarType = ReadValue (subkey, "ColorFromStarType");
-                Visualization.IncludeErrorBars = ReadValue (subkey, "LogXAxis");
-                Visualization.ColorFromStarType = ReadValue (subkey, "LogYAxis");
+                Visualization.LogXAxis = ReadValue (subkey, "LogXAxis");
+                Visualization.LogYAxis = ReadValue (subkey, "LogYAxis");
+                Visualization.IncludeDuplicates = ReadValue (subkey, "IncludeDuplicates");
                 }
 
             if (key != null)

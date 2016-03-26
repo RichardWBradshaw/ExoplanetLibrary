@@ -72,6 +72,7 @@
             this.colorFromStarTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logXAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logYAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.includeDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -506,7 +507,8 @@
             this.errorBarsToolStripMenuItem,
             this.colorFromStarTypeToolStripMenuItem,
             this.logXAxisToolStripMenuItem,
-            this.logYAxisToolStripMenuItem});
+            this.logYAxisToolStripMenuItem,
+            this.includeDuplicatesToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.settingsToolStripMenuItem.Text = "Settings...";
@@ -514,7 +516,7 @@
             // errorBarsToolStripMenuItem
             // 
             this.errorBarsToolStripMenuItem.Name = "errorBarsToolStripMenuItem";
-            this.errorBarsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.errorBarsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.errorBarsToolStripMenuItem.Text = "Include Error Bars";
             this.errorBarsToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.errorBarsToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -522,7 +524,7 @@
             // colorFromStarTypeToolStripMenuItem
             // 
             this.colorFromStarTypeToolStripMenuItem.Name = "colorFromStarTypeToolStripMenuItem";
-            this.colorFromStarTypeToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.colorFromStarTypeToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.colorFromStarTypeToolStripMenuItem.Text = "Color by Star Type";
             this.colorFromStarTypeToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.colorFromStarTypeToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -530,7 +532,7 @@
             // logXAxisToolStripMenuItem
             // 
             this.logXAxisToolStripMenuItem.Name = "logXAxisToolStripMenuItem";
-            this.logXAxisToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.logXAxisToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.logXAxisToolStripMenuItem.Text = "Log X Axis";
             this.logXAxisToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.logXAxisToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -538,10 +540,18 @@
             // logYAxisToolStripMenuItem
             // 
             this.logYAxisToolStripMenuItem.Name = "logYAxisToolStripMenuItem";
-            this.logYAxisToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.logYAxisToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.logYAxisToolStripMenuItem.Text = "Log Y Axis";
             this.logYAxisToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.logYAxisToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // includeDuplicatesToolStripMenuItem
+            // 
+            this.includeDuplicatesToolStripMenuItem.Name = "includeDuplicatesToolStripMenuItem";
+            this.includeDuplicatesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.includeDuplicatesToolStripMenuItem.Text = "Include Duplicates";
+            this.includeDuplicatesToolStripMenuItem.CheckStateChanged += new System.EventHandler (this.MenuCheckBox_CheckStateChanged);
+            this.includeDuplicatesToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
             // VisualizationDialog
             // 
@@ -622,5 +632,6 @@
         private System.Windows.Forms.ToolStripMenuItem radiusVsT0ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusVsTperiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusVsKToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem includeDuplicatesToolStripMenuItem;
         }
     }

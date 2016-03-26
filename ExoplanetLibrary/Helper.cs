@@ -59,17 +59,25 @@ namespace ExoplanetLibrary
 #else
 #endif
 
-        static public string Format (string value, string minimumError, string maximumError)
+        static public string Format (string value, string minimumError, string maximumError, string units)
             {
             if (minimumError != null && maximumError != null && minimumError.Length > 0 && maximumError.Length > 0)
                 {
                 if (string.Equals (minimumError, maximumError))
-                    return value + " (+/-" + maximumError + ")";
+                    return value + " (+/-" + maximumError + ") " + units;
                 else
-                    return value + " (+" + maximumError + "/-" + minimumError + ")";
+                    return value + " (+" + maximumError + "/-" + minimumError + ") " + units;
                 }
             else if (value != null && value.Length > 0)
-                return value;
+                return value + " " + units;
+            else
+                return " - ";
+            }
+
+        static public string Format (string value, string units)
+            {
+            if (value != null && value.Length > 0)
+                return value + " " + units;
             else
                 return " - ";
             }

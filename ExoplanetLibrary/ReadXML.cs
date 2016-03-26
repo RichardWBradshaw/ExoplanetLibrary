@@ -171,7 +171,7 @@ namespace ExoplanetLibrary
             Reader.ReadToFollowing ("Exoplanet");
 
             Reader.MoveToFirstAttribute ();
-            exoplanet.Name = Reader.Value;
+            exoplanet.Name = Reader.Value.Trim();
             }
 
         static void ReadMass (Exoplanet exoplanet)
