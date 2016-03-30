@@ -844,9 +844,12 @@ namespace ExoplanetLibrary
         static public string Compare (ArrayList array1, ArrayList array2)
             {
             string stringer = "";
+            bool initial;
 
             array1.Sort (new SortByExoplanetName ());
             array2.Sort (new SortByExoplanetName ());
+
+            initial = true;
 
             for (int index = 0; index < array1.Count; ++index)
                 {
@@ -855,13 +858,32 @@ namespace ExoplanetLibrary
 
                 if (object2 == null)
                     {
-                    stringer += "Added     '" + ( array1 [index] as Exoplanet ).Name + "'\r\n";
-                    }
-                else if (!Helper.CompareEquals (object1, object2))
-                    {
-                    stringer += "Different '" + ( array1 [index] as Exoplanet ).Name + "'\r\n";
+                    if(initial)
+                        stringer += "Added:\r\n";
+
+                    stringer += "\t" + ( array1 [index] as Exoplanet ).Name + "\r\n";
+                    initial = false;
                     }
                 }
+
+            initial = true;
+
+            for (int index = 0; index < array1.Count; ++index)
+                {
+                object object1 = array1 [index];
+                object object2 = GetByName (array2, ( array1 [index] as Exoplanet ).Name);
+
+                if (object2 != null && !Helper.CompareEquals (object1, object2))
+                    {
+                    if (initial)
+                        stringer += "Updated:\r\n";
+
+                    stringer += "\t" + ( array1 [index] as Exoplanet ).Name + "\r\n";
+                    initial = false;
+                    }
+                }
+
+            initial = true;
 
             for (int index = 0; index < array2.Count; ++index)
                 {
@@ -870,7 +892,11 @@ namespace ExoplanetLibrary
 
                 if (object2 == null)
                     {
-                    stringer += "Missing   '" + ( array2 [index] as Exoplanet ).Name + "'\r\n";
+                    if (initial)
+                        stringer += "Missing:\r\n";
+
+                    stringer += "\t" + ( array2 [index] as Exoplanet ).Name + "\r\n";
+                    initial = false;
                     }
                 }
 

@@ -433,7 +433,7 @@ namespace ExoplanetLibrary
                 {
                 System.Collections.ArrayList array2 = ReadXML.Read (xmlFileName);
 
-                MessageBox.Show (Exoplanets.Compare (Exoplanets.ExoplanetsArray, array2));
+                MessageBox.Show (Exoplanets.Compare (Exoplanets.ExoplanetsArray, array2), "Comparison " + xmlFileName);
                 }
             }
 
