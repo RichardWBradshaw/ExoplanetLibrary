@@ -1,4 +1,5 @@
 ﻿using NPlot;
+using CubicSpline;
 using System.Drawing;
 using System.Collections;
 using System.Windows.Forms;
@@ -233,6 +234,8 @@ namespace ExoplanetLibrary
             VisualizeErrorBars (plotSurface, exoplanets, plotType, ref minimumY, ref maximumY);
             VisualizeLogYAxis (plotSurface, plotType, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
+
+            VisualizeCubicSpline (plotSurface, plotType, YAxis, XAxis);
 
             AddInteraction (plotSurface);
 
@@ -1131,6 +1134,49 @@ namespace ExoplanetLibrary
                 YAxis.WorldMax = maximumY;
                 plotSurface.YAxis1 = YAxis;
                 }
+            }
+
+        static private void VisualizeCubicSpline (NPlot.Windows.PlotSurface2D plotSurface, PlotTypes plotType, double [] yAxis, double [] xAxis)
+            {
+            if (plotType == PlotTypes.Mass ||
+                plotType == PlotTypes.Radius ||
+                plotType == PlotTypes.Eccentricity ||
+                plotType == PlotTypes.LogG ||
+                plotType == PlotTypes.Omega)
+                if (Visualization.LogYAxis == CheckState.Unchecked)
+                    {
+                    CubicSpline.CubicSpline cubicSpline = new CubicSpline.CubicSpline ();
+                    float [] y = new float [yAxis.Length];
+                    float [] x = new float [yAxis.Length];
+
+                    for (int index = 0; index < yAxis.Length; ++index)
+                        {
+                        y [index] = ( float )yAxis [index];
+                        x [index] = ( float )xAxis [index];
+                        }
+
+                    float [] xs, ys;
+
+                    cubicSpline.FitGeometric (x, y, 200, out xs, out ys);
+
+                    // needs_work ArrayList nzx = new ArrayList ();
+                    //ArrayList nzy = new ArrayList ();
+
+                    //for (int index = 0; index < xs.Length; ++index)
+                    //    if (xs [index] > AlmostZero)
+                    //        if (ys [index] > AlmostZero)
+                    //            {
+                    //            nzx.Add (xs [index]);
+                    //            nzy.Add (ys [index]);
+                    //            }
+
+                    LinePlot linePlot = new LinePlot ();
+                    linePlot.AbscissaData = xs;
+                    linePlot.OrdinateData = ys;
+                    linePlot.Color = Color.Blue;
+                    linePlot.Pen.Width = 1F;
+                    plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, 4);
+                    }
             }
 
         static private void VisualizeErrorBar (NPlot.Windows.PlotSurface2D plotSurface, double value, double maximumError, double minimumError, int counter)

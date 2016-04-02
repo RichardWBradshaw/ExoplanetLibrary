@@ -53,6 +53,10 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CubicSpline, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CubicSpline\CubicSpline\CubicSpline\bin\Debug\CubicSpline.dll</HintPath>
+    </Reference>
     <Reference Include="NPlot">
       <HintPath>..\..\..\nplot-0.9.10.0\bin\net\2.0\release\NPlot.dll</HintPath>
     </Reference>
