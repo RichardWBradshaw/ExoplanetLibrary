@@ -343,7 +343,7 @@ namespace ExoplanetLibrary
             switch (PlotType)
                 {
                 case PlotTypes.Mass:
-                    array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false, includeDuplicates );
+                    array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false, includeDuplicates);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
@@ -441,7 +441,7 @@ namespace ExoplanetLibrary
 
                 case PlotTypes.MassAndRadius:
                     if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false, true) ) != null)
-                        if (( array = Exoplanets.PlanetsWithRadius (array, false,true) ) != null)
+                        if (( array = Exoplanets.PlanetsWithRadius (array, false, true) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndRadius);
                     break;
 
@@ -643,10 +643,15 @@ namespace ExoplanetLibrary
                 {
                 logYAxisToolStripMenuItem.Checked = logYAxisToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
-            else if( sender == includeDuplicatesToolStripMenuItem)
+            else if (sender == includeDuplicatesToolStripMenuItem)
                 {
                 includeDuplicatesToolStripMenuItem.Checked = includeDuplicatesToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
+            }
+
+        private void visualizeFlip_Click (object sender, EventArgs e)
+            {
+            Plotting.ChangeInteraction (PlotSurface2D);
             }
         }
     }

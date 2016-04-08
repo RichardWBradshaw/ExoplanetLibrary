@@ -73,6 +73,7 @@
             this.logXAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logYAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.includeDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,7 +139,8 @@
             this.toolStripSeparator2,
             this.printStripMenuItem,
             this.printPreviewToolStripMenuItem,
-            this.copyToClipBoardToolStripMenuItem});
+            this.copyToClipBoardToolStripMenuItem,
+            this.flipToolStripMenuItem});
             this.visualizationToolStripMenuItem.Name = "visualizationToolStripMenuItem";
             this.visualizationToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.visualizationToolStripMenuItem.Text = "Linear Diagrams";
@@ -550,8 +552,15 @@
             this.includeDuplicatesToolStripMenuItem.Name = "includeDuplicatesToolStripMenuItem";
             this.includeDuplicatesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.includeDuplicatesToolStripMenuItem.Text = "Include Duplicates";
-            this.includeDuplicatesToolStripMenuItem.CheckStateChanged += new System.EventHandler (this.MenuCheckBox_CheckStateChanged);
+            this.includeDuplicatesToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.includeDuplicatesToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // flipToolStripMenuItem
+            // 
+            this.flipToolStripMenuItem.Name = "flipToolStripMenuItem";
+            this.flipToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.flipToolStripMenuItem.Text = "Flip";
+            this.flipToolStripMenuItem.Click += new System.EventHandler(this.visualizeFlip_Click);
             // 
             // VisualizationDialog
             // 
@@ -633,5 +642,6 @@
         private System.Windows.Forms.ToolStripMenuItem radiusVsTperiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusVsKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem includeDuplicatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem flipToolStripMenuItem;
         }
     }

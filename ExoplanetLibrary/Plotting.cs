@@ -59,6 +59,12 @@ namespace ExoplanetLibrary
         Stars = 100,
         };
 
+    public enum DynamicInteractions
+        {
+        Area = 0,
+        Pan = 1,
+        };
+
     public class Plotting
         {
         Plotting ()
@@ -113,6 +119,15 @@ namespace ExoplanetLibrary
             get { return AlmostZero_; }
             set { AlmostZero_ = value; }
             }
+
+        static private DynamicInteractions Interaction_ = DynamicInteractions.Area;
+        static public DynamicInteractions Interaction
+            {
+            get { return Interaction_; }
+            set { Interaction_ = value; }
+            }
+
+        static private NPlot.Windows.PlotSurface2D.Interactions.Interaction [] Interactions = { null, null };
 
         static public void VisualizeLinearDiagrams (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets, PlotTypes plotType)
             {
@@ -1146,29 +1161,9 @@ namespace ExoplanetLibrary
                 if (Visualization.LogYAxis == CheckState.Unchecked)
                     {
                     CubicSpline.CubicSpline cubicSpline = new CubicSpline.CubicSpline ();
-                    float [] y = new float [yAxis.Length];
-                    float [] x = new float [yAxis.Length];
-
-                    for (int index = 0; index < yAxis.Length; ++index)
-                        {
-                        y [index] = ( float )yAxis [index];
-                        x [index] = ( float )xAxis [index];
-                        }
-
                     float [] xs, ys;
 
-                    cubicSpline.FitGeometric (x, y, 200, out xs, out ys);
-
-                    // needs_work ArrayList nzx = new ArrayList ();
-                    //ArrayList nzy = new ArrayList ();
-
-                    //for (int index = 0; index < xs.Length; ++index)
-                    //    if (xs [index] > AlmostZero)
-                    //        if (ys [index] > AlmostZero)
-                    //            {
-                    //            nzx.Add (xs [index]);
-                    //            nzy.Add (ys [index]);
-                    //            }
+                    cubicSpline.FitGeometric (xAxis, yAxis, 200, out xs, out ys);
 
                     LinePlot linePlot = new LinePlot ();
                     linePlot.AbscissaData = xs;
@@ -1297,9 +1292,36 @@ namespace ExoplanetLibrary
 #endif
             }
 
+        static public void ChangeInteraction (NPlot.Windows.PlotSurface2D plotSurface)
+            {
+            Interaction = Interaction == DynamicInteractions.Area ? DynamicInteractions.Pan : DynamicInteractions.Area;
+            AddInteraction (plotSurface);
+            }
+
         static public void AddInteraction (NPlot.Windows.PlotSurface2D plotSurface)
             {
-            plotSurface.AddInteraction (new NPlot.Windows.PlotSurface2D.Interactions.RubberBandSelection ());
+            if (Interactions [0] != null)
+                plotSurface.RemoveInteraction (Interactions [0]);
+
+            if (Interactions [1] != null)
+                plotSurface.RemoveInteraction (Interactions [1]);
+
+            if (Interaction == DynamicInteractions.Area)
+                {
+                Interactions [0] = new NPlot.Windows.PlotSurface2D.Interactions.RubberBandSelection ();
+                Interactions [1] = null;
+                }
+            else if (Interaction == DynamicInteractions.Pan)
+                {
+                Interactions [0] = new NPlot.Windows.PlotSurface2D.Interactions.HorizontalDrag ();
+                Interactions [1] = new NPlot.Windows.PlotSurface2D.Interactions.VerticalDrag ();
+                }
+
+            if (Interactions [0] != null)
+                plotSurface.AddInteraction (Interactions [0]);
+
+            if (Interactions [1] != null)
+                plotSurface.AddInteraction (Interactions [1]);
             }
         }
     }
