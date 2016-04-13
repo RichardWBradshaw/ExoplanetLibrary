@@ -14,6 +14,7 @@
 
         private void InitializeComponent ()
             {
+            this.components = new System.ComponentModel.Container();
             this.PlotSurface2D = new NPlot.Windows.PlotSurface2D();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -43,6 +44,7 @@
             this.printStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToClipBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightAccessionVsDeclinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -73,8 +75,21 @@
             this.logXAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logYAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.includeDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.flipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.panToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.areaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printPreviewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToClipBoardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.viewRefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlotSurface2D
@@ -316,6 +331,13 @@
             this.copyToClipBoardToolStripMenuItem.Text = "Copy to Clip  Board";
             this.copyToClipBoardToolStripMenuItem.Click += new System.EventHandler(this.visualizeCopyToClipBoard_Click);
             // 
+            // flipToolStripMenuItem
+            // 
+            this.flipToolStripMenuItem.Name = "flipToolStripMenuItem";
+            this.flipToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.flipToolStripMenuItem.Text = "Flip";
+            this.flipToolStripMenuItem.Click += new System.EventHandler(this.visualizeFlip_Click);
+            // 
             // pointToolStripMenuItem
             // 
             this.pointToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -555,12 +577,92 @@
             this.includeDuplicatesToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.includeDuplicatesToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
-            // flipToolStripMenuItem
+            // contextMenuStrip1
             // 
-            this.flipToolStripMenuItem.Name = "flipToolStripMenuItem";
-            this.flipToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.flipToolStripMenuItem.Text = "Flip";
-            this.flipToolStripMenuItem.Click += new System.EventHandler(this.visualizeFlip_Click);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshViewToolStripMenuItem1,
+            this.toolStripSeparator5,
+            this.panToolStripMenuItem,
+            this.areaToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.printToolStripMenuItem,
+            this.printPreviewToolStripMenuItem1,
+            this.toolStripSeparator7,
+            this.copyToClipBoardToolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 154);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.open_contextMenuStrip1);
+            // 
+            // panToolStripMenuItem
+            // 
+            this.panToolStripMenuItem.Name = "panToolStripMenuItem";
+            this.panToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.panToolStripMenuItem.Text = "Window Panning";
+            this.panToolStripMenuItem.Click += new System.EventHandler(this.panToolStripMenuItem_Click);
+            // 
+            // areaToolStripMenuItem
+            // 
+            this.areaToolStripMenuItem.Name = "areaToolStripMenuItem";
+            this.areaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.areaToolStripMenuItem.Text = "Window Area";
+            this.areaToolStripMenuItem.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.printToolStripMenuItem.Text = "Print...";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // printPreviewToolStripMenuItem1
+            // 
+            this.printPreviewToolStripMenuItem1.Name = "printPreviewToolStripMenuItem1";
+            this.printPreviewToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.printPreviewToolStripMenuItem1.Text = "Print Preview...";
+            this.printPreviewToolStripMenuItem1.Click += new System.EventHandler(this.printPreviewToolStripMenuItem1_Click);
+            // 
+            // copyToClipBoardToolStripMenuItem1
+            // 
+            this.copyToClipBoardToolStripMenuItem1.Name = "copyToClipBoardToolStripMenuItem1";
+            this.copyToClipBoardToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.copyToClipBoardToolStripMenuItem1.Text = "Copy to Clip Board";
+            this.copyToClipBoardToolStripMenuItem1.Click += new System.EventHandler(this.copyToClipBoardToolStripMenuItem1_Click);
+            // 
+            // refreshViewToolStripMenuItem1
+            // 
+            this.refreshViewToolStripMenuItem1.Name = "refreshViewToolStripMenuItem1";
+            this.refreshViewToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.refreshViewToolStripMenuItem1.Text = "Refresh View";
+            this.refreshViewToolStripMenuItem1.Click += new System.EventHandler(this.refreshViewToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(171, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(171, 6);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(171, 6);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewRefreshToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
+            // 
+            // viewRefreshToolStripMenuItem
+            // 
+            this.viewRefreshToolStripMenuItem.Name = "viewRefreshToolStripMenuItem";
+            this.viewRefreshToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.viewRefreshToolStripMenuItem.Text = "View Refresh";
+            this.viewRefreshToolStripMenuItem.Click += new System.EventHandler(this.viewRefreshToolStripMenuItem_Click);
             // 
             // VisualizationDialog
             // 
@@ -578,6 +680,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Visualization_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -643,5 +747,17 @@
         private System.Windows.Forms.ToolStripMenuItem radiusVsKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem includeDuplicatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem flipToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem refreshViewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem panToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem areaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem copyToClipBoardToolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem viewRefreshToolStripMenuItem;
         }
     }

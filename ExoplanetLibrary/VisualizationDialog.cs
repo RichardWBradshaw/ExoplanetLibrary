@@ -653,5 +653,72 @@ namespace ExoplanetLibrary
             {
             Plotting.ChangeInteraction (PlotSurface2D);
             }
+
+        private void refreshViewToolStripMenuItem1_Click (object sender, EventArgs e)
+            {
+
+            }
+
+        private void panToolStripMenuItem_Click (object sender, EventArgs e)
+            {
+
+            }
+
+        private void areaToolStripMenuItem_Click (object sender, EventArgs e)
+            {
+
+            }
+
+        private void printToolStripMenuItem_Click (object sender, EventArgs e)
+            {
+
+            }
+
+        private void printPreviewToolStripMenuItem1_Click (object sender, EventArgs e)
+            {
+
+            }
+
+        private void copyToClipBoardToolStripMenuItem1_Click (object sender, EventArgs e)
+            {
+
+            }
+
+        private void open_contextMenuStrip1 (object sender, System.ComponentModel.CancelEventArgs e)
+            {
+            //// Acquire references to the owning control and item.
+            //Control c = fruitContextMenuStrip.SourceControl as Control;
+            //ToolStripDropDownItem tsi = fruitContextMenuStrip.OwnerItem as ToolStripDropDownItem;
+
+            //// Clear the ContextMenuStrip control's Items collection.
+            //fruitContextMenuStrip.Items.Clear ();
+
+            //// Check the source control first.
+            //if (c != null)
+            //    {
+            //    // Add custom item (Form)
+            //    fruitContextMenuStrip.Items.Add ("Source: " + c.GetType ().ToString ());
+            //    }
+            //else if (tsi != null)
+            //    {
+            //    // Add custom item (ToolStripDropDownButton or ToolStripMenuItem)
+            //    fruitContextMenuStrip.Items.Add ("Source: " + tsi.GetType ().ToString ());
+            //    }
+
+            //// Populate the ContextMenuStrip control with its default items.
+            //fruitContextMenuStrip.Items.Add ("-");
+            //fruitContextMenuStrip.Items.Add ("Apples");
+            //fruitContextMenuStrip.Items.Add ("Oranges");
+            //fruitContextMenuStrip.Items.Add ("Pears");
+
+            //// Set Cancel to false. 
+            //// It is optimized to true based on empty entry.
+            //e.Cancel = false;
+            }
+
+        private void viewRefreshToolStripMenuItem_Click (object sender, EventArgs e)
+            {
+
+            }
         }
     }
