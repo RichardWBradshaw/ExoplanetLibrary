@@ -14,7 +14,6 @@
 
         private void InitializeComponent ()
             {
-            this.components = new System.ComponentModel.Container();
             this.PlotSurface2D = new NPlot.Windows.PlotSurface2D();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -38,12 +37,7 @@
             this.kToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.geometricAlbedoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tconjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.refreshViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.printStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToClipBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightAccessionVsDeclinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,21 +69,7 @@
             this.logXAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logYAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.includeDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.panToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.areaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printPreviewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToClipBoardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.viewRefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlotSurface2D
@@ -149,12 +129,7 @@
             this.kToolStripMenuItem,
             this.geometricAlbedoToolStripMenuItem,
             this.tconjToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.refreshViewToolStripMenuItem,
             this.toolStripSeparator2,
-            this.printStripMenuItem,
-            this.printPreviewToolStripMenuItem,
-            this.copyToClipBoardToolStripMenuItem,
             this.flipToolStripMenuItem});
             this.visualizationToolStripMenuItem.Name = "visualizationToolStripMenuItem";
             this.visualizationToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
@@ -163,178 +138,145 @@
             // massToolStripMenuItem
             // 
             this.massToolStripMenuItem.Name = "massToolStripMenuItem";
-            this.massToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.massToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.massToolStripMenuItem.Text = "Mass";
             this.massToolStripMenuItem.Click += new System.EventHandler(this.visualizeMass_Click);
             // 
             // radiiToolStripMenuItem
             // 
             this.radiiToolStripMenuItem.Name = "radiiToolStripMenuItem";
-            this.radiiToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.radiiToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.radiiToolStripMenuItem.Text = "Radii";
             this.radiiToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadii_Click);
             // 
             // orbitalPeriodToolStripMenuItem
             // 
             this.orbitalPeriodToolStripMenuItem.Name = "orbitalPeriodToolStripMenuItem";
-            this.orbitalPeriodToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.orbitalPeriodToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.orbitalPeriodToolStripMenuItem.Text = "Orbital Period";
             this.orbitalPeriodToolStripMenuItem.Click += new System.EventHandler(this.visualizeOrbitalPeriod_Click);
             // 
             // semiMajorAxisToolStripMenuItem
             // 
             this.semiMajorAxisToolStripMenuItem.Name = "semiMajorAxisToolStripMenuItem";
-            this.semiMajorAxisToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.semiMajorAxisToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.semiMajorAxisToolStripMenuItem.Text = "Semi-Major Axis";
             this.semiMajorAxisToolStripMenuItem.Click += new System.EventHandler(this.visualizeSemiMajorAxis_Click);
             // 
             // eccentricityToolStripMenuItem
             // 
             this.eccentricityToolStripMenuItem.Name = "eccentricityToolStripMenuItem";
-            this.eccentricityToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.eccentricityToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.eccentricityToolStripMenuItem.Text = "Eccentricity";
             this.eccentricityToolStripMenuItem.Click += new System.EventHandler(this.visualizeEccentricity_Click);
             // 
             // angularDistanceToolStripMenuItem
             // 
             this.angularDistanceToolStripMenuItem.Name = "angularDistanceToolStripMenuItem";
-            this.angularDistanceToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.angularDistanceToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.angularDistanceToolStripMenuItem.Text = "Angular Distance";
             this.angularDistanceToolStripMenuItem.Click += new System.EventHandler(this.visualizeAngularDistance_Click);
             // 
             // inclinationToolStripMenuItem
             // 
             this.inclinationToolStripMenuItem.Name = "inclinationToolStripMenuItem";
-            this.inclinationToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.inclinationToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.inclinationToolStripMenuItem.Text = "Inclination";
             this.inclinationToolStripMenuItem.Click += new System.EventHandler(this.visualizeInclination_Click);
             // 
             // t0ToolStripMenuItem
             // 
             this.t0ToolStripMenuItem.Name = "t0ToolStripMenuItem";
-            this.t0ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.t0ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.t0ToolStripMenuItem.Text = "T0";
             this.t0ToolStripMenuItem.Click += new System.EventHandler(this.visualizeT0_Click);
             // 
             // t0secToolStripMenuItem
             // 
             this.t0secToolStripMenuItem.Name = "t0secToolStripMenuItem";
-            this.t0secToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.t0secToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.t0secToolStripMenuItem.Text = "T0-sec";
             this.t0secToolStripMenuItem.Click += new System.EventHandler(this.visualizeT0sec_Click);
             // 
             // lambdaAngleToolStripMenuItem
             // 
             this.lambdaAngleToolStripMenuItem.Name = "lambdaAngleToolStripMenuItem";
-            this.lambdaAngleToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.lambdaAngleToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.lambdaAngleToolStripMenuItem.Text = "Lambda Angle";
             this.lambdaAngleToolStripMenuItem.Click += new System.EventHandler(this.visualizeLambdaAngle_Click);
             // 
             // tvrToolStripMenuItem
             // 
             this.tvrToolStripMenuItem.Name = "tvrToolStripMenuItem";
-            this.tvrToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tvrToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tvrToolStripMenuItem.Text = "Tvr";
             this.tvrToolStripMenuItem.Click += new System.EventHandler(this.visualizeTvr_Click);
             // 
             // tcalcToolStripMenuItem
             // 
             this.tcalcToolStripMenuItem.Name = "tcalcToolStripMenuItem";
-            this.tcalcToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tcalcToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tcalcToolStripMenuItem.Text = "Tcalc";
             this.tcalcToolStripMenuItem.Click += new System.EventHandler(this.visualizeTcalc_Click);
             // 
             // tmeasToolStripMenuItem
             // 
             this.tmeasToolStripMenuItem.Name = "tmeasToolStripMenuItem";
-            this.tmeasToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tmeasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tmeasToolStripMenuItem.Text = "Tmeas";
             this.tmeasToolStripMenuItem.Click += new System.EventHandler(this.visualizeTmeas_Click);
             // 
             // loggToolStripMenuItem
             // 
             this.loggToolStripMenuItem.Name = "loggToolStripMenuItem";
-            this.loggToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.loggToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.loggToolStripMenuItem.Text = "Log(g)";
             this.loggToolStripMenuItem.Click += new System.EventHandler(this.visualizeLogG_Click);
             // 
             // omegaToolStripMenuItem
             // 
             this.omegaToolStripMenuItem.Name = "omegaToolStripMenuItem";
-            this.omegaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.omegaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.omegaToolStripMenuItem.Text = "Omega";
             this.omegaToolStripMenuItem.Click += new System.EventHandler(this.visualizeOmega_Click);
             // 
             // tperiToolStripMenuItem
             // 
             this.tperiToolStripMenuItem.Name = "tperiToolStripMenuItem";
-            this.tperiToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tperiToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tperiToolStripMenuItem.Text = "Tperi";
             this.tperiToolStripMenuItem.Click += new System.EventHandler(this.visualizeTperi_Click);
             // 
             // kToolStripMenuItem
             // 
             this.kToolStripMenuItem.Name = "kToolStripMenuItem";
-            this.kToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.kToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.kToolStripMenuItem.Text = "K";
             this.kToolStripMenuItem.Click += new System.EventHandler(this.visualizeK_Click);
             // 
             // geometricAlbedoToolStripMenuItem
             // 
             this.geometricAlbedoToolStripMenuItem.Name = "geometricAlbedoToolStripMenuItem";
-            this.geometricAlbedoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.geometricAlbedoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.geometricAlbedoToolStripMenuItem.Text = "Geometric Albedo";
             this.geometricAlbedoToolStripMenuItem.Click += new System.EventHandler(this.visualizeGeometricAlbedo_Click);
             // 
             // tconjToolStripMenuItem
             // 
             this.tconjToolStripMenuItem.Name = "tconjToolStripMenuItem";
-            this.tconjToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tconjToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tconjToolStripMenuItem.Text = "Tconj";
             this.tconjToolStripMenuItem.Click += new System.EventHandler(this.visualizeTconj_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
-            // 
-            // refreshViewToolStripMenuItem
-            // 
-            this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
-            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.refreshViewToolStripMenuItem.Text = "Refresh View";
-            this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.visualizeRefreshView_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
-            // 
-            // printStripMenuItem
-            // 
-            this.printStripMenuItem.Name = "printStripMenuItem";
-            this.printStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.printStripMenuItem.Text = "Print...";
-            this.printStripMenuItem.Click += new System.EventHandler(this.visualizePrint_Click);
-            // 
-            // printPreviewToolStripMenuItem
-            // 
-            this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.printPreviewToolStripMenuItem.Text = "Print Preview...";
-            this.printPreviewToolStripMenuItem.Click += new System.EventHandler(this.visualizePrintPreview_Click);
-            // 
-            // copyToClipBoardToolStripMenuItem
-            // 
-            this.copyToClipBoardToolStripMenuItem.Name = "copyToClipBoardToolStripMenuItem";
-            this.copyToClipBoardToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.copyToClipBoardToolStripMenuItem.Text = "Copy to Clip  Board";
-            this.copyToClipBoardToolStripMenuItem.Click += new System.EventHandler(this.visualizeCopyToClipBoard_Click);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
             // 
             // flipToolStripMenuItem
             // 
             this.flipToolStripMenuItem.Name = "flipToolStripMenuItem";
-            this.flipToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.flipToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.flipToolStripMenuItem.Text = "Flip";
             this.flipToolStripMenuItem.Click += new System.EventHandler(this.visualizeFlip_Click);
             // 
@@ -577,93 +519,6 @@
             this.includeDuplicatesToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.includeDuplicatesToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshViewToolStripMenuItem1,
-            this.toolStripSeparator5,
-            this.panToolStripMenuItem,
-            this.areaToolStripMenuItem,
-            this.toolStripSeparator6,
-            this.printToolStripMenuItem,
-            this.printPreviewToolStripMenuItem1,
-            this.toolStripSeparator7,
-            this.copyToClipBoardToolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 154);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.open_contextMenuStrip1);
-            // 
-            // panToolStripMenuItem
-            // 
-            this.panToolStripMenuItem.Name = "panToolStripMenuItem";
-            this.panToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.panToolStripMenuItem.Text = "Window Panning";
-            this.panToolStripMenuItem.Click += new System.EventHandler(this.panToolStripMenuItem_Click);
-            // 
-            // areaToolStripMenuItem
-            // 
-            this.areaToolStripMenuItem.Name = "areaToolStripMenuItem";
-            this.areaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.areaToolStripMenuItem.Text = "Window Area";
-            this.areaToolStripMenuItem.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
-            // 
-            // printToolStripMenuItem
-            // 
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.printToolStripMenuItem.Text = "Print...";
-            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
-            // 
-            // printPreviewToolStripMenuItem1
-            // 
-            this.printPreviewToolStripMenuItem1.Name = "printPreviewToolStripMenuItem1";
-            this.printPreviewToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
-            this.printPreviewToolStripMenuItem1.Text = "Print Preview...";
-            this.printPreviewToolStripMenuItem1.Click += new System.EventHandler(this.printPreviewToolStripMenuItem1_Click);
-            // 
-            // copyToClipBoardToolStripMenuItem1
-            // 
-            this.copyToClipBoardToolStripMenuItem1.Name = "copyToClipBoardToolStripMenuItem1";
-            this.copyToClipBoardToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
-            this.copyToClipBoardToolStripMenuItem1.Text = "Copy to Clip Board";
-            this.copyToClipBoardToolStripMenuItem1.Click += new System.EventHandler(this.copyToClipBoardToolStripMenuItem1_Click);
-            // 
-            // refreshViewToolStripMenuItem1
-            // 
-            this.refreshViewToolStripMenuItem1.Name = "refreshViewToolStripMenuItem1";
-            this.refreshViewToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
-            this.refreshViewToolStripMenuItem1.Text = "Refresh View";
-            this.refreshViewToolStripMenuItem1.Click += new System.EventHandler(this.refreshViewToolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(171, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(171, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(171, 6);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewRefreshToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
-            // 
-            // viewRefreshToolStripMenuItem
-            // 
-            this.viewRefreshToolStripMenuItem.Name = "viewRefreshToolStripMenuItem";
-            this.viewRefreshToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.viewRefreshToolStripMenuItem.Text = "View Refresh";
-            this.viewRefreshToolStripMenuItem.Click += new System.EventHandler(this.viewRefreshToolStripMenuItem_Click);
-            // 
             // VisualizationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,8 +535,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Visualization_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -714,13 +567,9 @@
         private System.Windows.Forms.ToolStripMenuItem geometricAlbedoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tconjToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rightAccessionVsDeclinationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem printStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem errorBarsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorFromStarTypeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem refreshViewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem logXAxisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logYAxisToolStripMenuItem;
@@ -736,7 +585,6 @@
         private System.Windows.Forms.ToolStripMenuItem radiusVsEccentricityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusVsAngularDistanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusVsOmegaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copyToClipBoardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem massVsInclinationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem massVsT0ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem massVsTperiToolStripMenuItem;
@@ -747,17 +595,5 @@
         private System.Windows.Forms.ToolStripMenuItem radiusVsKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem includeDuplicatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem flipToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem refreshViewToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem panToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem areaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripMenuItem copyToClipBoardToolStripMenuItem1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem viewRefreshToolStripMenuItem;
         }
     }

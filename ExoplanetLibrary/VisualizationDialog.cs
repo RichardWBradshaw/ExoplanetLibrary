@@ -330,11 +330,6 @@ namespace ExoplanetLibrary
 
         ///
 
-        private void visualizeRefreshView_Click (object sender, EventArgs e)
-            {
-            RefreshGraphics ();
-            }
-
         private void RefreshGraphics ()
             {
             ArrayList array = null;
@@ -437,8 +432,6 @@ namespace ExoplanetLibrary
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
-                //
-
                 case PlotTypes.MassAndRadius:
                     if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false, true) ) != null)
                         if (( array = Exoplanets.PlanetsWithRadius (array, false, true) ) != null)
@@ -498,8 +491,6 @@ namespace ExoplanetLibrary
                         if (( array = Exoplanets.PlanetsWithK (array, false, true, true) ) != null)
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndK);
                     break;
-
-                //
 
                 case PlotTypes.RadiusAndMass:
                     if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false, true) ) != null)
@@ -561,27 +552,12 @@ namespace ExoplanetLibrary
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndK);
                     break;
 
-                //
-
                 case PlotTypes.Stars:
                     Plotting.VisualizeStars (PlotSurface2D, Exoplanets.ExoplanetsArray);
                     break;
                 }
-            }
 
-        private void visualizePrint_Click (object sender, System.EventArgs e)
-            {
-            PlotSurface2D.Print (false);
-            }
-
-        private void visualizePrintPreview_Click (object sender, EventArgs e)
-            {
-            PlotSurface2D.Print (true);
-            }
-
-        private void visualizeCopyToClipBoard_Click (object sender, EventArgs e)
-            {
-            PlotSurface2D.CopyToClipboard ();
+            PlotSurface2D.RightMenu = NPlot.Windows.PlotSurface2D.DefaultContextMenu;
             }
 
         ///
@@ -652,73 +628,6 @@ namespace ExoplanetLibrary
         private void visualizeFlip_Click (object sender, EventArgs e)
             {
             Plotting.ChangeInteraction (PlotSurface2D);
-            }
-
-        private void refreshViewToolStripMenuItem1_Click (object sender, EventArgs e)
-            {
-
-            }
-
-        private void panToolStripMenuItem_Click (object sender, EventArgs e)
-            {
-
-            }
-
-        private void areaToolStripMenuItem_Click (object sender, EventArgs e)
-            {
-
-            }
-
-        private void printToolStripMenuItem_Click (object sender, EventArgs e)
-            {
-
-            }
-
-        private void printPreviewToolStripMenuItem1_Click (object sender, EventArgs e)
-            {
-
-            }
-
-        private void copyToClipBoardToolStripMenuItem1_Click (object sender, EventArgs e)
-            {
-
-            }
-
-        private void open_contextMenuStrip1 (object sender, System.ComponentModel.CancelEventArgs e)
-            {
-            //// Acquire references to the owning control and item.
-            //Control c = fruitContextMenuStrip.SourceControl as Control;
-            //ToolStripDropDownItem tsi = fruitContextMenuStrip.OwnerItem as ToolStripDropDownItem;
-
-            //// Clear the ContextMenuStrip control's Items collection.
-            //fruitContextMenuStrip.Items.Clear ();
-
-            //// Check the source control first.
-            //if (c != null)
-            //    {
-            //    // Add custom item (Form)
-            //    fruitContextMenuStrip.Items.Add ("Source: " + c.GetType ().ToString ());
-            //    }
-            //else if (tsi != null)
-            //    {
-            //    // Add custom item (ToolStripDropDownButton or ToolStripMenuItem)
-            //    fruitContextMenuStrip.Items.Add ("Source: " + tsi.GetType ().ToString ());
-            //    }
-
-            //// Populate the ContextMenuStrip control with its default items.
-            //fruitContextMenuStrip.Items.Add ("-");
-            //fruitContextMenuStrip.Items.Add ("Apples");
-            //fruitContextMenuStrip.Items.Add ("Oranges");
-            //fruitContextMenuStrip.Items.Add ("Pears");
-
-            //// Set Cancel to false. 
-            //// It is optimized to true based on empty entry.
-            //e.Cancel = false;
-            }
-
-        private void viewRefreshToolStripMenuItem_Click (object sender, EventArgs e)
-            {
-
             }
         }
     }

@@ -1032,7 +1032,6 @@ namespace ExoplanetLibrary
                     xAxisLabel = "Mass (Mjup)";
                     yAxisLabel = "K (JD)";
                     break;
-                //
 
                 case PlotTypes.RadiusAndMass:
                     xAxisLabel = "Radius (Rjup)";
