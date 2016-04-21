@@ -71,15 +71,15 @@ namespace ExoplanetLibraryUnitTest
 
             Assert.IsNotNull (exoplanetArray);
 
-            Assert.AreEqual (Exoplanets.NumberOfExoplanets (exoplanetArray), 1927);
+            Assert.AreEqual (Exoplanets.NumberOfExoplanets (exoplanetArray), 1950);
             Assert.AreEqual (Exoplanets.NumberOfTypeOStars (exoplanetArray), 0);
             Assert.AreEqual (Exoplanets.NumberOfTypeBStars (exoplanetArray), 8);
-            Assert.AreEqual (Exoplanets.NumberOfTypeAStars (exoplanetArray), 12);
-            Assert.AreEqual (Exoplanets.NumberOfTypeFStars (exoplanetArray), 126);
-            Assert.AreEqual (Exoplanets.NumberOfTypeGStars (exoplanetArray), 381);
-            Assert.AreEqual (Exoplanets.NumberOfTypeKStars (exoplanetArray), 270);
-            Assert.AreEqual (Exoplanets.NumberOfTypeMStars (exoplanetArray), 88);
-            Assert.AreEqual (Exoplanets.NumberOfMultiPlanetStars (exoplanetArray), 717);
+            Assert.AreEqual (Exoplanets.NumberOfTypeAStars (exoplanetArray), 13);
+            Assert.AreEqual (Exoplanets.NumberOfTypeFStars (exoplanetArray), 129);
+            Assert.AreEqual (Exoplanets.NumberOfTypeGStars (exoplanetArray), 389);
+            Assert.AreEqual (Exoplanets.NumberOfTypeKStars (exoplanetArray), 274);
+            Assert.AreEqual (Exoplanets.NumberOfTypeMStars (exoplanetArray), 91);
+            Assert.AreEqual (Exoplanets.NumberOfMultiPlanetStars (exoplanetArray), 720);
             }
 
         [TestMethod]

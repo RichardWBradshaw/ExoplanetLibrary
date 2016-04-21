@@ -141,8 +141,9 @@ namespace ExoplanetLibrary
             }
 
         //
-        // CSV date format is 2016-02-23, where as XML date format is 02/23/2016
+        // CSV date format is 02/23/2016, where as XML date format is 2016-02-23
         //
+
         static public string FormatDateCSV2XML (string text)
             {
             if (!string.IsNullOrEmpty (text))
@@ -416,6 +417,313 @@ namespace ExoplanetLibrary
                     maximum = value;
 
             return maximum;
+            }
+        }
+
+    public class Indexer
+        {
+        static public int Name;
+
+        static public int Mass;
+        static public int MassErrorMin;
+        static public int MassErrorMax;
+
+        static public int MassSini;
+        static public int MassSiniErrorMin;
+        static public int MassSiniErrorMax;
+
+        static public int Radius;
+        static public int RadiusErrorMin;
+        static public int RadiusErrorMax;
+
+        static public int OrbitalPeriod;
+        static public int OrbitalPeriodErrorMin;
+        static public int OrbitalPeriodErrorMax;
+
+        static public int SemiMajorAxis;
+        static public int SemiMajorAxisErrorMin;
+        static public int SemiMajorAxisErrorMax;
+
+        static public int Eccentricity;
+        static public int EccentricityErrorMin;
+        static public int EccentricityErrorMax;
+
+        static public int AngularDistance;
+
+        static public int Inclination;
+        static public int InclinationErrorMin;
+        static public int InclinationErrorMax;
+
+        static public int TzeroTr;
+        static public int TzeroTrErrorMin;
+        static public int TzeroTrErrorMax;
+
+        static public int TzeroTrSec;
+        static public int TzeroTrSecErrorMin;
+        static public int TzeroTrSecErrorMax;
+
+        static public int LambdaAngle;
+        static public int LambdaAngleErrorMin;
+        static public int LambdaAngleErrorMax;
+
+        static public int TzeroVr;
+        static public int TzeroVrErrorMin;
+        static public int TzeroVrErrorMax;
+
+        static public int TemperatureCalculated;
+
+        static public int TemperatureMeasured;
+
+        static public int TemperatureHotPointLo;
+
+        static public int LogG;
+
+        static public int Status;
+
+        static public int Discovered;
+
+        static public int Updated;
+
+        static public int Omega;
+        static public int OmegaErrorMin;
+        static public int OmegaErrorMax;
+
+        static public int Tperi;
+        static public int TperiErrorMin;
+        static public int TperiErrorMax;
+
+        static public int DetectionType;
+
+        static public int Molecules;
+
+        static public int ImpactParameter;
+        static public int ImpactParameterErrorMin;
+        static public int ImpactParameterErrorMax;
+
+        static public int K;
+        static public int KErrorMin;
+        static public int KErrorMax;
+
+        static public int GeometricAlbedo;
+        static public int GeometricAlbedoErrorMin;
+        static public int GeometricAlbedoErrorMax;
+
+        static public int Tconj;
+        static public int TconjErrorMin;
+        static public int TconjErrorMax;
+
+        static public int MassDetectionType;
+
+        static public int RadiusDetectionType;
+
+        static public int AlternateNames;
+
+        static public int StarName;
+        static public int StarRightAccession;
+        static public int StarDeclination;
+
+        static public int StarMagnitudeV;
+        static public int StarMagnitudeI;
+        static public int StarMagnitudeJ;
+        static public int StarMagnitudeH;
+        static public int StarMagnitudeK;
+
+        static public int StarDistance;
+        static public int StarDistanceErrorMin;
+        static public int StarDistanceErrorMax;
+
+        static public int StarMetallicity;
+        static public int StarMetallicityErrorMin;
+        static public int StarMetallicityErrorMax;
+
+        static public int StarMass;
+        static public int StarMassErrorMin;
+        static public int StarMassErrorMax;
+
+        static public int StarRadius;
+        static public int StarRadiusErrorMin;
+        static public int StarRadiusErrorMax;
+
+        static public int StarSPType;
+
+        static public int StarAge;
+        static public int StarAgeErrorMin;
+        static public int StarAgeErrorMax;
+
+        static public int StarTeff;
+        static public int StarTeffErrorMin;
+        static public int StarTeffErrorMax;
+
+        static public int StarDetectedDisc;
+
+        static public int StarMagneticField;
+
+        static public int StarAlternateNames;
+
+        static public void SetAllIndex (string stringer)
+            {
+            char [] delimiterChars = { ',', '\t' };
+            string [] strings = stringer.Split (delimiterChars);
+            int numberOfStrings = strings.Length;
+
+            if (strings [0].StartsWith ("# "))
+                strings [0] = strings [0].Replace ("# ", "");
+
+            for (int index = 0; index < numberOfStrings; ++index)
+                SetIndex (strings [index], index);
+            }
+
+        static public void SetIndex (string substring, int index)
+            {
+            switch (substring.Trim ())
+                {
+                case "name": Name = index; break;
+
+                case "mass": Mass = index; break;
+                case "mass_err_min": MassErrorMin = index; break;
+                case "mass_err_max": MassErrorMax = index; break;
+                case "mass_error_min": MassErrorMin = index; break;
+                case "mass_error_max": MassErrorMax = index; break;
+
+                case "mass_sini": MassSini = index; break;
+                case "mass_sini_error_min": MassSiniErrorMin = index; break;
+                case "mass_sini_error_max": MassSiniErrorMax = index; break;
+
+                case "radius": Radius = index; break;
+                case "radius_error_min": RadiusErrorMin = index; break;
+                case "radius_error_max": RadiusErrorMax = index; break;
+
+                case "orbital_period": OrbitalPeriod = index; break;
+                case "orbital_period_err_min": OrbitalPeriodErrorMin = index; break;
+                case "orbital_period_err_max": OrbitalPeriodErrorMax = index; break;
+                case "orbital_period_error_min": OrbitalPeriodErrorMin = index; break;
+                case "orbital_period_error_max": OrbitalPeriodErrorMax = index; break;
+
+                case "semi_major_axis": SemiMajorAxis = index; break;
+                case "semi_major_axis_error_min": SemiMajorAxisErrorMin = index; break;
+                case "semi_major_axis_error_max": SemiMajorAxisErrorMax = index; break;
+
+                case "eccentricity": Eccentricity = index; break;
+                case "eccentricity_error_min": EccentricityErrorMin = index; break;
+                case "eccentricity_error_max": EccentricityErrorMax = index; break;
+
+                case "inclination": Inclination = index; break;
+                case "inclination_error_min": InclinationErrorMin = index; break;
+                case "inclination_error_max": InclinationErrorMax = index; break;
+
+                case "angular_distance": AngularDistance = index; break;
+
+                case "discovered": Discovered = index; break;
+
+                case "updated": Updated = index; break;
+
+                case "omega": Omega = index; break;
+                case "omega_error_min": OmegaErrorMin = index; break;
+                case "omega_error_max": OmegaErrorMax = index; break;
+
+                case "tperi": Tperi = index; break;
+                case "tperi_error_min": TperiErrorMin = index; break;
+                case "tperi_error_max": TperiErrorMax = index; break;
+
+                case "tconj": Tconj = index; break;
+                case "tconj_error_min": TconjErrorMin = index; break;
+                case "tconj_error_max": TconjErrorMax = index; break;
+
+                case "tzero_tr": TzeroTr = index; break;
+                case "tzero_tr_error_min": TzeroTrErrorMin = index; break;
+                case "tzero_tr_error_max": TzeroTrErrorMax = index; break;
+
+                case "tzero_tr_sec": TzeroTrSec = index; break;
+                case "tzero_tr_sec_error_min": TzeroTrSecErrorMin = index; break;
+                case "tzero_tr_sec_error_max": TzeroTrSecErrorMax = index; break;
+
+                case "lambda_angle": LambdaAngle = index; break;
+                case "lambda_angle_error_min": LambdaAngleErrorMin = index; break;
+                case "lambda_angle_error_max": LambdaAngleErrorMax = index; break;
+
+                case "impact_parameter": ImpactParameter = index; break;
+                case "impact_parameter_error_min": ImpactParameterErrorMin = index; break;
+                case "impact_parameter_error_max": ImpactParameterErrorMax = index; break;
+
+                case "tzero_vr": TzeroVr = index; break;
+                case "tzero_vr_error_min": TzeroVrErrorMin = index; break;
+                case "tzero_vr_error_max": TzeroVrErrorMax = index; break;
+
+                case "k": K = index; break;
+                case "k_error_min": KErrorMin = index; break;
+                case "k_error_max": KErrorMax = index; break;
+
+                case "temp_calculated": TemperatureCalculated = index; break;
+
+                case "temp_measured": TemperatureMeasured = index; break;
+
+                case "hot_point_lon": TemperatureHotPointLo = index; break;
+
+                case "geometric_albedo": GeometricAlbedo = index; break;
+                case "geometric_albedo_error_min": GeometricAlbedoErrorMin = index; break;
+                case "geometric_albedo_error_max": GeometricAlbedoErrorMax = index; break;
+
+                case "log_g": LogG = index; break;
+
+                case "publication_status": Status = index; break;
+
+                case "detection_type": DetectionType = index; break;
+
+                case "mass_detection_type": MassDetectionType = index; break;
+
+                case "radius_detection_type": RadiusDetectionType = index; break;
+
+                case "alternate_names": AlternateNames = index; break;
+
+                case "molecules": Molecules = index; break;
+
+                case "star_name": StarName = index; break;
+                case "ra": StarRightAccession = index; break;
+                case "dec": StarDeclination = index; break;
+
+                case "mag_v": StarMagnitudeV = index; break;
+                case "mag_i": StarMagnitudeI = index; break;
+                case "mag_j": StarMagnitudeJ = index; break;
+                case "mag_h": StarMagnitudeH = index; break;
+                case "mag_k": StarMagnitudeK = index; break;
+
+                case "star_distance": StarDistance = index; break;
+                case "star_distance_error_min": StarDistanceErrorMin = index; break;
+                case "star_distance_error_max": StarDistanceErrorMax = index; break;
+
+                case "star_metallicity": StarMetallicity = index; break;
+                case "star_metallicity_error_min": StarMetallicityErrorMin = index; break;
+                case "star_metallicity_error_max": StarMetallicityErrorMax = index; break;
+
+                case "star_mass": StarMass = index; break;
+                case "star_mass_error_min": StarMassErrorMin = index; break;
+                case "star_mass_error_max": StarMassErrorMax = index; break;
+
+                case "star_radius": StarRadius = index; break;
+                case "star_radius_error_min": StarRadiusErrorMin = index; break;
+                case "star_radius_error_max": StarRadiusErrorMax = index; break;
+
+                case "star_sp_type": StarSPType = index; break;
+
+                case "star_age": StarAge = index; break;
+                case "star_age_error_min": StarAgeErrorMin = index; break;
+                case "star_age_error_max": StarAgeErrorMax = index; break;
+
+                case "star_teff": StarTeff = index; break;
+                case "star_teff_error_min": StarTeffErrorMin = index; break;
+                case "star_teff_error_max": StarTeffErrorMax = index; break;
+
+                case "star_detected_disc": StarDetectedDisc = index; break;
+
+                case "star_magnetic_field": StarMagneticField = index; break;
+
+                // added star_ to avoid conflict
+                case "star_alternate_names": StarAlternateNames = index; break;
+
+                default:
+                    System.Windows.Forms.MessageBox.Show ("Error: " + substring);
+                    break;
+                }
             }
         }
     }

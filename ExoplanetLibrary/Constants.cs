@@ -32,6 +32,12 @@
             get { return Version2_; }
             }
 
+        static private string Version3_ = "3.0";
+        static public string Version3
+            {
+            get { return Version3_; }
+            }
+
         static private int Version1StringCount_ = 62;
         static public int Version1StringCount
             {
@@ -42,6 +48,12 @@
         static public int Version2StringCount
             {
             get { return Version2StringCount_; }
+            }
+
+        static private int Version3StringCount_ = 95;
+        static public int Version3StringCount           // April 11, 2016 exoplanet.eu changed catalog
+            {
+            get { return Version3StringCount_; }
             }
         }
     }

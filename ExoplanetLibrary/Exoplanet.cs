@@ -510,6 +510,135 @@ namespace ExoplanetLibrary
             return false;
             }
 
+        public void AssignFromSubstrings (string [] strings)
+            {
+            Name = GetSubstring (strings, Indexer.Name, false);
+
+            Mass = GetSubstring (strings, Indexer.Mass);
+            MassErrorMin = GetSubstring (strings, Indexer.MassErrorMin);
+            MassErrorMax = GetSubstring (strings, Indexer.MassErrorMax);
+
+            Radius = GetSubstring (strings, Indexer.Radius);
+            RadiusErrorMin = GetSubstring (strings, Indexer.RadiusErrorMin);
+            RadiusErrorMax = GetSubstring (strings, Indexer.RadiusErrorMax);
+
+            OrbitalPeriod = GetSubstring (strings, Indexer.OrbitalPeriod);
+            OrbitalPeriodErrorMin = GetSubstring (strings, Indexer.OrbitalPeriodErrorMin);
+            OrbitalPeriodErrorMax = GetSubstring (strings, Indexer.OrbitalPeriodErrorMax);
+
+            SemiMajorAxis = GetSubstring (strings, Indexer.SemiMajorAxis);
+            SemiMajorAxisErrorMin = GetSubstring (strings, Indexer.SemiMajorAxisErrorMin);
+            SemiMajorAxisErrorMax = GetSubstring (strings, Indexer.SemiMajorAxisErrorMax);
+
+            Eccentricity = GetSubstring (strings, Indexer.Eccentricity);
+            EccentricityErrorMin = GetSubstring (strings, Indexer.EccentricityErrorMin);
+            EccentricityErrorMax = GetSubstring (strings, Indexer.EccentricityErrorMax);
+
+            Inclination = GetSubstring (strings, Indexer.Inclination);
+            InclinationErrorMin = GetSubstring (strings, Indexer.InclinationErrorMin);
+            InclinationErrorMax = GetSubstring (strings, Indexer.InclinationErrorMax);
+
+            AngularDistance = GetSubstring (strings, Indexer.AngularDistance);
+
+            Discovered = GetSubstring (strings, Indexer.Discovered, false);
+
+            Updated = GetSubstring (strings, Indexer.Updated, false);
+
+            Omega = GetSubstring (strings, Indexer.Omega);
+            OmegaErrorMin = GetSubstring (strings, Indexer.OmegaErrorMin);
+            OmegaErrorMax = GetSubstring (strings, Indexer.OmegaErrorMax);
+
+            Tperi = GetSubstring (strings, Indexer.Tperi);
+            TperiErrorMin = GetSubstring (strings, Indexer.TperiErrorMin);
+            TperiErrorMax = GetSubstring (strings, Indexer.TperiErrorMax);
+
+            Tconj = GetSubstring (strings, Indexer.Tconj);
+            TconjErrorMin = GetSubstring (strings, Indexer.TconjErrorMin);
+            TconjErrorMax = GetSubstring (strings, Indexer.TconjErrorMax);
+
+            TzeroTr = GetSubstring (strings, Indexer.TzeroTr);
+            TzeroTrErrorMin = GetSubstring (strings, Indexer.TzeroTrErrorMin);
+            TzeroTrErrorMax = GetSubstring (strings, Indexer.TzeroTrErrorMax);
+
+            TzeroTrSec = GetSubstring (strings, Indexer.TzeroTrSec);
+            TzeroTrSecErrorMin = GetSubstring (strings, Indexer.TzeroTrSecErrorMin);
+            TzeroTrSecErrorMax = GetSubstring (strings, Indexer.TzeroTrSecErrorMax);
+
+            LambdaAngle = GetSubstring (strings, Indexer.LambdaAngle);
+            LambdaAngleErrorMin = GetSubstring (strings, Indexer.LambdaAngleErrorMin);
+            LambdaAngleErrorMax = GetSubstring (strings, Indexer.LambdaAngleErrorMax);
+
+            ImpactParameter = GetSubstring (strings, Indexer.ImpactParameter);
+            ImpactParameterErrorMin = GetSubstring (strings, Indexer.ImpactParameterErrorMin);
+            ImpactParameterErrorMax = GetSubstring (strings, Indexer.ImpactParameterErrorMax);
+
+            TzeroVr = GetSubstring (strings, Indexer.TzeroVr);
+            TzeroVrErrorMin = GetSubstring (strings, Indexer.TzeroVrErrorMin);
+            TzeroVrErrorMax = GetSubstring (strings, Indexer.TzeroVrErrorMax);
+
+            K = GetSubstring (strings, Indexer.K);
+            KErrorMin = GetSubstring (strings, Indexer.KErrorMin);
+            KErrorMax = GetSubstring (strings, Indexer.KErrorMax);
+
+            TemperatureCalculated = GetSubstring (strings, Indexer.TemperatureCalculated);
+            TemperatureMeasured = GetSubstring (strings, Indexer.TemperatureMeasured);
+            TemperatureHotPointLo = GetSubstring (strings, Indexer.TemperatureHotPointLo);
+
+            GeometricAlbedo = GetSubstring (strings, Indexer.GeometricAlbedo);
+            GeometricAlbedoErrorMin = GetSubstring (strings, Indexer.GeometricAlbedoErrorMin);
+            GeometricAlbedoErrorMax = GetSubstring (strings, Indexer.GeometricAlbedoErrorMax);
+
+            LogG = GetSubstring (strings, Indexer.LogG);
+
+            Status = GetSubstring (strings, Indexer.Status, false);
+
+            DetectionType = GetSubstring (strings, Indexer.DetectionType, false);
+
+            MassDetectionType = GetSubstring (strings, Indexer.MassDetectionType, false);
+
+            RadiusDetectionType = GetSubstring (strings, Indexer.RadiusDetectionType, false);
+
+            AlternateNames = GetSubstring (strings, Indexer.AlternateNames, false);
+
+            Molecules = GetSubstring (strings, Indexer.Molecules, false);
+
+            Star.Name = GetSubstring (strings, Indexer.StarName, false);
+            Star.RightAccession = GetSubstring (strings, Indexer.StarRightAccession);
+            Star.Declination = GetSubstring (strings, Indexer.StarDeclination);
+
+            Star.Magnitude.V = GetSubstring (strings, Indexer.StarMagnitudeV);
+            Star.Magnitude.I = GetSubstring (strings, Indexer.StarMagnitudeI);
+            Star.Magnitude.J = GetSubstring (strings, Indexer.StarMagnitudeJ);
+            Star.Magnitude.H = GetSubstring (strings, Indexer.StarMagnitudeH);
+            Star.Magnitude.K = GetSubstring (strings, Indexer.StarMagnitudeK);
+
+            Star.Property.Distance = GetSubstring (strings, Indexer.StarDistance);
+            Star.Property.Metallicity = GetSubstring (strings, Indexer.StarMetallicity);
+            Star.Property.Mass = GetSubstring (strings, Indexer.StarMass);
+            Star.Property.Radius = GetSubstring (strings, Indexer.StarRadius);
+            Star.Property.SPType = GetSubstring (strings, Indexer.StarSPType);
+            Star.Property.Age = GetSubstring (strings, Indexer.StarAge);
+            Star.Property.Teff = GetSubstring (strings, Indexer.StarTeff);
+            Star.Property.DetectedDisc = GetSubstring (strings, Indexer.StarDetectedDisc, false);
+            Star.Property.MagneticField = GetSubstring (strings, Indexer.StarMagneticField, false);
+            }
+
+        static private string GetSubstring (string [] substrings, int index)
+            {
+            return GetSubstring (substrings, index, true);
+            }
+
+        static private string GetSubstring (string [] substrings, int index, bool isNumeric)
+            {
+            if (index < substrings.Length)
+                if (isNumeric)
+                    return Helper.ReplaceNonNumerics (substrings [index].ToString ());
+                else
+                    return substrings [index].ToString ();
+
+            return "";
+            }
+
         public void CorrectErrors ()
             {
             string [] errors = { "KO", "GOV", "KOV", "kov", "KOIII", "KOIV/V" };
@@ -530,13 +659,27 @@ namespace ExoplanetLibrary
                 double value, maximumError, minimumError;
 
                 if (double.TryParse (Eccentricity, out value) == true)
-                    if (double.TryParse (EccentricityErrorMax, out maximumError) == true)
-                        if (double.TryParse (EccentricityErrorMin, out minimumError) == true)
-                            if (maximumError > 10.0 * value)
-                                {
-                                EccentricityErrorMax = "";
-                                EccentricityErrorMin = "";
-                                }
+                    if (value == 0.0)
+                        {
+                        Eccentricity = "";
+                        EccentricityErrorMax = "";
+                        EccentricityErrorMin = "";
+                        }
+                    else
+                        {
+                        if (double.TryParse (EccentricityErrorMax, out maximumError) == true)
+                            if (double.TryParse (EccentricityErrorMin, out minimumError) == true)
+                                if (maximumError > 10.0 * value)
+                                    {
+                                    EccentricityErrorMax = "";
+                                    EccentricityErrorMin = "";
+                                    }
+                        }
+                }
+
+            if (Helper.IsDefined (Updated))
+                {
+                Updated = Helper.FormatDateCSV2XML (Updated);
                 }
             }
 
