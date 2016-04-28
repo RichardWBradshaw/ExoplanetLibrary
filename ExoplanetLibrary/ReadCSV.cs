@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace ExoplanetLibrary
@@ -14,6 +15,20 @@ namespace ExoplanetLibrary
             {
             get { return Version_; }
             set { Version_ = value; }
+            }
+
+        static private bool IsCommaDelimited_ = true;
+        static private bool IsCommaDelimited
+            {
+            get { return IsCommaDelimited_; }
+            set { IsCommaDelimited_ = value; }
+            }
+
+        static private string ValidationErrors_ = "";
+        static private string ReadErrors
+            {
+            get { return ValidationErrors_; }
+            set { ValidationErrors_ = value; }
             }
 
         static public int Read (string csvFileName)
@@ -34,8 +49,12 @@ namespace ExoplanetLibrary
 
                 if (csvFileName.EndsWith (".txt"))
                     xmlFileName = csvFileName.Replace (".txt", ".xml");
+                else if (csvFileName.EndsWith (".dat"))
+                    xmlFileName = csvFileName.Replace (".dat", ".xml");
                 else
                     xmlFileName = csvFileName.Replace (".csv", ".xml");
+
+                ReadErrors = "";
 
                 if (IsValidVersion (csvFileName))
                     {
@@ -43,6 +62,8 @@ namespace ExoplanetLibrary
 
                     writer.WriteStartElement ("Exoplanets");
                     writer.WriteAttributeString ("version", Version);
+
+                    SetDelimitor (csvFileName);
 
                     TextReader reader = null;
 
@@ -62,6 +83,9 @@ namespace ExoplanetLibrary
                     writer.WriteEndElement ();
                     writer.Close ();
                     }
+
+                if (ReadErrors.Length > 0)
+                    MessageBox.Show (ReadErrors, "Format errors in " + csvFileName);
                 }
 
             return 0;
@@ -78,16 +102,16 @@ namespace ExoplanetLibrary
                 string firstLine = reader.ReadLine ();
                 char [] delimiterChars = { ',', '\t' };
 
-                if (firstLine.StartsWith ("# name,mass,") || firstLine.StartsWith ("# name, mass, "))
+                if (firstLine.StartsWith ("# name,mass,") || firstLine.StartsWith ("# name, mass, ") || firstLine.StartsWith ("# name\tmass\t"))
                     {
                     string [] strings = firstLine.Split (delimiterChars);
 
                     if (strings.Length == Constant.Version1StringCount)
                         Version = Constant.Version1;
                     else if (strings.Length == Constant.Version2StringCount)
-                        Version = Constant.Version2;    // xml version not ascii version
+                        Version = Constant.Version2;
                     else if (strings.Length == Constant.Version3StringCount)
-                        Version = Constant.Version2;    // xml version not ascii version
+                        Version = Constant.Version3;
 
                     if (Version.Length > 0)
                         Indexer.SetAllIndex (firstLine);
@@ -99,19 +123,63 @@ namespace ExoplanetLibrary
             return Version.Length > 0 ? true : false;
             }
 
+        static private void SetDelimitor (string csvFileName)
+            {
+            TextReader reader = File.OpenText (csvFileName);
+
+            IsCommaDelimited = true;
+
+            if (reader != null)
+                {
+                string firstLine = reader.ReadLine ();
+
+                if (firstLine.StartsWith ("# name,mass,") || firstLine.StartsWith ("# name, mass, "))
+                    IsCommaDelimited = true;
+                else if (firstLine.StartsWith ("# name\tmass\t"))
+                    IsCommaDelimited = false;
+                }
+
+            reader.Close ();
+            }
+
         static private int WriteExoplanet (XmlWriter writer, string line)
             {
             if (line.StartsWith ("#"))
                 return 0;
 
+            //
+            // kludge: .csv's can contain commas and / or tabs within in the data (i.e. not used as the separators)
+            //
+
+            if (IsCommaDelimited == true)
+                {
+                line = line.Replace ('\t', ' ');
+                line = Helper.ReplaceInQuotedDelimitor (line);
+                }
+            else
+                line = line.Replace (',', ';');
+
             char [] delimiterChars = { ',', '\t' };
             string [] strings = line.Split (delimiterChars);
+            string xmlVersion = "";
 
-            Exoplanet exoplanet = new Exoplanet ();
+            if (Version == Constant.Version1 && strings.Length == Constant.Version1StringCount)
+                xmlVersion = Constant.Version1;
+            else if (Version == Constant.Version2 && strings.Length == Constant.Version2StringCount)
+                xmlVersion = Constant.Version2;
+            else if (Version == Constant.Version3 && strings.Length == Constant.Version3StringCount)
+                xmlVersion = Constant.Version2;
 
-            exoplanet.AssignFromSubstrings (strings);
-            exoplanet.CorrectErrors ();
-            WriteXML.WriteExoplanet (writer, exoplanet, Version);
+            if (xmlVersion.Length > 0)
+                {
+                Exoplanet exoplanet = new Exoplanet ();
+
+                exoplanet.AssignFromSubstrings (strings);
+                exoplanet.CorrectErrors ();
+                WriteXML.WriteExoplanet (writer, exoplanet, xmlVersion);
+                }
+            else
+                ReadErrors += line + "\r";
 
             return 0;
             }
@@ -137,14 +205,16 @@ namespace ExoplanetLibrary
                 else
                     xmlFileName = csvFileName.Replace (".csv", ".xml");
 
-                ;
-
                 if (IsValidVersion (csvFileName))
                     {
                     writer = XmlWriter.Create (xmlFileName, settings);
 
                     writer.WriteStartElement ("Exoplanets");
-                    writer.WriteAttributeString ("version", Version);
+
+                    if (Version == Constant.Version1)
+                        writer.WriteAttributeString ("version", Constant.Version1);
+                    else if (Version == Constant.Version2 || Version == Constant.Version3)
+                        writer.WriteAttributeString ("version", Constant.Version2);
 
                     using (StreamReader stream = new StreamReader (csvFileName))
                         {

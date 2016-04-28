@@ -180,6 +180,13 @@ namespace ExoplanetLibrary
 
     public class Settings
         {
+        static private int FilterIndex_ = 1;
+        static public int FilterIndex
+            {
+            get { return FilterIndex_; }
+            set { FilterIndex_ = value; }
+            }
+
         static public int WriteFilter (Filters filter)
             {
             RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
@@ -212,6 +219,8 @@ namespace ExoplanetLibrary
                 subkey.SetValue ("LogYAxis", Visualization.LogYAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
 
                 subkey.SetValue ("IncludeDuplicates", Visualization.IncludeDuplicates == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+
+                subkey.SetValue ("OpenFileFilterIndex", Settings.FilterIndex, RegistryValueKind.String);
                 }
 
             if (key != null)
@@ -251,6 +260,8 @@ namespace ExoplanetLibrary
                 Visualization.LogXAxis = ReadValue (subkey, "LogXAxis");
                 Visualization.LogYAxis = ReadValue (subkey, "LogYAxis");
                 Visualization.IncludeDuplicates = ReadValue (subkey, "IncludeDuplicates");
+
+                Settings.FilterIndex = ReadIntegerValue (subkey, "OpenFileFilterIndex");
                 }
 
             if (key != null)
@@ -342,6 +353,18 @@ namespace ExoplanetLibrary
                 }
 
             return CheckState.Unchecked;
+            }
+
+        static private int ReadIntegerValue (RegistryKey subkey, string name)
+            {
+            object obj = subkey.GetValue (name);
+
+            if (obj != null)
+                {
+                return int.Parse( obj as string);
+                }
+
+            return 0;
             }
 
         public static bool MatchesFilter (Exoplanet exoplanet, Filters filter)

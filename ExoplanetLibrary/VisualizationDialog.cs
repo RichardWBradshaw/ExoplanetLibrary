@@ -624,10 +624,5 @@ namespace ExoplanetLibrary
                 includeDuplicatesToolStripMenuItem.Checked = includeDuplicatesToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
             }
-
-        private void visualizeFlip_Click (object sender, EventArgs e)
-            {
-            Plotting.ChangeInteraction (PlotSurface2D);
-            }
         }
     }

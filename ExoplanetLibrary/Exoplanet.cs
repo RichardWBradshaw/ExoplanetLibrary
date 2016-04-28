@@ -598,9 +598,9 @@ namespace ExoplanetLibrary
 
             RadiusDetectionType = GetSubstring (strings, Indexer.RadiusDetectionType, false);
 
-            AlternateNames = GetSubstring (strings, Indexer.AlternateNames, false);
+            AlternateNames = GetSubstring (strings, Indexer.AlternateNames, false, true);
 
-            Molecules = GetSubstring (strings, Indexer.Molecules, false);
+            Molecules = GetSubstring (strings, Indexer.Molecules, false, true);
 
             Star.Name = GetSubstring (strings, Indexer.StarName, false);
             Star.RightAccession = GetSubstring (strings, Indexer.StarRightAccession);
@@ -625,14 +625,25 @@ namespace ExoplanetLibrary
 
         static private string GetSubstring (string [] substrings, int index)
             {
-            return GetSubstring (substrings, index, true);
+            return GetSubstring (substrings, index, true, false);
             }
 
         static private string GetSubstring (string [] substrings, int index, bool isNumeric)
             {
+            return GetSubstring (substrings, index, isNumeric, false);
+            }
+
+        static private string GetSubstring (string [] substrings, int index, bool isNumeric, bool replaceCommas)
+            {
             if (index < substrings.Length)
                 if (isNumeric)
                     return Helper.ReplaceNonNumerics (substrings [index].ToString ());
+                else
+                    if (replaceCommas == true)
+                    {
+                    string stringer = substrings [index].ToString ();
+                    return stringer.Replace (',', ';');
+                    }
                 else
                     return substrings [index].ToString ();
 

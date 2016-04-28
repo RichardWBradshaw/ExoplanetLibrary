@@ -20,19 +20,19 @@
             get { return UnitTestFolder_; }
             }
 
-        static private string Version1_ = "1.0";
+        static private string Version1_ = "1";
         static public string Version1
             {
             get { return Version1_; }
             }
 
-        static private string Version2_ = "2.0";
+        static private string Version2_ = "2";
         static public string Version2
             {
             get { return Version2_; }
             }
 
-        static private string Version3_ = "3.0";
+        static private string Version3_ = "3";
         static public string Version3
             {
             get { return Version3_; }

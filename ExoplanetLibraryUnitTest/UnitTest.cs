@@ -57,6 +57,26 @@ namespace ExoplanetLibraryUnitTest
             }
 
         [TestMethod]
+        public void TestMethodVersion3 ()
+            {
+            ArrayList exoplanetArray = null;
+
+            ReadCSV.Read (Constant.UnitTestFolder + "Version3.csv");
+            exoplanetArray = ReadXML.Read (Constant.UnitTestFolder + "Version3.xml", true);
+            WriteCSV.Write (Constant.UnitTestFolder + "Version3TestResults.csv", exoplanetArray, Constant.Version2);    // Constnt.Version2 needs work
+
+            ArrayList exoplanetArray2 = null;
+
+            ReadCSV.Read (Constant.UnitTestFolder + "Version3TestResults.csv");
+            exoplanetArray2 = ReadXML.Read (Constant.UnitTestFolder + "Version3TestResults.xml", true);
+
+            Assert.IsNotNull (exoplanetArray);
+            Assert.IsNotNull (exoplanetArray2);
+            Assert.AreEqual (exoplanetArray.Count, exoplanetArray2.Count);
+            Assert.AreEqual (Exoplanets.AreEqual (exoplanetArray, exoplanetArray2), true);
+            }
+
+        [TestMethod]
         public void TestMethodTypeCounters ()
             {
             ArrayList exoplanetArray = null;

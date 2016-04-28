@@ -176,6 +176,29 @@ namespace ExoplanetLibrary
             return text;
             }
 
+        public static string ReplaceInQuotedDelimitor (string text)
+            {
+            bool withinQuotes = false;
+            string replacement = "";
+
+            for (int index = 0; index < text.Length; ++index)
+                {
+                if (text [index] == '"')
+                    withinQuotes = withinQuotes == true ? false : true;
+                else if (withinQuotes == true)
+                    {
+                    if (text [index] == ',')
+                        replacement += ';';
+                    else
+                        replacement += text [index];
+                    }
+                else
+                    replacement += text [index];
+                }
+
+            return replacement;
+            }
+
         public static bool CompareEquals (object objectFromCompare, object objectToCompare)
             {
             if (objectFromCompare == null && objectToCompare == null)

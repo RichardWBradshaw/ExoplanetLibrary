@@ -37,8 +37,6 @@
             this.kToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.geometricAlbedoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tconjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.flipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightAccessionVsDeclinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -128,9 +126,7 @@
             this.tperiToolStripMenuItem,
             this.kToolStripMenuItem,
             this.geometricAlbedoToolStripMenuItem,
-            this.tconjToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.flipToolStripMenuItem});
+            this.tconjToolStripMenuItem});
             this.visualizationToolStripMenuItem.Name = "visualizationToolStripMenuItem";
             this.visualizationToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.visualizationToolStripMenuItem.Text = "Linear Diagrams";
@@ -267,18 +263,6 @@
             this.tconjToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.tconjToolStripMenuItem.Text = "Tconj";
             this.tconjToolStripMenuItem.Click += new System.EventHandler(this.visualizeTconj_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
-            // 
-            // flipToolStripMenuItem
-            // 
-            this.flipToolStripMenuItem.Name = "flipToolStripMenuItem";
-            this.flipToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.flipToolStripMenuItem.Text = "Flip";
-            this.flipToolStripMenuItem.Click += new System.EventHandler(this.visualizeFlip_Click);
             // 
             // pointToolStripMenuItem
             // 
@@ -570,7 +554,6 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem errorBarsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorFromStarTypeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem logXAxisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logYAxisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem massVsOrbitalPeriodToolStripMenuItem;
@@ -594,6 +577,5 @@
         private System.Windows.Forms.ToolStripMenuItem radiusVsTperiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusVsKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem includeDuplicatesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem flipToolStripMenuItem;
         }
     }

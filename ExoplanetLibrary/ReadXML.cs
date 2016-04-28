@@ -132,17 +132,13 @@ namespace ExoplanetLibrary
                     ReadTperi (exoplanet);
                     ReadDetectionType (exoplanet);
                     ReadMolecules (exoplanet);
-
-                    if (string.Equals (Version, Constant.Version2))
-                        {
-                        ReadImpactParameter (exoplanet);
-                        ReadK (exoplanet);
-                        ReadGeometricAlbedo (exoplanet);
-                        ReadTconj (exoplanet);
-                        ReadMassDetectionType (exoplanet);
-                        ReadRadiusDetectionType (exoplanet);
-                        ReadAlternateNames (exoplanet);
-                        }
+                    ReadImpactParameter (exoplanet);
+                    ReadK (exoplanet);
+                    ReadGeometricAlbedo (exoplanet);
+                    ReadTconj (exoplanet);
+                    ReadMassDetectionType (exoplanet);
+                    ReadRadiusDetectionType (exoplanet);
+                    ReadAlternateNames (exoplanet);
 
                     ReadStar (exoplanet);
                     ReadMagnitudes (exoplanet);
@@ -161,7 +157,7 @@ namespace ExoplanetLibrary
                 }
 
             if (ValidationErrors.Length > 0)
-                MessageBox.Show (ValidationErrors);
+                MessageBox.Show (ValidationErrors, "Validation errors in " + xmlFileName);
 
             return exoplanets;
             }
@@ -171,7 +167,7 @@ namespace ExoplanetLibrary
             Reader.ReadToFollowing ("Exoplanet");
 
             Reader.MoveToFirstAttribute ();
-            exoplanet.Name = Reader.Value.Trim();
+            exoplanet.Name = Reader.Value.Trim ();
             }
 
         static void ReadMass (Exoplanet exoplanet)
@@ -498,100 +494,150 @@ namespace ExoplanetLibrary
 
         static void ReadImpactParameter (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("ImpactParameter");
-
-            while (Reader.MoveToNextAttribute ())
+            if (string.Equals (Version, Constant.Version1))
                 {
-                switch (Reader.Name)
+                exoplanet.ImpactParameter = "";
+                exoplanet.ImpactParameterErrorMin = "";
+                exoplanet.ImpactParameterErrorMax = "";
+                }
+            else
+                {
+                Reader.ReadToFollowing ("ImpactParameter");
+
+                while (Reader.MoveToNextAttribute ())
                     {
-                    case "impactParameter":
-                        exoplanet.ImpactParameter = Reader.Value;
-                        break;
-                    case "errorMin":
-                        exoplanet.ImpactParameterErrorMin = Reader.Value;
-                        break;
-                    case "errorMax":
-                        exoplanet.ImpactParameterErrorMax = Reader.Value;
-                        break;
+                    switch (Reader.Name)
+                        {
+                        case "impactParameter":
+                            exoplanet.ImpactParameter = Reader.Value;
+                            break;
+                        case "errorMin":
+                            exoplanet.ImpactParameterErrorMin = Reader.Value;
+                            break;
+                        case "errorMax":
+                            exoplanet.ImpactParameterErrorMax = Reader.Value;
+                            break;
+                        }
                     }
                 }
             }
 
         static void ReadK (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("K");
-
-            while (Reader.MoveToNextAttribute ())
+            if (string.Equals (Version, Constant.Version1))
                 {
-                switch (Reader.Name)
+                exoplanet.K = "";
+                exoplanet.KErrorMin = "";
+                exoplanet.KErrorMax = "";
+                }
+            else
+                {
+                Reader.ReadToFollowing ("K");
+
+                while (Reader.MoveToNextAttribute ())
                     {
-                    case "k":
-                        exoplanet.K = Reader.Value;
-                        break;
-                    case "errorMin":
-                        exoplanet.KErrorMin = Reader.Value;
-                        break;
-                    case "errorMax":
-                        exoplanet.KErrorMax = Reader.Value;
-                        break;
+                    switch (Reader.Name)
+                        {
+                        case "k":
+                            exoplanet.K = Reader.Value;
+                            break;
+                        case "errorMin":
+                            exoplanet.KErrorMin = Reader.Value;
+                            break;
+                        case "errorMax":
+                            exoplanet.KErrorMax = Reader.Value;
+                            break;
+                        }
                     }
                 }
             }
 
         static void ReadGeometricAlbedo (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("GeometricAlbedo");
-
-            while (Reader.MoveToNextAttribute ())
+            if (string.Equals (Version, Constant.Version1))
                 {
-                switch (Reader.Name)
+                exoplanet.GeometricAlbedo = "";
+                exoplanet.GeometricAlbedoErrorMin = "";
+                exoplanet.GeometricAlbedoErrorMax = "";
+                }
+            else
+                {
+                Reader.ReadToFollowing ("GeometricAlbedo");
+
+                while (Reader.MoveToNextAttribute ())
                     {
-                    case "geometricAlbedo":
-                        exoplanet.GeometricAlbedo = Reader.Value;
-                        break;
-                    case "errorMin":
-                        exoplanet.GeometricAlbedoErrorMin = Reader.Value;
-                        break;
-                    case "errorMax":
-                        exoplanet.GeometricAlbedoErrorMax = Reader.Value;
-                        break;
+                    switch (Reader.Name)
+                        {
+                        case "geometricAlbedo":
+                            exoplanet.GeometricAlbedo = Reader.Value;
+                            break;
+                        case "errorMin":
+                            exoplanet.GeometricAlbedoErrorMin = Reader.Value;
+                            break;
+                        case "errorMax":
+                            exoplanet.GeometricAlbedoErrorMax = Reader.Value;
+                            break;
+                        }
                     }
                 }
             }
 
         static void ReadTconj (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("Tconj");
-
-            while (Reader.MoveToNextAttribute ())
+            if (string.Equals (Version, Constant.Version1))
                 {
-                switch (Reader.Name)
+                exoplanet.Tconj = "";
+                exoplanet.TconjErrorMin = "";
+                exoplanet.TconjErrorMax = "";
+                }
+            else
+                {
+                Reader.ReadToFollowing ("Tconj");
+
+                while (Reader.MoveToNextAttribute ())
                     {
-                    case "tconj":
-                        exoplanet.Tconj = Reader.Value;
-                        break;
-                    case "errorMin":
-                        exoplanet.TconjErrorMin = Reader.Value;
-                        break;
-                    case "errorMax":
-                        exoplanet.TconjErrorMax = Reader.Value;
-                        break;
+                    switch (Reader.Name)
+                        {
+                        case "tconj":
+                            exoplanet.Tconj = Reader.Value;
+                            break;
+                        case "errorMin":
+                            exoplanet.TconjErrorMin = Reader.Value;
+                            break;
+                        case "errorMax":
+                            exoplanet.TconjErrorMax = Reader.Value;
+                            break;
+                        }
                     }
                 }
             }
 
         static void ReadMassDetectionType (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("MassDetectionType");
-            Reader.MoveToFirstAttribute ();
-            exoplanet.MassDetectionType = Reader.Value;
+            if (string.Equals (Version, Constant.Version1))
+                {
+                exoplanet.MassDetectionType = "";
+                }
+            else
+                {
+                Reader.ReadToFollowing ("MassDetectionType");
+                Reader.MoveToFirstAttribute ();
+                exoplanet.MassDetectionType = Reader.Value;
+                }
             }
 
         static void ReadRadiusDetectionType (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("RadiusDetectionType");
-            Reader.MoveToFirstAttribute ();
-            exoplanet.RadiusDetectionType = Reader.Value;
+            if (string.Equals (Version, Constant.Version1))
+                {
+                exoplanet.RadiusDetectionType = "";
+                }
+            else
+                {
+                Reader.ReadToFollowing ("RadiusDetectionType");
+                Reader.MoveToFirstAttribute ();
+                exoplanet.RadiusDetectionType = Reader.Value;
+                }
             }
 
         static void ReadAlternateNames (Exoplanet exoplanet)
@@ -624,7 +670,7 @@ namespace ExoplanetLibrary
 
         static void ReadMagnitudes (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("Magnitude");
+            Reader.ReadToFollowing ("Magnitudes");
 
             while (Reader.MoveToNextAttribute ())
                 {
@@ -651,7 +697,7 @@ namespace ExoplanetLibrary
 
         static void ReadProperties (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("Property");
+            Reader.ReadToFollowing ("Properties");
 
             while (Reader.MoveToNextAttribute ())
                 {

@@ -38,7 +38,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Exoplanet");
 
-            Writer.WriteAttributeString ("name", exoplanet.Name.Trim());
+            Writer.WriteAttributeString ("name", exoplanet.Name.Trim ());
 
             WriteMass (exoplanet);
             WriteRadius (exoplanet);
@@ -61,16 +61,13 @@ namespace ExoplanetLibrary
             WriteDetectionType (exoplanet);
             WriteMolecules (exoplanet);
 
-            if (string.Equals (Version, Constant.Version2))
-                {
-                WriteImpactParameter (exoplanet);
-                WriteK (exoplanet);
-                WriteGeometricAlbedo (exoplanet);
-                WriteTconj (exoplanet);
-                WriteMassDetectionType (exoplanet);
-                WriteRadiusDetectionType (exoplanet);
-                WriteAlternateNames (exoplanet);
-                }
+            WriteImpactParameter (exoplanet);
+            WriteK (exoplanet);
+            WriteGeometricAlbedo (exoplanet);
+            WriteTconj (exoplanet);
+            WriteMassDetectionType (exoplanet);
+            WriteRadiusDetectionType (exoplanet);
+            WriteAlternateNames (exoplanet);
 
             WriteStar (exoplanet);
 
@@ -486,7 +483,7 @@ namespace ExoplanetLibrary
 
         static private void WriteMagnitudes (Exoplanet exoplanet)
             {
-            Writer.WriteStartElement ("Magnitude");
+            Writer.WriteStartElement ("Magnitudes");
 
             if (IsDefine (exoplanet.Star.Magnitude.V))
                 Writer.WriteAttributeString ("V", exoplanet.Star.Magnitude.V);
@@ -508,7 +505,7 @@ namespace ExoplanetLibrary
 
         static private void WriteProperties (Exoplanet exoplanet)
             {
-            Writer.WriteStartElement ("Property");
+            Writer.WriteStartElement ("Properties");
 
             if (IsDefine (exoplanet.Star.Property.Distance))
                 Writer.WriteAttributeString ("Distance", exoplanet.Star.Property.Distance);

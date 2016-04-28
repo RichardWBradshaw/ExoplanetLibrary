@@ -252,7 +252,7 @@ namespace ExoplanetLibrary
 
             VisualizeCubicSpline (plotSurface, plotType, YAxis, XAxis);
 
-            AddInteraction (plotSurface);
+            //AddInteraction (plotSurface);
 
             plotSurface.Refresh ();
             }
@@ -578,7 +578,7 @@ namespace ExoplanetLibrary
             VisualizeErrorBars (plotSurface, exoplanets, plotType, ref minimumX, ref maximumX, ref minimumY, ref maximumY);
             VisualizeLogXYAxis (plotSurface, plotType, Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
-            AddInteraction (plotSurface);
+            //AddInteraction (plotSurface);
 
             plotSurface.Refresh ();
             }
@@ -816,7 +816,7 @@ namespace ExoplanetLibrary
             VisualizeAxis (plotSurface, "Right Accession 2000 (degrees)", "{0:0}", "Declination 2000 (degrees)", "{0:0.0}", true);
             VisualizeLegend (plotSurface);
 
-            AddInteraction (plotSurface);
+            //AddInteraction (plotSurface);
 
             plotSurface.Refresh ();
             }
@@ -1289,38 +1289,6 @@ namespace ExoplanetLibrary
 #else
             return;
 #endif
-            }
-
-        static public void ChangeInteraction (NPlot.Windows.PlotSurface2D plotSurface)
-            {
-            Interaction = Interaction == DynamicInteractions.Area ? DynamicInteractions.Pan : DynamicInteractions.Area;
-            AddInteraction (plotSurface);
-            }
-
-        static public void AddInteraction (NPlot.Windows.PlotSurface2D plotSurface)
-            {
-            if (Interactions [0] != null)
-                plotSurface.RemoveInteraction (Interactions [0]);
-
-            if (Interactions [1] != null)
-                plotSurface.RemoveInteraction (Interactions [1]);
-
-            if (Interaction == DynamicInteractions.Area)
-                {
-                Interactions [0] = new NPlot.Windows.PlotSurface2D.Interactions.RubberBandSelection ();
-                Interactions [1] = null;
-                }
-            else if (Interaction == DynamicInteractions.Pan)
-                {
-                Interactions [0] = new NPlot.Windows.PlotSurface2D.Interactions.HorizontalDrag ();
-                Interactions [1] = new NPlot.Windows.PlotSurface2D.Interactions.VerticalDrag ();
-                }
-
-            if (Interactions [0] != null)
-                plotSurface.AddInteraction (Interactions [0]);
-
-            if (Interactions [1] != null)
-                plotSurface.AddInteraction (Interactions [1]);
             }
         }
     }
