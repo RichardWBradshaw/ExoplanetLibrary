@@ -14,10 +14,22 @@
             get { return SchemaFolder_; }
             }
 
-        static private string UnitTestFolder_ = "C:\\Various Code\\EXOPLANET_LIBRARY\\ExoplanetLibrary\\ProgramData\\Exoplanet Library\\_UnitTestData\\";
-        static public string UnitTestFolder
+        static private string UnitTestCSVFolder_ = "C:\\Various Code\\EXOPLANET_LIBRARY\\ExoplanetLibrary\\ProgramData\\Exoplanet Library\\CSV's\\_UnitTestData\\";
+        static public string UnitTestCSVFolder
             {
-            get { return UnitTestFolder_; }
+            get { return UnitTestCSVFolder_; }
+            }
+
+        static private string UnitTestDATFolder_ = "C:\\Various Code\\EXOPLANET_LIBRARY\\ExoplanetLibrary\\ProgramData\\Exoplanet Library\\DAT'S\\_UnitTestData\\";
+        static public string UnitTestDATFolder
+            {
+            get { return UnitTestDATFolder_; }
+            }
+
+        static private string UnitTestVOTFolder_ = "C:\\Various Code\\EXOPLANET_LIBRARY\\ExoplanetLibrary\\ProgramData\\Exoplanet Library\\VOT'S\\_UnitTestData\\";
+        static public string UnitTestVOTFolder
+            {
+            get { return UnitTestVOTFolder_; }
             }
 
         static private string Version1_ = "1";

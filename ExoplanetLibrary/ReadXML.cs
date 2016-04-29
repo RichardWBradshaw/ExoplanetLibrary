@@ -738,8 +738,8 @@ namespace ExoplanetLibrary
             {
             if (e.Severity == XmlSeverityType.Warning)
                 {
-                ValidationErrors_ += "WARNING: " + "\r";
-                ValidationErrors_ += e.Message + "\r";
+                ValidationErrors += "WARNING: " + "\r";
+                ValidationErrors += e.Message + "\r";
                 }
             else if (e.Severity == XmlSeverityType.Error)
                 {

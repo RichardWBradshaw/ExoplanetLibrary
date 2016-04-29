@@ -157,7 +157,10 @@ namespace ExoplanetLibrary
                 line = Helper.ReplaceInQuotedDelimitor (line);
                 }
             else
+                {
                 line = line.Replace (',', ';');
+                line = Helper.ReplaceInQuotedDelimitor (line);
+                }
 
             char [] delimiterChars = { ',', '\t' };
             string [] strings = line.Split (delimiterChars);

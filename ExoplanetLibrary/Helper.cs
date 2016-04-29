@@ -189,6 +189,8 @@ namespace ExoplanetLibrary
                     {
                     if (text [index] == ',')
                         replacement += ';';
+                    else if (text [index] == '\t')
+                        replacement += ' ';
                     else
                         replacement += text [index];
                     }
