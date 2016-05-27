@@ -270,55 +270,6 @@ namespace ExoplanetLibraryUnitTest
             Assert.AreEqual (test1.TTVEnabled, test2.TTVEnabled);
             Assert.AreEqual (test1.UnknownDetectionEnabled, test2.UnknownDetectionEnabled);
             }
-
-        [TestMethod]
-        [Ignore]
-        public void TestMethodGetMinimumMaximumValues ()
-            {
-            ArrayList exoplanetArray = null;
-
-            if (File.Exists (Constant.UnitTestVOTFolder + "exoplanet_catalog.xml"))
-                exoplanetArray = ReadXML.Read (Constant.UnitTestVOTFolder + "exoplanet_catalog.xml");
-            else
-                {
-                ReadVOT.Read (Constant.UnitTestVOTFolder + "exoplanet_catalog.vot");
-                exoplanetArray = ReadXML.Read (Constant.UnitTestVOTFolder + "exoplanet_catalog.xml");
-                }
-
-            Assert.IsNotNull (exoplanetArray);
-
-            TextWriter writer = null;
-
-            using (writer = File.CreateText (Constant.UnitTestVOTFolder + "MinMax.txt"))
-                {
-                string [] properties = { "Mass", "Radius", "OrbitalPeriod", "SemiMajorAxis", "Eccentricity",
-                                    "AngularDistance", "Inclination", "TzeroTr","TzeroTrSec","LambdaAngle",
-                                    "TzeroVr", "LogG", "Omega", "Tperi", "ImpactParameter", "K", "GeometricAlbedo"
-                                    };
-
-                foreach (string property in properties)
-                    {
-                    if (Helper.IsPlotable (property))
-                        {
-                        double minimum = Helper.GetMinimum (exoplanetArray, property);
-
-                        if (minimum < double.MaxValue)
-                            writer.Write ("Property {0} minimum {1}\r", property, minimum);
-                        }
-                    }
-
-                foreach (string property in properties)
-                    {
-                    if (Helper.IsPlotable (property))
-                        {
-                        double maximum = Helper.GetMaximum (exoplanetArray, property);
-
-                        if (maximum > double.MinValue)
-                            writer.Write ("Property {0} maximum {1}\r", property, maximum);
-                        }
-                    }
-                }
-            }
         }
 
     }

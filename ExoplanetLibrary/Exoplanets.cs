@@ -163,94 +163,6 @@ namespace ExoplanetLibrary
             return RemoveDuplicates (array, includeDuplicates, PlotTypes.Inclination);
             }
 
-        public static ArrayList PlanetsWithTzeroTr (ArrayList exoplanets, bool includeErrors, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.TzeroTr))
-                    if (includeErrors)
-                        {
-                        if (Helper.IsDefined (exoplanet.TzeroTrErrorMax))
-                            if (Helper.IsDefined (exoplanet.TzeroTrErrorMin))
-                                array.Add (exoplanet);
-                        }
-                    else
-                        array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetTzeroTr ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.TzeroTr);
-            }
-
-        public static ArrayList PlanetsWithTzeroTrSec (ArrayList exoplanets, bool includeErrors, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.TzeroTrSec))
-                    if (includeErrors)
-                        {
-                        if (Helper.IsDefined (exoplanet.TzeroTrSecErrorMax))
-                            if (Helper.IsDefined (exoplanet.TzeroTrSecErrorMin))
-                                array.Add (exoplanet);
-                        }
-                    else
-                        array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetTzeroTrSec ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.TzeroTrSec);
-            }
-
-        public static ArrayList PlanetsWithLambdaAngle (ArrayList exoplanets, bool includeErrors, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.LambdaAngle))
-                    if (includeErrors)
-                        {
-                        if (Helper.IsDefined (exoplanet.LambdaAngleErrorMax))
-                            if (Helper.IsDefined (exoplanet.LambdaAngleErrorMin))
-                                array.Add (exoplanet);
-                        }
-                    else
-                        array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetLambdaAngle ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.LambdaAngle);
-            }
-
-        public static ArrayList PlanetsWithTzeroVr (ArrayList exoplanets, bool includeErrors, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.TzeroVr))
-                    if (includeErrors)
-                        {
-                        if (Helper.IsDefined (exoplanet.TzeroVrErrorMax))
-                            if (Helper.IsDefined (exoplanet.TzeroVrErrorMin))
-                                array.Add (exoplanet);
-                        }
-                    else
-                        array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetTzeroVr ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.TzeroVr);
-            }
-
         public static ArrayList PlanetsWithTemperatureCalculated (ArrayList exoplanets, bool includeDuplicates)
             {
             ArrayList array = new ArrayList ();
@@ -264,36 +176,6 @@ namespace ExoplanetLibrary
             array.Sort (new SortByExoplanetTemperatureCalculated ());
 
             return RemoveDuplicates (array, includeDuplicates, PlotTypes.TemperatureCalculated);
-            }
-
-        public static ArrayList PlanetsWithTemperatureMeasured (ArrayList exoplanets, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.TemperatureMeasured))
-                    array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetTemperatureMeasured ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.TemperatureMeasured);
-            }
-
-        public static ArrayList PlanetsWithLogG (ArrayList exoplanets, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.LogG))
-                    array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetLogG ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.LogG);
             }
 
         public static ArrayList PlanetsWithOmega (ArrayList exoplanets, bool includeErrors, bool includeDuplicates)
@@ -318,96 +200,30 @@ namespace ExoplanetLibrary
             return RemoveDuplicates (array, includeDuplicates, PlotTypes.Omega);
             }
 
-        public static ArrayList PlanetsWithTperi (ArrayList exoplanets, bool includeErrors, bool includeDuplicates)
+        public static ArrayList PlanetsWithVelocitySemiamplitude (ArrayList exoplanets, bool includeErrors, bool excludeNegatives, bool includeDuplicates)
             {
             ArrayList array = new ArrayList ();
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
-                if (Helper.IsDefined (exoplanet.Tperi))
-                    if (includeErrors)
-                        {
-                        if (Helper.IsDefined (exoplanet.TperiErrorMax))
-                            if (Helper.IsDefined (exoplanet.TperiErrorMin))
-                                array.Add (exoplanet);
-                        }
-                    else
-                        array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetTperi ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.Tperi);
-            }
-
-        public static ArrayList PlanetsWithK (ArrayList exoplanets, bool includeErrors, bool excludeNegatives, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.K))
-                    if (excludeNegatives && Helper.IsNegativeOrZero (exoplanet.K))
+                if (Helper.IsDefined (exoplanet.VelocitySemiamplitude))
+                    if (excludeNegatives && Helper.IsNegativeOrZero (exoplanet.VelocitySemiamplitude))
                         {
                         ;
                         }
                     else if (includeErrors)
                         {
-                        if (Helper.IsDefined (exoplanet.KErrorMax))
-                            if (Helper.IsDefined (exoplanet.KErrorMin))
+                        if (Helper.IsDefined (exoplanet.VelocitySemiamplitudeErrorMax))
+                            if (Helper.IsDefined (exoplanet.VelocitySemiamplitudeErrorMin))
                                 array.Add (exoplanet);
                         }
                     else
                         array.Add (exoplanet);
                 }
 
-            array.Sort (new SortByExoplanetK ());
+            array.Sort (new SortByExoplanetVelocitySemiamplitude ());
 
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.K);
-            }
-
-        public static ArrayList PlanetsWithGeometricAlbedo (ArrayList exoplanets, bool includeErrors, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.GeometricAlbedo))
-                    if (includeErrors)
-                        {
-                        if (Helper.IsDefined (exoplanet.GeometricAlbedoErrorMax))
-                            if (Helper.IsDefined (exoplanet.GeometricAlbedoErrorMin))
-                                array.Add (exoplanet);
-                        }
-                    else
-                        array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetGeometricAlbedo ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.GeometricAlbedo);
-            }
-
-        public static ArrayList PlanetsWithTconj (ArrayList exoplanets, bool includeErrors, bool includeDuplicates)
-            {
-            ArrayList array = new ArrayList ();
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (Helper.IsDefined (exoplanet.Tconj))
-                    if (includeErrors)
-                        {
-                        if (Helper.IsDefined (exoplanet.TconjErrorMax))
-                            if (Helper.IsDefined (exoplanet.TconjErrorMin))
-                                array.Add (exoplanet);
-                        }
-                    else
-                        array.Add (exoplanet);
-                }
-
-            array.Sort (new SortByExoplanetTconj ());
-
-            return RemoveDuplicates (array, includeDuplicates, PlotTypes.Tconj);
+            return RemoveDuplicates (array, includeDuplicates, PlotTypes.VelocitySemiamplitude);
             }
 
         static private ArrayList RemoveDuplicates (ArrayList exoplanets, bool includeDuplicates, PlotTypes plotType)
@@ -461,38 +277,8 @@ namespace ExoplanetLibrary
                                     array.Add (exoplanet);
                                 break;
 
-                            case PlotTypes.TzeroTr:
-                                if (previous.TzeroTr != exoplanet.TzeroTr)
-                                    array.Add (exoplanet);
-                                break;
-
-                            case PlotTypes.TzeroTrSec:
-                                if (previous.TzeroTrSec != exoplanet.TzeroTrSec)
-                                    array.Add (exoplanet);
-                                break;
-
-                            case PlotTypes.LambdaAngle:
-                                if (previous.LambdaAngle != exoplanet.LambdaAngle)
-                                    array.Add (exoplanet);
-                                break;
-
-                            case PlotTypes.TzeroVr:
-                                if (previous.TzeroVr != exoplanet.TzeroVr)
-                                    array.Add (exoplanet);
-                                break;
-
                             case PlotTypes.TemperatureCalculated:
                                 if (previous.TemperatureCalculated != exoplanet.TemperatureCalculated)
-                                    array.Add (exoplanet);
-                                break;
-
-                            case PlotTypes.TemperatureMeasured:
-                                if (previous.TemperatureMeasured != exoplanet.TemperatureMeasured)
-                                    array.Add (exoplanet);
-                                break;
-
-                            case PlotTypes.LogG:
-                                if (previous.LogG != exoplanet.LogG)
                                     array.Add (exoplanet);
                                 break;
 
@@ -501,23 +287,8 @@ namespace ExoplanetLibrary
                                     array.Add (exoplanet);
                                 break;
 
-                            case PlotTypes.Tperi:
-                                if (previous.Tperi != exoplanet.Tperi)
-                                    array.Add (exoplanet);
-                                break;
-
-                            case PlotTypes.K:
-                                if (previous.K != exoplanet.K)
-                                    array.Add (exoplanet);
-                                break;
-
-                            case PlotTypes.GeometricAlbedo:
-                                if (previous.GeometricAlbedo != exoplanet.GeometricAlbedo)
-                                    array.Add (exoplanet);
-                                break;
-
-                            case PlotTypes.Tconj:
-                                if (previous.Tconj != exoplanet.Tconj)
+                            case PlotTypes.VelocitySemiamplitude:
+                                if (previous.VelocitySemiamplitude != exoplanet.VelocitySemiamplitude)
                                     array.Add (exoplanet);
                                 break;
                             }
@@ -780,10 +551,7 @@ namespace ExoplanetLibrary
                             StarTypes star = new StarTypes ();
                             star.Name = exoplanet.Star.Name;
                             star.Count = 0;
-                            star.IsSpectualType = false; //( type.Name == "O" || type.Name == "B" || type.Name == "A" ||
-                                                         //type.Name == "F" || type.Name == "G" || type.Name == "K" ||
-                                                         //type.Name == "M" )
-                                                         //? true : false;
+                            star.IsSpectualType = false;
                             stars.Add (star);
                             }
                         }

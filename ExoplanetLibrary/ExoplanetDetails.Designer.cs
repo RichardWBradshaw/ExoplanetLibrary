@@ -31,7 +31,6 @@
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Planet & Star Details";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlanetNStarDetails_FormClosing);
             this.ResumeLayout(false);
 

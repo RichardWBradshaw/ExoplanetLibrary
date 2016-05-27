@@ -227,7 +227,35 @@ namespace ExoplanetLibrary
                             return false;
                         }
                     else if (!dataFromCompare.Equals (dataToCompare))
-                        return false;
+                        {
+                        string fromString = dataFromCompare as string;
+                        string toString = dataToCompare as string;
+                        double fromDouble, toDouble;
+
+                        if (double.TryParse (fromString, out fromDouble))
+                            if (double.TryParse (toString, out toDouble))
+                                {
+                                double tolerence = 0.0001;
+
+                                switch (fromString.Length - fromString.IndexOf ('.') - 1)
+                                    {
+                                    case 0: tolerence = 0.0; break;
+                                    case 1: tolerence = 0.0; break;
+                                    case 2: tolerence = 0.1; break;
+                                    case 3: tolerence = 0.01; break;
+                                    case 4: tolerence = 0.001; break;
+                                    case 5: tolerence = 0.0001; break;
+                                    case 6: tolerence = 0.00001; break;
+                                    }
+
+                                if (Math.Abs (fromDouble - toDouble) > tolerence)
+                                    return false;
+                                }
+                            else
+                                return false;
+                        else
+                            return false;
+                        }
                     }
                 else if (dataFromCompare != null && dataToCompare == null)
                     return false;
@@ -236,168 +264,6 @@ namespace ExoplanetLibrary
                 }
 
             return true;
-            }
-
-        public static bool IsPlotable (string property)
-            {
-            if (property == "Mass")
-                return true;
-            else if (property == "Radius")
-                return true;
-            else if (property == "OrbitalPeriod")
-                return true;
-            else if (property == "SemiMajorAxis")
-                return true;
-            else if (property == "Eccentricity")
-                return true;
-            else if (property == "AngularDistance")
-                return true;
-            else if (property == "Inclination")
-                return true;
-            else if (property == "TzeroTr")
-                return true;
-            else if (property == "TzeroTrSec")
-                return true;
-            else if (property == "LambdaAngle")
-                return true;
-            else if (property == "TzeroVr")
-                return true;
-            else if (property == "LogG")
-                return true;
-            else if (property == "Omega")
-                return true;
-            else if (property == "Tperi")
-                return true;
-            else if (property == "ImpactParameter")
-                return true;
-            else if (property == "K")
-                return true;
-            else if (property == "GeometricAlbedo")
-                return true;
-            else if (property == "Tconj")
-                return true;
-
-            return false;
-            }
-
-        public static void GetMinimum (string str, ref double minimum)
-            {
-            if (str != null && str.Length > 0)
-                {
-                double value = 0.0;
-
-                if (double.TryParse (str, out value))
-                    if (value < minimum)
-                        minimum = value;
-                }
-            }
-
-        public static double GetMinimum (ArrayList exoplanets, string property)
-            {
-            double minimum = double.MaxValue;
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (property == "Mass")
-                    GetMinimum (exoplanet.Mass, ref minimum);
-                else if (property == "Radius")
-                    GetMinimum (exoplanet.Radius, ref minimum);
-                else if (property == "OrbitalPeriod")
-                    GetMinimum (exoplanet.OrbitalPeriod, ref minimum);
-                else if (property == "SemiMajorAxis")
-                    GetMinimum (exoplanet.SemiMajorAxis, ref minimum);
-                else if (property == "Eccentricity")
-                    GetMinimum (exoplanet.Eccentricity, ref minimum);
-                else if (property == "AngularDistance")
-                    GetMinimum (exoplanet.AngularDistance, ref minimum);
-                else if (property == "Inclination")
-                    GetMinimum (exoplanet.Inclination, ref minimum);
-                else if (property == "TzeroTr")
-                    GetMinimum (exoplanet.TzeroTr, ref minimum);
-                else if (property == "TzeroTrSec")
-                    GetMinimum (exoplanet.TzeroTrSec, ref minimum);
-                else if (property == "LambdaAngle")
-                    GetMinimum (exoplanet.LambdaAngle, ref minimum);
-                else if (property == "TzeroVr")
-                    GetMinimum (exoplanet.TzeroVr, ref minimum);
-                else if (property == "LogG")
-                    GetMinimum (exoplanet.LogG, ref minimum);
-                else if (property == "Omega")
-                    GetMinimum (exoplanet.Omega, ref minimum);
-                else if (property == "Tperi")
-                    GetMinimum (exoplanet.Tperi, ref minimum);
-                else if (property == "ImpactParameter")
-                    GetMinimum (exoplanet.ImpactParameter, ref minimum);
-                else if (property == "K")
-                    GetMinimum (exoplanet.K, ref minimum);
-                else if (property == "GeometricAlbedo")
-                    GetMinimum (exoplanet.GeometricAlbedo, ref minimum);
-                else if (property == "Tconj")
-                    GetMinimum (exoplanet.Tconj, ref minimum);
-                }
-
-            return minimum;
-            }
-
-        public static void GetMaximum (string str, ref double maximum)
-            {
-            if (str != null && str.Length > 0)
-                {
-                double value = 0.0;
-
-                if (double.TryParse (str, out value))
-                    if (value > maximum)
-                        maximum = value;
-                }
-            }
-
-        public static double GetMaximum (ArrayList exoplanets, string property)
-            {
-            double maximum = double.MinValue;
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (property == "Mass")
-                    GetMaximum (exoplanet.Mass, ref maximum);
-                else if (property == "Radius")
-                    GetMaximum (exoplanet.Radius, ref maximum);
-                else if (property == "OrbitalPeriod")
-                    GetMaximum (exoplanet.OrbitalPeriod, ref maximum);
-                else if (property == "SemiMajorAxis")
-                    GetMaximum (exoplanet.SemiMajorAxis, ref maximum);
-                else if (property == "Eccentricity")
-                    GetMaximum (exoplanet.Eccentricity, ref maximum);
-                else if (property == "AngularDistance")
-                    GetMaximum (exoplanet.AngularDistance, ref maximum);
-                else if (property == "Inclination")
-                    GetMaximum (exoplanet.Inclination, ref maximum);
-                else if (property == "TzeroTr")
-                    GetMaximum (exoplanet.TzeroTr, ref maximum);
-                else if (property == "TzeroTrSec")
-                    GetMaximum (exoplanet.TzeroTrSec, ref maximum);
-                else if (property == "LambdaAngle")
-                    GetMaximum (exoplanet.LambdaAngle, ref maximum);
-                else if (property == "TzeroVr")
-                    GetMaximum (exoplanet.TzeroVr, ref maximum);
-                else if (property == "LogG")
-                    GetMaximum (exoplanet.LogG, ref maximum);
-                else if (property == "Omega")
-                    GetMaximum (exoplanet.Omega, ref maximum);
-                else if (property == "Tperi")
-                    GetMaximum (exoplanet.Tperi, ref maximum);
-                else if (property == "ImpactParameter")
-                    GetMaximum (exoplanet.ImpactParameter, ref maximum);
-                else if (property == "K")
-                    GetMaximum (exoplanet.K, ref maximum);
-                else if (property == "GeometricAlbedo")
-                    GetMaximum (exoplanet.GeometricAlbedo, ref maximum);
-                else if (property == "Tconj")
-                    GetMaximum (exoplanet.Tconj, ref maximum);
-                else if (property == "GeometricAlbedo")
-                    GetMaximum (exoplanet.GeometricAlbedo, ref maximum);
-                }
-
-            return maximum;
             }
 
         public static bool IsDefined (string value)
@@ -525,9 +391,9 @@ namespace ExoplanetLibrary
         static public int ImpactParameterErrorMin;
         static public int ImpactParameterErrorMax;
 
-        static public int K;
-        static public int KErrorMin;
-        static public int KErrorMax;
+        static public int VelocitySemiamplitude;
+        static public int VelocitySemiamplitudeErrorMin;
+        static public int VelocitySemiamplitudeErrorMax;
 
         static public int GeometricAlbedo;
         static public int GeometricAlbedoErrorMin;
@@ -674,9 +540,9 @@ namespace ExoplanetLibrary
                 case "tzero_vr_error_min": TzeroVrErrorMin = index; break;
                 case "tzero_vr_error_max": TzeroVrErrorMax = index; break;
 
-                case "k": K = index; break;
-                case "k_error_min": KErrorMin = index; break;
-                case "k_error_max": KErrorMax = index; break;
+                case "k": VelocitySemiamplitude = index; break;
+                case "k_error_min": VelocitySemiamplitudeErrorMin = index; break;
+                case "k_error_max": VelocitySemiamplitudeErrorMax = index; break;
 
                 case "temp_calculated": TemperatureCalculated = index; break;
 

@@ -526,9 +526,9 @@ namespace ExoplanetLibrary
             {
             if (string.Equals (Version, Constant.Version1))
                 {
-                exoplanet.K = "";
-                exoplanet.KErrorMin = "";
-                exoplanet.KErrorMax = "";
+                exoplanet.VelocitySemiamplitude = "";
+                exoplanet.VelocitySemiamplitudeErrorMin = "";
+                exoplanet.VelocitySemiamplitudeErrorMax = "";
                 }
             else
                 {
@@ -539,13 +539,13 @@ namespace ExoplanetLibrary
                     switch (Reader.Name)
                         {
                         case "k":
-                            exoplanet.K = Reader.Value;
+                            exoplanet.VelocitySemiamplitude = Reader.Value;
                             break;
                         case "errorMin":
-                            exoplanet.KErrorMin = Reader.Value;
+                            exoplanet.VelocitySemiamplitudeErrorMin = Reader.Value;
                             break;
                         case "errorMax":
-                            exoplanet.KErrorMax = Reader.Value;
+                            exoplanet.VelocitySemiamplitudeErrorMax = Reader.Value;
                             break;
                         }
                     }

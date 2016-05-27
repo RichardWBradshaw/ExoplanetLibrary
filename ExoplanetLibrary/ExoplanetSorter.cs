@@ -459,9 +459,9 @@ namespace ExoplanetLibrary
             }
         }
 
-    sealed public class SortByExoplanetK : IComparer
+    sealed public class SortByExoplanetVelocitySemiamplitude : IComparer
         {
-        public SortByExoplanetK ()
+        public SortByExoplanetVelocitySemiamplitude ()
             {
             }
 
@@ -476,10 +476,10 @@ namespace ExoplanetLibrary
             exoplanet1 = ( Exoplanet )x;
             exoplanet2 = ( Exoplanet )y;
 
-            if (double.TryParse (exoplanet1.K, out dx) && double.TryParse (exoplanet2.K, out dy))
+            if (double.TryParse (exoplanet1.VelocitySemiamplitude, out dx) && double.TryParse (exoplanet2.VelocitySemiamplitude, out dy))
                 compareResults = ObjectCompare.Compare (dx, dy);
             else
-                compareResults = ObjectCompare.Compare (exoplanet1.K, exoplanet2.K);
+                compareResults = ObjectCompare.Compare (exoplanet1.VelocitySemiamplitude, exoplanet2.VelocitySemiamplitude);
 
             return ( -compareResults );
             }

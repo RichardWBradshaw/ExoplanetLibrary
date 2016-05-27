@@ -30,7 +30,7 @@
 		<AlternateNames />
 		<Star Name="11 Com" ra="185.1791667" dec="17.7927778">
 			<Magnitudes V="4.74" />
-			<Properties Distance="110.6" Metallicity="-0.35" Mass="2.7" Radius="19.0" SPType="G8 III" Teff="4742.0" />
+			<Properties Distance="110.6" Metallicity="-0.35" Mass="2.7" Radius="19.0" SPType="G8III" Teff="4742.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="11 UMi b">
@@ -129,7 +129,7 @@
 		<AlternateNames />
 		<Star Name="14 Her" ra="242.5958333" dec="43.8216667">
 			<Magnitudes V="6.67" />
-			<Properties Distance="18.1" Metallicity="0.43" Mass="0.9" Radius="0.708" SPType="K0 V" Age="5.1" Teff="5311.0" />
+			<Properties Distance="18.1" Metallicity="0.43" Mass="0.9" Radius="0.708" SPType="K0V" Age="5.1" Teff="5311.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="16 Cyg B b">
@@ -162,7 +162,7 @@
 		<AlternateNames />
 		<Star Name="16 Cyg B" ra="295.4625" dec="50.5175">
 			<Magnitudes V="6.2" />
-			<Properties Distance="21.41" Metallicity="0.08" Mass="1.01" Radius="0.98" SPType="G2.5 V" Age="8.0" Teff="5766.0" />
+			<Properties Distance="21.41" Metallicity="0.08" Mass="1.01" Radius="0.98" SPType="G2.5V" Age="8.0" Teff="5766.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="18 Del b">
@@ -888,7 +888,7 @@
 		<AlternateNames />
 		<Star Name="51 Peg" ra="344.3625" dec="20.7686111">
 			<Magnitudes V="5.49" />
-			<Properties Distance="14.7" Metallicity="0.2" Mass="1.11" Radius="1.266" SPType="G2 IV" Age="4.0" Teff="5793.0" />
+			<Properties Distance="14.7" Metallicity="0.2" Mass="1.11" Radius="1.266" SPType="G2IV" Age="4.0" Teff="5793.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="55 Cnc b">
@@ -1218,7 +1218,7 @@
 		<AlternateNames alternateNames="HD 47205 b" />
 		<Star Name="7 CMa" ra="99.1708333" dec="-19.2558333">
 			<Magnitudes V="3.96" />
-			<Properties Distance="19.75" Metallicity="0.21" Mass="1.52" Radius="2.3" SPType="K1 III" Teff="4792.0" />
+			<Properties Distance="19.75" Metallicity="0.21" Mass="1.52" Radius="2.3" SPType="K1III" Teff="4792.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="70 Vir b">
@@ -1251,7 +1251,7 @@
 		<AlternateNames />
 		<Star Name="70 Vir" ra="202.1083333" dec="13.7866667">
 			<Magnitudes V="5.0" />
-			<Properties Distance="22.0" Metallicity="-0.11" Mass="0.92" Radius="1.968" SPType="G4 V" Age="7.09" Teff="5432.0" DetectedDisc="IR Excess" />
+			<Properties Distance="22.0" Metallicity="-0.11" Mass="0.92" Radius="1.968" SPType="G4V" Age="7.09" Teff="5432.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="75 Cet b">
@@ -1383,7 +1383,7 @@
 		<AlternateNames />
 		<Star Name="91 Aqr" ra="348.9708333" dec="-9.0875">
 			<Magnitudes V="4.21" />
-			<Properties Distance="45.9" Metallicity="-0.03" Mass="1.4" Radius="11.0" SPType="K0 III" Age="3.56" Teff="4665.0" />
+			<Properties Distance="45.9" Metallicity="-0.03" Mass="1.4" Radius="11.0" SPType="K0III" Age="3.56" Teff="4665.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="AB Pic b">
@@ -1416,7 +1416,7 @@
 		<AlternateNames />
 		<Star Name="AB Pic" ra="94.8" dec="-58.0541667">
 			<Magnitudes V="9.16" />
-			<Properties Distance="47.3" Metallicity="-0.64" SPType="K2 V" Age="0.03" Teff="4875.0" />
+			<Properties Distance="47.3" Metallicity="-0.64" SPType="K2V" Age="0.03" Teff="4875.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Aldebaran b">
@@ -1746,7 +1746,7 @@
 		<AlternateNames />
 		<Star Name="BD-10 3166" ra="164.6166667" dec="-10.7702778">
 			<Magnitudes V="10.08" />
-			<Properties Distance="66.0" Metallicity="0.5" Mass="0.99" Radius="1.71" SPType="G4 V" Age="4.18" Teff="5400.0" />
+			<Properties Distance="66.0" Metallicity="0.5" Mass="0.99" Radius="1.71" SPType="G4V" Age="4.18" Teff="5400.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="BD-114672 b">
@@ -3198,7 +3198,7 @@
 		<AlternateNames />
 		<Star Name="DP Leo" ra="169.3166667" dec="17.9613889">
 			<Magnitudes V="17.5" />
-			<Properties Mass="0.69" SPType="AM Her" />
+			<Properties Mass="0.69" SPType="AMHer" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="EPIC 201445392 c">
@@ -3561,7 +3561,7 @@
 		<AlternateNames />
 		<Star Name="Fomalhaut" ra="344.4125" dec="-29.6222222">
 			<Magnitudes V="1.16" />
-			<Properties Distance="7.704" Mass="1.92" Radius="1.842" SPType="A3 V" Age="0.44" Teff="8590.0" DetectedDisc="Imaging" />
+			<Properties Distance="7.704" Mass="1.92" Radius="1.842" SPType="A3V" Age="0.44" Teff="8590.0" DetectedDisc="Imaging" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GJ 1132 b">
@@ -3891,7 +3891,7 @@
 		<AlternateNames />
 		<Star Name="GJ 3021" ra="4.05" dec="-79.8511111">
 			<Magnitudes V="6.59" />
-			<Properties Distance="17.62" Metallicity="0.1" Mass="0.9" Radius="0.9" SPType="G6 V" Age="8.77" Teff="5540.0" />
+			<Properties Distance="17.62" Metallicity="0.1" Mass="0.9" Radius="0.9" SPType="G6V" Age="8.77" Teff="5540.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GJ 317 b">
@@ -5475,7 +5475,7 @@
 		<AlternateNames />
 		<Star Name="Gliese 876" ra="343.3041667" dec="-14.2536111">
 			<Magnitudes V="10.17" />
-			<Properties Distance="4.7" Metallicity="0.05" Mass="0.334" Radius="0.36" SPType="M4 V" Age="2.5" Teff="3350.0" />
+			<Properties Distance="4.7" Metallicity="0.05" Mass="0.334" Radius="0.36" SPType="M4V" Age="2.5" Teff="3350.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Gliese 876 c">
@@ -5508,7 +5508,7 @@
 		<AlternateNames />
 		<Star Name="Gliese 876" ra="343.3041667" dec="-14.2536111">
 			<Magnitudes V="10.17" />
-			<Properties Distance="4.7" Metallicity="0.05" Mass="0.334" Radius="0.36" SPType="M4 V" Age="2.5" Teff="3350.0" />
+			<Properties Distance="4.7" Metallicity="0.05" Mass="0.334" Radius="0.36" SPType="M4V" Age="2.5" Teff="3350.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Gliese 876 d">
@@ -5541,7 +5541,7 @@
 		<AlternateNames />
 		<Star Name="Gliese 876" ra="343.3041667" dec="-14.2536111">
 			<Magnitudes V="10.17" />
-			<Properties Distance="4.7" Metallicity="0.05" Mass="0.334" Radius="0.36" SPType="M4 V" Age="2.5" Teff="3350.0" />
+			<Properties Distance="4.7" Metallicity="0.05" Mass="0.334" Radius="0.36" SPType="M4V" Age="2.5" Teff="3350.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Gliese 876 e">
@@ -5574,7 +5574,7 @@
 		<AlternateNames />
 		<Star Name="Gliese 876" ra="343.3041667" dec="-14.2536111">
 			<Magnitudes V="10.17" />
-			<Properties Distance="4.7" Metallicity="0.05" Mass="0.334" Radius="0.36" SPType="M4 V" Age="2.5" Teff="3350.0" />
+			<Properties Distance="4.7" Metallicity="0.05" Mass="0.334" Radius="0.36" SPType="M4V" Age="2.5" Teff="3350.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HAT-P-1 b">
@@ -8148,7 +8148,7 @@
 		<AlternateNames />
 		<Star Name="HD 101930" ra="175.875" dec="-58.0066667">
 			<Magnitudes V="8.21" />
-			<Properties Distance="30.49" Metallicity="0.17" Mass="0.74" SPType="K1 V" Age="5.39" Teff="5079.0" />
+			<Properties Distance="30.49" Metallicity="0.17" Mass="0.74" SPType="K1V" Age="5.39" Teff="5079.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 102117 b">
@@ -8544,7 +8544,7 @@
 		<AlternateNames />
 		<Star Name="HD 104985" ra="181.3125" dec="76.9055556">
 			<Magnitudes V="5.79" />
-			<Properties Distance="102.0" Metallicity="-0.35" Mass="1.6" Radius="10.87" SPType="G9 III" Age="2.95" Teff="4786.0" />
+			<Properties Distance="102.0" Metallicity="-0.35" Mass="1.6" Radius="10.87" SPType="G9III" Age="2.95" Teff="4786.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 106252 b">
@@ -8742,7 +8742,7 @@
 		<AlternateNames />
 		<Star Name="HD 10697" ra="26.2291667" dec="20.0830556">
 			<Magnitudes V="6.29" />
-			<Properties Distance="32.56" Metallicity="0.1" Mass="1.15" Radius="1.72" SPType="G5 IV" Age="6.9" Teff="5641.0" />
+			<Properties Distance="32.56" Metallicity="0.1" Mass="1.15" Radius="1.72" SPType="G5IV" Age="6.9" Teff="5641.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 107148 b">
@@ -8808,7 +8808,7 @@
 		<AlternateNames />
 		<Star Name="HD 108147" ra="186.4416667" dec="-64.0219444">
 			<Magnitudes V="6.99" />
-			<Properties Distance="38.57" Metallicity="0.18" Mass="1.19" Radius="1.22" SPType="F8/G0 V" Age="1.98" Teff="6067.0" />
+			<Properties Distance="38.57" Metallicity="0.18" Mass="1.19" Radius="1.22" SPType="F8/G0V" Age="1.98" Teff="6067.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 108341 b">
@@ -9072,7 +9072,7 @@
 		<AlternateNames />
 		<Star Name="HD 109749" ra="189.3166667" dec="-40.8119444">
 			<Magnitudes V="8.1" />
-			<Properties Distance="59.0" Metallicity="0.25" Mass="1.2" SPType="G3 IV" Age="10.3" Teff="5610.0" />
+			<Properties Distance="59.0" Metallicity="0.25" Mass="1.2" SPType="G3IV" Age="10.3" Teff="5610.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 110014 b">
@@ -9270,7 +9270,7 @@
 		<AlternateNames />
 		<Star Name="HD 114386" ra="197.6625" dec="-35.0547222">
 			<Magnitudes V="8.73" />
-			<Properties Distance="28.0" Metallicity="0.0" Mass="0.75" Radius="0.76" SPType="K3 V" Age="2.19" Teff="4819.0" />
+			<Properties Distance="28.0" Metallicity="0.0" Mass="0.75" Radius="0.76" SPType="K3V" Age="2.19" Teff="4819.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 114386 c">
@@ -9303,7 +9303,7 @@
 		<AlternateNames />
 		<Star Name="HD 114386" ra="197.6625" dec="-35.0547222">
 			<Magnitudes V="8.73" />
-			<Properties Distance="28.0" Metallicity="0.0" Mass="0.75" Radius="0.76" SPType="K3 V" Age="2.19" Teff="4819.0" />
+			<Properties Distance="28.0" Metallicity="0.0" Mass="0.75" Radius="0.76" SPType="K3V" Age="2.19" Teff="4819.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 114613 b">
@@ -9369,7 +9369,7 @@
 		<AlternateNames />
 		<Star Name="HD 114729" ra="198.1833333" dec="-31.8733333">
 			<Magnitudes V="6.69" />
-			<Properties Distance="35.0" Metallicity="-0.22" Mass="0.93" Radius="1.46" SPType="G3 V" Age="4.58" Teff="5662.0" />
+			<Properties Distance="35.0" Metallicity="-0.22" Mass="0.93" Radius="1.46" SPType="G3V" Age="4.58" Teff="5662.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 114762 b">
@@ -9798,7 +9798,7 @@
 		<AlternateNames />
 		<Star Name="HD 11977" ra="28.7333333" dec="-67.6472222">
 			<Magnitudes V="4.7" />
-			<Properties Distance="66.5" Metallicity="-0.21" Mass="1.91" Radius="13.0" SPType="G8.5 III" Age="1.25" Teff="4975.0" />
+			<Properties Distance="66.5" Metallicity="-0.21" Mass="1.91" Radius="13.0" SPType="G8.5III" Age="1.25" Teff="4975.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 120084 b">
@@ -9831,7 +9831,7 @@
 		<AlternateNames />
 		<Star Name="HD 120084" ra="205.7167" dec="78.0617">
 			<Magnitudes V="5.91" />
-			<Properties Distance="97.7" Metallicity="0.09" Mass="2.39" Radius="9.12" SPType="G7 III" Teff="4892.0" />
+			<Properties Distance="97.7" Metallicity="0.09" Mass="2.39" Radius="9.12" SPType="G7III" Teff="4892.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 121504 b">
@@ -9864,7 +9864,7 @@
 		<AlternateNames />
 		<Star Name="HD 121504" ra="209.3208333" dec="-56.04">
 			<Magnitudes V="7.54" />
-			<Properties Distance="44.37" Metallicity="0.16" Mass="1.18" SPType="G2 V" Age="1.62" Teff="6075.0" />
+			<Properties Distance="44.37" Metallicity="0.16" Mass="1.18" SPType="G2V" Age="1.62" Teff="6075.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 122430 b">
@@ -10128,7 +10128,7 @@
 		<AlternateNames />
 		<Star Name="HD 12661" ra="31.1416667" dec="25.4141667">
 			<Magnitudes V="7.44" />
-			<Properties Distance="37.16" Metallicity="0.29" Mass="1.07" Radius="1.12" SPType="G6 V" Age="7.05" Teff="5742.0" />
+			<Properties Distance="37.16" Metallicity="0.29" Mass="1.07" Radius="1.12" SPType="G6V" Age="7.05" Teff="5742.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 12661 c">
@@ -10161,7 +10161,7 @@
 		<AlternateNames />
 		<Star Name="HD 12661" ra="31.1416667" dec="25.4141667">
 			<Magnitudes V="7.44" />
-			<Properties Distance="37.16" Metallicity="0.29" Mass="1.07" Radius="1.12" SPType="G6 V" Age="7.05" Teff="5742.0" />
+			<Properties Distance="37.16" Metallicity="0.29" Mass="1.07" Radius="1.12" SPType="G6V" Age="7.05" Teff="5742.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 126614 b">
@@ -10326,7 +10326,7 @@
 		<AlternateNames />
 		<Star Name="HD 130322" ra="221.8875" dec="0.2813889">
 			<Magnitudes V="8.05" />
-			<Properties Distance="30.0" Metallicity="-0.02" Mass="0.79" Radius="0.83" SPType="K0 V" Age="0.35" Teff="5330.0" DetectedDisc="IR Excess" />
+			<Properties Distance="30.0" Metallicity="-0.02" Mass="0.79" Radius="0.83" SPType="K0V" Age="0.35" Teff="5330.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 131496 b">
@@ -10392,7 +10392,7 @@
 		<AlternateNames />
 		<Star Name="HD 13189" ra="32.4166667" dec="32.3163889">
 			<Magnitudes V="7.57" />
-			<Properties Distance="185.0" Mass="4.5" Radius="50.39" SPType="K2 II" />
+			<Properties Distance="185.0" Mass="4.5" Radius="50.39" SPType="K2II" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 132406 b">
@@ -10656,7 +10656,7 @@
 		<AlternateNames />
 		<Star Name="HD 134987" ra="228.3666667" dec="-25.3091667">
 			<Magnitudes V="6.45" />
-			<Properties Distance="22.2" Metallicity="0.25" Mass="1.07" Radius="1.25" SPType="G5 V" Age="9.7" Teff="5740.0" />
+			<Properties Distance="22.2" Metallicity="0.25" Mass="1.07" Radius="1.25" SPType="G5V" Age="9.7" Teff="5740.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 134987 c">
@@ -10689,7 +10689,7 @@
 		<AlternateNames />
 		<Star Name="HD 134987" ra="228.3666667" dec="-25.3091667">
 			<Magnitudes V="6.45" />
-			<Properties Distance="22.2" Metallicity="0.25" Mass="1.07" Radius="1.25" SPType="G5 V" Age="9.7" Teff="5740.0" />
+			<Properties Distance="22.2" Metallicity="0.25" Mass="1.07" Radius="1.25" SPType="G5V" Age="9.7" Teff="5740.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 136352 b">
@@ -11085,7 +11085,7 @@
 		<AlternateNames />
 		<Star Name="HD 14067" ra="34.2934990035" dec="23.7678282663">
 			<Magnitudes V="6.51" />
-			<Properties Distance="163.4" Metallicity="-0.1" Mass="2.4" Radius="12.4" SPType="G9 III" Age="0.69" Teff="4815.0" />
+			<Properties Distance="163.4" Metallicity="-0.1" Mass="2.4" Radius="12.4" SPType="G9III" Age="0.69" Teff="4815.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 141399 b">
@@ -11250,7 +11250,7 @@
 		<AlternateNames />
 		<Star Name="HD 141937" ra="238.0708333" dec="-18.4358333">
 			<Magnitudes V="7.25" />
-			<Properties Distance="33.46" Metallicity="0.11" Mass="1.1" Radius="1.06" SPType="G2/G3 V" Age="2.55" Teff="5925.0" />
+			<Properties Distance="33.46" Metallicity="0.11" Mass="1.1" Radius="1.06" SPType="G2/G3V" Age="2.55" Teff="5925.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 142 b">
@@ -11283,7 +11283,7 @@
 		<AlternateNames />
 		<Star Name="HD 142" ra="1.5791667" dec="-49.075">
 			<Magnitudes V="5.7" />
-			<Properties Distance="20.6" Metallicity="0.04" Mass="1.1" Radius="0.86" SPType="G1 IV" Age="5.93" Teff="6180.0" DetectedDisc="IR Excess" />
+			<Properties Distance="20.6" Metallicity="0.04" Mass="1.1" Radius="0.86" SPType="G1IV" Age="5.93" Teff="6180.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 142 c">
@@ -11316,7 +11316,7 @@
 		<AlternateNames />
 		<Star Name="HD 142" ra="1.5791667" dec="-49.075">
 			<Magnitudes V="5.7" />
-			<Properties Distance="20.6" Metallicity="0.04" Mass="1.1" Radius="0.86" SPType="G1 IV" Age="5.93" Teff="6180.0" DetectedDisc="IR Excess" />
+			<Properties Distance="20.6" Metallicity="0.04" Mass="1.1" Radius="0.86" SPType="G1IV" Age="5.93" Teff="6180.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 142022 A b">
@@ -11349,7 +11349,7 @@
 		<AlternateNames />
 		<Star Name="HD 142022 A" ra="242.5625" dec="-84.2313889">
 			<Magnitudes V="7.7" />
-			<Properties Distance="35.87" Metallicity="0.19" Mass="0.99" Radius="0.705" SPType="K0 V" Age="13.3" Teff="5382.0" />
+			<Properties Distance="35.87" Metallicity="0.19" Mass="0.99" Radius="0.705" SPType="K0V" Age="13.3" Teff="5382.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 142245 b">
@@ -11415,7 +11415,7 @@
 		<AlternateNames />
 		<Star Name="HD 142415" ra="239.4166667" dec="-60.2">
 			<Magnitudes V="7.34" />
-			<Properties Distance="34.2" Metallicity="0.21" Mass="1.09" Radius="1.03" SPType="G1 V" Age="1.49" Teff="5834.0" />
+			<Properties Distance="34.2" Metallicity="0.21" Mass="1.09" Radius="1.03" SPType="G1V" Age="1.49" Teff="5834.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 143361 b">
@@ -11811,7 +11811,7 @@
 		<AlternateNames />
 		<Star Name="HD 149026" ra="247.6208333" dec="38.3472222">
 			<Magnitudes V="8.15" />
-			<Properties Distance="78.9" Metallicity="0.36" Mass="1.3" Radius="1.497" SPType="G0 IV" Age="2.0" Teff="6147.0" />
+			<Properties Distance="78.9" Metallicity="0.36" Mass="1.3" Radius="1.497" SPType="G0IV" Age="2.0" Teff="6147.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 149143 b">
@@ -11844,7 +11844,7 @@
 		<AlternateNames />
 		<Star Name="HD 149143" ra="248.2125" dec="2.0847222">
 			<Magnitudes V="7.9" />
-			<Properties Distance="63.0" Metallicity="0.26" Mass="1.1" SPType="G0 IV" Age="7.6" Teff="5730.0" />
+			<Properties Distance="63.0" Metallicity="0.26" Mass="1.1" SPType="G0IV" Age="7.6" Teff="5730.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 1502 b">
@@ -12636,7 +12636,7 @@
 		<AlternateNames />
 		<Star Name="HD 1605" ra="5.133333344" dec="30.974722248">
 			<Magnitudes V="7.52" />
-			<Properties Distance="84.6" Metallicity="0.21" Mass="1.31" Radius="3.8" SPType="K1 IV" Age="4.59" Teff="4757.0" />
+			<Properties Distance="84.6" Metallicity="0.21" Mass="1.31" Radius="3.8" SPType="K1IV" Age="4.59" Teff="4757.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 1605 c">
@@ -12669,7 +12669,7 @@
 		<AlternateNames />
 		<Star Name="HD 1605" ra="5.133333344" dec="30.974722248">
 			<Magnitudes V="7.52" />
-			<Properties Distance="84.6" Metallicity="0.21" Mass="1.31" Radius="3.8" SPType="K1 IV" Age="4.59" Teff="4757.0" />
+			<Properties Distance="84.6" Metallicity="0.21" Mass="1.31" Radius="3.8" SPType="K1IV" Age="4.59" Teff="4757.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 16141 b">
@@ -12702,7 +12702,7 @@
 		<AlternateNames />
 		<Star Name="HD 16141" ra="38.8291667" dec="-3.5605556">
 			<Magnitudes V="6.78" />
-			<Properties Distance="35.9" Metallicity="0.02" Mass="1.01" Radius="1.0" SPType="G5 IV" Age="7.76" Teff="5533.0" />
+			<Properties Distance="35.9" Metallicity="0.02" Mass="1.01" Radius="1.0" SPType="G5IV" Age="7.76" Teff="5533.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 16175 b">
@@ -12801,7 +12801,7 @@
 		<AlternateNames />
 		<Star Name="HD 162020" ra="267.6583333" dec="-40.3183333">
 			<Magnitudes V="9.18" />
-			<Properties Distance="31.26" Metallicity="0.01" Mass="0.75" Radius="0.71" SPType="K2 V" Age="0.76" Teff="4830.0" />
+			<Properties Distance="31.26" Metallicity="0.01" Mass="0.75" Radius="0.71" SPType="K2V" Age="0.76" Teff="4830.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 163607 b">
@@ -13065,7 +13065,7 @@
 		<AlternateNames />
 		<Star Name="HD 1666" ra="5.216666684" dec="-19.931111141">
 			<Magnitudes V="8.17" />
-			<Properties Distance="110.6" Metallicity="0.37" Mass="1.5" Radius="1.93" SPType="F7 V" Age="1.76" Teff="6317.0" />
+			<Properties Distance="110.6" Metallicity="0.37" Mass="1.5" Radius="1.93" SPType="F7V" Age="1.76" Teff="6317.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 166724 b">
@@ -13296,7 +13296,7 @@
 		<AlternateNames />
 		<Star Name="HD 169830" ra="276.9541667" dec="-29.8166667">
 			<Magnitudes V="5.9" />
-			<Properties Distance="36.32" Metallicity="0.21" Mass="1.4" Radius="1.84" SPType="F8 V" Age="4.95" Teff="6266.0" />
+			<Properties Distance="36.32" Metallicity="0.21" Mass="1.4" Radius="1.84" SPType="F8V" Age="4.95" Teff="6266.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 169830 c">
@@ -13329,7 +13329,7 @@
 		<AlternateNames />
 		<Star Name="HD 169830" ra="276.9541667" dec="-29.8166667">
 			<Magnitudes V="5.9" />
-			<Properties Distance="36.32" Metallicity="0.21" Mass="1.4" Radius="1.84" SPType="F8 V" Age="4.95" Teff="6266.0" />
+			<Properties Distance="36.32" Metallicity="0.21" Mass="1.4" Radius="1.84" SPType="F8V" Age="4.95" Teff="6266.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 170469 b">
@@ -13560,7 +13560,7 @@
 		<AlternateNames />
 		<Star Name="HD 175167" ra="285.0041667" dec="-69.9441667">
 			<Magnitudes V="9.18" />
-			<Properties Distance="67.02" Metallicity="0.19" Mass="1.102" SPType="G5 IV/V" />
+			<Properties Distance="67.02" Metallicity="0.19" Mass="1.102" SPType="G5IV/V" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 175541 b">
@@ -13791,7 +13791,7 @@
 		<AlternateNames />
 		<Star Name="HD 179949" ra="288.8875" dec="-24.1791667">
 			<Magnitudes V="6.25" />
-			<Properties Distance="27.0" Metallicity="0.22" Mass="1.28" Radius="1.19" SPType="F8 V" Age="2.05" Teff="6260.0" />
+			<Properties Distance="27.0" Metallicity="0.22" Mass="1.28" Radius="1.19" SPType="F8V" Age="2.05" Teff="6260.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 180314 b">
@@ -14154,7 +14154,7 @@
 		<AlternateNames />
 		<Star Name="HD 187085" ra="297.3875" dec="-37.7805556">
 			<Magnitudes V="7.22" />
-			<Properties Distance="44.98" Metallicity="0.05" Mass="1.22" SPType="G0 V" Age="3.3" Teff="6075.0" DetectedDisc="IR Excess" />
+			<Properties Distance="44.98" Metallicity="0.05" Mass="1.22" SPType="G0V" Age="3.3" Teff="6075.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 187123 b">
@@ -14385,7 +14385,7 @@
 		<AlternateNames />
 		<Star Name="HD 190360" ra="300.9041667" dec="29.8966667">
 			<Magnitudes V="5.71" />
-			<Properties Distance="15.89" Metallicity="0.24" Mass="1.04" Radius="1.2" SPType="G6 IV" Age="12.11" Teff="5588.0" />
+			<Properties Distance="15.89" Metallicity="0.24" Mass="1.04" Radius="1.2" SPType="G6IV" Age="12.11" Teff="5588.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 190360 c">
@@ -14418,7 +14418,7 @@
 		<AlternateNames />
 		<Star Name="HD 190360" ra="300.9041667" dec="29.8966667">
 			<Magnitudes V="5.71" />
-			<Properties Distance="15.89" Metallicity="0.24" Mass="1.04" Radius="1.2" SPType="G6 IV" Age="12.11" Teff="5588.0" />
+			<Properties Distance="15.89" Metallicity="0.24" Mass="1.04" Radius="1.2" SPType="G6IV" Age="12.11" Teff="5588.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 190647 b">
@@ -14517,7 +14517,7 @@
 		<AlternateNames />
 		<Star Name="HD 192263" ra="303.5" dec="-0.8669444">
 			<Magnitudes V="7.79" />
-			<Properties Distance="19.9" Metallicity="-0.2" Mass="0.81" Radius="0.75" SPType="K2 V" Age="0.57" Teff="4965.0" DetectedDisc="IR Excess" />
+			<Properties Distance="19.9" Metallicity="-0.2" Mass="0.81" Radius="0.75" SPType="K2V" Age="0.57" Teff="4965.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 192310 c">
@@ -14616,7 +14616,7 @@
 		<AlternateNames />
 		<Star Name="HD 195019" ra="307.0708333" dec="18.77">
 			<Magnitudes V="6.91" />
-			<Properties Distance="37.36" Metallicity="0.08" Mass="1.06" Radius="1.38" SPType="G3 IV-V" Age="5.33" Teff="5787.0" />
+			<Properties Distance="37.36" Metallicity="0.08" Mass="1.06" Radius="1.38" SPType="G3IV-V" Age="5.33" Teff="5787.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 196050 b">
@@ -14649,7 +14649,7 @@
 		<AlternateNames />
 		<Star Name="HD 196050" ra="309.4625" dec="-60.6344444">
 			<Magnitudes V="7.5" />
-			<Properties Distance="46.9" Metallicity="0.23" Mass="1.17" Radius="1.29" SPType="G3 V" Age="3.17" Teff="5874.0" />
+			<Properties Distance="46.9" Metallicity="0.23" Mass="1.17" Radius="1.29" SPType="G3V" Age="3.17" Teff="5874.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 196067 b">
@@ -14781,7 +14781,7 @@
 		<AlternateNames />
 		<Star Name="HD 19994" ra="48.1916667" dec="-1.1958333">
 			<Magnitudes V="5.07" />
-			<Properties Distance="22.38" Metallicity="0.25" Mass="1.34" Radius="1.93" SPType="F8 V" Age="8.91" Teff="5984.0" DetectedDisc="IR Excess" />
+			<Properties Distance="22.38" Metallicity="0.25" Mass="1.34" Radius="1.93" SPType="F8V" Age="8.91" Teff="5984.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 20003 b">
@@ -14946,7 +14946,7 @@
 		<AlternateNames />
 		<Star Name="HD 202206" ra="318.7375" dec="-20.7891667">
 			<Magnitudes V="8.08" />
-			<Properties Distance="46.34" Metallicity="0.37" Mass="1.13" Radius="1.02" SPType="G6 V" Age="2.04" Teff="5750.0" DetectedDisc="IR Excess" />
+			<Properties Distance="46.34" Metallicity="0.37" Mass="1.13" Radius="1.02" SPType="G6V" Age="2.04" Teff="5750.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 202206 c">
@@ -14979,7 +14979,7 @@
 		<AlternateNames />
 		<Star Name="HD 202206" ra="318.7375" dec="-20.7891667">
 			<Magnitudes V="8.08" />
-			<Properties Distance="46.34" Metallicity="0.37" Mass="1.13" Radius="1.02" SPType="G6 V" Age="2.04" Teff="5750.0" DetectedDisc="IR Excess" />
+			<Properties Distance="46.34" Metallicity="0.37" Mass="1.13" Radius="1.02" SPType="G6V" Age="2.04" Teff="5750.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 20367 b">
@@ -15045,7 +15045,7 @@
 		<AlternateNames />
 		<Star Name="HD 2039" ra="6.0833333" dec="-56.65">
 			<Magnitudes V="9.01" />
-			<Properties Distance="89.8" Metallicity="0.1" Mass="0.98" Radius="1.21" SPType="G2/G3 IV-V" Age="5.28" Teff="5947.0" />
+			<Properties Distance="89.8" Metallicity="0.1" Mass="0.98" Radius="1.21" SPType="G2/G3IV-V" Age="5.28" Teff="5947.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 204313 b">
@@ -15342,7 +15342,7 @@
 		<AlternateNames />
 		<Star Name="HD 20782" ra="50.0125" dec="-28.8538889">
 			<Magnitudes V="7.38" />
-			<Properties Distance="36.02" Metallicity="-0.05" Mass="1.0" SPType="G2 V" Age="7.1" Teff="5578.0" />
+			<Properties Distance="36.02" Metallicity="-0.05" Mass="1.0" SPType="G2V" Age="7.1" Teff="5578.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 207832 b">
@@ -15639,7 +15639,7 @@
 		<AlternateNames />
 		<Star Name="HD 209458" ra="330.7916667" dec="18.8844444">
 			<Magnitudes V="7.65" />
-			<Properties Distance="47.0" Metallicity="0.02" Mass="1.148" Radius="1.203" SPType="G0 V" Age="4.0" Teff="6092.0" />
+			<Properties Distance="47.0" Metallicity="0.02" Mass="1.148" Radius="1.203" SPType="G0V" Age="4.0" Teff="6092.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 210277 b">
@@ -15771,7 +15771,7 @@
 		<AlternateNames />
 		<Star Name="HD 212301" ra="336.875" dec="-77.7177778">
 			<Magnitudes V="7.77" />
-			<Properties Distance="52.7" Metallicity="0.18" Mass="1.05" SPType="F8 V" Age="5.9" Teff="5998.0" />
+			<Properties Distance="52.7" Metallicity="0.18" Mass="1.05" SPType="F8V" Age="5.9" Teff="5998.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 212771 b">
@@ -15837,7 +15837,7 @@
 		<AlternateNames />
 		<Star Name="HD 213240" ra="337.75" dec="-49.4330556">
 			<Magnitudes V="6.8" />
-			<Properties Distance="40.75" Metallicity="0.16" Mass="1.22" Radius="1.5" SPType="G4 IV" Age="5.11" Teff="5975.0" />
+			<Properties Distance="40.75" Metallicity="0.16" Mass="1.22" Radius="1.5" SPType="G4IV" Age="5.11" Teff="5975.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 215152 b">
@@ -16068,7 +16068,7 @@
 		<AlternateNames />
 		<Star Name="HD 216435" ra="343.4041667" dec="-48.5980556">
 			<Magnitudes V="6.03" />
-			<Properties Distance="33.3" Metallicity="0.244" Mass="1.3" Radius="2.0" SPType="G0 V" Age="5.27" Teff="5767.0" DetectedDisc="IR Excess" />
+			<Properties Distance="33.3" Metallicity="0.244" Mass="1.3" Radius="2.0" SPType="G0V" Age="5.27" Teff="5767.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 216437 b">
@@ -16101,7 +16101,7 @@
 		<AlternateNames />
 		<Star Name="HD 216437" ra="343.6625" dec="-70.0736111">
 			<Magnitudes V="6.06" />
-			<Properties Distance="26.5" Metallicity="0.25" Mass="1.06" Radius="1.1" SPType="G4 IV-V" Age="12.96" Teff="5636.0" />
+			<Properties Distance="26.5" Metallicity="0.25" Mass="1.06" Radius="1.1" SPType="G4IV-V" Age="12.96" Teff="5636.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 216536 b">
@@ -16167,7 +16167,7 @@
 		<AlternateNames />
 		<Star Name="HD 216770" ra="343.9708333" dec="-26.6586111">
 			<Magnitudes V="8.1" />
-			<Properties Distance="38.0" Metallicity="0.23" Mass="0.9" Radius="1.0" SPType="K1 V" Age="3.6" Teff="5248.0" />
+			<Properties Distance="38.0" Metallicity="0.23" Mass="0.9" Radius="1.0" SPType="K1V" Age="3.6" Teff="5248.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 21693 b">
@@ -16266,7 +16266,7 @@
 		<AlternateNames />
 		<Star Name="HD 217107" ra="344.5625" dec="-2.395">
 			<Magnitudes V="6.16" />
-			<Properties Distance="19.72" Metallicity="0.37" Mass="1.02" Radius="1.08" SPType="G8 IV" Age="7.32" Teff="5666.0" />
+			<Properties Distance="19.72" Metallicity="0.37" Mass="1.02" Radius="1.08" SPType="G8IV" Age="7.32" Teff="5666.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 217107 c">
@@ -16299,7 +16299,7 @@
 		<AlternateNames />
 		<Star Name="HD 217107" ra="344.5625" dec="-2.395">
 			<Magnitudes V="6.16" />
-			<Properties Distance="19.72" Metallicity="0.37" Mass="1.02" Radius="1.08" SPType="G8 IV" Age="7.32" Teff="5666.0" />
+			<Properties Distance="19.72" Metallicity="0.37" Mass="1.02" Radius="1.08" SPType="G8IV" Age="7.32" Teff="5666.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 217786 b">
@@ -16827,7 +16827,7 @@
 		<AlternateNames />
 		<Star Name="HD 221287" ra="352.8333333" dec="-58.2097222">
 			<Magnitudes V="7.82" />
-			<Properties Distance="52.9" Metallicity="0.03" Mass="1.25" SPType="F7 V" Age="1.3" Teff="6304.0" />
+			<Properties Distance="52.9" Metallicity="0.03" Mass="1.25" SPType="F7V" Age="1.3" Teff="6304.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 222155 b">
@@ -16992,7 +16992,7 @@
 		<AlternateNames />
 		<Star Name="HD 23079" ra="54.9291667" dec="-52.9158333">
 			<Magnitudes V="7.1" />
-			<Properties Distance="34.8" Metallicity="-0.24" Mass="1.1" Radius="1.13" SPType="F8/G0 V" Age="6.53" Teff="5848.0" />
+			<Properties Distance="34.8" Metallicity="-0.24" Mass="1.1" Radius="1.13" SPType="F8/G0V" Age="6.53" Teff="5848.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 23127 b">
@@ -17355,7 +17355,7 @@
 		<AlternateNames />
 		<Star Name="HD 27442" ra="64.1208333" dec="-59.3019444">
 			<Magnitudes V="4.44" />
-			<Properties Distance="18.1" Metallicity="0.22" Mass="1.2" Radius="6.6" SPType="K2 IV a" Age="7.15" Teff="4749.0" />
+			<Properties Distance="18.1" Metallicity="0.22" Mass="1.2" Radius="6.6" SPType="K2IVa" Age="7.15" Teff="4749.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 27631 b">
@@ -17421,7 +17421,7 @@
 		<AlternateNames />
 		<Star Name="HD 27894" ra="65.1958333" dec="-59.4108333">
 			<Magnitudes V="9.36" />
-			<Properties Distance="42.37" Metallicity="0.3" Mass="0.8" SPType="K2 V" Age="3.9" Teff="4875.0" />
+			<Properties Distance="42.37" Metallicity="0.3" Mass="0.8" SPType="K2V" Age="3.9" Teff="4875.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 28185 b">
@@ -17685,7 +17685,7 @@
 		<AlternateNames />
 		<Star Name="HD 30177" ra="70.475" dec="-58.0205556">
 			<Magnitudes V="8.41" />
-			<Properties Distance="55.0" Metallicity="0.19" Mass="0.95" Radius="1.12" SPType="G8 V" Age="8.4" Teff="5320.0" />
+			<Properties Distance="55.0" Metallicity="0.19" Mass="0.95" Radius="1.12" SPType="G8V" Age="8.4" Teff="5320.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 30562 b">
@@ -18114,7 +18114,7 @@
 		<AlternateNames />
 		<Star Name="HD 33564" ra="80.6375" dec="79.2311111">
 			<Magnitudes V="5.08" />
-			<Properties Distance="20.98" Metallicity="-0.12" Mass="1.25" Radius="1.1" SPType="F6 V" Age="3.0" Teff="6250.0" />
+			<Properties Distance="20.98" Metallicity="-0.12" Mass="1.25" Radius="1.1" SPType="F6V" Age="3.0" Teff="6250.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 33844 b">
@@ -18246,7 +18246,7 @@
 		<AlternateNames />
 		<Star Name="HD 3651" ra="9.8375" dec="21.2502778">
 			<Magnitudes V="5.8" />
-			<Properties Distance="11.0" Metallicity="0.05" Mass="0.79" Radius="0.947" SPType="K0 V" Age="5.13" Teff="5173.0" />
+			<Properties Distance="11.0" Metallicity="0.05" Mass="0.79" Radius="0.947" SPType="K0V" Age="5.13" Teff="5173.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 3651 c">
@@ -18279,7 +18279,7 @@
 		<AlternateNames />
 		<Star Name="HD 3651" ra="9.8375" dec="21.2502778">
 			<Magnitudes V="5.8" />
-			<Properties Distance="11.0" Metallicity="0.05" Mass="0.79" Radius="0.947" SPType="K0 V" Age="5.13" Teff="5173.0" />
+			<Properties Distance="11.0" Metallicity="0.05" Mass="0.79" Radius="0.947" SPType="K0V" Age="5.13" Teff="5173.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 37124 b">
@@ -18312,7 +18312,7 @@
 		<AlternateNames />
 		<Star Name="HD 37124" ra="84.2583333" dec="20.7305556">
 			<Magnitudes V="7.68" />
-			<Properties Distance="33.0" Metallicity="-0.442" Mass="0.83" Radius="0.82" SPType="G4 V" Age="3.33" Teff="5610.0" />
+			<Properties Distance="33.0" Metallicity="-0.442" Mass="0.83" Radius="0.82" SPType="G4V" Age="3.33" Teff="5610.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 37124 c">
@@ -18345,7 +18345,7 @@
 		<AlternateNames />
 		<Star Name="HD 37124" ra="84.2583333" dec="20.7305556">
 			<Magnitudes V="7.68" />
-			<Properties Distance="33.0" Metallicity="-0.442" Mass="0.83" Radius="0.82" SPType="G4 V" Age="3.33" Teff="5610.0" />
+			<Properties Distance="33.0" Metallicity="-0.442" Mass="0.83" Radius="0.82" SPType="G4V" Age="3.33" Teff="5610.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 37124 d">
@@ -18378,7 +18378,7 @@
 		<AlternateNames />
 		<Star Name="HD 37124" ra="84.2583333" dec="20.7305556">
 			<Magnitudes V="7.68" />
-			<Properties Distance="33.0" Metallicity="-0.442" Mass="0.83" Radius="0.82" SPType="G4 V" Age="3.33" Teff="5610.0" />
+			<Properties Distance="33.0" Metallicity="-0.442" Mass="0.83" Radius="0.82" SPType="G4V" Age="3.33" Teff="5610.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 37605 b">
@@ -18510,7 +18510,7 @@
 		<AlternateNames />
 		<Star Name="HD 38529" ra="86.6416667" dec="1.1680556">
 			<Magnitudes V="5.94" />
-			<Properties Distance="39.28" Metallicity="0.27" Mass="1.48" Radius="2.44" SPType="G4 IV" Age="3.28" Teff="5697.0" DetectedDisc="IR Excess" />
+			<Properties Distance="39.28" Metallicity="0.27" Mass="1.48" Radius="2.44" SPType="G4IV" Age="3.28" Teff="5697.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 38529 c">
@@ -18543,7 +18543,7 @@
 		<AlternateNames />
 		<Star Name="HD 38529" ra="86.6416667" dec="1.1680556">
 			<Magnitudes V="5.94" />
-			<Properties Distance="39.28" Metallicity="0.27" Mass="1.48" Radius="2.44" SPType="G4 IV" Age="3.28" Teff="5697.0" DetectedDisc="IR Excess" />
+			<Properties Distance="39.28" Metallicity="0.27" Mass="1.48" Radius="2.44" SPType="G4IV" Age="3.28" Teff="5697.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 38801 b">
@@ -18642,7 +18642,7 @@
 		<AlternateNames />
 		<Star Name="HD 39091" ra="84.2875" dec="-80.4688889">
 			<Magnitudes V="5.67" />
-			<Properties Distance="18.32" Metallicity="0.09" Mass="1.1" Radius="2.1" SPType="G1 IV" Age="3.83" Teff="5888.0" />
+			<Properties Distance="18.32" Metallicity="0.09" Mass="1.1" Radius="2.1" SPType="G1IV" Age="3.83" Teff="5888.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 39194 b">
@@ -18972,7 +18972,7 @@
 		<AlternateNames />
 		<Star Name="HD 40979" ra="91.1208333" dec="44.2602778">
 			<Magnitudes V="6.74" />
-			<Properties Distance="33.3" Metallicity="0.194" Mass="1.1" Radius="1.21" SPType="F8 V" Age="1.48" Teff="6205.0" DetectedDisc="IR Excess" />
+			<Properties Distance="33.3" Metallicity="0.194" Mass="1.1" Radius="1.21" SPType="F8V" Age="1.48" Teff="6205.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 41004 A b">
@@ -19005,7 +19005,7 @@
 		<AlternateNames />
 		<Star Name="HD 41004 A" ra="89.9541667" dec="-48.2394444">
 			<Magnitudes V="8.65" />
-			<Properties Distance="42.5" Metallicity="-0.09" Mass="0.7" SPType="K1 V" Age="1.64" Teff="5035.0" />
+			<Properties Distance="42.5" Metallicity="-0.09" Mass="0.7" SPType="K1V" Age="1.64" Teff="5035.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 41004 B b">
@@ -19170,7 +19170,7 @@
 		<AlternateNames />
 		<Star Name="HD 4208" ra="11.1083333" dec="-26.5155556">
 			<Magnitudes V="7.79" />
-			<Properties Distance="33.9" Metallicity="-0.284" Mass="0.87" Radius="0.85" SPType="G5 V" Age="4.47" Teff="5571.0" />
+			<Properties Distance="33.9" Metallicity="-0.284" Mass="0.87" Radius="0.85" SPType="G5V" Age="4.47" Teff="5571.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 4308 b">
@@ -19203,7 +19203,7 @@
 		<AlternateNames />
 		<Star Name="HD 4308" ra="11.1625" dec="-65.6494444">
 			<Magnitudes V="6.54" />
-			<Properties Distance="21.9" Metallicity="-0.34" Mass="0.85" Radius="0.92" SPType="G5 V" Age="7.1" Teff="5597.0" />
+			<Properties Distance="21.9" Metallicity="-0.34" Mass="0.85" Radius="0.92" SPType="G5V" Age="7.1" Teff="5597.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 4313 b">
@@ -19236,7 +19236,7 @@
 		<AlternateNames />
 		<Star Name="HD 4313" ra="11.4166667" dec="7.845">
 			<Magnitudes V="7.83" />
-			<Properties Distance="137.0" Metallicity="0.14" Mass="1.72" Radius="4.9" SPType="G5 D" Age="2.0" Teff="5035.0" />
+			<Properties Distance="137.0" Metallicity="0.14" Mass="1.72" Radius="4.9" SPType="G5D" Age="2.0" Teff="5035.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 43197 b">
@@ -19401,7 +19401,7 @@
 		<AlternateNames />
 		<Star Name="HD 45350" ra="97.1875" dec="38.9627778">
 			<Magnitudes V="7.88" />
-			<Properties Distance="49.0" Metallicity="0.29" Mass="1.02" Radius="1.27" SPType="G5 IV" Age="5.59" Teff="5754.0" />
+			<Properties Distance="49.0" Metallicity="0.29" Mass="1.02" Radius="1.27" SPType="G5IV" Age="5.59" Teff="5754.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 45364 b">
@@ -19533,7 +19533,7 @@
 		<AlternateNames />
 		<Star Name="HD 46375" ra="98.3" dec="5.4627778">
 			<Magnitudes V="7.94" />
-			<Properties Distance="33.4" Metallicity="0.24" Mass="0.91" Radius="1.0" SPType="K1 IV" Age="4.96" Teff="5199.0" DetectedDisc="IR Excess" />
+			<Properties Distance="33.4" Metallicity="0.24" Mass="0.91" Radius="1.0" SPType="K1IV" Age="4.96" Teff="5199.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 47186 b">
@@ -19632,7 +19632,7 @@
 		<AlternateNames />
 		<Star Name="HD 47536" ra="99.4458333" dec="-32.3397222">
 			<Magnitudes V="5.25" />
-			<Properties Distance="121.36" Metallicity="-0.68" Mass="0.94" Radius="23.47" SPType="K1 III" Age="9.33" Teff="4380.0" />
+			<Properties Distance="121.36" Metallicity="-0.68" Mass="0.94" Radius="23.47" SPType="K1III" Age="9.33" Teff="4380.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 47536 c">
@@ -19665,7 +19665,7 @@
 		<AlternateNames />
 		<Star Name="HD 47536" ra="99.4458333" dec="-32.3397222">
 			<Magnitudes V="5.25" />
-			<Properties Distance="121.36" Metallicity="-0.68" Mass="0.94" Radius="23.47" SPType="K1 III" Age="9.33" Teff="4380.0" />
+			<Properties Distance="121.36" Metallicity="-0.68" Mass="0.94" Radius="23.47" SPType="K1III" Age="9.33" Teff="4380.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 48265 b">
@@ -19731,7 +19731,7 @@
 		<AlternateNames />
 		<Star Name="HD 49674" ra="102.875" dec="40.8675">
 			<Magnitudes V="8.1" />
-			<Properties Distance="40.7" Metallicity="0.25" Mass="1.07" Radius="0.94" SPType="G5 V" Age="2.38" Teff="5482.0" />
+			<Properties Distance="40.7" Metallicity="0.25" Mass="1.07" Radius="0.94" SPType="G5V" Age="2.38" Teff="5482.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 50499 b">
@@ -19764,7 +19764,7 @@
 		<AlternateNames />
 		<Star Name="HD 50499" ra="103.0083333" dec="-33.9155556">
 			<Magnitudes V="7.22" />
-			<Properties Distance="47.26" Metallicity="0.23" Mass="1.27" Radius="1.38" SPType="G IV" Age="6.0" Teff="5902.0" DetectedDisc="IR Excess" />
+			<Properties Distance="47.26" Metallicity="0.23" Mass="1.27" Radius="1.38" SPType="GIV" Age="6.0" Teff="5902.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 50554 b">
@@ -19896,7 +19896,7 @@
 		<AlternateNames />
 		<Star Name="HD 52265" ra="105.075" dec="-5.3669444">
 			<Magnitudes V="6.3" />
-			<Properties Distance="28.0" Metallicity="0.21" Mass="1.2" Radius="1.25" SPType="G0 V" Age="4.88" Teff="6159.0" DetectedDisc="IR Excess" />
+			<Properties Distance="28.0" Metallicity="0.21" Mass="1.2" Radius="1.25" SPType="G0V" Age="4.88" Teff="6159.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 52265 c">
@@ -19929,7 +19929,7 @@
 		<AlternateNames />
 		<Star Name="HD 52265" ra="105.075" dec="-5.3669444">
 			<Magnitudes V="6.3" />
-			<Properties Distance="28.0" Metallicity="0.21" Mass="1.2" Radius="1.25" SPType="G0 V" Age="4.88" Teff="6159.0" DetectedDisc="IR Excess" />
+			<Properties Distance="28.0" Metallicity="0.21" Mass="1.2" Radius="1.25" SPType="G0V" Age="4.88" Teff="6159.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 5319 b">
@@ -20094,7 +20094,7 @@
 		<AlternateNames />
 		<Star Name="HD 59686" ra="112.95" dec="17.0858333">
 			<Magnitudes V="5.45" />
-			<Properties Distance="92.0" Radius="11.62" SPType="K2 III" />
+			<Properties Distance="92.0" Radius="11.62" SPType="K2III" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 60532 b">
@@ -20226,7 +20226,7 @@
 		<AlternateNames />
 		<Star Name="HD 63454" ra="114.8375" dec="-78.2788889">
 			<Magnitudes V="9.37" />
-			<Properties Distance="35.8" Metallicity="0.11" Mass="0.8" SPType="K4 V" Age="1.0" Teff="4841.0" />
+			<Properties Distance="35.8" Metallicity="0.11" Mass="0.8" SPType="K4V" Age="1.0" Teff="4841.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 63765 b">
@@ -20292,7 +20292,7 @@
 		<AlternateNames />
 		<Star Name="HD 6434" ra="16.1666667" dec="-39.4880556">
 			<Magnitudes V="7.72" />
-			<Properties Distance="40.32" Metallicity="-0.52" Mass="0.79" Radius="0.57" SPType="G3 IV" Age="3.8" Teff="5835.0" />
+			<Properties Distance="40.32" Metallicity="-0.52" Mass="0.79" Radius="0.57" SPType="G3IV" Age="3.8" Teff="5835.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 65216 b">
@@ -20325,7 +20325,7 @@
 		<AlternateNames />
 		<Star Name="HD 65216" ra="118.4208333" dec="-63.6472222">
 			<Magnitudes V="7.98" />
-			<Properties Distance="34.3" Metallicity="-0.12" Mass="0.92" SPType="G5 V" Teff="5666.0" />
+			<Properties Distance="34.3" Metallicity="-0.12" Mass="0.92" SPType="G5V" Teff="5666.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 65216 c">
@@ -20358,7 +20358,7 @@
 		<AlternateNames />
 		<Star Name="HD 65216" ra="118.4208333" dec="-63.6472222">
 			<Magnitudes V="7.98" />
-			<Properties Distance="34.3" Metallicity="-0.12" Mass="0.92" SPType="G5 V" Teff="5666.0" />
+			<Properties Distance="34.3" Metallicity="-0.12" Mass="0.92" SPType="G5V" Teff="5666.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 66141 b">
@@ -20457,7 +20457,7 @@
 		<AlternateNames />
 		<Star Name="HD 67087" ra="121.91666668" dec="31.551388901">
 			<Magnitudes V="8.05" />
-			<Properties Distance="88.8" Metallicity="0.25" Mass="1.36" Radius="1.55" SPType="F8 V" Age="1.45" Teff="6330.0" />
+			<Properties Distance="88.8" Metallicity="0.25" Mass="1.36" Radius="1.55" SPType="F8V" Age="1.45" Teff="6330.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 67087 c">
@@ -20490,7 +20490,7 @@
 		<AlternateNames />
 		<Star Name="HD 67087" ra="121.91666668" dec="31.551388901">
 			<Magnitudes V="8.05" />
-			<Properties Distance="88.8" Metallicity="0.25" Mass="1.36" Radius="1.55" SPType="F8 V" Age="1.45" Teff="6330.0" />
+			<Properties Distance="88.8" Metallicity="0.25" Mass="1.36" Radius="1.55" SPType="F8V" Age="1.45" Teff="6330.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 6718 b">
@@ -20721,7 +20721,7 @@
 		<AlternateNames />
 		<Star Name="HD 70642" ra="125.3666667" dec="-39.7052778">
 			<Magnitudes V="7.17" />
-			<Properties Distance="28.8" Metallicity="0.16" Mass="1.0" Radius="0.84" SPType="G5 IV-V" Age="3.88" Teff="5670.0" />
+			<Properties Distance="28.8" Metallicity="0.16" Mass="1.0" Radius="0.84" SPType="G5IV-V" Age="3.88" Teff="5670.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 7199 b">
@@ -20787,7 +20787,7 @@
 		<AlternateNames />
 		<Star Name="HD 72659" ra="128.5125" dec="-1.5680556">
 			<Magnitudes V="7.46" />
-			<Properties Distance="49.8" Metallicity="-0.02" Mass="0.95" Radius="1.36" SPType="G2 V" Age="6.5" Teff="5926.0" />
+			<Properties Distance="49.8" Metallicity="-0.02" Mass="0.95" Radius="1.36" SPType="G2V" Age="6.5" Teff="5926.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 73256 b">
@@ -20886,7 +20886,7 @@
 		<AlternateNames />
 		<Star Name="HD 73526" ra="129.3166667" dec="-41.3188889">
 			<Magnitudes V="9.0" />
-			<Properties Distance="99.0" Metallicity="0.25" Mass="1.08" Radius="1.49" SPType="G6 V" Age="5.59" Teff="5590.0" DetectedDisc="IR Excess" />
+			<Properties Distance="99.0" Metallicity="0.25" Mass="1.08" Radius="1.49" SPType="G6V" Age="5.59" Teff="5590.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 73526 c">
@@ -20919,7 +20919,7 @@
 		<AlternateNames />
 		<Star Name="HD 73526" ra="129.3166667" dec="-41.3188889">
 			<Magnitudes V="9.0" />
-			<Properties Distance="99.0" Metallicity="0.25" Mass="1.08" Radius="1.49" SPType="G6 V" Age="5.59" Teff="5590.0" DetectedDisc="IR Excess" />
+			<Properties Distance="99.0" Metallicity="0.25" Mass="1.08" Radius="1.49" SPType="G6V" Age="5.59" Teff="5590.0" DetectedDisc="IR Excess" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 73534 b">
@@ -21117,7 +21117,7 @@
 		<AlternateNames />
 		<Star Name="HD 75289" ra="131.9166667" dec="-41.7366667">
 			<Magnitudes V="6.35" />
-			<Properties Distance="28.94" Metallicity="0.29" Mass="1.05" Radius="1.25" SPType="G0 V" Age="4.96" Teff="6120.0" />
+			<Properties Distance="28.94" Metallicity="0.29" Mass="1.05" Radius="1.25" SPType="G0V" Age="4.96" Teff="6120.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 75898 b">
@@ -21183,7 +21183,7 @@
 		<AlternateNames />
 		<Star Name="HD 76700" ra="133.4791667" dec="-66.8008333">
 			<Magnitudes V="8.13" />
-			<Properties Distance="59.7" Metallicity="0.14" Mass="1.0" Radius="1.33" SPType="G6 V" Age="4.51" Teff="5726.0" />
+			<Properties Distance="59.7" Metallicity="0.14" Mass="1.0" Radius="1.33" SPType="G6V" Age="4.51" Teff="5726.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 77338 b">
@@ -21612,7 +21612,7 @@
 		<AlternateNames />
 		<Star Name="HD 83443" ra="144.2958333" dec="-43.2719444">
 			<Magnitudes V="8.23" />
-			<Properties Distance="43.54" Metallicity="0.35" Mass="0.9" Radius="1.04" SPType="K0 V" Age="2.94" Teff="5460.0" />
+			<Properties Distance="43.54" Metallicity="0.35" Mass="0.9" Radius="1.04" SPType="K0V" Age="2.94" Teff="5460.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 8535 b">
@@ -21909,7 +21909,7 @@
 		<AlternateNames />
 		<Star Name="HD 8673" ra="21.5333333" dec="34.5794444">
 			<Magnitudes V="7.57" />
-			<Properties Distance="38.25" Metallicity="0.14" Mass="1.35" Radius="1.39" SPType="F7 V" Age="1.95" Teff="6472.0" />
+			<Properties Distance="38.25" Metallicity="0.14" Mass="1.35" Radius="1.39" SPType="F7V" Age="1.95" Teff="6472.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 87883 b">
@@ -21975,7 +21975,7 @@
 		<AlternateNames />
 		<Star Name="HD 88133" ra="152.5291667" dec="18.1866667">
 			<Magnitudes V="8.01" />
-			<Properties Distance="74.5" Metallicity="0.34" Mass="1.2" Radius="1.93" SPType="G5 IV" Age="9.56" Teff="5494.0" />
+			<Properties Distance="74.5" Metallicity="0.34" Mass="1.2" Radius="1.93" SPType="G5IV" Age="9.56" Teff="5494.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 89307 b">
@@ -22041,7 +22041,7 @@
 		<AlternateNames />
 		<Star Name="HD 89744" ra="155.5416667" dec="41.2294444">
 			<Magnitudes V="5.74" />
-			<Properties Distance="40.0" Metallicity="0.18" Mass="1.4" Radius="2.14" SPType="F7 V" Age="2.04" Teff="6196.0" />
+			<Properties Distance="40.0" Metallicity="0.18" Mass="1.4" Radius="2.14" SPType="F7V" Age="2.04" Teff="6196.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 89744 c">
@@ -22074,7 +22074,7 @@
 		<AlternateNames />
 		<Star Name="HD 89744" ra="155.5416667" dec="41.2294444">
 			<Magnitudes V="5.74" />
-			<Properties Distance="40.0" Metallicity="0.18" Mass="1.4" Radius="2.14" SPType="F7 V" Age="2.04" Teff="6196.0" />
+			<Properties Distance="40.0" Metallicity="0.18" Mass="1.4" Radius="2.14" SPType="F7V" Age="2.04" Teff="6196.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 90156 b">
@@ -22206,7 +22206,7 @@
 		<AlternateNames />
 		<Star Name="HD 93083" ra="161.0833333" dec="-33.5769444">
 			<Magnitudes V="8.3" />
-			<Properties Distance="28.9" Metallicity="0.15" Mass="0.7" SPType="K3 V" Age="6.0" Teff="4995.0" />
+			<Properties Distance="28.9" Metallicity="0.15" Mass="0.7" SPType="K3V" Age="6.0" Teff="4995.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 93385 b">
@@ -22404,7 +22404,7 @@
 		<AlternateNames />
 		<Star Name="HD 95089" ra="164.7" dec="1.7291667">
 			<Magnitudes V="7.92" />
-			<Properties Distance="139.0" Metallicity="0.05" Mass="1.58" Radius="4.9" SPType="K0 IV" Age="2.5" Teff="5002.0" />
+			<Properties Distance="139.0" Metallicity="0.05" Mass="1.58" Radius="4.9" SPType="K0IV" Age="2.5" Teff="5002.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 95127 b">
@@ -23691,7 +23691,7 @@
 		<AlternateNames />
 		<Star Name="HIP 75458" ra="231.2291667" dec="58.9658333">
 			<Magnitudes V="3.31" />
-			<Properties Distance="31.5" Metallicity="0.15" Mass="1.4" Radius="12.8" SPType="K2 III" Teff="4445.0" />
+			<Properties Distance="31.5" Metallicity="0.15" Mass="1.4" Radius="12.8" SPType="K2III" Teff="4445.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 77900 b">
@@ -24021,7 +24021,7 @@
 		<AlternateNames />
 		<Star Name="HR 810" ra="40.6291667" dec="-50.8033333">
 			<Magnitudes V="5.4" />
-			<Properties Distance="17.17" Metallicity="0.25" Mass="1.11" Radius="1.85" SPType="G0V pecul." Age="3.6" Teff="5997.0" />
+			<Properties Distance="17.17" Metallicity="0.25" Mass="1.11" Radius="1.85" SPType="G0Vpecul." Age="3.6" Teff="5997.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HR 8799 b">
@@ -59562,7 +59562,7 @@
 		<AlternateNames />
 		<Star Name="NY Vir" ra="204.7" dec="-2.0302778">
 			<Magnitudes V="13.3" />
-			<Properties Mass="0.6" SPType="B D" Teff="33000.0" />
+			<Properties Mass="0.6" SPType="BD" Teff="33000.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="NY Vir c">
@@ -59595,7 +59595,7 @@
 		<AlternateNames />
 		<Star Name="NY Vir" ra="204.7" dec="-2.0302778">
 			<Magnitudes V="13.3" />
-			<Properties Mass="0.6" SPType="B D" Teff="33000.0" />
+			<Properties Mass="0.6" SPType="BD" Teff="33000.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="OGL-2008-BLG-355L b">
@@ -60354,7 +60354,7 @@
 		<AlternateNames />
 		<Star Name="OGLE-TR-10" ra="267.8666667" dec="-29.8761111">
 			<Magnitudes I="14.93" />
-			<Properties Distance="1500.0" Metallicity="0.28" Mass="1.18" Radius="1.16" SPType="G or K" Age="1.1" Teff="6075.0" />
+			<Properties Distance="1500.0" Metallicity="0.28" Mass="1.18" Radius="1.16" SPType="GorK" Age="1.1" Teff="6075.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="OGLE-TR-111 b">
@@ -60387,7 +60387,7 @@
 		<AlternateNames />
 		<Star Name="OGLE-TR-111" ra="163.325" dec="-61.4055556">
 			<Magnitudes I="15.55" />
-			<Properties Distance="1500.0" Metallicity="0.12" Mass="0.82" Radius="0.831" SPType="G or K" Age="1.1" Teff="5070.0" />
+			<Properties Distance="1500.0" Metallicity="0.12" Mass="0.82" Radius="0.831" SPType="GorK" Age="1.1" Teff="5070.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="OGLE-TR-113 b">
@@ -61278,7 +61278,7 @@
 		<AlternateNames />
 		<Star Name="ROXs 42B" ra="247.8125" dec="-24.5456">
 			<Magnitudes V="14.27" />
-			<Properties Distance="135.0" Mass="0.6" SPType="M0 D" Age="0.0068" Teff="2200.0" />
+			<Properties Distance="135.0" Mass="0.6" SPType="M0D" Age="0.0068" Teff="2200.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="RR Cae b">
@@ -65601,7 +65601,7 @@
 		<AlternateNames />
 		<Star Name="WD 0806-661B" ra="121.725" dec="-66.3047222">
 			<Magnitudes />
-			<Properties Distance="19.2" Mass="0.62" SPType="DQ D" Age="1.5" />
+			<Properties Distance="19.2" Mass="0.62" SPType="DQD" Age="1.5" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WD 1145+017 b">
@@ -65667,7 +65667,7 @@
 		<AlternateNames alternateNames="WISE J0458+6434B; WISEP J045853.90+643451.9B " />
 		<Star Name="WISE 0458+6434 A" ra="74.725000018" dec="64.581388912">
 			<Magnitudes J="17.5" H="17.77" />
-			<Properties Distance="10.5" Mass="0.019" Radius="0.098" SPType="T 8.5" Age="1.0" Teff="730.0" />
+			<Properties Distance="10.5" Mass="0.019" Radius="0.098" SPType="T8.5" Age="1.0" Teff="730.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WISE 1217+16A b">
@@ -66492,7 +66492,7 @@
 		<AlternateNames />
 		<Star Name="eps Eridani" ra="53.2291667" dec="-9.4580556">
 			<Magnitudes V="3.73" />
-			<Properties Distance="3.2" Metallicity="-0.13" Mass="0.83" Radius="0.895" SPType="K2 V" Age="0.66" Teff="5116.0" DetectedDisc="Imaging" />
+			<Properties Distance="3.2" Metallicity="-0.13" Mass="0.83" Radius="0.895" SPType="K2V" Age="0.66" Teff="5116.0" DetectedDisc="Imaging" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="eps Tau b">
@@ -66525,7 +66525,7 @@
 		<AlternateNames />
 		<Star Name="eps Tau" ra="67.1541667" dec="19.1805556">
 			<Magnitudes V="3.53" />
-			<Properties Distance="45.0" Metallicity="0.17" Mass="2.7" Radius="13.7" SPType="K0 III" Age="0.625" Teff="4901.0" />
+			<Properties Distance="45.0" Metallicity="0.17" Mass="2.7" Radius="13.7" SPType="K0III" Age="0.625" Teff="4901.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="eta Cet b">
@@ -66789,7 +66789,7 @@
 		<AlternateNames alternateNames="HD 160691 b" />
 		<Star Name="mu Ara" ra="266.0333333" dec="-51.8338889">
 			<Magnitudes V="5.15" />
-			<Properties Distance="15.3" Metallicity="0.28" Mass="1.08" Radius="1.245" SPType="G3 IV-V" Age="6.41" Teff="5700.0" />
+			<Properties Distance="15.3" Metallicity="0.28" Mass="1.08" Radius="1.245" SPType="G3IV-V" Age="6.41" Teff="5700.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="mu Ara c">
@@ -66822,7 +66822,7 @@
 		<AlternateNames alternateNames="HD 160691 c" />
 		<Star Name="mu Ara" ra="266.0333333" dec="-51.8338889">
 			<Magnitudes V="5.15" />
-			<Properties Distance="15.3" Metallicity="0.28" Mass="1.08" Radius="1.245" SPType="G3 IV-V" Age="6.41" Teff="5700.0" />
+			<Properties Distance="15.3" Metallicity="0.28" Mass="1.08" Radius="1.245" SPType="G3IV-V" Age="6.41" Teff="5700.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="mu Ara d">
@@ -66855,7 +66855,7 @@
 		<AlternateNames alternateNames="HD 160691 d" />
 		<Star Name="mu Ara" ra="266.0333333" dec="-51.8338889">
 			<Magnitudes V="5.15" />
-			<Properties Distance="15.3" Metallicity="0.28" Mass="1.08" Radius="1.245" SPType="G3 IV-V" Age="6.41" Teff="5700.0" />
+			<Properties Distance="15.3" Metallicity="0.28" Mass="1.08" Radius="1.245" SPType="G3IV-V" Age="6.41" Teff="5700.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="mu Ara e">
@@ -66888,7 +66888,7 @@
 		<AlternateNames alternateNames="HD 160691 e" />
 		<Star Name="mu Ara" ra="266.0333333" dec="-51.8338889">
 			<Magnitudes V="5.15" />
-			<Properties Distance="15.3" Metallicity="0.28" Mass="1.08" Radius="1.245" SPType="G3 IV-V" Age="6.41" Teff="5700.0" />
+			<Properties Distance="15.3" Metallicity="0.28" Mass="1.08" Radius="1.245" SPType="G3IV-V" Age="6.41" Teff="5700.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="mu Leo b">
@@ -67020,7 +67020,7 @@
 		<AlternateNames />
 		<Star Name="ome Ser" ra="237.575" dec="2.1964">
 			<Magnitudes V="5.21" />
-			<Properties Distance="80.6" Metallicity="-0.24" Mass="2.17" Radius="12.3" SPType="G8 III" Teff="4770.0" />
+			<Properties Distance="80.6" Metallicity="-0.24" Mass="2.17" Radius="12.3" SPType="G8III" Teff="4770.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="omi CrB b">
@@ -67152,7 +67152,7 @@
 		<AlternateNames />
 		<Star Name="tau Boo" ra="206.8208333" dec="17.4561111">
 			<Magnitudes V="4.5" />
-			<Properties Distance="15.6" Metallicity="0.28" Mass="1.3" Radius="1.331" SPType="F7 V" Age="2.52" Teff="6309.0" />
+			<Properties Distance="15.6" Metallicity="0.28" Mass="1.3" Radius="1.331" SPType="F7V" Age="2.52" Teff="6309.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="tau Gem b">
@@ -67218,7 +67218,7 @@
 		<AlternateNames />
 		<Star Name="ups And" ra="24.2" dec="41.4105556">
 			<Magnitudes V="4.09" />
-			<Properties Distance="13.47" Metallicity="0.09" Mass="1.27" Radius="1.631" SPType="F8 V" Age="3.8" Teff="6212.0" />
+			<Properties Distance="13.47" Metallicity="0.09" Mass="1.27" Radius="1.631" SPType="F8V" Age="3.8" Teff="6212.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="ups And c">
@@ -67251,7 +67251,7 @@
 		<AlternateNames />
 		<Star Name="ups And" ra="24.2" dec="41.4105556">
 			<Magnitudes V="4.09" />
-			<Properties Distance="13.47" Metallicity="0.09" Mass="1.27" Radius="1.631" SPType="F8 V" Age="3.8" Teff="6212.0" />
+			<Properties Distance="13.47" Metallicity="0.09" Mass="1.27" Radius="1.631" SPType="F8V" Age="3.8" Teff="6212.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="ups And d">
@@ -67284,7 +67284,7 @@
 		<AlternateNames />
 		<Star Name="ups And" ra="24.2" dec="41.4105556">
 			<Magnitudes V="4.09" />
-			<Properties Distance="13.47" Metallicity="0.09" Mass="1.27" Radius="1.631" SPType="F8 V" Age="3.8" Teff="6212.0" />
+			<Properties Distance="13.47" Metallicity="0.09" Mass="1.27" Radius="1.631" SPType="F8V" Age="3.8" Teff="6212.0" />
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="ups And e">
@@ -67317,7 +67317,7 @@
 		<AlternateNames />
 		<Star Name="ups And" ra="24.2" dec="41.4105556">
 			<Magnitudes V="4.09" />
-			<Properties Distance="13.47" Metallicity="0.09" Mass="1.27" Radius="1.631" SPType="F8 V" Age="3.8" Teff="6212.0" />
+			<Properties Distance="13.47" Metallicity="0.09" Mass="1.27" Radius="1.631" SPType="F8V" Age="3.8" Teff="6212.0" />
 		</Star>
 	</Exoplanet>
 </Exoplanets>

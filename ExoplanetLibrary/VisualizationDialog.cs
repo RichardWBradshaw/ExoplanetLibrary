@@ -21,8 +21,6 @@ namespace ExoplanetLibrary
             set { PlotType_ = value; }
             }
 
-        //
-
         public VisualizationDialog ()
             {
             }
@@ -119,45 +117,9 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
-        private void visualizeT0_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.TzeroTr;
-            RefreshGraphics ();
-            }
-
-        private void visualizeT0sec_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.TzeroTrSec;
-            RefreshGraphics ();
-            }
-
-        private void visualizeLambdaAngle_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.LambdaAngle;
-            RefreshGraphics ();
-            }
-
-        private void visualizeTvr_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.TzeroVr;
-            RefreshGraphics ();
-            }
-
         private void visualizeTcalc_Click (object sender, EventArgs e)
             {
             PlotType = PlotTypes.TemperatureCalculated;
-            RefreshGraphics ();
-            }
-
-        private void visualizeTmeas_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.TemperatureMeasured;
-            RefreshGraphics ();
-            }
-
-        private void visualizeLogG_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.LogG;
             RefreshGraphics ();
             }
 
@@ -167,39 +129,17 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
-        private void visualizeTperi_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.Tperi;
-            RefreshGraphics ();
-            }
-
         private void visualizeK_Click (object sender, EventArgs e)
             {
-            PlotType = PlotTypes.K;
+            PlotType = PlotTypes.VelocitySemiamplitude;
             RefreshGraphics ();
             }
-
-        private void visualizeGeometricAlbedo_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.GeometricAlbedo;
-            RefreshGraphics ();
-            }
-
-        private void visualizeTconj_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.Tconj;
-            RefreshGraphics ();
-            }
-
-        ///
 
         private void visualizeStars_Click (object sender, System.EventArgs e)
             {
             PlotType = PlotTypes.Stars;
             RefreshGraphics ();
             }
-
-        ///
 
         private void visualizeMassVersusRadius_Click (object sender, System.EventArgs e)
             {
@@ -248,25 +188,11 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
-        private void visualizeMassVersusTzeroTr_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.MassAndTzeroTr;
-            RefreshGraphics ();
-            }
-
-        private void visualizeMassVersusTperi_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.MassAndTperi;
-            RefreshGraphics ();
-            }
-
         private void visualizeMassVersusK_Click (object sender, EventArgs e)
             {
-            PlotType = PlotTypes.MassAndK;
+            PlotType = PlotTypes.MassAndVelocitySemiamplitude;
             RefreshGraphics ();
             }
-
-        ///
 
         private void visualizeRadiusVersusMass_Click (object sender, EventArgs e)
             {
@@ -310,25 +236,11 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
-        private void visualizeRadiusVersusTzeroTr_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.RadiusAndTzeroTr;
-            RefreshGraphics ();
-            }
-
-        private void visualizeRadiusVersusTperi_Click (object sender, EventArgs e)
-            {
-            PlotType = PlotTypes.RadiusAndTperi;
-            RefreshGraphics ();
-            }
-
         private void visualizeRadiusVersusK_Click (object sender, EventArgs e)
             {
-            PlotType = PlotTypes.RadiusAndK;
+            PlotType = PlotTypes.RadiusAndVelocitySemiamplitude;
             RefreshGraphics ();
             }
-
-        ///
 
         private void RefreshGraphics ()
             {
@@ -372,38 +284,8 @@ namespace ExoplanetLibrary
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
-                case PlotTypes.TzeroTr:
-                    array = Exoplanets.PlanetsWithTzeroTr (Exoplanets.ExoplanetsArray, false, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
-                case PlotTypes.TzeroTrSec:
-                    array = Exoplanets.PlanetsWithTzeroTrSec (Exoplanets.ExoplanetsArray, false, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
-                case PlotTypes.LambdaAngle:
-                    array = Exoplanets.PlanetsWithLambdaAngle (Exoplanets.ExoplanetsArray, false, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
-                case PlotTypes.TzeroVr:
-                    array = Exoplanets.PlanetsWithTzeroVr (Exoplanets.ExoplanetsArray, false, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
                 case PlotTypes.TemperatureCalculated:
                     array = Exoplanets.PlanetsWithTemperatureCalculated (Exoplanets.ExoplanetsArray, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
-                case PlotTypes.TemperatureMeasured:
-                    array = Exoplanets.PlanetsWithTemperatureMeasured (Exoplanets.ExoplanetsArray, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
-                case PlotTypes.LogG:
-                    array = Exoplanets.PlanetsWithLogG (Exoplanets.ExoplanetsArray, includeDuplicates);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
@@ -412,23 +294,8 @@ namespace ExoplanetLibrary
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
-                case PlotTypes.Tperi:
-                    array = Exoplanets.PlanetsWithTperi (Exoplanets.ExoplanetsArray, false, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
-                case PlotTypes.K:
-                    array = Exoplanets.PlanetsWithK (Exoplanets.ExoplanetsArray, false, true, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
-                case PlotTypes.GeometricAlbedo:
-                    array = Exoplanets.PlanetsWithGeometricAlbedo (Exoplanets.ExoplanetsArray, false, includeDuplicates);
-                    Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
-                    break;
-
-                case PlotTypes.Tconj:
-                    array = Exoplanets.PlanetsWithTconj (Exoplanets.ExoplanetsArray, false, includeDuplicates);
+                case PlotTypes.VelocitySemiamplitude:
+                    array = Exoplanets.PlanetsWithVelocitySemiamplitude (Exoplanets.ExoplanetsArray, false, true, includeDuplicates);
                     Plotting.VisualizeLinearDiagrams (PlotSurface2D, array, PlotType);
                     break;
 
@@ -474,22 +341,10 @@ namespace ExoplanetLibrary
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndInclination);
                     break;
 
-                case PlotTypes.MassAndTzeroTr:
+                case PlotTypes.MassAndVelocitySemiamplitude:
                     if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false, true) ) != null)
-                        if (( array = Exoplanets.PlanetsWithTzeroTr (array, false, true) ) != null)
-                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndTzeroTr);
-                    break;
-
-                case PlotTypes.MassAndTperi:
-                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false, true) ) != null)
-                        if (( array = Exoplanets.PlanetsWithTperi (array, false, true) ) != null)
-                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndTperi);
-                    break;
-
-                case PlotTypes.MassAndK:
-                    if (( array = Exoplanets.PlanetsWithMass (Exoplanets.ExoplanetsArray, false, true) ) != null)
-                        if (( array = Exoplanets.PlanetsWithK (array, false, true, true) ) != null)
-                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndK);
+                        if (( array = Exoplanets.PlanetsWithVelocitySemiamplitude (array, false, true, true) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.MassAndVelocitySemiamplitude);
                     break;
 
                 case PlotTypes.RadiusAndMass:
@@ -534,22 +389,10 @@ namespace ExoplanetLibrary
                             Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndInclination);
                     break;
 
-                case PlotTypes.RadiusAndTzeroTr:
+                case PlotTypes.RadiusAndVelocitySemiamplitude:
                     if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false, true) ) != null)
-                        if (( array = Exoplanets.PlanetsWithTzeroTr (array, false, true) ) != null)
-                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndTzeroTr);
-                    break;
-
-                case PlotTypes.RadiusAndTperi:
-                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false, true) ) != null)
-                        if (( array = Exoplanets.PlanetsWithTperi (array, false, true) ) != null)
-                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndTperi);
-                    break;
-
-                case PlotTypes.RadiusAndK:
-                    if (( array = Exoplanets.PlanetsWithRadius (Exoplanets.ExoplanetsArray, false, true) ) != null)
-                        if (( array = Exoplanets.PlanetsWithK (array, false, true, true) ) != null)
-                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndK);
+                        if (( array = Exoplanets.PlanetsWithVelocitySemiamplitude (array, false, true, true) ) != null)
+                            Plotting.VisualizePointDiagrams (PlotSurface2D, array, PlotTypes.RadiusAndVelocitySemiamplitude);
                     break;
 
                 case PlotTypes.Stars:
@@ -559,8 +402,6 @@ namespace ExoplanetLibrary
 
             PlotSurface2D.RightMenu = NPlot.Windows.PlotSurface2D.DefaultContextMenu;
             }
-
-        ///
 
         private void MenuCheckBox_CheckStateChanged (object sender, EventArgs e)
             {

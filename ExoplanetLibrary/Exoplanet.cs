@@ -359,25 +359,25 @@ namespace ExoplanetLibrary
             set { ImpactParameterErrorMax_ = value; }
             }
 
-        private string K_;
-        public string K
+        private string VelocitySemiamplitude_;
+        public string VelocitySemiamplitude
             {
-            get { return K_; }
-            set { K_ = value; }
+            get { return VelocitySemiamplitude_; }
+            set { VelocitySemiamplitude_ = value; }
             }
 
-        private string KErrorMin_;
-        public string KErrorMin
+        private string VelocitySemiamplitudeErrorMin_;
+        public string VelocitySemiamplitudeErrorMin
             {
-            get { return KErrorMin_; }
-            set { KErrorMin_ = value; }
+            get { return VelocitySemiamplitudeErrorMin_; }
+            set { VelocitySemiamplitudeErrorMin_ = value; }
             }
 
-        private string KErrorMax_;
-        public string KErrorMax
+        private string VelocitySemiamplitudeErrorMax_;
+        public string VelocitySemiamplitudeErrorMax
             {
-            get { return KErrorMax_; }
-            set { KErrorMax_ = value; }
+            get { return VelocitySemiamplitudeErrorMax_; }
+            set { VelocitySemiamplitudeErrorMax_ = value; }
             }
 
         private string GeometricAlbedo_;
@@ -576,9 +576,9 @@ namespace ExoplanetLibrary
             TzeroVrErrorMin = GetSubstring (strings, Indexer.TzeroVrErrorMin);
             TzeroVrErrorMax = GetSubstring (strings, Indexer.TzeroVrErrorMax);
 
-            K = GetSubstring (strings, Indexer.K);
-            KErrorMin = GetSubstring (strings, Indexer.KErrorMin);
-            KErrorMax = GetSubstring (strings, Indexer.KErrorMax);
+            VelocitySemiamplitude = GetSubstring (strings, Indexer.VelocitySemiamplitude);
+            VelocitySemiamplitudeErrorMin = GetSubstring (strings, Indexer.VelocitySemiamplitudeErrorMin);
+            VelocitySemiamplitudeErrorMax = GetSubstring (strings, Indexer.VelocitySemiamplitudeErrorMax);
 
             TemperatureCalculated = GetSubstring (strings, Indexer.TemperatureCalculated);
             TemperatureMeasured = GetSubstring (strings, Indexer.TemperatureMeasured);
@@ -652,8 +652,8 @@ namespace ExoplanetLibrary
 
         public void CorrectErrors ()
             {
-            string [] errors = { "KO", "GOV", "KOV", "kov", "KOIII", "KOIV/V" };
-            string [] corrections = { "K0", "G0V", "K0V", "K0V", "K0III", "K0IV/V" };
+            string [] errors = { "KO", "GOV", "KOV", "kov", "KOIII", "KOIV/V", "M4 V" };
+            string [] corrections = { "K0", "G0V", "K0V", "K0V", "K0III", "K0IV/V", "M4V" };
 
             if (Star.Property.SPType != null)
                 for (int index = 0; index < errors.Length; ++index)
@@ -663,6 +663,18 @@ namespace ExoplanetLibrary
                     if (Star.Property.SPType.Length == length)
                         if (Star.Property.SPType.Substring (0, length) == errors [index])
                             Star.Property.SPType = corrections [index];
+                    }
+
+            if (Star.Property.SPType != null)
+                if (Star.Property.SPType == "Brown Dwarf")
+                    {
+                    }
+                else if (Star.Property.SPType == "Catac. var.")
+                    {
+                    }
+                else
+                    {
+                    Star.Property.SPType = Star.Property.SPType.Replace (" ", "");
                     }
 
             if (Helper.IsDefined (Eccentricity))

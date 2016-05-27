@@ -193,9 +193,9 @@ namespace ExoplanetLibrary
             WriteLine (textWriter, exoplanet.TzeroVr);
             WriteLine (textWriter, exoplanet.TzeroVrErrorMin);
             WriteLine (textWriter, exoplanet.TzeroVrErrorMax);
-            WriteLine (textWriter, exoplanet.K);
-            WriteLine (textWriter, exoplanet.KErrorMin);
-            WriteLine (textWriter, exoplanet.KErrorMax);
+            WriteLine (textWriter, exoplanet.VelocitySemiamplitude);
+            WriteLine (textWriter, exoplanet.VelocitySemiamplitudeErrorMin);
+            WriteLine (textWriter, exoplanet.VelocitySemiamplitudeErrorMax);
             WriteLine (textWriter, exoplanet.TemperatureCalculated);
             WriteLine (textWriter, exoplanet.TemperatureMeasured);
             WriteLine (textWriter, exoplanet.TemperatureHotPointLo);

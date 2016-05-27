@@ -70,13 +70,6 @@ namespace ExoplanetLibrary
             set { LvwColumnSorter_ = value; }
             }
 
-        private CheckState AddPlanetDetails_ = CheckState.Unchecked;
-        public CheckState AddPlanetDetails
-            {
-            get { return AddPlanetDetails_; }
-            set { AddPlanetDetails_ = value; }
-            }
-
         private CheckState AddStarDetails_ = CheckState.Checked;
         public CheckState AddStarDetails
             {
@@ -186,30 +179,16 @@ namespace ExoplanetLibrary
         private void AddColumnsToListView (ListView listView)
             {
             listView.Columns.Add ("Name", -2, HorizontalAlignment.Left);
-            listView.Columns.Add ("M (Mjup)", -2, HorizontalAlignment.Left);
-            listView.Columns.Add ("R (Rjup)", -2, HorizontalAlignment.Left);
-            listView.Columns.Add ("Period (day)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Mass (Mjup)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Radius (Rjup)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Orbital Period (day)", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Semi-Major Axis (AU)", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Eccentricity", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Angular Distance", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Inclination (deg)", -2, HorizontalAlignment.Left);
-            listView.Columns.Add ("T0 (JD)", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Omega (deg)", -2, HorizontalAlignment.Left);
-
-            if (AddPlanetDetails == CheckState.Checked)
-                {
-                listView.Columns.Add ("T0-sec (JD)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Lambda Angle (deg)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Tvr (JD)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Tcalc. (K)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Tmeas. (K)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Hot pt (deg)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Log(g)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Pub. Status", -2, HorizontalAlignment.Left);
-                }
-
-            listView.Columns.Add ("Discovered", -2, HorizontalAlignment.Left);
-            listView.Columns.Add ("Updated", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Year of Discovered", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Last Updated", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Detection Type", -2, HorizontalAlignment.Left);
 
             listView.Columns.Add ("Star Name", -2, HorizontalAlignment.Left);
@@ -221,8 +200,8 @@ namespace ExoplanetLibrary
                 {
                 listView.Columns.Add ("Age", -2, HorizontalAlignment.Left);
                 listView.Columns.Add ("Distance", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("M (Msun)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("R (Rsun)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Mass (Msun)", -2, HorizontalAlignment.Left);
+                listView.Columns.Add ("Radius (Rsun)", -2, HorizontalAlignment.Left);
                 }
             }
 
@@ -260,20 +239,7 @@ namespace ExoplanetLibrary
                     item.SubItems.Add (Helper.Format (exoplanet.Eccentricity));
                     item.SubItems.Add (Helper.Format (exoplanet.AngularDistance));
                     item.SubItems.Add (Helper.Format (exoplanet.Inclination));
-                    item.SubItems.Add (Helper.Format (exoplanet.TzeroTr));
                     item.SubItems.Add (Helper.Format (exoplanet.Omega));
-
-                    if (AddPlanetDetails == CheckState.Checked)
-                        {
-                        item.SubItems.Add (Helper.Format (exoplanet.TzeroTrSec));
-                        item.SubItems.Add (Helper.Format (exoplanet.LambdaAngle));
-                        item.SubItems.Add (Helper.Format (exoplanet.TzeroVr));
-                        item.SubItems.Add (Helper.Format (exoplanet.TemperatureCalculated));
-                        item.SubItems.Add (Helper.Format (exoplanet.TemperatureMeasured));
-                        item.SubItems.Add (Helper.Format (exoplanet.TemperatureHotPointLo));
-                        item.SubItems.Add (Helper.Format (exoplanet.LogG));
-                        item.SubItems.Add (Helper.Format (exoplanet.Status));
-                        }
 
                     item.SubItems.Add (Helper.Format (exoplanet.Discovered));
                     item.SubItems.Add (Helper.Format (exoplanet.Updated));

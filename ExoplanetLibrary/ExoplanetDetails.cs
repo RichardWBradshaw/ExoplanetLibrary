@@ -67,6 +67,7 @@ namespace ExoplanetLibrary
             DetailsListView.FullRowSelect = true;
             DetailsListView.GridLines = true;
             DetailsListView.Sorting = SortOrder.None;
+            DetailsListView.ShowItemToolTips = true;
 
             AddItemsToListView (DetailsListView, true, null);
             Controls.Add (DetailsListView);
@@ -74,6 +75,8 @@ namespace ExoplanetLibrary
             ResizeBegin += new System.EventHandler (MyResizeBegin);
             ResizeEnd += new System.EventHandler (MyResizeEnd);
             SizeChanged += new System.EventHandler (MyResize);
+
+            DetailsListView.MouseMove += new MouseEventHandler (listView_MouseMove);
             }
 
         private void UpdatePlanetsListView ()
@@ -98,9 +101,7 @@ namespace ExoplanetLibrary
                 {
                 ListViewItem item = null;
 
-                item = new ListViewItem ("Planet", 0);
-                item.SubItems.Add (exoplanet.Name);
-                DetailsListView.Items.Add (item);
+                Text = "Exoplanet '" + exoplanet.Name + "' Details";
 
                 item = new ListViewItem ("Mass", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Mass, exoplanet.MassErrorMin, exoplanet.MassErrorMax, "Mjup"));
@@ -110,11 +111,11 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.Radius, exoplanet.RadiusErrorMin, exoplanet.RadiusErrorMax, "Rjup"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Orbitat Period", 0);
+                item = new ListViewItem ("Orbital Period", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.OrbitalPeriod, exoplanet.OrbitalPeriodErrorMin, exoplanet.OrbitalPeriodErrorMax, "day"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Semi-major Axis", 0);
+                item = new ListViewItem ("Semi-Major Axis", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.SemiMajorAxis, exoplanet.SemiMajorAxisErrorMin, exoplanet.SemiMajorAxisErrorMax, "AU"));
                 DetailsListView.Items.Add (item);
 
@@ -130,11 +131,15 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.Inclination, exoplanet.InclinationErrorMin, exoplanet.InclinationErrorMax, "deg"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("T0", 0);
+                item = new ListViewItem ("Omega", 0);
+                item.SubItems.Add (Helper.Format (exoplanet.Omega, exoplanet.OmegaErrorMin, exoplanet.OmegaErrorMax, "deg"));
+                DetailsListView.Items.Add (item);
+
+                item = new ListViewItem ("Primary Transit", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.TzeroTr, exoplanet.TzeroTrErrorMin, exoplanet.TzeroTrErrorMax, "JD"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("T0-sec", 0);
+                item = new ListViewItem ("Secondary Transit", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.TzeroTrSec, exoplanet.TzeroTrSecErrorMin, exoplanet.TzeroTrSecErrorMax, "JD"));
                 DetailsListView.Items.Add (item);
 
@@ -142,23 +147,23 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.LambdaAngle, exoplanet.LambdaAngleErrorMin, exoplanet.LambdaAngleErrorMax, "deg"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Tvr", 0);
+                item = new ListViewItem ("Zero Radial Speed Time", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.TzeroVr, exoplanet.TzeroVrErrorMin, exoplanet.TzeroVrErrorMax, "JD"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Tcalc", 0);
+                item = new ListViewItem ("Calculated Temperature", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.TemperatureCalculated, "K"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Tmeas", 0);
+                item = new ListViewItem ("Measured Temperature", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.TemperatureMeasured, "K"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Hot pt", 0);
+                item = new ListViewItem ("Hottest Point Longitude", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.TemperatureHotPointLo, "deg"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Surface gravity log(g/gH)", 0);
+                item = new ListViewItem ("Surface Gravity log(g)", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.LogG));
                 DetailsListView.Items.Add (item);
 
@@ -166,11 +171,11 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.Status));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Discovered", 0);
+                item = new ListViewItem ("Year of Discovery", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Discovered));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Updated", 0);
+                item = new ListViewItem ("Last Update", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Updated));
                 DetailsListView.Items.Add (item);
 
@@ -178,15 +183,11 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (exoplanet.DetectionType);
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Omega", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Omega, exoplanet.OmegaErrorMin, exoplanet.OmegaErrorMax, "deg"));
-                DetailsListView.Items.Add (item);
-
-                item = new ListViewItem ("Tperi", 0);
+                item = new ListViewItem ("Epoch of Periastron", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Tperi, exoplanet.TperiErrorMin, exoplanet.TperiErrorMax, "JD"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Molecules", 0);
+                item = new ListViewItem ("List of Detected Molecules", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Molecules));
                 DetailsListView.Items.Add (item);
 
@@ -195,22 +196,22 @@ namespace ExoplanetLibrary
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Velocity Semiamplitude K", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.K, exoplanet.KErrorMin, exoplanet.KErrorMax, "m/s"));
+                item.SubItems.Add (Helper.Format (exoplanet.VelocitySemiamplitude, exoplanet.VelocitySemiamplitudeErrorMin, exoplanet.VelocitySemiamplitudeErrorMax, "m/s"));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Geometric Albedo", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.GeometricAlbedo, exoplanet.GeometricAlbedoErrorMin, exoplanet.GeometricAlbedoErrorMax, ""));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Tconj", 0);
+                item = new ListViewItem ("Conjonction Date", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Tconj, exoplanet.TconjErrorMin, exoplanet.TconjErrorMax, "JD"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Mass Detection Type", 0);
+                item = new ListViewItem ("Mass Measurement Method", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.MassDetectionType));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Radius Detection Type", 0);
+                item = new ListViewItem ("Radius Measurement Method", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.RadiusDetectionType));
                 DetailsListView.Items.Add (item);
 
@@ -230,7 +231,7 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (Helper.FormatHMS (exoplanet.Star.Declination)));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Distance", 0);
+                item = new ListViewItem ("Stellar Distance", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Distance, "pc"));
                 DetailsListView.Items.Add (item);
 
@@ -238,19 +239,19 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Mass", 0);
+                item = new ListViewItem ("Stellar Mass", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Mass, "Msun"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Radius", 0);
+                item = new ListViewItem ("Stellar Radius", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Radius, "Rsun"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Spectral type", 0);
+                item = new ListViewItem ("Spectral Type", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Star.Property.SPType));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Age", 0);
+                item = new ListViewItem ("Stellar Age", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Age, "Gy"));
                 DetailsListView.Items.Add (item);
 
@@ -296,6 +297,91 @@ namespace ExoplanetLibrary
                 DetailsListView.Items.RemoveAt (index);
 
             AddItemsToListView (DetailsListView, false, exoplanet);
+            }
+
+        void listView_MouseMove (object sender, MouseEventArgs e)
+            {
+            ListViewItem item = DetailsListView.GetItemAt (e.X, e.Y);
+            ListViewHitTestInfo info = DetailsListView.HitTest (e.X, e.Y);
+
+            if (( item != null ) && ( info.SubItem != null ))
+                {
+                //
+                // https://en.wikipedia.org/wiki/Exoplanet
+                //
+
+                if (item.Text == "Mass")
+                    item.ToolTipText = "The planetary mass is a measure of the total amount of material in a body, defined either by the inertial properties of the body or by its gravitational influence on other bodies.\r" +
+                                       "(Ref. http://www.seasky.org/astronomy)";
+                else if (item.Text == "Radius")
+                    item.ToolTipText = "The planetary radius is the distance between a planet's center and its surface. Therefore, planetary radius is a measure of a planet's size";
+                else if (item.Text == "Orbital Period")
+                    item.ToolTipText = "The orbital period is the time taken for a given object to make one complete orbit around another object.\r" + 
+                                       "(Ref. https://en.wikipedia.org/wiki/Orbital_period)";
+                else if (item.Text == "Semi-Major Axis")
+                    item.ToolTipText = "";
+                else if (item.Text == "Eccentricity")
+                    item.ToolTipText = "The orbital eccentricity of an astronomical object is a parameter that determines the amount by which its orbit around another body deviates from a perfect circle. A value of 0 is a circular orbit, values between 0 and 1 form an elliptical orbit, 1 is a parabolic escape orbit, and greater than 1 is a hyperbola.\r" +
+                                       "(Ref. https://en.wikipedia.org/wiki/Orbital_eccentricity)";
+                else if (item.Text == "Angular Distance")
+                    item.ToolTipText = "";
+                else if (item.Text == "Orbital Inclination")
+                    item.ToolTipText = "Orbital inclination is the minimum angle between a reference plane and the orbital plane or axis of direction of an object in orbit around another object.\r" +
+                                       "(Ref. https://en.wikipedia.org/wiki/Orbital_inclination)";
+                else if (item.Text == "Omega")
+                    item.ToolTipText = "Omega is the argument of periastron precession is the rotation of a planet's orbit within the orbital plane, i.e. the axes of the ellipse change direction.\r" +
+                                       "(Ref. https://en.wikipedia.org/wiki/Exoplanet#Periastron_precession)";
+                else if (item.Text == "Primary Transit")
+                    item.ToolTipText = "A transit is the astronomical event that occurs when one celestial body appears to move across the face of another celestial body, hiding a small part of it, as seen by an observer at some particular vantage point.\r" +
+                                       "(Ref. https://en.wikipedia.org/wiki/Transit_(astronomy))";
+                else if (item.Text == "Secondary Transit")
+                    item.ToolTipText = "";
+                else if (item.Text == "Lambda Angle")
+                    item.ToolTipText = "Sky-projected angle between the planetary orbital spin and the stellar rotational spin";
+                else if (item.Text == "Zero Radial Speed Time")
+                    item.ToolTipText = "";
+                else if (item.Text == "Calculated temperature")
+                    item.ToolTipText = "";
+                else if (item.Text == "Measured Temperature")
+                    item.ToolTipText = "";
+                else if (item.Text == "Hottest Point Longitude")
+                    item.ToolTipText = "";
+                else if (item.Text == "Surface Gravity log(g)")
+                    item.ToolTipText = "";
+                else if (item.Text == "Publication Status")
+                    item.ToolTipText = "";
+                else if (item.Text == "Year of Discovery")
+                    item.ToolTipText = "";
+                else if (item.Text == "Last Update")
+                    item.ToolTipText = "";
+                else if (item.Text == "Detection Type")
+                    item.ToolTipText = "";
+                else if (item.Text == "Epoch of Periastron")
+                    item.ToolTipText = "";
+                else if (item.Text == "List of Detected Molecules")
+                    item.ToolTipText = "";
+                else if (item.Text == "Impact Parameter b(%)")
+                    item.ToolTipText = "";
+                else if (item.Text == "Velocity Semiamplitude K")
+                    item.ToolTipText = "It is the most widely used measure of orbital wobble in astronomy and the measurement of small radial velocity semi-amplitudes of nearby stars is important in the search for exoplanets.\r" +
+                                       "(Ref. https://en.wikipedia.org/wiki/Amplitude)";
+                else if (item.Text == "Geometric Albedo")
+                    item.ToolTipText = "Geometric albedo of a celestial body is the ratio of its actual brightness as seen from the light source (i.e at zero phase angle) to that of an idealized flat, fully reflecting, diffusively scattering (Lambertian) disk with the same cross-section.\r" +
+                                       "(Ref. https://en.wikipedia.org/wiki/Geometric_albedo)";
+                else if (item.Text == "Conjonction Date")
+                    item.ToolTipText = "";
+                else if (item.Text == "Mass Measurement Method")
+                    item.ToolTipText = "";
+                else if (item.Text == "Radius Measurement Method")
+                    item.ToolTipText = "";
+                else if (item.Text == "Alternate Names")
+                    item.ToolTipText = "List of planet alternative names";
+                else
+                    item.ToolTipText = info.SubItem.Text;
+
+                if (item.ToolTipText.Length == 0)
+                    item.ToolTipText = info.SubItem.Text;
+                }
             }
         }
     }

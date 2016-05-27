@@ -377,14 +377,14 @@ namespace ExoplanetLibrary
                 {
                 Writer.WriteStartElement ("K");
 
-                if (IsDefine (exoplanet.K))
-                    Writer.WriteAttributeString ("k", exoplanet.K);
+                if (IsDefine (exoplanet.VelocitySemiamplitude))
+                    Writer.WriteAttributeString ("k", exoplanet.VelocitySemiamplitude);
 
-                if (IsDefine (exoplanet.KErrorMin))
-                    Writer.WriteAttributeString ("errorMin", exoplanet.KErrorMin);
+                if (IsDefine (exoplanet.VelocitySemiamplitudeErrorMin))
+                    Writer.WriteAttributeString ("errorMin", exoplanet.VelocitySemiamplitudeErrorMin);
 
-                if (IsDefine (exoplanet.KErrorMax))
-                    Writer.WriteAttributeString ("errorMax", exoplanet.KErrorMax);
+                if (IsDefine (exoplanet.VelocitySemiamplitudeErrorMax))
+                    Writer.WriteAttributeString ("errorMax", exoplanet.VelocitySemiamplitudeErrorMax);
 
                 Writer.WriteEndElement ();
                 }
