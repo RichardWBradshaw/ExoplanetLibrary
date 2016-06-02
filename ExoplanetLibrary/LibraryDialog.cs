@@ -70,13 +70,6 @@ namespace ExoplanetLibrary
             set { LvwColumnSorter_ = value; }
             }
 
-        private CheckState AddStarDetails_ = CheckState.Checked;
-        public CheckState AddStarDetails
-            {
-            get { return AddStarDetails_; }
-            set { AddStarDetails_ = value; }
-            }
-
         private Filters Filter_ = null;
         public Filters Filter
             {
@@ -179,6 +172,7 @@ namespace ExoplanetLibrary
         private void AddColumnsToListView (ListView listView)
             {
             listView.Columns.Add ("Name", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Detection Type", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Mass (Mjup)", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Radius (Rjup)", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Orbital Period (day)", -2, HorizontalAlignment.Left);
@@ -187,22 +181,19 @@ namespace ExoplanetLibrary
             listView.Columns.Add ("Angular Distance", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Inclination (deg)", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Omega (deg)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Velocity Semiamplitude", -2, HorizontalAlignment.Left);
+
             listView.Columns.Add ("Year of Discovered", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Last Updated", -2, HorizontalAlignment.Left);
-            listView.Columns.Add ("Detection Type", -2, HorizontalAlignment.Left);
 
             listView.Columns.Add ("Star Name", -2, HorizontalAlignment.Left);
-            listView.Columns.Add ("RA", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Spectral Type", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Mass (Msun)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Radius (Rsun)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Distance (pc)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Age (Gy)", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Right Accession", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Declination", -2, HorizontalAlignment.Left);
-            listView.Columns.Add ("SPType", -2, HorizontalAlignment.Left);
-
-            if (AddStarDetails == CheckState.Checked)
-                {
-                listView.Columns.Add ("Age", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Distance", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Mass (Msun)", -2, HorizontalAlignment.Left);
-                listView.Columns.Add ("Radius (Rsun)", -2, HorizontalAlignment.Left);
-                }
             }
 
         private void AddItemsToListView (ListView listView, bool addColumns, bool rebuildArray)
@@ -232,6 +223,7 @@ namespace ExoplanetLibrary
 
                     ListViewItem item = new ListViewItem (exoplanet.Name, 0);
 
+                    item.SubItems.Add (Helper.Format (exoplanet.DetectionType));
                     item.SubItems.Add (Helper.Format (exoplanet.Mass));
                     item.SubItems.Add (Helper.Format (exoplanet.Radius));
                     item.SubItems.Add (Helper.Format (exoplanet.OrbitalPeriod));
@@ -240,23 +232,19 @@ namespace ExoplanetLibrary
                     item.SubItems.Add (Helper.Format (exoplanet.AngularDistance));
                     item.SubItems.Add (Helper.Format (exoplanet.Inclination));
                     item.SubItems.Add (Helper.Format (exoplanet.Omega));
+                    item.SubItems.Add (Helper.Format (exoplanet.VelocitySemiamplitude));
 
                     item.SubItems.Add (Helper.Format (exoplanet.Discovered));
                     item.SubItems.Add (Helper.Format (exoplanet.Updated));
-                    item.SubItems.Add (Helper.Format (exoplanet.DetectionType));
 
                     item.SubItems.Add (Helper.Format (exoplanet.Star.Name));
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.SPType));
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Mass));
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Radius));
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Distance));
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Age));
                     item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.RightAccession));
                     item.SubItems.Add (Helper.FormatHMS (exoplanet.Star.Declination));
-                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.SPType));
-
-                    if (AddStarDetails == CheckState.Checked)
-                        {
-                        item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Age));
-                        item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Distance));
-                        item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Mass));
-                        item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Radius));
-                        }
 
                     item.Tag = exoplanet;
                     listView.Items.Add (item);

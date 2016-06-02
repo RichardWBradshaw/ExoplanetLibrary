@@ -941,8 +941,9 @@ namespace ExoplanetLibrary
                     {
                     CubicSpline.CubicSpline cubicSpline = new CubicSpline.CubicSpline ();
                     float [] xs, ys;
+                    int numberOfPoints = xAxis.Length / 10;
 
-                    cubicSpline.FitGeometric (xAxis, yAxis, 200, out xs, out ys);
+                    cubicSpline.FitGeometric (xAxis, yAxis, numberOfPoints, out xs, out ys);
 
                     LinePlot linePlot = new LinePlot ();
                     linePlot.AbscissaData = xs;
