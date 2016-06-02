@@ -337,7 +337,7 @@ namespace ExoplanetLibrary
                 else if (item.Text == "Velocity Semiamplitude")
                     item.ToolTipText = "It is the most widely used measure of orbital wobble in astronomy and the measurement of small radial velocity semi-amplitudes of nearby stars is important in the search for exoplanets.\r" +
                                        "(Ref. https://en.wikipedia.org/wiki/Amplitude)";
-                else if (item.Text == "Calculated temperature")
+                else if (item.Text == "Calculated Temperature")
                     item.ToolTipText = "";
                 else if (item.Text == "Measured Temperature")
                     item.ToolTipText = "";

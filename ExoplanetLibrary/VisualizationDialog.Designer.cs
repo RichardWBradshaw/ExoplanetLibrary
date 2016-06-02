@@ -162,7 +162,7 @@
             // 
             this.tcalcToolStripMenuItem.Name = "tcalcToolStripMenuItem";
             this.tcalcToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.tcalcToolStripMenuItem.Text = "Tcalc";
+            this.tcalcToolStripMenuItem.Text = "Calculated Temperature";
             this.tcalcToolStripMenuItem.Click += new System.EventHandler(this.visualizeTcalc_Click);
             // 
             // omegaToolStripMenuItem
@@ -404,7 +404,6 @@
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
             }
 
         public NPlot.Windows.PlotSurface2D PlotSurface2D;

@@ -935,8 +935,14 @@ namespace ExoplanetLibrary
             {
             if (plotType == PlotTypes.Mass ||
                 plotType == PlotTypes.Radius ||
+                plotType == PlotTypes.OrbitalPeriod ||
+                plotType == PlotTypes.SemiMajorAxis ||
                 plotType == PlotTypes.Eccentricity ||
-                plotType == PlotTypes.Omega)
+                plotType == PlotTypes.AngularDistance ||
+                plotType == PlotTypes.Inclination ||
+                plotType == PlotTypes.Omega ||
+                plotType == PlotTypes.VelocitySemiamplitude ||
+                plotType == PlotTypes.TemperatureCalculated)
                 if (Visualization.LogYAxis == CheckState.Unchecked)
                     {
                     CubicSpline.CubicSpline cubicSpline = new CubicSpline.CubicSpline ();
