@@ -61,7 +61,7 @@ namespace ExoplanetLibrary
 
         static private void SetValidation (FileStream fileStream, XmlReaderSettings settings, bool skipValidation)
             {
-            ValidationEventHandler validationEventHandler = new ValidationEventHandler (exoplanetSettingsValidationEventHandler);
+            ValidationEventHandler validationEventHandler = new ValidationEventHandler (ExoplanetSettingsValidationEventHandler);
             XmlSchema xmlSchema = null;
 
             if (skipValidation == false)
@@ -83,7 +83,7 @@ namespace ExoplanetLibrary
                 settings.ValidationFlags = XmlSchemaValidationFlags.ProcessInlineSchema;
                 settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
                 settings.Schemas.Add (xmlSchema);
-                settings.ValidationEventHandler += new ValidationEventHandler (exoplanetSettingsValidationEventHandler);
+                settings.ValidationEventHandler += new ValidationEventHandler (ExoplanetSettingsValidationEventHandler);
 
                 fileStream.Close ();
                 }
@@ -734,7 +734,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void exoplanetSettingsValidationEventHandler (object sender, ValidationEventArgs e)
+        static void ExoplanetSettingsValidationEventHandler (object sender, ValidationEventArgs e)
             {
             if (e.Severity == XmlSeverityType.Warning)
                 {

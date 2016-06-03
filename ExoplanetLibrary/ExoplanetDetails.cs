@@ -351,7 +351,7 @@ namespace ExoplanetLibrary
                 else if (item.Text == "Zero Radial Speed Time")
                     item.ToolTipText = "";
                 else if (item.Text == "Impact Parameter b(%)")
-                    item.ToolTipText = "The impact parameter b is defined as the perpendicular distance between the path of a projectile and the center of a potential field U(r) created by an object that the projectile is approaching." +
+                    item.ToolTipText = "The impact parameter b is defined as the perpendicular distance between the path of a projectile and the center of a potential field U(r) created by an object that the projectile is approaching.\r" +
                                       "(Ref. https://en.wikipedia.org/wiki/Impact_parameter)";
                 else if (item.Text == "Geometric Albedo")
                     item.ToolTipText = "Geometric albedo of a celestial body is the ratio of its actual brightness as seen from the light source (i.e at zero phase angle) to that of an idealized flat, fully reflecting, diffusively scattering (Lambertian) disk with the same cross-section.\r" +

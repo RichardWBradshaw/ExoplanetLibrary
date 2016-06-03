@@ -78,13 +78,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Mass");
 
-            if (IsDefine (exoplanet.Mass))
+            if (IsDefined (exoplanet.Mass))
                 Writer.WriteAttributeString ("mass", exoplanet.Mass);
 
-            if (IsDefine (exoplanet.MassErrorMin))
+            if (IsDefined (exoplanet.MassErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.MassErrorMin);
 
-            if (IsDefine (exoplanet.MassErrorMax))
+            if (IsDefined (exoplanet.MassErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.MassErrorMax);
 
             Writer.WriteEndElement ();
@@ -94,13 +94,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Radius");
 
-            if (IsDefine (exoplanet.Radius))
+            if (IsDefined (exoplanet.Radius))
                 Writer.WriteAttributeString ("radius", exoplanet.Radius);
 
-            if (IsDefine (exoplanet.RadiusErrorMin))
+            if (IsDefined (exoplanet.RadiusErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.RadiusErrorMin);
 
-            if (IsDefine (exoplanet.RadiusErrorMax))
+            if (IsDefined (exoplanet.RadiusErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.RadiusErrorMax);
 
             Writer.WriteEndElement ();
@@ -110,13 +110,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("OrbitalPeriod");
 
-            if (IsDefine (exoplanet.OrbitalPeriod))
+            if (IsDefined (exoplanet.OrbitalPeriod))
                 Writer.WriteAttributeString ("orbitalPeriod", exoplanet.OrbitalPeriod);
 
-            if (IsDefine (exoplanet.OrbitalPeriodErrorMin))
+            if (IsDefined (exoplanet.OrbitalPeriodErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.OrbitalPeriodErrorMin);
 
-            if (IsDefine (exoplanet.OrbitalPeriodErrorMax))
+            if (IsDefined (exoplanet.OrbitalPeriodErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.OrbitalPeriodErrorMax);
 
             Writer.WriteEndElement ();
@@ -126,13 +126,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("SemiMajorAxis");
 
-            if (IsDefine (exoplanet.SemiMajorAxis))
+            if (IsDefined (exoplanet.SemiMajorAxis))
                 Writer.WriteAttributeString ("semiMajorAxis", exoplanet.SemiMajorAxis);
 
-            if (IsDefine (exoplanet.SemiMajorAxisErrorMin))
+            if (IsDefined (exoplanet.SemiMajorAxisErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.SemiMajorAxisErrorMin);
 
-            if (IsDefine (exoplanet.SemiMajorAxisErrorMax))
+            if (IsDefined (exoplanet.SemiMajorAxisErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.SemiMajorAxisErrorMax);
 
             Writer.WriteEndElement ();
@@ -142,13 +142,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Eccentricity");
 
-            if (IsDefine (exoplanet.Eccentricity))
+            if (IsDefined (exoplanet.Eccentricity))
                 Writer.WriteAttributeString ("eccentricity", exoplanet.Eccentricity);
 
-            if (IsDefine (exoplanet.EccentricityErrorMin))
+            if (IsDefined (exoplanet.EccentricityErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.EccentricityErrorMin);
 
-            if (IsDefine (exoplanet.EccentricityErrorMax))
+            if (IsDefined (exoplanet.EccentricityErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.EccentricityErrorMax);
 
             Writer.WriteEndElement ();
@@ -158,7 +158,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("AngularDistance");
 
-            if (IsDefine (exoplanet.AngularDistance))
+            if (IsDefined (exoplanet.AngularDistance))
                 Writer.WriteAttributeString ("angularDistance", exoplanet.AngularDistance);
 
             Writer.WriteEndElement ();
@@ -168,13 +168,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Inclination");
 
-            if (IsDefine (exoplanet.Inclination))
+            if (IsDefined (exoplanet.Inclination))
                 Writer.WriteAttributeString ("inclination", exoplanet.Inclination);
 
-            if (IsDefine (exoplanet.InclinationErrorMin))
+            if (IsDefined (exoplanet.InclinationErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.InclinationErrorMin);
 
-            if (IsDefine (exoplanet.InclinationErrorMax))
+            if (IsDefined (exoplanet.InclinationErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.InclinationErrorMax);
 
             Writer.WriteEndElement ();
@@ -184,13 +184,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("TzeroTr");
 
-            if (IsDefine (exoplanet.TzeroTr))
+            if (IsDefined (exoplanet.TzeroTr))
                 Writer.WriteAttributeString ("tzero_tr", exoplanet.TzeroTr);
 
-            if (IsDefine (exoplanet.TzeroTrErrorMin))
+            if (IsDefined (exoplanet.TzeroTrErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.TzeroTrErrorMin);
 
-            if (IsDefine (exoplanet.TzeroTrErrorMax))
+            if (IsDefined (exoplanet.TzeroTrErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.TzeroTrErrorMax);
 
             Writer.WriteEndElement ();
@@ -200,13 +200,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("TzeroTrSec");
 
-            if (IsDefine (exoplanet.TzeroTrSec))
+            if (IsDefined (exoplanet.TzeroTrSec))
                 Writer.WriteAttributeString ("tzero_trSec", exoplanet.TzeroTrSec);
 
-            if (IsDefine (exoplanet.TzeroTrSecErrorMin))
+            if (IsDefined (exoplanet.TzeroTrSecErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.TzeroTrSecErrorMin);
 
-            if (IsDefine (exoplanet.TzeroTrSecErrorMax))
+            if (IsDefined (exoplanet.TzeroTrSecErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.TzeroTrSecErrorMax);
 
             Writer.WriteEndElement ();
@@ -216,13 +216,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("LambdaAngle");
 
-            if (IsDefine (exoplanet.LambdaAngle))
+            if (IsDefined (exoplanet.LambdaAngle))
                 Writer.WriteAttributeString ("lambdaAngle", exoplanet.LambdaAngle);
 
-            if (IsDefine (exoplanet.LambdaAngleErrorMin))
+            if (IsDefined (exoplanet.LambdaAngleErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.LambdaAngleErrorMin);
 
-            if (IsDefine (exoplanet.LambdaAngleErrorMax))
+            if (IsDefined (exoplanet.LambdaAngleErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.LambdaAngleErrorMax);
 
             Writer.WriteEndElement ();
@@ -232,13 +232,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("TzeroVr");
 
-            if (IsDefine (exoplanet.TzeroVr))
+            if (IsDefined (exoplanet.TzeroVr))
                 Writer.WriteAttributeString ("tzero_vr", exoplanet.TzeroVr);
 
-            if (IsDefine (exoplanet.TzeroVrErrorMin))
+            if (IsDefined (exoplanet.TzeroVrErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.TzeroVrErrorMin);
 
-            if (IsDefine (exoplanet.TzeroVrErrorMax))
+            if (IsDefined (exoplanet.TzeroVrErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.TzeroVrErrorMax);
 
             Writer.WriteEndElement ();
@@ -248,13 +248,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Temperature");
 
-            if (IsDefine (exoplanet.TemperatureCalculated))
+            if (IsDefined (exoplanet.TemperatureCalculated))
                 Writer.WriteAttributeString ("Calculated", exoplanet.TemperatureCalculated);
 
-            if (IsDefine (exoplanet.TemperatureMeasured))
+            if (IsDefined (exoplanet.TemperatureMeasured))
                 Writer.WriteAttributeString ("Measured", exoplanet.TemperatureMeasured);
 
-            if (IsDefine (exoplanet.TemperatureHotPointLo))
+            if (IsDefined (exoplanet.TemperatureHotPointLo))
                 Writer.WriteAttributeString ("HotPointLon", exoplanet.TemperatureHotPointLo);
 
             Writer.WriteEndElement ();
@@ -264,7 +264,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("LogG");
 
-            if (IsDefine (exoplanet.LogG))
+            if (IsDefined (exoplanet.LogG))
                 Writer.WriteAttributeString ("logG", exoplanet.LogG);
 
             Writer.WriteEndElement ();
@@ -274,7 +274,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("PublicationStatus");
 
-            if (IsDefine (exoplanet.Status))
+            if (IsDefined (exoplanet.Status))
                 Writer.WriteAttributeString ("Status", exoplanet.Status);
 
             Writer.WriteEndElement ();
@@ -284,7 +284,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Discovered");
 
-            if (IsDefine (exoplanet.Discovered))
+            if (IsDefined (exoplanet.Discovered))
                 Writer.WriteAttributeString ("discovered", exoplanet.Discovered);
 
             Writer.WriteEndElement ();
@@ -294,7 +294,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Updated");
 
-            if (IsDefine (exoplanet.Updated))
+            if (IsDefined (exoplanet.Updated))
                 Writer.WriteAttributeString ("updated", exoplanet.Updated);
 
             Writer.WriteEndElement ();
@@ -304,13 +304,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Omega");
 
-            if (IsDefine (exoplanet.Omega))
+            if (IsDefined (exoplanet.Omega))
                 Writer.WriteAttributeString ("Omega", exoplanet.Omega);
 
-            if (IsDefine (exoplanet.OmegaErrorMin))
+            if (IsDefined (exoplanet.OmegaErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.OmegaErrorMin);
 
-            if (IsDefine (exoplanet.OmegaErrorMax))
+            if (IsDefined (exoplanet.OmegaErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.OmegaErrorMax);
 
             Writer.WriteEndElement ();
@@ -320,13 +320,13 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Tperi");
 
-            if (IsDefine (exoplanet.Tperi))
+            if (IsDefined (exoplanet.Tperi))
                 Writer.WriteAttributeString ("tperi", exoplanet.Tperi);
 
-            if (IsDefine (exoplanet.TperiErrorMin))
+            if (IsDefined (exoplanet.TperiErrorMin))
                 Writer.WriteAttributeString ("errorMin", exoplanet.TperiErrorMin);
 
-            if (IsDefine (exoplanet.TperiErrorMax))
+            if (IsDefined (exoplanet.TperiErrorMax))
                 Writer.WriteAttributeString ("errorMax", exoplanet.TperiErrorMax);
 
             Writer.WriteEndElement ();
@@ -336,7 +336,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("DetectionType");
 
-            if (IsDefine (exoplanet.DetectionType))
+            if (IsDefined (exoplanet.DetectionType))
                 Writer.WriteAttributeString ("Type", exoplanet.DetectionType);
 
             Writer.WriteEndElement ();
@@ -346,7 +346,7 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Molecules");
 
-            if (IsDefine (exoplanet.Molecules))
+            if (IsDefined (exoplanet.Molecules))
                 Writer.WriteAttributeString ("molecules", exoplanet.Molecules);
 
             Writer.WriteEndElement ();
@@ -358,13 +358,13 @@ namespace ExoplanetLibrary
                 {
                 Writer.WriteStartElement ("ImpactParameter");
 
-                if (IsDefine (exoplanet.ImpactParameter))
+                if (IsDefined (exoplanet.ImpactParameter))
                     Writer.WriteAttributeString ("impactParameter", exoplanet.ImpactParameter);
 
-                if (IsDefine (exoplanet.ImpactParameterErrorMin))
+                if (IsDefined (exoplanet.ImpactParameterErrorMin))
                     Writer.WriteAttributeString ("errorMin", exoplanet.ImpactParameterErrorMin);
 
-                if (IsDefine (exoplanet.ImpactParameterErrorMax))
+                if (IsDefined (exoplanet.ImpactParameterErrorMax))
                     Writer.WriteAttributeString ("errorMax", exoplanet.ImpactParameterErrorMax);
 
                 Writer.WriteEndElement ();
@@ -377,13 +377,13 @@ namespace ExoplanetLibrary
                 {
                 Writer.WriteStartElement ("K");
 
-                if (IsDefine (exoplanet.VelocitySemiamplitude))
+                if (IsDefined (exoplanet.VelocitySemiamplitude))
                     Writer.WriteAttributeString ("k", exoplanet.VelocitySemiamplitude);
 
-                if (IsDefine (exoplanet.VelocitySemiamplitudeErrorMin))
+                if (IsDefined (exoplanet.VelocitySemiamplitudeErrorMin))
                     Writer.WriteAttributeString ("errorMin", exoplanet.VelocitySemiamplitudeErrorMin);
 
-                if (IsDefine (exoplanet.VelocitySemiamplitudeErrorMax))
+                if (IsDefined (exoplanet.VelocitySemiamplitudeErrorMax))
                     Writer.WriteAttributeString ("errorMax", exoplanet.VelocitySemiamplitudeErrorMax);
 
                 Writer.WriteEndElement ();
@@ -396,13 +396,13 @@ namespace ExoplanetLibrary
                 {
                 Writer.WriteStartElement ("GeometricAlbedo");
 
-                if (IsDefine (exoplanet.GeometricAlbedo))
+                if (IsDefined (exoplanet.GeometricAlbedo))
                     Writer.WriteAttributeString ("geometricAlbedo", exoplanet.GeometricAlbedo);
 
-                if (IsDefine (exoplanet.GeometricAlbedoErrorMin))
+                if (IsDefined (exoplanet.GeometricAlbedoErrorMin))
                     Writer.WriteAttributeString ("errorMin", exoplanet.GeometricAlbedoErrorMin);
 
-                if (IsDefine (exoplanet.GeometricAlbedoErrorMax))
+                if (IsDefined (exoplanet.GeometricAlbedoErrorMax))
                     Writer.WriteAttributeString ("errorMax", exoplanet.GeometricAlbedoErrorMax);
 
                 Writer.WriteEndElement ();
@@ -415,13 +415,13 @@ namespace ExoplanetLibrary
                 {
                 Writer.WriteStartElement ("Tconj");
 
-                if (IsDefine (exoplanet.Tconj))
+                if (IsDefined (exoplanet.Tconj))
                     Writer.WriteAttributeString ("tconj", exoplanet.Tconj);
 
-                if (IsDefine (exoplanet.TconjErrorMin))
+                if (IsDefined (exoplanet.TconjErrorMin))
                     Writer.WriteAttributeString ("errorMin", exoplanet.TconjErrorMin);
 
-                if (IsDefine (exoplanet.TconjErrorMax))
+                if (IsDefined (exoplanet.TconjErrorMax))
                     Writer.WriteAttributeString ("errorMax", exoplanet.TconjErrorMax);
 
                 Writer.WriteEndElement ();
@@ -434,7 +434,7 @@ namespace ExoplanetLibrary
                 {
                 Writer.WriteStartElement ("MassDetectionType");
 
-                if (IsDefine (exoplanet.MassDetectionType))
+                if (IsDefined (exoplanet.MassDetectionType))
                     Writer.WriteAttributeString ("massDetectionType", exoplanet.MassDetectionType);
 
                 Writer.WriteEndElement ();
@@ -447,7 +447,7 @@ namespace ExoplanetLibrary
                 {
                 Writer.WriteStartElement ("RadiusDetectionType");
 
-                if (IsDefine (exoplanet.RadiusDetectionType))
+                if (IsDefined (exoplanet.RadiusDetectionType))
                     Writer.WriteAttributeString ("radiusDetectionType", exoplanet.RadiusDetectionType);
 
                 Writer.WriteEndElement ();
@@ -460,7 +460,7 @@ namespace ExoplanetLibrary
                 {
                 Writer.WriteStartElement ("AlternateNames");
 
-                if (IsDefine (exoplanet.AlternateNames))
+                if (IsDefined (exoplanet.AlternateNames))
                     Writer.WriteAttributeString ("alternateNames", exoplanet.AlternateNames);
 
                 Writer.WriteEndElement ();
@@ -485,19 +485,19 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Magnitudes");
 
-            if (IsDefine (exoplanet.Star.Magnitude.V))
+            if (IsDefined (exoplanet.Star.Magnitude.V))
                 Writer.WriteAttributeString ("V", exoplanet.Star.Magnitude.V);
 
-            if (IsDefine (exoplanet.Star.Magnitude.I))
+            if (IsDefined (exoplanet.Star.Magnitude.I))
                 Writer.WriteAttributeString ("I", exoplanet.Star.Magnitude.I);
 
-            if (IsDefine (exoplanet.Star.Magnitude.J))
+            if (IsDefined (exoplanet.Star.Magnitude.J))
                 Writer.WriteAttributeString ("J", exoplanet.Star.Magnitude.J);
 
-            if (IsDefine (exoplanet.Star.Magnitude.H))
+            if (IsDefined (exoplanet.Star.Magnitude.H))
                 Writer.WriteAttributeString ("H", exoplanet.Star.Magnitude.H);
 
-            if (IsDefine (exoplanet.Star.Magnitude.K))
+            if (IsDefined (exoplanet.Star.Magnitude.K))
                 Writer.WriteAttributeString ("K", exoplanet.Star.Magnitude.K);
 
             Writer.WriteEndElement ();
@@ -507,48 +507,48 @@ namespace ExoplanetLibrary
             {
             Writer.WriteStartElement ("Properties");
 
-            if (IsDefine (exoplanet.Star.Property.Distance))
+            if (IsDefined (exoplanet.Star.Property.Distance))
                 Writer.WriteAttributeString ("Distance", exoplanet.Star.Property.Distance);
 
-            if (IsDefine (exoplanet.Star.Property.Metallicity))
+            if (IsDefined (exoplanet.Star.Property.Metallicity))
                 Writer.WriteAttributeString ("Metallicity", exoplanet.Star.Property.Metallicity);
 
-            if (IsDefine (exoplanet.Star.Property.Mass))
+            if (IsDefined (exoplanet.Star.Property.Mass))
                 Writer.WriteAttributeString ("Mass", exoplanet.Star.Property.Mass);
 
-            if (IsDefine (exoplanet.Star.Property.Radius))
+            if (IsDefined (exoplanet.Star.Property.Radius))
                 Writer.WriteAttributeString ("Radius", exoplanet.Star.Property.Radius);
 
-            if (IsDefine (exoplanet.Star.Property.SPType))
+            if (IsDefined (exoplanet.Star.Property.SPType))
                 Writer.WriteAttributeString ("SPType", exoplanet.Star.Property.SPType);
 
-            if (IsDefine (exoplanet.Star.Property.Age))
+            if (IsDefined (exoplanet.Star.Property.Age))
                 Writer.WriteAttributeString ("Age", exoplanet.Star.Property.Age);
 
-            if (IsDefine (exoplanet.Star.Property.Teff))
+            if (IsDefined (exoplanet.Star.Property.Teff))
                 Writer.WriteAttributeString ("Teff", exoplanet.Star.Property.Teff);
 
             if (string.Equals (Version, Constant.Version2))
                 {
-                if (IsDefine (exoplanet.Star.Property.DetectedDisc))
+                if (IsDefined (exoplanet.Star.Property.DetectedDisc))
                     Writer.WriteAttributeString ("DetectedDisc", exoplanet.Star.Property.DetectedDisc);
 
-                if (IsDefine (exoplanet.Star.Property.MagneticField))
+                if (IsDefined (exoplanet.Star.Property.MagneticField))
                     Writer.WriteAttributeString ("MagneticField", exoplanet.Star.Property.MagneticField);
                 }
 
             Writer.WriteEndElement ();
             }
 
-        static private bool IsDefine (string string1, string string2, string string3)
+        static private bool IsDefined (string string1, string string2, string string3)
             {
-            if (IsDefine (string1) && IsDefine (string2) && IsDefine (string3))
+            if (IsDefined (string1) && IsDefined (string2) && IsDefined (string3))
                 return true;
             else
                 return false;
             }
 
-        static private bool IsDefine (string string1)
+        static private bool IsDefined (string string1)
             {
             if (string1 != null)
                 return string1.Length > 0 ? true : false;
