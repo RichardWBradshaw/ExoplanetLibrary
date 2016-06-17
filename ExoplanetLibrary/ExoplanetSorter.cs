@@ -18,7 +18,12 @@ namespace ExoplanetLibrary
             exoplanet1 = ( Exoplanet )x;
             exoplanet2 = ( Exoplanet )y;
 
-            return ObjectCompare.Compare (exoplanet1.Star.Name, exoplanet2.Star.Name);
+            int compareResults = 0;
+
+            if (Helper.AlphaNumericSort (exoplanet1.Star.Name, exoplanet2.Star.Name) != 0)
+                return compareResults;
+            else
+                return ObjectCompare.Compare (exoplanet1.Star.Name, exoplanet2.Star.Name);
             }
         }
 
@@ -36,10 +41,13 @@ namespace ExoplanetLibrary
 
             exoplanet1 = ( Exoplanet )x;
             exoplanet2 = ( Exoplanet )y;
-            //
-            // needs_work look at embedded numerics wasp1 wasp2, ..., wasp9, wasp10, wasp11, ..., wasp19, wasp120
-            //
-            return ObjectCompare.Compare (exoplanet1.Name, exoplanet2.Name);
+
+            int compareResults = 0;
+
+            if (Helper.AlphaNumericSort (exoplanet1.Name, exoplanet2.Name) != 0)
+                return compareResults;
+            else
+                return ObjectCompare.Compare (exoplanet1.Name, exoplanet2.Name);
             }
         }
 

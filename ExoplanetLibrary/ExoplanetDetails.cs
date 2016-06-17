@@ -308,6 +308,7 @@ namespace ExoplanetLibrary
                 {
                 //
                 // https://en.wikipedia.org/wiki/Exoplanet
+                // https://www.paulanthonywilson.com/exoplanets/exoplanet-detection-techniques/the-exoplanet-transit-method/
                 //
 
                 if (item.Text == "Detection Type")

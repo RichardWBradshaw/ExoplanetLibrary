@@ -168,7 +168,7 @@ namespace ExoplanetLibraryUnitTest
             Assert.AreEqual (Exoplanets.NumberOfTypeGStars (exoplanetArray), 389);
             Assert.AreEqual (Exoplanets.NumberOfTypeKStars (exoplanetArray), 274);
             Assert.AreEqual (Exoplanets.NumberOfTypeMStars (exoplanetArray), 91);
-            Assert.AreEqual (Exoplanets.NumberOfMultiPlanetStars (exoplanetArray), 720);
+            Assert.AreEqual (Exoplanets.NumberOfMultiPlanetStars (exoplanetArray), 538);
             }
 
         [TestMethod]

@@ -16,7 +16,7 @@ namespace ExoplanetLibrary
         public ListViewColumnSorter ()
             {
             ColumnToSort = 0;
-            OrderOfSort = SortOrder.None;
+            OrderOfSort = SortOrder.Ascending;
             ObjectCompare = new CaseInsensitiveComparer ();
             }
 
@@ -29,7 +29,15 @@ namespace ExoplanetLibrary
             listviewX = ( ListViewItem )x;
             listviewY = ( ListViewItem )y;
 
-            if (double.TryParse (listviewX.SubItems [ColumnToSort].Text, out dx) && double.TryParse (listviewY.SubItems [ColumnToSort].Text, out dy))
+            //
+            // 1st condition is exoplanet name and star name
+            //
+
+            if (( ColumnToSort == 0 || ColumnToSort == 13 ) && ( compareResults = Helper.AlphaNumericSort (listviewX.SubItems [ColumnToSort].Text, listviewY.SubItems [ColumnToSort].Text) ) != 0)
+                {
+                ;
+                }
+            else if (double.TryParse (listviewX.SubItems [ColumnToSort].Text, out dx) && double.TryParse (listviewY.SubItems [ColumnToSort].Text, out dy))
                 compareResults = ObjectCompare.Compare (dx, dy);
             else if (Helper.ParseHMS (listviewX.SubItems [ColumnToSort].Text, out dx) && Helper.ParseHMS (listviewY.SubItems [ColumnToSort].Text, out dy))
                 compareResults = ObjectCompare.Compare (dx, dy);

@@ -309,6 +309,65 @@ namespace ExoplanetLibrary
 
             return maximum;
             }
+
+        //
+        // look at embedded numerics Kepler-1 a, Kepler-1 b, ..., Kepler-2 c, Kepler-3 c, Kepler-10 a, Kepler-11 a, ..., Kepler-100 a, Kepler-101 a
+        //
+
+        static public int AlphaNumericSort (string string1, string string2)
+            {
+            int [] firstNumeric = { -1, -1 };
+            int [] lastNumeric = { -1, -1 };
+
+            if (string2.StartsWith (FindNumericRange (string1, out firstNumeric [0], out lastNumeric [0])))
+                if (firstNumeric [0] > 0)
+                    {
+                    FindNumericRange (string2, out firstNumeric [1], out lastNumeric [1]);
+
+                    if (firstNumeric [0] > 0 && lastNumeric [0] > 0)
+                        if (firstNumeric [1] > 0 && lastNumeric [1] > 0)
+                            {
+                            string numeric1 = string1.Substring (firstNumeric [0], lastNumeric [0] - firstNumeric [0] + 1);
+                            string numeric2 = string2.Substring (firstNumeric [1], lastNumeric [1] - firstNumeric [1] + 1);
+                            int i1, i2;
+
+                            if (int.TryParse (numeric1, out i1) && int.TryParse (numeric2, out i2))
+                                if (i1 != i2)
+                                    return ( i1 < i2 ) ? -1 : 1;
+                            }
+                    }
+
+            return 0;
+            }
+
+        static private string FindNumericRange (string stringer, out int firstNumeric, out int lastNumeric)
+            {
+            string name = "";
+
+            firstNumeric = lastNumeric = -1;
+
+            if (( stringer [0] >= 'a' && stringer [0] <= 'z' ) || ( stringer [0] >= 'A' && stringer [0] <= 'Z' ))
+                for (int index = 0; index < stringer.Length; ++index)
+                    if (stringer [index] >= '0' && stringer [index] <= '9')
+                        {
+                        if (firstNumeric == -1)
+                            {
+                            firstNumeric = index;
+                            lastNumeric = index;
+                            }
+                        else
+                            lastNumeric = index;
+                        }
+                    else
+                        {
+                        if (firstNumeric == -1)
+                            name += stringer [index];
+                        else
+                            break;
+                        }
+
+            return name;
+            }
         }
 
     public class Indexer
