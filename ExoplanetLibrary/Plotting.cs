@@ -48,6 +48,7 @@ namespace ExoplanetLibrary
         RadiusAndVelocitySemiamplitude = 47,
 
         Stars = 100,
+        DetectionMethod = 200,
         };
 
     public class Plotting
@@ -173,6 +174,18 @@ namespace ExoplanetLibrary
                     }
                 }
 
+            if (Visualization.LogYAxis == CheckState.Checked)
+                {
+                int nonZeros = CountPositives (YAxis);
+                double [] xAxisCopy = new double [nonZeros];
+                double [] yAxisCopy = new double [nonZeros];
+
+                CopyPositives (XAxis, YAxis, ref xAxisCopy, ref yAxisCopy);
+
+                XAxis = xAxisCopy;
+                YAxis = yAxisCopy;
+                }
+
             plotSurface.Clear ();
             plotSurface.BackColor = BackgroundColor;
 
@@ -210,7 +223,7 @@ namespace ExoplanetLibrary
                         {
                         case PlotTypes.Mass:
                             if (double.TryParse (exoplanet.Mass, out value) == true)
-                                if (double.TryParse (exoplanet.MassErrorMax, out maximumError) == true)
+                                if (double.TryParse (exoplanet.MassSiniErrorMax, out maximumError) == true)
                                     if (double.TryParse (exoplanet.MassErrorMin, out minimumError) == true)
                                         isValid = true;
                             break;
@@ -416,6 +429,20 @@ namespace ExoplanetLibrary
 
                 }
 
+            if (Visualization.LogXAxis == CheckState.Checked || Visualization.LogYAxis == CheckState.Checked)
+                {
+                int nonZeroXs = CountPositives (XAxis);
+                int nonZeroYs = CountPositives (YAxis);
+                int nonZeros = ( nonZeroYs <= nonZeroXs ) ? nonZeroYs : nonZeroXs;
+                double [] xAxisCopy = new double [nonZeros];
+                double [] yAxisCopy = new double [nonZeros];
+
+                CopyPositives (XAxis, YAxis, ref xAxisCopy, ref yAxisCopy);
+
+                XAxis = xAxisCopy;
+                YAxis = yAxisCopy;
+                }
+
             plotSurface.Clear ();
             plotSurface.BackColor = BackgroundColor;
 
@@ -452,7 +479,7 @@ namespace ExoplanetLibrary
                     if (plotType >= PlotTypes.MassAndRadius && plotType <= PlotTypes.MassAndVelocitySemiamplitude)
                         {
                         if (double.TryParse (exoplanet.Mass, out xValue) == true)
-                            if (double.TryParse (exoplanet.MassErrorMax, out maximumXError) == true)
+                            if (double.TryParse (exoplanet.MassSiniErrorMax, out maximumXError) == true)
                                 if (double.TryParse (exoplanet.MassErrorMin, out minimumXError) == true)
                                     isValid = true;
                         }
@@ -479,7 +506,7 @@ namespace ExoplanetLibrary
 
                             case PlotTypes.RadiusAndMass:  // x-axis is radius and y-axis is mass
                                 if (double.TryParse (exoplanet.Mass, out yValue) == true)
-                                    if (double.TryParse (exoplanet.MassErrorMax, out maximumYError) == true)
+                                    if (double.TryParse (exoplanet.MassSiniErrorMax, out maximumYError) == true)
                                         if (double.TryParse (exoplanet.MassErrorMin, out minimumYError) == true)
                                             isValid = true;
                                 break;
@@ -646,6 +673,72 @@ namespace ExoplanetLibrary
                                     }
                                 else
                                     pointPlot.Marker.Color = PointColor;
+
+                                plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+                                }
+                        }
+                }
+
+            VisualizeAxis (plotSurface, "Right Accession 2000 (degrees)", "{0:0}", "Declination 2000 (degrees)", "{0:0.0}", true);
+            VisualizeLegend (plotSurface);
+
+            plotSurface.Refresh ();
+            }
+
+        static public void VisualizeDetectionMethod (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
+            {
+            if (exoplanets == null)
+                return;
+
+            if (exoplanets.Count == 0)
+                return;
+
+            plotSurface.Clear ();
+            plotSurface.BackColor = BackgroundColor;
+
+            NPlot.Grid p = new Grid ();
+
+            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (exoplanet.Star.Declination != null)
+                    if (exoplanet.Star.RightAccession != null)
+                        {
+                        double dec = 0.0, ra = 0.0;
+
+                        if (double.TryParse (exoplanet.Star.Declination, out dec) == true)
+                            if (double.TryParse (exoplanet.Star.RightAccession, out ra) == true)
+                                {
+                                PointPlot pointPlot = new PointPlot ();
+                                double [] declination = new double [1];
+                                double [] accession = new double [1];
+
+                                pointPlot.AbscissaData = accession;
+                                pointPlot.DataSource = declination;
+
+                                declination [0] = dec;
+                                accession [0] = ra;
+
+                                pointPlot.Marker.Type = Marker.MarkerType.FilledCircle;
+                                pointPlot.Marker.Color = Color.Black;
+
+                                if (exoplanet.IsPrimaryTransit ())
+                                    pointPlot.Marker.Color = Color.Red;
+                                else if (exoplanet.IsRadialVelocity ())
+                                    pointPlot.Marker.Color = Color.Green;
+                                else if (exoplanet.IsMicrolensing ())
+                                    pointPlot.Marker.Color = Color.Blue;
+                                else if (exoplanet.IsImaging ())
+                                    pointPlot.Marker.Color = Color.Yellow;
+                                else if (exoplanet.IsPulsar ())
+                                    pointPlot.Marker.Color = Color.Orange;
+                                else if (exoplanet.IsAstrometry ())
+                                    pointPlot.Marker.Color = Color.Purple;
+                                else if (exoplanet.IsTTV ())
+                                    pointPlot.Marker.Color = Color.Cyan;
+                                else
+                                    pointPlot.Marker.Color = Color.FromArgb (255, 255, 255);
 
                                 plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
                                 }
@@ -1076,6 +1169,30 @@ namespace ExoplanetLibrary
 #else
             return;
 #endif
+            }
+
+        static private int CountPositives (double [] data)
+            {
+            int count = 0;
+
+            for (int index = 0; index < data.Length; ++index)
+                if (( double )data [index] > 0.0)
+                    ++count;
+
+            return count;
+            }
+
+        static private void CopyPositives (double [] originalX, double [] originalY, ref double [] copyX, ref double [] copyY)
+            {
+            int count = 0;
+
+            for (int index = 0; index < originalY.Length; ++index)
+                if (( double )originalX [index] > 0.0 && ( double )originalY [index] > 0.0)
+                    {
+                    copyX [count] = originalX [index];
+                    copyY [count] = originalY [index];
+                    ++count;
+                    }
             }
         }
     }

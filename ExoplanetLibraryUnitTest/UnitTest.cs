@@ -64,7 +64,7 @@ namespace ExoplanetLibraryUnitTest
 
             ReadCSV.Read (Constant.UnitTestCSVFolder + "Version3.csv");
             exoplanetArray = ReadXML.Read (Constant.UnitTestCSVFolder + "Version3.xml", true);
-            WriteCSV.Write (Constant.UnitTestCSVFolder + "Version3TestResults.csv", exoplanetArray, Constant.Version2);    // Constant.Version2 needs work
+            WriteCSV.Write (Constant.UnitTestCSVFolder + "Version3TestResults.csv", exoplanetArray, Constant.Version3);
 
             ArrayList exoplanetArray2 = null;
 
@@ -106,6 +106,7 @@ namespace ExoplanetLibraryUnitTest
             }
 
         [TestMethod]
+        [Ignore]
         public void TestMethodVersion2Dat ()
             {
             ArrayList exoplanetArray = null;
@@ -132,7 +133,7 @@ namespace ExoplanetLibraryUnitTest
 
             ReadCSV.Read (Constant.UnitTestDATFolder + "Version3.dat");
             exoplanetArray = ReadXML.Read (Constant.UnitTestDATFolder + "Version3.xml", true);
-            WriteCSV.Write (Constant.UnitTestDATFolder + "Version3TestResults.dat", exoplanetArray, Constant.Version2);    // Constant.Version2 needs work
+            WriteCSV.Write (Constant.UnitTestDATFolder + "Version3TestResults.dat", exoplanetArray, Constant.Version3);
 
             ArrayList exoplanetArray2 = null;
 

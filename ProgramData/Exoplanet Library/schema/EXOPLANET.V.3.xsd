@@ -197,12 +197,31 @@
                                         <xs:element name="Properties">
                                             <xs:complexType>
                                                 <xs:attribute name="Distance" type="xs:double" use="optional" />
+                                                <xs:attribute name="DistanceErrorMin" type="xs:double" use="optional" />
+                                                <xs:attribute name="DistanceErrorMax" type="xs:double" use="optional" />
+                                                
                                                 <xs:attribute name="Metallicity" type="xs:double" use="optional" />
+                                                <xs:attribute name="MetallicityErrorMin" type="xs:double" use="optional" />
+                                                <xs:attribute name="MetallicityErrorMax" type="xs:double" use="optional" />
+                                                
                                                 <xs:attribute name="Mass" type="xs:double" use="optional" />
+                                                <xs:attribute name="MassErrorMin" type="xs:double" use="optional" />
+                                                <xs:attribute name="MassErrorMax" type="xs:double" use="optional" />
+                                                
                                                 <xs:attribute name="Radius" type="xs:double" use="optional" />
+                                                <xs:attribute name="RadiusErrorMin" type="xs:double" use="optional" />
+                                                <xs:attribute name="RadiusErrorMax" type="xs:double" use="optional" />
+                                                
                                                 <xs:attribute name="SPType" type="xs:string" use="optional" />
+                                                
                                                 <xs:attribute name="Age" type="xs:double" use="optional" />
+                                                <xs:attribute name="AgeErrorMin" type="xs:double" use="optional" />
+                                                <xs:attribute name="AgeErrorMax" type="xs:double" use="optional" />
+                                                
                                                 <xs:attribute name="Teff" type="xs:double" use="optional" />
+                                                <xs:attribute name="TeffErrorMin" type="xs:double" use="optional" />
+                                                <xs:attribute name="TeffErrorMax" type="xs:double" use="optional" />
+                                                
                                                 <xs:attribute name="DetectedDisc" type="xs:string" use="optional" />
                                                 <xs:attribute name="MagneticField" type="xs:string" use="optional" />
                                             </xs:complexType>
@@ -211,6 +230,7 @@
                                     <xs:attribute name="Name" type="xs:string" use="required" />
                                     <xs:attribute name="RightAccession" type="xs:string" use="optional" />
                                     <xs:attribute name="Declination" type="xs:string" use="optional" />
+                                    <xs:attribute name="AlternateNames" type="xs:string" use="optional" />
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>

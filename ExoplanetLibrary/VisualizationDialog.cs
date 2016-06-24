@@ -141,6 +141,12 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
+        private void visualizeDetectionMethod_Click (object sender, System.EventArgs e)
+            {
+            PlotType = PlotTypes.DetectionMethod;
+            RefreshGraphics ();
+            }
+
         private void visualizeMassVersusRadius_Click (object sender, System.EventArgs e)
             {
             PlotType = PlotTypes.MassAndRadius;
@@ -242,7 +248,7 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
-        private void RefreshGraphics ()
+        public void RefreshGraphics ()
             {
             ArrayList array = null;
             bool includeDuplicates = Visualization.IncludeDuplicates == CheckState.Checked ? true : false;
@@ -397,6 +403,10 @@ namespace ExoplanetLibrary
 
                 case PlotTypes.Stars:
                     Plotting.VisualizeStars (PlotSurface2D, Exoplanets.ExoplanetsArray);
+                    break;
+
+                case PlotTypes.DetectionMethod:
+                    Plotting.VisualizeDetectionMethod (PlotSurface2D, Exoplanets.ExoplanetsArray);
                     break;
                 }
 

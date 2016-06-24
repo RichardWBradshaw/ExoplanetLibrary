@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Exoplanets version="1">
 	<Exoplanet name="11 Com b">
-		<Mass mass="19.4" errorMin="1.5" errorMax="1.5" />
+		<Mass value="19.4" errorMin="1.5" errorMax="1.5" />
 		<Radius />
-		<OrbitalPeriod orbitalPeriod="326.03" errorMin="0.32" errorMax="0.32" />
-		<SemiMajorAxis semiMajorAxis="1.29" errorMin="0.05" errorMax="0.05" />
-		<Eccentricity eccentricity="0.231" errorMin="0.005" errorMax="0.005" />
-		<AngularDistance angularDistance="0.011664" />
+		<OrbitalPeriod value="326.03" errorMin="0.32" errorMax="0.32" />
+		<SemiMajorAxis value="1.29" errorMin="0.05" errorMax="0.05" />
+		<Eccentricity value="0.231" errorMin="0.005" errorMax="0.005" />
+		<AngularDistance value="0.011664" />
 		<Inclination />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
 		<TzeroVr />
-		<Temperature />
+		<Temperatures />
 		<LogG />
-		<PublicationStatus Status="1" />
-		<Discovered discovered="2008" />
-		<Updated updated="2011-12-23" />
-		<Omega Omega="94.8" errorMin="1.5" errorMax="1.5" />
-		<Tperi tperi="2452899.6" errorMin="1.6" errorMax="1.6" />
-		<DetectionType Type="detected by radial velocity" />
+		<PublicationStatus value="1" />
+		<Discovered value="2008" />
+		<Updated value="2011-12-23" />
+		<Omega value="94.8" errorMin="1.5" errorMax="1.5" />
+		<Tperi value="2452899.6" errorMin="1.6" errorMax="1.6" />
+		<DetectionType value="detected by radial velocity" />
 		<Molecules />
-		<Star Name="" ra="" dec="">
+		<Star Name="" RightAccession="" Declination="">
 			<Magnitudes />
 			<Properties />
 		</Star>

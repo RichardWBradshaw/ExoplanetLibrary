@@ -38,6 +38,27 @@ namespace ExoplanetLibrary
             set { MassErrorMax_ = value; }
             }
 
+        private string MassSini_;
+        public string MassSini
+            {
+            get { return MassSini_; }
+            set { MassSini_ = value; }
+            }
+
+        private string MassSiniErrorMin_;
+        public string MassSiniErrorMin
+            {
+            get { return MassSiniErrorMin_; }
+            set { MassSiniErrorMin_ = value; }
+            }
+
+        private string MassSiniErrorMax_;
+        public string MassSiniErrorMax
+            {
+            get { return MassSiniErrorMax_; }
+            set { MassSiniErrorMax_ = value; }
+            }
+
         private string Radius_;
         public string Radius
             {
@@ -518,6 +539,10 @@ namespace ExoplanetLibrary
             MassErrorMin = GetSubstring (strings, Indexer.MassErrorMin);
             MassErrorMax = GetSubstring (strings, Indexer.MassErrorMax);
 
+            MassSini = GetSubstring (strings, Indexer.MassSini);
+            MassSiniErrorMin = GetSubstring (strings, Indexer.MassSiniErrorMin);
+            MassSiniErrorMax = GetSubstring (strings, Indexer.MassSiniErrorMax);
+
             Radius = GetSubstring (strings, Indexer.Radius);
             RadiusErrorMin = GetSubstring (strings, Indexer.RadiusErrorMin);
             RadiusErrorMax = GetSubstring (strings, Indexer.RadiusErrorMax);
@@ -605,6 +630,7 @@ namespace ExoplanetLibrary
             Star.Name = GetSubstring (strings, Indexer.StarName, false);
             Star.RightAccession = GetSubstring (strings, Indexer.StarRightAccession);
             Star.Declination = GetSubstring (strings, Indexer.StarDeclination);
+            Star.AlternateNames = GetSubstring (strings, Indexer.StarAlternateNames, false, true);
 
             Star.Magnitude.V = GetSubstring (strings, Indexer.StarMagnitudeV);
             Star.Magnitude.I = GetSubstring (strings, Indexer.StarMagnitudeI);
@@ -613,12 +639,31 @@ namespace ExoplanetLibrary
             Star.Magnitude.K = GetSubstring (strings, Indexer.StarMagnitudeK);
 
             Star.Property.Distance = GetSubstring (strings, Indexer.StarDistance);
+            Star.Property.DistanceErrorMin = GetSubstring (strings, Indexer.StarDistanceErrorMin);
+            Star.Property.DistanceErrorMax = GetSubstring (strings, Indexer.StarDistanceErrorMax);
+
             Star.Property.Metallicity = GetSubstring (strings, Indexer.StarMetallicity);
+            Star.Property.MetallicityErrorMin = GetSubstring (strings, Indexer.StarMetallicityErrorMin);
+            Star.Property.MetallicityErrorMax = GetSubstring (strings, Indexer.StarMetallicityErrorMax);
+
             Star.Property.Mass = GetSubstring (strings, Indexer.StarMass);
+            Star.Property.MassErrorMin = GetSubstring (strings, Indexer.StarMassErrorMin);
+            Star.Property.MassErrorMax = GetSubstring (strings, Indexer.StarMassErrorMax);
+
             Star.Property.Radius = GetSubstring (strings, Indexer.StarRadius);
+            Star.Property.RadiusErrorMin = GetSubstring (strings, Indexer.StarRadiusErrorMin);
+            Star.Property.RadiusErrorMax = GetSubstring (strings, Indexer.StarRadiusErrorMax);
+
             Star.Property.SPType = GetSubstring (strings, Indexer.StarSPType);
+
             Star.Property.Age = GetSubstring (strings, Indexer.StarAge);
+            Star.Property.AgeErrorMin = GetSubstring (strings, Indexer.StarAgeErrorMin);
+            Star.Property.AgeErrorMax = GetSubstring (strings, Indexer.StarAgeErrorMax);
+
             Star.Property.Teff = GetSubstring (strings, Indexer.StarTeff);
+            Star.Property.TeffErrorMin = GetSubstring (strings, Indexer.StarTeffErrorMin);
+            Star.Property.TeffErrorMax = GetSubstring (strings, Indexer.StarTeffErrorMax);
+
             Star.Property.DetectedDisc = GetSubstring (strings, Indexer.StarDetectedDisc, false);
             Star.Property.MagneticField = GetSubstring (strings, Indexer.StarMagneticField, false);
             }
@@ -635,7 +680,7 @@ namespace ExoplanetLibrary
 
         static private string GetSubstring (string [] substrings, int index, bool isNumeric, bool replaceCommas)
             {
-            if (index < substrings.Length)
+            if (index >= 0 && index < substrings.Length)
                 if (isNumeric)
                     return Helper.ReplaceNonNumerics (substrings [index].ToString ());
                 else
@@ -803,6 +848,13 @@ namespace ExoplanetLibrary
             set { Name_ = value; }
             }
 
+        private string AlternateNames_;
+        public string AlternateNames
+            {
+            get { return AlternateNames_; }
+            set { AlternateNames_ = value; }
+            }
+
         private string RightAccession_;
         public string RightAccession
             {
@@ -887,11 +939,39 @@ namespace ExoplanetLibrary
             set { Distance_ = value; }
             }
 
+        private string DistanceErrorMin_;
+        public string DistanceErrorMin
+            {
+            get { return DistanceErrorMin_; }
+            set { DistanceErrorMin_ = value; }
+            }
+
+        private string DistanceErrorMax_;
+        public string DistanceErrorMax
+            {
+            get { return DistanceErrorMax_; }
+            set { DistanceErrorMax_ = value; }
+            }
+
         private string Metallicity_;
         public string Metallicity
             {
             get { return Metallicity_; }
             set { Metallicity_ = value; }
+            }
+
+        private string MetallicityErrorMin_;
+        public string MetallicityErrorMin
+            {
+            get { return MetallicityErrorMin_; }
+            set { MetallicityErrorMin_ = value; }
+            }
+
+        private string MetallicityErrorMax_;
+        public string MetallicityErrorMax
+            {
+            get { return MetallicityErrorMax_; }
+            set { MetallicityErrorMax_ = value; }
             }
 
         private string Mass_;
@@ -901,12 +981,41 @@ namespace ExoplanetLibrary
             set { Mass_ = value; }
             }
 
+        private string MassErrorMin_;
+        public string MassErrorMin
+            {
+            get { return MassErrorMin_; }
+            set { MassErrorMin_ = value; }
+            }
+
+        private string MassErrorMax_;
+        public string MassErrorMax
+            {
+            get { return MassErrorMax_; }
+            set { MassErrorMax_ = value; }
+            }
+
         private string Radius_;
         public string Radius
             {
             get { return Radius_; }
             set { Radius_ = value; }
             }
+
+        private string RadiusErrorMin_;
+        public string RadiusErrorMin
+            {
+            get { return RadiusErrorMin_; }
+            set { RadiusErrorMin_ = value; }
+            }
+
+        private string RadiusErrorMax_;
+        public string RadiusErrorMax
+            {
+            get { return RadiusErrorMax_; }
+            set { RadiusErrorMax_ = value; }
+            }
+
 
         private string SPType_;
         public string SPType
@@ -922,11 +1031,39 @@ namespace ExoplanetLibrary
             set { Age_ = value; }
             }
 
+        private string AgeErrorMin_;
+        public string AgeErrorMin
+            {
+            get { return AgeErrorMin_; }
+            set { AgeErrorMin_ = value; }
+            }
+
+        private string AgeErrorMax_;
+        public string AgeErrorMax
+            {
+            get { return AgeErrorMax_; }
+            set { AgeErrorMax_ = value; }
+            }
+
         private string Teff_;
         public string Teff
             {
             get { return Teff_; }
             set { Teff_ = value; }
+            }
+
+        private string TeffErrorMin_;
+        public string TeffErrorMin
+            {
+            get { return TeffErrorMin_; }
+            set { TeffErrorMin_ = value; }
+            }
+
+        private string TeffErrorMax_;
+        public string TeffErrorMax
+            {
+            get { return TeffErrorMax_; }
+            set { TeffErrorMax_ = value; }
             }
 
         private string DetectedDisc_;

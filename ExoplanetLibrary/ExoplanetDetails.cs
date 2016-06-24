@@ -111,6 +111,10 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.Mass, exoplanet.MassErrorMin, exoplanet.MassErrorMax, "Mjup"));
                 DetailsListView.Items.Add (item);
 
+                item = new ListViewItem ("MassSini", 0);
+                item.SubItems.Add (Helper.Format (exoplanet.Mass, exoplanet.MassSiniErrorMin, exoplanet.MassSiniErrorMax, "Mjup"));
+                DetailsListView.Items.Add (item);
+
                 item = new ListViewItem ("Radius", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Radius, exoplanet.RadiusErrorMin, exoplanet.RadiusErrorMax, "Rjup"));
                 DetailsListView.Items.Add (item);
@@ -228,15 +232,15 @@ namespace ExoplanetLibrary
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Stellar Mass", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Mass, "Msun"));
+                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Mass, exoplanet.Star.Property.MassErrorMin, exoplanet.Star.Property.MassErrorMax, "Msun"));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Stellar Radius", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Radius, "Rsun"));
+                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Radius, exoplanet.Star.Property.RadiusErrorMin, exoplanet.Star.Property.RadiusErrorMax, "Rsun"));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Stellar Distance", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Distance, "pc"));
+                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Distance, exoplanet.Star.Property.DistanceErrorMin, exoplanet.Star.Property.DistanceErrorMax, "pc"));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Right Accession - Epoch 2000", 0);
@@ -248,15 +252,15 @@ namespace ExoplanetLibrary
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Stellar Metallicity", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity));
+                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity, exoplanet.Star.Property.MetallicityErrorMin, exoplanet.Star.Property.MetallicityErrorMax, "" ));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Stellar Age", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Age, "Gy"));
+                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Age, exoplanet.Star.Property.AgeErrorMin, exoplanet.Star.Property.AgeErrorMax, "Gy"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Stellar Effective temperature", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Teff));
+                item = new ListViewItem ("Stellar Effective Temperature", 0);
+                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Teff, exoplanet.Star.Property.TeffErrorMin, exoplanet.Star.Property.TeffErrorMax, "K"));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Stellar Detected Disc", 0);
@@ -313,38 +317,41 @@ namespace ExoplanetLibrary
 
                 if (item.Text == "Detection Type")
                     item.ToolTipText = "" +
-                                       "Ref. https://en.wikipedia.org/wiki/Methods_of_detecting_exoplanets)";
+                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Methods_of_detecting_exoplanets)";
                 else if (item.Text == "Mass")
-                    item.ToolTipText = "The planetary mass is a measure of the total amount of material in a body, defined either by the inertial properties of the body or by its gravitational influence on other bodies.\r" +
-                                       "(Ref. http://www.seasky.org/astronomy)";
+                    item.ToolTipText = "The planetary mass is a measure of the total amount of material in a body, defined either by the inertial properties of the body or by its gravitational influence on other bodies'" +
+                                       "\r\r(Ref. http://www.seasky.org/astronomy)";
+                else if (item.Text == "MassSini")
+                    item.ToolTipText = "The planetary mass is a measure of the total amount of material in a body, defined either by the inertial properties of the body or by its gravitational influence on other bodies'" +
+                                       "\r\r(Ref. http://www.seasky.org/astronomy)";
                 else if (item.Text == "Radius")
                     item.ToolTipText = "The planetary radius is the distance between a planet's center and its surface. Therefore, planetary radius is a measure of a planet's size";
                 else if (item.Text == "Orbital Period")
-                    item.ToolTipText = "The orbital period is the time taken for a given object to make one complete orbit around another object.\r" +
-                                       "(Ref. https://en.wikipedia.org/wiki/Orbital_period)";
+                    item.ToolTipText = "The orbital period is the time taken for a given object to make one complete orbit around another object'" +
+                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Orbital_period)";
                 else if (item.Text == "Semi-Major Axis")
                     item.ToolTipText = "";
                 else if (item.Text == "Eccentricity")
-                    item.ToolTipText = "The orbital eccentricity of an astronomical object is a parameter that determines the amount by which its orbit around another body deviates from a perfect circle. A value of 0 is a circular orbit, values between 0 and 1 form an elliptical orbit, 1 is a parabolic escape orbit, and greater than 1 is a hyperbola.\r" +
-                                       "(Ref. https://en.wikipedia.org/wiki/Orbital_eccentricity)";
+                    item.ToolTipText = "The orbital eccentricity of an astronomical object is a parameter that determines the amount by which its orbit around another body deviates from a perfect circle. A value of 0 is a circular orbit, values between 0 and 1 form an elliptical orbit, 1 is a parabolic escape orbit, and greater than 1 is a hyperbola'" +
+                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Orbital_eccentricity)";
                 else if (item.Text == "Angular Distance")
                     item.ToolTipText = "";
                 else if (item.Text == "Orbital Inclination")
-                    item.ToolTipText = "Orbital inclination is the minimum angle between a reference plane and the orbital plane or axis of direction of an object in orbit around another object.\r" +
-                                       "(Ref. https://en.wikipedia.org/wiki/Orbital_inclination)";
+                    item.ToolTipText = "Orbital inclination is the minimum angle between a reference plane and the orbital plane or axis of direction of an object in orbit around another object'" +
+                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Orbital_inclination)";
                 else if (item.Text == "Omega")
-                    item.ToolTipText = "Omega is the argument of periastron precession is the rotation of a planet's orbit within the orbital plane, i.e. the axes of the ellipse change direction.\r" +
-                                       "(Ref. https://en.wikipedia.org/wiki/Exoplanet#Periastron_precession)";
+                    item.ToolTipText = "Omega is the argument of periastron precession is the rotation of a planet's orbit within the orbital plane, i.e. the axes of the ellipse change direction'" +
+                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Exoplanet#Periastron_precession)";
                 else if (item.Text == "Velocity Semiamplitude")
-                    item.ToolTipText = "It is the most widely used measure of orbital wobble in astronomy and the measurement of small radial velocity semi-amplitudes of nearby stars is important in the search for exoplanets.\r" +
-                                       "(Ref. https://en.wikipedia.org/wiki/Amplitude)";
+                    item.ToolTipText = "It is the most widely used measure of orbital wobble in astronomy and the measurement of small radial velocity semi-amplitudes of nearby stars is important in the search for exoplanets'" +
+                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Amplitude)";
                 else if (item.Text == "Calculated Temperature")
                     item.ToolTipText = "";
                 else if (item.Text == "Measured Temperature")
                     item.ToolTipText = "";
                 else if (item.Text == "Primary Transit")
-                    item.ToolTipText = "A transit is the astronomical event that occurs when one celestial body appears to move across the face of another celestial body, hiding a small part of it, as seen by an observer at some particular vantage point.\r" +
-                                       "(Ref. https://en.wikipedia.org/wiki/Transit_(astronomy))";
+                    item.ToolTipText = "A transit is the astronomical event that occurs when one celestial body appears to move across the face of another celestial body, hiding a small part of it, as seen by an observer at some particular vantage point'" +
+                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Transit_(astronomy))";
                 else if (item.Text == "Secondary Transit")
                     item.ToolTipText = "";
                 else if (item.Text == "Lambda Angle")
@@ -352,11 +359,11 @@ namespace ExoplanetLibrary
                 else if (item.Text == "Zero Radial Speed Time")
                     item.ToolTipText = "";
                 else if (item.Text == "Impact Parameter b(%)")
-                    item.ToolTipText = "The impact parameter b is defined as the perpendicular distance between the path of a projectile and the center of a potential field U(r) created by an object that the projectile is approaching.\r" +
-                                      "(Ref. https://en.wikipedia.org/wiki/Impact_parameter)";
+                    item.ToolTipText = "The impact parameter b is defined as the perpendicular distance between the path of a projectile and the center of a potential field U(r) created by an object that the projectile is approaching'" +
+                                      "\r\r(Ref. https://en.wikipedia.org/wiki/Impact_parameter)";
                 else if (item.Text == "Geometric Albedo")
-                    item.ToolTipText = "Geometric albedo of a celestial body is the ratio of its actual brightness as seen from the light source (i.e at zero phase angle) to that of an idealized flat, fully reflecting, diffusively scattering (Lambertian) disk with the same cross-section.\r" +
-                                       "(Ref. https://en.wikipedia.org/wiki/Geometric_albedo)";
+                    item.ToolTipText = "Geometric albedo of a celestial body is the ratio of its actual brightness as seen from the light source (i.e at zero phase angle) to that of an idealized flat, fully reflecting, diffusively scattering (Lambertian) disk with the same cross-section'" +
+                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Geometric_albedo)";
                 else if (item.Text == "Surface Gravity log(g)")
                     item.ToolTipText = "";
                 else if (item.Text == "Hottest Point Longitude")

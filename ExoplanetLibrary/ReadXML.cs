@@ -40,6 +40,13 @@ namespace ExoplanetLibrary
             set { XsdVersion2FileName_ = value; }
             }
 
+        static private string XsdVersion3FileName_ = Constant.SchemaFolder + "EXOPLANET.V.3.xsd";
+        static private string XsdVersion3FileName
+            {
+            get { return XsdVersion3FileName_; }
+            set { XsdVersion3FileName_ = value; }
+            }
+
         static private string ValidationErrors_ = "";
         static private string ValidationErrors
             {
@@ -65,11 +72,21 @@ namespace ExoplanetLibrary
             XmlSchema xmlSchema = null;
 
             if (skipValidation == false)
-                if (File.Exists (@XsdVersion2FileName) || File.Exists (@XsdVersion1FileName))
-                    if (string.Equals (Version, Constant.Version2))
+                if (string.Equals (Version, Constant.Version3))
+                    {
+                    if (File.Exists (@XsdVersion3FileName))
+                        xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion3FileName, FileMode.Open) ), validationEventHandler);
+                    }
+                else if (string.Equals (Version, Constant.Version2))
+                    {
+                    if (File.Exists (@XsdVersion2FileName))
                         xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion2FileName, FileMode.Open) ), validationEventHandler);
-                    else if (string.Equals (Version, Constant.Version1))
+                    }
+                else if (string.Equals (Version, Constant.Version1))
+                    {
+                    if (File.Exists (@XsdVersion1FileName))
                         xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion1FileName, FileMode.Open) ), validationEventHandler);
+                    }
 
             settings.ConformanceLevel = ConformanceLevel.Document;
             settings.CheckCharacters = true;
@@ -113,6 +130,7 @@ namespace ExoplanetLibrary
 
                     ReadExoplanet (exoplanet);
                     ReadMass (exoplanet);
+                    ReadMassSini (exoplanet);
                     ReadRadius (exoplanet);
                     ReadOrbitalPeriod (exoplanet);
                     ReadSemiMajorAxis (exoplanet);
@@ -123,7 +141,7 @@ namespace ExoplanetLibrary
                     ReadTzeroTrSec (exoplanet);
                     ReadLambdaAngle (exoplanet);
                     ReadTzeroVr (exoplanet);
-                    ReadTemperature (exoplanet);
+                    ReadTemperatures (exoplanet);
                     ReadLogG (exoplanet);
                     ReadPublicationStatus (exoplanet);
                     ReadDiscovered (exoplanet);
@@ -133,7 +151,7 @@ namespace ExoplanetLibrary
                     ReadDetectionType (exoplanet);
                     ReadMolecules (exoplanet);
                     ReadImpactParameter (exoplanet);
-                    ReadK (exoplanet);
+                    ReadVelocitySemiamplitude (exoplanet);
                     ReadGeometricAlbedo (exoplanet);
                     ReadTconj (exoplanet);
                     ReadMassDetectionType (exoplanet);
@@ -178,7 +196,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "mass":
+                    case "value":
                         exoplanet.Mass = Reader.Value;
                         break;
                     case "errorMin":
@@ -191,6 +209,36 @@ namespace ExoplanetLibrary
                 }
             }
 
+        static void ReadMassSini (Exoplanet exoplanet)
+            {
+            if (string.Equals (Version, Constant.Version1) || string.Equals (Version, Constant.Version2))
+                {
+                exoplanet.MassSini = "";
+                exoplanet.MassSiniErrorMin = "";
+                exoplanet.MassSiniErrorMax = "";
+                }
+            else
+                {
+                Reader.ReadToFollowing ("MassSini");
+
+                while (Reader.MoveToNextAttribute ())
+                    {
+                    switch (Reader.Name)
+                        {
+                        case "value":
+                            exoplanet.MassSini = Reader.Value;
+                            break;
+                        case "errorMin":
+                            exoplanet.MassSiniErrorMin = Reader.Value;
+                            break;
+                        case "errorMax":
+                            exoplanet.MassSiniErrorMax = Reader.Value;
+                            break;
+                        }
+                    }
+                }
+            }
+
         static void ReadRadius (Exoplanet exoplanet)
             {
             Reader.ReadToFollowing ("Radius");
@@ -199,7 +247,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "radius":
+                    case "value":
                         exoplanet.Radius = Reader.Value;
                         break;
                     case "errorMin":
@@ -220,7 +268,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "orbitalPeriod":
+                    case "value":
                         exoplanet.OrbitalPeriod = Reader.Value;
                         break;
                     case "errorMin":
@@ -241,7 +289,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "semiMajorAxis":
+                    case "value":
                         exoplanet.SemiMajorAxis = Reader.Value;
                         break;
                     case "errorMin":
@@ -262,7 +310,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "eccentricity":
+                    case "value":
                         exoplanet.Eccentricity = Reader.Value;
                         break;
                     case "errorMin":
@@ -290,7 +338,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "inclination":
+                    case "value":
                         exoplanet.Inclination = Reader.Value;
                         break;
                     case "errorMin":
@@ -311,7 +359,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "tzero_tr":
+                    case "value":
                         exoplanet.TzeroTr = Reader.Value;
                         break;
                     case "errorMin":
@@ -332,7 +380,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "tzero_trSec":
+                    case "value":
                         exoplanet.TzeroTrSec = Reader.Value;
                         break;
                     case "errorMin":
@@ -353,7 +401,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "lambdaAngle":
+                    case "value":
                         exoplanet.LambdaAngle = Reader.Value;
                         break;
                     case "errorMin":
@@ -374,7 +422,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "tzero_vr":
+                    case "value":
                         exoplanet.TzeroVr = Reader.Value;
                         break;
                     case "errorMin":
@@ -387,9 +435,9 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadTemperature (Exoplanet exoplanet)
+        static void ReadTemperatures (Exoplanet exoplanet)
             {
-            Reader.ReadToFollowing ("Temperature");
+            Reader.ReadToFollowing ("Temperatures");
 
             while (Reader.MoveToNextAttribute ())
                 {
@@ -444,7 +492,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "Omega":
+                    case "value":
                         exoplanet.Omega = Reader.Value;
                         break;
                     case "errorMin":
@@ -465,7 +513,7 @@ namespace ExoplanetLibrary
                 {
                 switch (Reader.Name)
                     {
-                    case "tperi":
+                    case "value":
                         exoplanet.Tperi = Reader.Value;
                         break;
                     case "errorMin":
@@ -508,7 +556,7 @@ namespace ExoplanetLibrary
                     {
                     switch (Reader.Name)
                         {
-                        case "impactParameter":
+                        case "value":
                             exoplanet.ImpactParameter = Reader.Value;
                             break;
                         case "errorMin":
@@ -522,23 +570,22 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static void ReadK (Exoplanet exoplanet)
+        static void ReadVelocitySemiamplitude (Exoplanet exoplanet)
             {
             if (string.Equals (Version, Constant.Version1))
                 {
-                exoplanet.VelocitySemiamplitude = "";
                 exoplanet.VelocitySemiamplitudeErrorMin = "";
                 exoplanet.VelocitySemiamplitudeErrorMax = "";
                 }
             else
                 {
-                Reader.ReadToFollowing ("K");
+                Reader.ReadToFollowing ("VelocitySemiamplitude");
 
                 while (Reader.MoveToNextAttribute ())
                     {
                     switch (Reader.Name)
                         {
-                        case "k":
+                        case "value":
                             exoplanet.VelocitySemiamplitude = Reader.Value;
                             break;
                         case "errorMin":
@@ -568,7 +615,7 @@ namespace ExoplanetLibrary
                     {
                     switch (Reader.Name)
                         {
-                        case "geometricAlbedo":
+                        case "value":
                             exoplanet.GeometricAlbedo = Reader.Value;
                             break;
                         case "errorMin":
@@ -598,7 +645,7 @@ namespace ExoplanetLibrary
                     {
                     switch (Reader.Name)
                         {
-                        case "tconj":
+                        case "value":
                             exoplanet.Tconj = Reader.Value;
                             break;
                         case "errorMin":
@@ -658,11 +705,14 @@ namespace ExoplanetLibrary
                     case "Name":
                         exoplanet.Star.Name = Reader.Value;
                         break;
-                    case "ra":
+                    case "RightAccession":
                         exoplanet.Star.RightAccession = Reader.Value;
                         break;
-                    case "dec":
+                    case "Declination":
                         exoplanet.Star.Declination = Reader.Value;
+                        break;
+                    case "AlternateNames":
+                        exoplanet.Star.AlternateNames = Reader.Value;
                         break;
                     }
                 }
@@ -706,14 +756,38 @@ namespace ExoplanetLibrary
                     case "Distance":
                         exoplanet.Star.Property.Distance = Reader.Value;
                         break;
+                    case "DistanceErrorMin":
+                        exoplanet.Star.Property.DistanceErrorMin = Reader.Value;
+                        break;
+                    case "DistanceErrorMax":
+                        exoplanet.Star.Property.DistanceErrorMax = Reader.Value;
+                        break;
                     case "Metallicity":
                         exoplanet.Star.Property.Metallicity = Reader.Value;
+                        break;
+                    case "MetallicityErrorMin":
+                        exoplanet.Star.Property.MetallicityErrorMin = Reader.Value;
+                        break;
+                    case "MetallicityErrorMax":
+                        exoplanet.Star.Property.MetallicityErrorMax = Reader.Value;
                         break;
                     case "Mass":
                         exoplanet.Star.Property.Mass = Reader.Value;
                         break;
+                    case "MassErrorMin":
+                        exoplanet.Star.Property.MassErrorMin = Reader.Value;
+                        break;
+                    case "MassErrorMax":
+                        exoplanet.Star.Property.MassErrorMax = Reader.Value;
+                        break;
                     case "Radius":
                         exoplanet.Star.Property.Radius = Reader.Value;
+                        break;
+                    case "RadiusErrorMin":
+                        exoplanet.Star.Property.RadiusErrorMin = Reader.Value;
+                        break;
+                    case "RadiusErrorMax":
+                        exoplanet.Star.Property.RadiusErrorMax = Reader.Value;
                         break;
                     case "SPType":
                         exoplanet.Star.Property.SPType = Reader.Value.Trim ();
@@ -721,8 +795,20 @@ namespace ExoplanetLibrary
                     case "Age":
                         exoplanet.Star.Property.Age = Reader.Value;
                         break;
+                    case "AgeErrorMin":
+                        exoplanet.Star.Property.AgeErrorMin = Reader.Value;
+                        break;
+                    case "AgeErrorMax":
+                        exoplanet.Star.Property.AgeErrorMax = Reader.Value;
+                        break;
                     case "Teff":
                         exoplanet.Star.Property.Teff = Reader.Value;
+                        break;
+                    case "TeffErrorMin":
+                        exoplanet.Star.Property.TeffErrorMin = Reader.Value;
+                        break;
+                    case "TeffErrorMax":
+                        exoplanet.Star.Property.TeffErrorMax = Reader.Value;
                         break;
                     case "DetectedDisc":
                         exoplanet.Star.Property.DetectedDisc = Reader.Value;

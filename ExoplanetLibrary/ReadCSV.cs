@@ -148,7 +148,7 @@ namespace ExoplanetLibrary
                 return 0;
 
             //
-            // kludge: .csv's can contain commas and / or tabs within in the data (i.e. not used as the separators)
+            // kludge: .csv's can contain commas and / or tabs within in the data, these may occur in literals at are in double quotes
             //
 
             if (IsCommaDelimited == true)
@@ -171,7 +171,7 @@ namespace ExoplanetLibrary
             else if (Version == Constant.Version2 && strings.Length == Constant.Version2StringCount)
                 xmlVersion = Constant.Version2;
             else if (Version == Constant.Version3 && strings.Length == Constant.Version3StringCount)
-                xmlVersion = Constant.Version2;
+                xmlVersion = Constant.Version3;
 
             if (xmlVersion.Length > 0)
                 {
@@ -216,8 +216,10 @@ namespace ExoplanetLibrary
 
                     if (Version == Constant.Version1)
                         writer.WriteAttributeString ("version", Constant.Version1);
-                    else if (Version == Constant.Version2 || Version == Constant.Version3)
+                    else if (Version == Constant.Version2 )
                         writer.WriteAttributeString ("version", Constant.Version2);
+                    else if (Version == Constant.Version3)
+                        writer.WriteAttributeString ("version", Constant.Version3);
 
                     using (StreamReader stream = new StreamReader (csvFileName))
                         {

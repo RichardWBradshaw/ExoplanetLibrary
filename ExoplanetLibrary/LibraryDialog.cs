@@ -338,6 +338,20 @@ namespace ExoplanetLibrary
 
                         UpdateExoplanetListView (true);
 
+                        if (Visualization != null)
+                            Visualization.RefreshGraphics ();
+
+                        if (ExoplanetDetails != null)
+                            if (ExoplanetListView.SelectedItems.Count == 1)
+                                {
+                                Exoplanet exoplanet = ( Exoplanet )ExoplanetListView.SelectedItems [0].Tag;
+
+                                displayAllDetails (exoplanet);
+                                Focus ();
+                                }
+                            else
+                                ExoplanetDetails.Close ();
+
                         Settings.FilterIndex = openFileDialog.FilterIndex;
 
                         Cursor.Current = Cursors.Default;

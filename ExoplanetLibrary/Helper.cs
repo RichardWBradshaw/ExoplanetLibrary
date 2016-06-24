@@ -258,9 +258,21 @@ namespace ExoplanetLibrary
                         }
                     }
                 else if (dataFromCompare != null && dataToCompare == null)
-                    return false;
+                    {
+                    string fromString = dataFromCompare as string;
+                    double fromDouble;
+                    // kludge: if one value is null and the other value is 0.0 then treat as equal
+                    if ( !(double.TryParse (fromString, out fromDouble) && fromDouble == 0.0))
+                        return false;
+                    }
                 else if (dataFromCompare == null && dataToCompare != null)
-                    return false;
+                    {
+                    string toString = dataToCompare as string;
+                    double toDouble;
+                    // kludge: if one value is null and the other value is 0.0 then treat as equal
+                    if ( !(double.TryParse (toString, out toDouble) && toDouble == 0.0))
+                        return false;
+                    }
                 }
 
             return true;
@@ -510,6 +522,147 @@ namespace ExoplanetLibrary
 
         static public int StarAlternateNames;
 
+        static public void Initialize ()
+            {
+            Name = int.MinValue;
+
+            Mass = int.MinValue;
+            MassErrorMin = int.MinValue;
+            MassErrorMax = int.MinValue;
+
+            MassSini = int.MinValue;
+            MassSiniErrorMin = int.MinValue;
+            MassSiniErrorMax = int.MinValue;
+
+            Radius = int.MinValue;
+            RadiusErrorMin = int.MinValue;
+            RadiusErrorMax = int.MinValue;
+
+            OrbitalPeriod = int.MinValue;
+            OrbitalPeriodErrorMin = int.MinValue;
+            OrbitalPeriodErrorMax = int.MinValue;
+
+            SemiMajorAxis = int.MinValue;
+            SemiMajorAxisErrorMin = int.MinValue;
+            SemiMajorAxisErrorMax = int.MinValue;
+
+            Eccentricity = int.MinValue;
+            EccentricityErrorMin = int.MinValue;
+            EccentricityErrorMax = int.MinValue;
+
+            AngularDistance = int.MinValue;
+
+            Inclination = int.MinValue;
+            InclinationErrorMin = int.MinValue;
+            InclinationErrorMax = int.MinValue;
+
+            TzeroTr = int.MinValue;
+            TzeroTrErrorMin = int.MinValue;
+            TzeroTrErrorMax = int.MinValue;
+
+            TzeroTrSec = int.MinValue;
+            TzeroTrSecErrorMin = int.MinValue;
+            TzeroTrSecErrorMax = int.MinValue;
+
+            LambdaAngle = int.MinValue;
+            LambdaAngleErrorMin = int.MinValue;
+            LambdaAngleErrorMax = int.MinValue;
+
+            TzeroVr = int.MinValue;
+            TzeroVrErrorMin = int.MinValue;
+            TzeroVrErrorMax = int.MinValue;
+
+            TemperatureCalculated = int.MinValue;
+
+            TemperatureMeasured = int.MinValue;
+
+            TemperatureHotPointLo = int.MinValue;
+
+            LogG = int.MinValue;
+
+            Status = int.MinValue;
+
+            Discovered = int.MinValue;
+
+            Updated = int.MinValue;
+
+            Omega = int.MinValue;
+            OmegaErrorMin = int.MinValue;
+            OmegaErrorMax = int.MinValue;
+
+            Tperi = int.MinValue;
+            TperiErrorMin = int.MinValue;
+            TperiErrorMax = int.MinValue;
+
+            DetectionType = int.MinValue;
+
+            Molecules = int.MinValue;
+
+            ImpactParameter = int.MinValue;
+            ImpactParameterErrorMin = int.MinValue;
+            ImpactParameterErrorMax = int.MinValue;
+
+            VelocitySemiamplitude = int.MinValue;
+            VelocitySemiamplitudeErrorMin = int.MinValue;
+            VelocitySemiamplitudeErrorMax = int.MinValue;
+
+            GeometricAlbedo = int.MinValue;
+            GeometricAlbedoErrorMin = int.MinValue;
+            GeometricAlbedoErrorMax = int.MinValue;
+
+            Tconj = int.MinValue;
+            TconjErrorMin = int.MinValue;
+            TconjErrorMax = int.MinValue;
+
+            MassDetectionType = int.MinValue;
+
+            RadiusDetectionType = int.MinValue;
+
+            AlternateNames = int.MinValue;
+
+            StarName = int.MinValue;
+            StarRightAccession = int.MinValue;
+            StarDeclination = int.MinValue;
+
+            StarMagnitudeV = int.MinValue;
+            StarMagnitudeI = int.MinValue;
+            StarMagnitudeJ = int.MinValue;
+            StarMagnitudeH = int.MinValue;
+            StarMagnitudeK = int.MinValue;
+
+            StarDistance = int.MinValue;
+            StarDistanceErrorMin = int.MinValue;
+            StarDistanceErrorMax = int.MinValue;
+
+            StarMetallicity = int.MinValue;
+            StarMetallicityErrorMin = int.MinValue;
+            StarMetallicityErrorMax = int.MinValue;
+
+            StarMass = int.MinValue;
+            StarMassErrorMin = int.MinValue;
+            StarMassErrorMax = int.MinValue;
+
+            StarRadius = int.MinValue;
+            StarRadiusErrorMin = int.MinValue;
+            StarRadiusErrorMax = int.MinValue;
+
+            StarSPType = int.MinValue;
+
+            StarAge = int.MinValue;
+            StarAgeErrorMin = int.MinValue;
+            StarAgeErrorMax = int.MinValue;
+
+            StarTeff = int.MinValue;
+            StarTeffErrorMin = int.MinValue;
+            StarTeffErrorMax = int.MinValue;
+
+            StarDetectedDisc = int.MinValue;
+
+            StarMagneticField = int.MinValue;
+
+            StarAlternateNames = int.MinValue;
+            }
+
         static public void SetAllIndex (string stringer)
             {
             char [] delimiterChars = { ',', '\t' };
@@ -518,6 +671,8 @@ namespace ExoplanetLibrary
 
             if (strings [0].StartsWith ("# "))
                 strings [0] = strings [0].Replace ("# ", "");
+
+            Initialize ();
 
             for (int index = 0; index < numberOfStrings; ++index)
                 SetIndex (strings [index], index);
@@ -623,7 +778,13 @@ namespace ExoplanetLibrary
 
                 case "radius_detection_type": RadiusDetectionType = index; break;
 
-                case "alternate_names": AlternateNames = index; break;
+                case "alternate_names":                         // .csv and .dat use the save name for plaent and stellar alternate names
+                    if (AlternateNames == int.MinValue)         // planet alternate name
+                        AlternateNames = index;
+                    else
+                        StarAlternateNames = index;             // star alternate name
+
+                    break;
 
                 case "molecules": Molecules = index; break;
 
@@ -667,7 +828,6 @@ namespace ExoplanetLibrary
 
                 case "star_magnetic_field": StarMagneticField = index; break;
 
-                // added star_ to avoid conflict
                 case "star_alternate_names": StarAlternateNames = index; break;
 
                 default:

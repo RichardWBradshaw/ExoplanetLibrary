@@ -9,7 +9,7 @@ namespace ExoplanetLibrary
             {
             }
 
-        static private string Version_ = Constant.Version2;
+        static private string Version_ = Constant.Version3;
         static private string Version
             {
             get { return Version_; }
@@ -44,7 +44,11 @@ namespace ExoplanetLibrary
                 else
                     xmlFileName = votFileName.Replace (".dat", ".xml");
 
-                if (string.Equals (Version, Constant.Version1) || string.Equals (Version, Constant.Version2))
+                Version = GetVersion (votFileName);
+
+                if (string.Equals (Version, Constant.Version1) ||
+                    string.Equals (Version, Constant.Version2) ||
+                    string.Equals (Version, Constant.Version3))
                     {
                     writer = XmlWriter.Create (xmlFileName, settings);
 
@@ -52,6 +56,8 @@ namespace ExoplanetLibrary
                     writer.WriteAttributeString ("version", Version);
 
                     TextReader reader = null;
+
+                    Indexer.Initialize ();
 
                     using (reader = File.OpenText (votFileName))
                         {
@@ -174,6 +180,134 @@ namespace ExoplanetLibrary
                 }
 
             return 0;
+            }
+
+        static private string GetVersion (string votFileName)
+            {
+            string version = "";
+
+            if (File.Exists (votFileName))
+                {
+                TextReader reader = null;
+
+                using (reader = File.OpenText (votFileName))
+                    {
+                    string line = null;
+
+                    for (;;)
+                        {
+                        line = reader.ReadLine ();
+
+                        if (line != null)
+                            {
+                            line = line.Trim ();
+
+                            if (line.Length == 0)
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<TR>"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<TD>"))
+                                {
+                                break;
+                                }
+                            else if (line.StartsWith ("</TR>"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<VOTABLE"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<RESOURCE"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<INFO"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<COOSYS"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<TABLE"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<DESCRIPTION"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<FIELD"))
+                                {
+                                char [] delimiterChars = { ' ' };
+                                string [] substrings = line.Split (delimiterChars);
+
+                                if (substrings [1].StartsWith ("ID=\"col"))
+                                    {
+                                    string temporary;
+                                    int index;
+
+                                    temporary = substrings [1].Replace ("ID=\"col", "");
+                                    temporary = temporary.Replace ("\"", "");
+                                    index = int.Parse (temporary);
+
+                                    if (index == Constant.Version1StringCount)
+                                        version = Constant.Version1;
+                                    else if (index == Constant.Version2StringCount)
+                                        version = Constant.Version2;
+                                    else if (index == Constant.Version3StringCount)
+                                        version = Constant.Version3;
+                                    }
+                                }
+                            else if (line.StartsWith ("</FIELD>"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<DATA"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("</DATA>"))
+                                {
+                                break;
+                                }
+                            else if (line.StartsWith ("<TABLEDATA"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("</TABLEDATA>"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("</DATA"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("</TABLE>"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("<RESOURCE"))
+                                {
+                                ;
+                                }
+                            else if (line.StartsWith ("</VOTABLE>"))
+                                {
+                                ;
+                                }
+                            }
+                        else
+                            break;
+                        }
+                    }
+                }
+
+            return version;
             }
 
         static private int WriteExoplanet (XmlWriter writer, string line)

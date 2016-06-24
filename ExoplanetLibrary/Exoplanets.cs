@@ -25,7 +25,7 @@ namespace ExoplanetLibrary
                 if (Helper.IsDefined (exoplanet.Mass))
                     if (includeErrors)
                         {
-                        if (Helper.IsDefined (exoplanet.MassErrorMax))
+                        if (Helper.IsDefined (exoplanet.MassSiniErrorMax))
                             if (Helper.IsDefined (exoplanet.MassErrorMin))
                                 array.Add (exoplanet);
                         }
