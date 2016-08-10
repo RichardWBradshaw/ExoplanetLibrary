@@ -48,7 +48,6 @@ namespace ExoplanetLibrary
         RadiusAndVelocitySemiamplitude = 47,
 
         Stars = 100,
-        DetectionMethod = 200,
         };
 
     public class Plotting
@@ -673,72 +672,6 @@ namespace ExoplanetLibrary
                                     }
                                 else
                                     pointPlot.Marker.Color = PointColor;
-
-                                plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-                                }
-                        }
-                }
-
-            VisualizeAxis (plotSurface, "Right Accession 2000 (degrees)", "{0:0}", "Declination 2000 (degrees)", "{0:0.0}", true);
-            VisualizeLegend (plotSurface);
-
-            plotSurface.Refresh ();
-            }
-
-        static public void VisualizeDetectionMethod (NPlot.Windows.PlotSurface2D plotSurface, ArrayList exoplanets)
-            {
-            if (exoplanets == null)
-                return;
-
-            if (exoplanets.Count == 0)
-                return;
-
-            plotSurface.Clear ();
-            plotSurface.BackColor = BackgroundColor;
-
-            NPlot.Grid p = new Grid ();
-
-            plotSurface.Add (p, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
-
-            foreach (Exoplanet exoplanet in exoplanets)
-                {
-                if (exoplanet.Star.Declination != null)
-                    if (exoplanet.Star.RightAccession != null)
-                        {
-                        double dec = 0.0, ra = 0.0;
-
-                        if (double.TryParse (exoplanet.Star.Declination, out dec) == true)
-                            if (double.TryParse (exoplanet.Star.RightAccession, out ra) == true)
-                                {
-                                PointPlot pointPlot = new PointPlot ();
-                                double [] declination = new double [1];
-                                double [] accession = new double [1];
-
-                                pointPlot.AbscissaData = accession;
-                                pointPlot.DataSource = declination;
-
-                                declination [0] = dec;
-                                accession [0] = ra;
-
-                                pointPlot.Marker.Type = Marker.MarkerType.FilledCircle;
-                                pointPlot.Marker.Color = Color.Black;
-
-                                if (exoplanet.IsPrimaryTransit ())
-                                    pointPlot.Marker.Color = Color.Red;
-                                else if (exoplanet.IsRadialVelocity ())
-                                    pointPlot.Marker.Color = Color.Green;
-                                else if (exoplanet.IsMicrolensing ())
-                                    pointPlot.Marker.Color = Color.Blue;
-                                else if (exoplanet.IsImaging ())
-                                    pointPlot.Marker.Color = Color.Yellow;
-                                else if (exoplanet.IsPulsar ())
-                                    pointPlot.Marker.Color = Color.Orange;
-                                else if (exoplanet.IsAstrometry ())
-                                    pointPlot.Marker.Color = Color.Purple;
-                                else if (exoplanet.IsTTV ())
-                                    pointPlot.Marker.Color = Color.Cyan;
-                                else
-                                    pointPlot.Marker.Color = Color.FromArgb (255, 255, 255);
 
                                 plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
                                 }

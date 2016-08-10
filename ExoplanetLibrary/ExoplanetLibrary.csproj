@@ -85,6 +85,13 @@
     <Compile Include="Exoplanets.cs" />
     <Compile Include="ExoplanetSorter.cs" />
     <Compile Include="Plotting.cs" />
+    <Compile Include="QueryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryDialog.Designer.cs">
+      <DependentUpon>QueryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReadVOTABLE.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="VisualizationDialog.cs">
       <SubType>Form</SubType>
@@ -118,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExoplanetDetails.resx">
       <DependentUpon>ExoplanetDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryDialog.resx">
+      <DependentUpon>QueryDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VisualizationDialog.resx">
       <DependentUpon>VisualizationDialog.cs</DependentUpon>

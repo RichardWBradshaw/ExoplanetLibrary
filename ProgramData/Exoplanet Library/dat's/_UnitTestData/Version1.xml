@@ -3395,7 +3395,7 @@
 		<MassDetectionType value="Radial Velocity" />
 		<RadiusDetectionType value="Primary Transit" />
 		<AlternateNames />
-		<Star Name="EPIC 201637175 " RightAccession="169.483333352" Declination="2.618611125">
+		<Star Name="EPIC 201637175" RightAccession="169.483333352" Declination="2.618611125">
 			<Magnitudes V="17.0" />
 			<Properties Distance="225.0" Metallicity="0.03" Mass="0.6" Radius="0.57" SPType="M0V" Teff="3830.0" />
 		</Star>
@@ -25631,7 +25631,7 @@
 		<MassDetectionType />
 		<RadiusDetectionType />
 		<AlternateNames />
-		<Star Name="KIC 10255705  " RightAccession="282.854166675" Declination="47.377500016">
+		<Star Name="KIC 10255705" RightAccession="282.854166675" Declination="47.377500016">
 			<Magnitudes V="13.5" />
 			<Properties Metallicity="-0.13" Mass="1.1" Radius="2.12" Teff="5030.0" />
 		</Star>
@@ -59019,7 +59019,7 @@
 		<MassDetectionType />
 		<RadiusDetectionType />
 		<AlternateNames />
-		<Star Name="Kepler-82 " RightAccession="292.873383" Declination="42.966141">
+		<Star Name="Kepler-82" RightAccession="292.873383" Declination="42.966141">
 			<Magnitudes V="15.437" />
 			<Properties Teff="5500.0" />
 		</Star>
@@ -59053,7 +59053,7 @@
 		<MassDetectionType />
 		<RadiusDetectionType />
 		<AlternateNames />
-		<Star Name="Kepler-82 " RightAccession="292.873383" Declination="42.966141">
+		<Star Name="Kepler-82" RightAccession="292.873383" Declination="42.966141">
 			<Magnitudes V="15.437" />
 			<Properties Teff="5500.0" />
 		</Star>

@@ -1,126 +1,467 @@
 ﻿using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Collections;
 
 namespace ExoplanetLibrary
     {
-    public class Filters
+    public class NameQuery
         {
+        public string Name;
+
+        public NameQuery ()
+            {
+            }
+
+        public NameQuery (string name)
+            {
+            Name = name;
+            }
+        }
+
+    public class DetectionQuery
+        {
+        public string Detection;
+
+        public DetectionQuery ()
+            {
+            }
+
+        public DetectionQuery (string detection)
+            {
+            Detection = detection;
+            }
+        }
+
+    public class BetweenQuery
+        {
+        public PlotTypes PlotType;
+        public double LoValue;
+        public double HiValue;
+
+        public BetweenQuery ()
+            {
+            }
+
+        public BetweenQuery (PlotTypes plotType, double loValue, double hiValue)
+            {
+            PlotType = plotType;
+            LoValue = loValue;
+            HiValue = hiValue;
+            }
+        }
+
+    public class LessThanQuery
+        {
+        public PlotTypes PlotType;
+        public double Value;
+
+        public LessThanQuery ()
+            {
+            }
+
+        public LessThanQuery (PlotTypes plotType, double value)
+            {
+            PlotType = plotType;
+            Value = value;
+            }
+        }
+
+    public class GreaterThanQuery
+        {
+        public PlotTypes PlotType;
+        public double Value;
+
+        public GreaterThanQuery ()
+            {
+            }
+
+        public GreaterThanQuery (PlotTypes plotType, double value)
+            {
+            PlotType = plotType;
+            Value = value;
+            }
+        }
+
+    public class Queries
+        {
+        static public Queries CurrentQueries = new Queries ();
+
+        private ArrayList NameQueries = new ArrayList ();
+        private ArrayList DetectionQueries = new ArrayList ();
+        private ArrayList BetweenQueries = new ArrayList ();
+        private ArrayList LessThanQueries = new ArrayList ();
+        private ArrayList GreaterThanQueries = new ArrayList ();
+
+        public Queries ()
+            {
+            }
+
+        public Queries (string text) : this ()
+            {
+            char [] delimiterChars = { '\r' };
+            string query = text.Replace ('\n', ' ');
+            string [] queries = query.Split (delimiterChars);
+
+            for (int index = 0; index < queries.Length; ++index)
+                {
+                char [] delimiter2Chars = { ' ' };
+                string [] strings = queries [index].Trim ().Split (delimiter2Chars);
+
+                PlotTypes plotType = PlotTypes.Default;
+                double value = 0.0, value1 = 0.0, value2 = 0.0;
+                string name = "";
+                string detection = "";
+
+                if (ParseName (strings, ref name) == true)
+                    {
+                    AddName (name);
+                    }
+                else if (ParseDetection (strings, ref detection) == true)
+                    {
+                    AddDetection (detection);
+                    }
+                else if (ParseBetweenQuery (strings, ref plotType, ref value1, ref value2) == true)
+                    {
+                    AddBetween (plotType, value1, value2);
+                    }
+                else if (ParseLessThanQuery (strings, ref plotType, ref value) == true)
+                    {
+                    AddLessThan (plotType, value);
+                    }
+                else if (ParseGreaterThanQuery (strings, ref plotType, ref value) == true)
+                    {
+                    AddGreaterThan (plotType, value);
+                    }
+                }
+            }
+
         //
-        // “Oh Be A Fine Girl, Kiss Me.”
+        // "where name Kelper"
         //
 
-        private CheckState TypeOEnabled_ = CheckState.Checked;
-        public CheckState TypeOEnabled
+        private bool ParseName (string [] strings, ref string value)
             {
-            get { return TypeOEnabled_; }
-            set { TypeOEnabled_ = value; }
+            if (strings [0] == "where")
+                if (strings [1] == "name")
+                    {
+                    value = strings [2].ToLower ();
+                    return true;
+                    }
+
+            return false;
             }
 
-        private CheckState TypeBEnabled_ = CheckState.Checked;
-        public CheckState TypeBEnabled
+        //
+        // "where detection PrimaryTransit"
+        //
+
+        private bool ParseDetection (string [] strings, ref string value)
             {
-            get { return TypeBEnabled_; }
-            set { TypeBEnabled_ = value; }
+            if (strings [0] == "where")
+                if (strings [1] == "detection")
+                        {
+                        value = strings [2].ToLower ();
+                        return true;
+                        }
+
+            return false;
             }
 
-        private CheckState TypeAEnabled_ = CheckState.Checked;
-        public CheckState TypeAEnabled
+        //private DetectionType GetDetectionType (string stringer)
+        //    {
+        //    stringer = stringer.ToLower ();
+
+        //    if(stringer.Contains( ))
+        //    if (stringer.StartsWith ("pri") || stringer == "primarytransit")
+        //        {
+        //        return DetectionType.PrimaryTransit;
+        //        }
+        //    else if (stringer.StartsWith ("rad") || stringer == "radialvelocity")
+        //        {
+        //        return DetectionType.RadialVelocity;
+        //        }
+        //    else if (stringer.StartsWith ("mic") || stringer == "microlensing")
+        //        {
+        //        return DetectionType.MicroLensing;
+        //        }
+        //    else if (stringer.StartsWith ("ima") || stringer == "imaging")
+        //        {
+        //        return DetectionType.Imaging;
+        //        }
+        //    else if (stringer.StartsWith ("pul") || stringer == "pulsar")
+        //        {
+        //        return DetectionType.Pulsar;
+        //        }
+        //    else if (stringer.StartsWith ("ast") || stringer == "astrometry")
+        //        {
+        //        return DetectionType.Astrometry;
+        //        }
+        //    else if (stringer.StartsWith ("ttv") || stringer == "ttv")
+        //        {
+        //        return DetectionType.TTV;
+        //        }
+        //    else if (stringer.StartsWith ("unk") || stringer == "unknown")
+        //        {
+        //        return DetectionType.Unknown;
+        //        }
+
+        //    return DetectionType.Unknown;
+        //    }
+
+        //
+        // "where mass between '0.1' and '1.0'" or "where mass between 0.1 and 1.0"
+        //
+
+        private bool ParseBetweenQuery (string [] strings, ref PlotTypes plotType, ref double value1, ref double value2)
             {
-            get { return TypeAEnabled_; }
-            set { TypeAEnabled_ = value; }
+            if (strings [0] == "where")
+                if (( plotType = GetPlotType (strings [1]) ) != PlotTypes.Default)
+                    if (strings [2] == "between")
+                        if (strings [4] == "and")
+                            {
+                            string string3 = strings [3].Replace ("'", " ");
+                            string string5 = strings [5].Replace ("'", " ");
+
+                            if (double.TryParse (string3.Trim (), out value1))
+                                if (double.TryParse (string5.Trim (), out value2))
+                                    {
+                                    if (value1 > value2)
+                                        {
+                                        double temp = value1;
+                                        value1 = value2;
+                                        value2 = temp;
+                                        }
+
+                                    return true;
+                                    }
+                            }
+
+            return false;
             }
 
-        private CheckState TypeFEnabled_ = CheckState.Checked;
-        public CheckState TypeFEnabled
+        //
+        // "where eccentricity < '0.1'" or "where eccentricity < 0.1"
+        //
+
+        private bool ParseLessThanQuery (string [] strings, ref PlotTypes plotType, ref double value)
             {
-            get { return TypeFEnabled_; }
-            set { TypeFEnabled_ = value; }
+            if (strings [0] == "where")
+                if (( plotType = GetPlotType (strings [1]) ) != PlotTypes.Default)
+                    if (strings [2] == "<" || strings [2] == "<=")
+                        {
+                        string string3 = strings [3].Replace ("'", " ");
+
+                        if (double.TryParse (string3.Trim (), out value))
+                            return true;
+                        }
+
+            return false;
             }
 
-        private CheckState TypeGEnabled_ = CheckState.Checked;
-        public CheckState TypeGEnabled
+        //
+        // "where eccentricity > '0.1'" or "where eccentricity > 0.1"
+        //
+
+        private bool ParseGreaterThanQuery (string [] strings, ref PlotTypes plotType, ref double value)
             {
-            get { return TypeGEnabled_; }
-            set { TypeGEnabled_ = value; }
+            if (strings [0] == "where")
+                if (( plotType = GetPlotType (strings [1]) ) != PlotTypes.Default)
+                    if (strings [2] == ">" || strings [2] == ">=")
+                        {
+                        string string3 = strings [3].Replace ("'", " ");
+
+                        if (double.TryParse (string3.Trim (), out value))
+                            return true;
+                        }
+
+            return false;
             }
 
-        private CheckState TypeKEnabled_ = CheckState.Checked;
-        public CheckState TypeKEnabled
+        private PlotTypes GetPlotType (string stringer)
             {
-            get { return TypeKEnabled_; }
-            set { TypeKEnabled_ = value; }
+            stringer = stringer.ToLower ();
+
+            if (stringer.StartsWith ("mas") || stringer == "mass")
+                {
+                return PlotTypes.Mass;
+                }
+            else if (stringer.StartsWith ("rad") || stringer == "radius")
+                {
+                return PlotTypes.Radius;
+                }
+            else if (stringer.StartsWith ("orb") || stringer == "orbitalperiod")
+                {
+                return PlotTypes.OrbitalPeriod;
+                }
+            else if (stringer.StartsWith ("sem") || stringer == "semimajoraxis")
+                {
+                return PlotTypes.SemiMajorAxis;
+                }
+            else if (stringer.StartsWith ("ecc") || stringer == "eccentricity")
+                {
+                return PlotTypes.Eccentricity;
+                }
+            else if (stringer.StartsWith ("ang") || stringer == "angulardistance")
+                {
+                return PlotTypes.AngularDistance;
+                }
+            else if (stringer.StartsWith ("inc") || stringer == "inclination")
+                {
+                return PlotTypes.Inclination;
+                }
+            else if (stringer.StartsWith ("tem") || stringer == "temperaturecalculated")
+                {
+                return PlotTypes.TemperatureCalculated;
+                }
+            else if (stringer.StartsWith ("ome") || stringer == "omega")
+                {
+                return PlotTypes.Omega;
+                }
+            else if (stringer.StartsWith ("vel") || stringer == "velocitysemiamplitude")
+                {
+                return PlotTypes.VelocitySemiamplitude;
+                }
+
+            return PlotTypes.Default;
             }
 
-        private CheckState TypeMEnabled_ = CheckState.Checked;
-        public CheckState TypeMEnabled
+        private void Initialize ()
             {
-            get { return TypeMEnabled_; }
-            set { TypeMEnabled_ = value; }
+            NameQueries = new ArrayList ();
+            DetectionQueries = new ArrayList ();
+            BetweenQueries = new ArrayList ();
+            LessThanQueries = new ArrayList ();
+            GreaterThanQueries = new ArrayList ();
             }
 
-        private CheckState UnknownStarEnabled_ = CheckState.Checked;
-        public CheckState UnknownStarEnabled
+        private void AddName (string name)
             {
-            get { return UnknownStarEnabled_; }
-            set { UnknownStarEnabled_ = value; }
+            NameQueries.Add (new NameQuery (name.ToLower ()));
             }
 
-        ///
-
-        private CheckState PrimaryTransitEnabled_ = CheckState.Checked;
-        public CheckState PrimaryTransitEnabled
+        private void AddDetection (string detection)
             {
-            get { return PrimaryTransitEnabled_; }
-            set { PrimaryTransitEnabled_ = value; }
+            DetectionQueries.Add (new DetectionQuery (detection));
             }
 
-        private CheckState RadialVelocityEnabled_ = CheckState.Checked;
-        public CheckState RadialVelocityEnabled
+        private void AddBetween (PlotTypes plotType, double value1, double value2)
             {
-            get { return RadialVelocityEnabled_; }
-            set { RadialVelocityEnabled_ = value; }
+            BetweenQueries.Add (new BetweenQuery (plotType, value1, value2));
             }
 
-        private CheckState MicrolensingEnabled_ = CheckState.Checked;
-        public CheckState MicrolensingEnabled
+        private void AddLessThan (PlotTypes plotType, double value)
             {
-            get { return MicrolensingEnabled_; }
-            set { MicrolensingEnabled_ = value; }
+            LessThanQueries.Add (new LessThanQuery (plotType, value));
             }
 
-        private CheckState ImagingEnabled_ = CheckState.Checked;
-        public CheckState ImagingEnabled
+        private void AddGreaterThan (PlotTypes plotType, double value)
             {
-            get { return ImagingEnabled_; }
-            set { ImagingEnabled_ = value; }
+            GreaterThanQueries.Add (new GreaterThanQuery (plotType, value));
             }
 
-        private CheckState PulsarEnabled_ = CheckState.Checked;
-        public CheckState PulsarEnabled
+        public bool MatchesQuery (Exoplanet exoplanet)
             {
-            get { return PulsarEnabled_; }
-            set { PulsarEnabled_ = value; }
+            if (NameQueries.Count > 0)
+                foreach (NameQuery query in NameQueries)
+                    {
+                    string name = exoplanet.Name.ToLower ();
+
+                    if (!name.StartsWith (query.Name))
+                        return false;
+                    }
+
+            if (DetectionQueries.Count > 0)
+                foreach (DetectionQuery query in DetectionQueries)
+                    {
+                    string detection = exoplanet.DetectionType.ToLower ();
+
+                    if (!detection.Contains( query.Detection))
+                        return false;
+                    }
+
+            if (BetweenQueries.Count > 0)
+                foreach (BetweenQuery query in BetweenQueries)
+                    {
+                    double value = 0.0;
+
+                    if (Parse (exoplanet, query.PlotType, out value))
+                        if (value < query.LoValue || value > query.HiValue)
+                            return false;
+                    }
+
+            if (LessThanQueries.Count > 0)
+                foreach (LessThanQuery query in LessThanQueries)
+                    {
+                    double value = 0.0;
+
+                    if (Parse (exoplanet, query.PlotType, out value))
+                        if (value > query.Value)
+                            return false;
+                    }
+
+            if (GreaterThanQueries.Count > 0)
+                foreach (GreaterThanQuery query in GreaterThanQueries)
+                    {
+                    double value = 0.0;
+
+                    if (Parse (exoplanet, query.PlotType, out value))
+                        if (value < query.Value)
+                            return false;
+                    }
+
+            return true;
             }
 
-        private CheckState AstrometryEnabled_ = CheckState.Checked;
-        public CheckState AstrometryEnabled
+        private bool Parse (Exoplanet exoplanet, PlotTypes plotType, out double value)
             {
-            get { return AstrometryEnabled_; }
-            set { AstrometryEnabled_ = value; }
-            }
+            bool isValid = false;
 
-        private CheckState TTVEnabled_ = CheckState.Checked;
-        public CheckState TTVEnabled
-            {
-            get { return TTVEnabled_; }
-            set { TTVEnabled_ = value; }
-            }
+            value = 0.0;
 
-        private CheckState UnknownDetectionEnabled_ = CheckState.Checked;
-        public CheckState UnknownDetectionEnabled
-            {
-            get { return UnknownDetectionEnabled_; }
-            set { UnknownDetectionEnabled_ = value; }
+            switch (plotType)
+                {
+                case PlotTypes.Mass:
+                    isValid = double.TryParse (exoplanet.Mass, out value);
+                    break;
+
+                case PlotTypes.Radius:
+                    isValid = double.TryParse (exoplanet.Radius, out value);
+                    break;
+
+                case PlotTypes.OrbitalPeriod:
+                    isValid = double.TryParse (exoplanet.OrbitalPeriod, out value);
+                    break;
+
+                case PlotTypes.SemiMajorAxis:
+                    isValid = double.TryParse (exoplanet.SemiMajorAxis, out value);
+                    break;
+
+                case PlotTypes.Eccentricity:
+                    isValid = double.TryParse (exoplanet.Eccentricity, out value);
+                    break;
+
+                case PlotTypes.AngularDistance:
+                    isValid = double.TryParse (exoplanet.AngularDistance, out value);
+                    break;
+
+                case PlotTypes.Inclination:
+                    isValid = double.TryParse (exoplanet.Inclination, out value);
+                    break;
+
+                case PlotTypes.TemperatureCalculated:
+                    isValid = double.TryParse (exoplanet.TemperatureCalculated, out value);
+                    break;
+
+                case PlotTypes.Omega:
+                    isValid = double.TryParse (exoplanet.Omega, out value);
+                    break;
+
+                case PlotTypes.VelocitySemiamplitude:
+                    isValid = double.TryParse (exoplanet.VelocitySemiamplitude, out value);
+                    break;
+                }
+
+            return isValid;
             }
         }
 
@@ -187,31 +528,13 @@ namespace ExoplanetLibrary
             set { FilterIndex_ = value; }
             }
 
-        static public int WriteFilter (Filters filter)
+        static public int Write ()
             {
             RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
             RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)
                 {
-                subkey.SetValue ("StarTypeOEnabled", filter.TypeOEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("StarTypeBEnabled", filter.TypeBEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("StarTypeAEnabled", filter.TypeAEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("StarTypeFEnabled", filter.TypeFEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("StarTypeGEnabled", filter.TypeGEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("StarTypeKEnabled", filter.TypeKEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("StarTypeMEnabled", filter.TypeMEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("UnknownStarEnabled", filter.UnknownStarEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-
-                subkey.SetValue ("PrimaryTransitEnabled", filter.PrimaryTransitEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("RadialVelocityEnabled", filter.RadialVelocityEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("MicrolensingEnabled", filter.MicrolensingEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("ImagingEnabled", filter.ImagingEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("PulsarEnabled", filter.PulsarEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("AstrometryEnabled", filter.AstrometryEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("TTVEnabled", filter.TTVEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("UnknownDetectionEnabled", filter.UnknownDetectionEnabled == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-
                 subkey.SetValue ("IncudeErrorBars", Visualization.IncludeErrorBars == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("ColorFromStarType", Visualization.ColorFromStarType == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
 
@@ -229,32 +552,13 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        static public Filters ReadFilter ()
+        static public void Read ()
             {
-            Filters filter = new Filters ();
             RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
             RegistryKey subkey = key != null ? key.OpenSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)
                 {
-                filter.TypeOEnabled = ReadValue (subkey, "StarTypeOEnabled");
-                filter.TypeBEnabled = ReadValue (subkey, "StarTypeBEnabled");
-                filter.TypeAEnabled = ReadValue (subkey, "StarTypeAEnabled");
-                filter.TypeFEnabled = ReadValue (subkey, "StarTypeFEnabled");
-                filter.TypeGEnabled = ReadValue (subkey, "StarTypeGEnabled");
-                filter.TypeKEnabled = ReadValue (subkey, "StarTypeKEnabled");
-                filter.TypeMEnabled = ReadValue (subkey, "StarTypeMEnabled");
-                filter.UnknownStarEnabled = ReadValue (subkey, "UnknownStarEnabled");
-
-                filter.PrimaryTransitEnabled = ReadValue (subkey, "PrimaryTransitEnabled");
-                filter.RadialVelocityEnabled = ReadValue (subkey, "RadialVelocityEnabled");
-                filter.MicrolensingEnabled = ReadValue (subkey, "MicrolensingEnabled");
-                filter.ImagingEnabled = ReadValue (subkey, "ImagingEnabled");
-                filter.PulsarEnabled = ReadValue (subkey, "PulsarEnabled");
-                filter.AstrometryEnabled = ReadValue (subkey, "AstrometryEnabled");
-                filter.TTVEnabled = ReadValue (subkey, "TTVEnabled");
-                filter.UnknownDetectionEnabled = ReadValue (subkey, "UnknownDetectionEnabled");
-
                 Visualization.IncludeErrorBars = ReadValue (subkey, "IncudeErrorBars");
                 Visualization.ColorFromStarType = ReadValue (subkey, "ColorFromStarType");
                 Visualization.LogXAxis = ReadValue (subkey, "LogXAxis");
@@ -266,8 +570,6 @@ namespace ExoplanetLibrary
 
             if (key != null)
                 key.Close ();
-
-            return filter;
             }
 
         static public int WriteFileName (string xmlFileName)
@@ -361,78 +663,10 @@ namespace ExoplanetLibrary
 
             if (obj != null)
                 {
-                return int.Parse( obj as string);
+                return int.Parse (obj as string);
                 }
 
             return 0;
             }
-
-        public static bool MatchesFilter (Exoplanet exoplanet, Filters filter)
-            {
-            return MatchesStarFilter (exoplanet, filter) && MatchesDetectionFilter (exoplanet, filter) ? true : false;
-            }
-
-        public static bool MatchesStarFilter (Exoplanet exoplanet, Filters filter)
-            {
-            if (filter == null)
-                return true;
-            else
-                {
-                if (exoplanet.IsStarTypeDefined ())
-                    {
-                    if (exoplanet.IsTypeO ())
-                        return filter.TypeOEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsTypeB ())
-                        return filter.TypeBEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsTypeA ())
-                        return filter.TypeAEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsTypeF ())
-                        return filter.TypeFEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsTypeG ())
-                        return filter.TypeGEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsTypeK ())
-                        return filter.TypeKEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsTypeM ())
-                        return filter.TypeMEnabled == CheckState.Checked ? true : false;
-                    else
-                        return filter.UnknownStarEnabled == CheckState.Checked ? true : false;
-                    }
-                else
-                    return filter.UnknownStarEnabled == CheckState.Checked ? true : false;
-                }
-            }
-
-        public static bool MatchesDetectionFilter (Exoplanet exoplanet, Filters filter)
-            {
-            if (filter == null)
-                return true;
-            else
-                {
-                if (exoplanet.IsDetectionDefined ())
-                    {
-                    if (exoplanet.IsMultipleDetection (filter))
-                        return true;
-                    else if (exoplanet.IsPrimaryTransit ())
-                        return filter.PrimaryTransitEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsRadialVelocity ())
-                        return filter.RadialVelocityEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsMicrolensing ())
-                        return filter.MicrolensingEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsImaging ())
-                        return filter.ImagingEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsPulsar ())
-                        return filter.PulsarEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsAstrometry ())
-                        return filter.AstrometryEnabled == CheckState.Checked ? true : false;
-                    else if (exoplanet.IsTTV ())
-                        return filter.TTVEnabled == CheckState.Checked ? true : false;
-                    else
-                        return filter.UnknownDetectionEnabled == CheckState.Checked ? true : false;
-                    }
-                else
-                    return filter.UnknownDetectionEnabled == CheckState.Checked ? true : false;
-                }
-            }
-
         }
     }

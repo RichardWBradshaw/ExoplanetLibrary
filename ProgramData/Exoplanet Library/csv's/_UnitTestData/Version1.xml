@@ -21705,7 +21705,7 @@
 		<Tperi />
 		<DetectionType value="detected by transit" />
 		<Molecules />
-		<Star Name="Kepler-82 " RightAccession="292.873383" Declination="42.966141">
+		<Star Name="Kepler-82" RightAccession="292.873383" Declination="42.966141">
 			<Magnitudes V="15.437" />
 			<Properties Teff="5500" />
 		</Star>
@@ -21731,7 +21731,7 @@
 		<Tperi />
 		<DetectionType value="detected by transit" />
 		<Molecules />
-		<Star Name="Kepler-82 " RightAccession="292.873383" Declination="42.966141">
+		<Star Name="Kepler-82" RightAccession="292.873383" Declination="42.966141">
 			<Magnitudes V="15.437" />
 			<Properties Teff="5500" />
 		</Star>

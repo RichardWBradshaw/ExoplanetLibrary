@@ -48,7 +48,6 @@
             this.radiusVsInclinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radiusVsOmegaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radiusVsKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.detectionMethodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorBarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorFromStarTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -184,7 +183,6 @@
             // 
             this.pointToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rightAccessionVsDeclinationToolStripMenuItem,
-            this.detectionMethodToolStripMenuItem,
             this.toolStripSeparator3,
             this.massVsRadiusToolStripMenuItem,
             this.massVsOrbitalPeriodToolStripMenuItem,
@@ -336,13 +334,6 @@
             this.radiusVsKToolStripMenuItem.Text = "Radius vs Velocity Semiamplitude";
             this.radiusVsKToolStripMenuItem.Click += new System.EventHandler(this.visualizeRadiusVersusK_Click);
             // 
-            // detectionMethodToolStripMenuItem
-            // 
-            this.detectionMethodToolStripMenuItem.Name = "detectionMethodToolStripMenuItem";
-            this.detectionMethodToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.detectionMethodToolStripMenuItem.Text = "Detection Method";
-            this.detectionMethodToolStripMenuItem.Click += new System.EventHandler(this.visualizeDetectionMethod_Click);
-            // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -456,6 +447,5 @@
         private System.Windows.Forms.ToolStripMenuItem radiusVsInclinationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusVsKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem includeDuplicatesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem detectionMethodToolStripMenuItem;
         }
     }

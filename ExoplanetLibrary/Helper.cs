@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Reflection;
 
 namespace ExoplanetLibrary
@@ -262,7 +261,7 @@ namespace ExoplanetLibrary
                     string fromString = dataFromCompare as string;
                     double fromDouble;
                     // kludge: if one value is null and the other value is 0.0 then treat as equal
-                    if ( !(double.TryParse (fromString, out fromDouble) && fromDouble == 0.0))
+                    if (!( double.TryParse (fromString, out fromDouble) && fromDouble == 0.0 ))
                         return false;
                     }
                 else if (dataFromCompare == null && dataToCompare != null)
@@ -270,7 +269,7 @@ namespace ExoplanetLibrary
                     string toString = dataToCompare as string;
                     double toDouble;
                     // kludge: if one value is null and the other value is 0.0 then treat as equal
-                    if ( !(double.TryParse (toString, out toDouble) && toDouble == 0.0))
+                    if (!( double.TryParse (toString, out toDouble) && toDouble == 0.0 ))
                         return false;
                     }
                 }
@@ -830,6 +829,454 @@ namespace ExoplanetLibrary
 
                 case "star_alternate_names": StarAlternateNames = index; break;
 
+                //
+
+                case "rowid": break;
+
+                case "pl_hostname": StarName = index; break;
+                case "pl_letter": break;
+
+                case "pl_discmethod": DetectionType = index; break;
+
+                case "pl_pnum": break;
+
+                case "pl_orbper": OrbitalPeriod = index; break;
+                case "pl_orbpererr1": OrbitalPeriodErrorMax = index; break;
+                case "pl_orbpererr2": OrbitalPeriodErrorMin = index; break;
+                case "pl_orbperlim": break;
+
+                case "pl_orbsmax": SemiMajorAxis = index; break;
+                case "pl_orbsmaxerr1": SemiMajorAxisErrorMin = index; break;
+                case "pl_orbsmaxerr2": SemiMajorAxisErrorMax = index; break;
+                case "pl_orbsmaxlim": break;
+
+                case "pl_orbeccen": Eccentricity = index; break;
+                case "pl_orbeccenerr1": EccentricityErrorMax = index; break;
+                case "pl_orbeccenerr2": EccentricityErrorMin = index; break;
+                case "pl_orbeccenlim": break;
+
+                case "pl_orbincl": Inclination = index; break;
+                case "pl_orbinclerr1": InclinationErrorMax = index; break;
+                case "pl_orbinclerr2": InclinationErrorMin = index; break;
+                case "pl_orbincllim": break;
+
+                case "pl_bmassj": break;
+                case "pl_bmassjerr1": break;
+                case "pl_bmassjerr2":  break;
+                case "pl_bmassjlim": break;
+                case "pl_bmassprov": break;
+
+                case "pl_radj": Radius = index; break;
+                case "pl_radjerr1": RadiusErrorMax = index; break;
+                case "pl_radjerr2": RadiusErrorMin = index; break;
+                case "pl_radjlim": break;
+
+                case "pl_dens": break;
+                case "pl_denserr1": break;
+                case "pl_denserr2": break;
+                case "pl_denslim": break;
+
+                case "pl_ttvflag": break;
+
+                case "pl_kepflag": break;
+
+                case "pl_k2flag": break;
+
+                case "pl_nnotes": break;
+
+                case "pl_name": Name = index; break;
+
+                case "pl_tranflag": break;
+
+                case "pl_rvflag": break;
+
+                case "pl_imgflag": break;
+
+                case "pl_astflag": break;
+
+                case "pl_omflag": break;
+
+                case "pl_cbflag": break;
+
+                case "pl_orbtper": break;
+                case "pl_orbtpererr1": break;
+                case "pl_orbtpererr2": break;
+                case "pl_orbtperlim": break;
+
+                case "pl_orblper": break;
+                case "pl_orblpererr1": break;
+                case "pl_orblpererr2": break;
+                case "pl_orblperlim": break;
+
+                case "pl_rvamp": break;
+                case "pl_rvamperr1": break;
+                case "pl_rvamperr2": break;
+                case "pl_rvamplim": break;
+
+                case "pl_eqt": break;
+                case "pl_eqterr1": break;
+                case "pl_eqterr2": break;
+                case "pl_eqtlim": break;
+
+                case "pl_insol": break;
+                case "pl_insolerr1": break;
+                case "pl_insolerr2": break;
+                case "pl_insollim": break;
+
+                case "pl_massj": Mass = index; break;
+                case "pl_massjerr1": MassErrorMax = index; break;
+                case "pl_massjerr2": MassErrorMin = index; break;
+                case "pl_massjlim": break;
+
+                case "pl_msinij": MassSini = index; break;
+                case "pl_msinijerr1": MassSiniErrorMax = index; break;
+                case "pl_msinijerr2": MassSiniErrorMin = index; break;
+                case "pl_msinijlim": break;
+
+                case "pl_masse": break;
+                case "pl_masseerr1": break;
+                case "pl_masseerr2": break;
+                case "pl_masselim": break;
+
+                case "pl_msinie": break;
+                case "pl_msinieerr1": break;
+                case "pl_msinieerr2": break;
+                case "pl_msinielim": break;
+
+                case "pl_bmasse": break;
+                case "pl_bmasseerr1": break;
+                case "pl_bmasseerr2": break;
+                case "pl_bmasselim": break;
+
+                case "pl_rade": break;
+                case "pl_radeerr1": break;
+                case "pl_radeerr2": break;
+                case "pl_radelim": break;
+
+                case "pl_rads": break;
+                case "pl_radserr1": break;
+                case "pl_radserr2": break;
+                case "pl_radslim": break;
+
+                case "pl_trandep": break;
+                case "pl_trandeperr1": break;
+                case "pl_trandeperr2": break;
+                case "pl_trandeplim": break;
+
+                case "pl_trandur": break;
+                case "pl_trandurerr1": break;
+                case "pl_trandurerr2": break;
+                case "pl_trandurlim": break;
+
+                case "pl_tranmid": break;
+                case "pl_tranmiderr1": break;
+                case "pl_tranmiderr2": break;
+                case "pl_tranmidlim": break;
+
+                case "pl_tsystemref": break;
+
+                case "pl_imppar": ImpactParameter = index; break;
+                case "pl_impparerr1": ImpactParameterErrorMin = index; break;
+                case "pl_impparerr2": ImpactParameterErrorMax = index; break;
+                case "pl_impparlim": break;
+
+                case "pl_occdep": break;
+                case "pl_occdeperr1": break;
+                case "pl_occdeperr2": break;
+                case "pl_occdeplim": break;
+
+                case "pl_ratdor": break;
+                case "pl_ratdorerr1": break;
+                case "pl_ratdorerr2": break;
+                case "pl_ratdorlim": break;
+
+                case "pl_ratror": break;
+                case "pl_ratrorerr1": break;
+                case "pl_ratrorerr2": break;
+                case "pl_ratrorlim": break;
+
+                case "pl_def_reflink": break;
+
+                case "pl_disc": Discovered = index; break;
+
+                case "pl_disc_reflink": break;
+
+                case "pl_locale": break;
+                case "pl_facility": break;
+                case "pl_telescope": break;
+                case "pl_instrument": break;
+                case "pl_status": break;
+                case "pl_mnum": break;
+                case "pl_st_npar": break;
+                case "pl_st_nref": break;
+                case "pl_pelink": break;
+                case "pl_edelink": break;
+                case "pl_publ_date": break;
+
+                case "st_dist": StarDistance = index; break;
+                case "st_disterr1": StarDistanceErrorMin = index; break;
+                case "st_disterr2": StarDistanceErrorMax = index; break;
+                case "st_distlim": break;
+
+                case "st_optmag": break;
+                case "st_optmagerr": break;
+                case "st_optmaglim": break;
+                case "st_optmagblend": break;
+                case "st_optband": break;
+
+                case "st_teff": StarTeff = index; break;
+                case "st_tefferr1": StarTeffErrorMin = index; break;
+                case "st_tefferr2": StarTeffErrorMax = index; break;
+                case "st_tefflim": break;
+                case "st_teffblend": break;
+
+                case "st_mass": StarMass = index; break;
+                case "st_masserr1": StarMassErrorMin = index; break;
+                case "st_masserr2": StarMassErrorMax = index; break;
+                case "st_masslim": break;
+                case "st_massblend": break;
+
+                case "st_rad": StarRadius = index; break;
+                case "st_raderr1": StarRadiusErrorMin = index; break;
+                case "st_raderr2": StarRadiusErrorMax = index; break;
+                case "st_radlim": break;
+                case "st_radblend": break;
+
+                case "st_rah": break;
+
+                case "st_glon": break;
+                case "st_glat": break;
+                case "st_elon": break;
+                case "st_elat": break;
+
+                case "st_plx": break;
+                case "st_plxerr1": break;
+                case "st_plxerr2": break;
+                case "st_plxlim": break;
+                case "st_plxblend": break;
+
+                case "st_pmra": break;
+                case "st_pmraerr": break;
+                case "st_pmralim": break;
+
+                case "st_pmdec": break;
+                case "st_pmdecerr": break;
+                case "st_pmdeclim": break;
+
+                case "st_pm": break;
+                case "st_pmerr": break;
+                case "st_pmlim": break;
+                case "st_pmblend": break;
+
+                case "st_radv": break;
+                case "st_radverr1": break;
+                case "st_radverr2": break;
+                case "st_radvlim": break;
+                case "st_radvblend": break;
+
+                case "st_sp": break;
+                case "st_spstr": StarSPType = index; break;
+                case "st_sperr": break;
+                case "st_splim": break;
+                case "st_spblend": break;
+
+                case "st_logg": break;
+                case "st_loggerr1": break;
+                case "st_loggerr2": break;
+                case "st_logglim": break;
+                case "st_loggblend": break;
+
+                case "st_lum": break;
+                case "st_lumerr1": break;
+                case "st_lumerr2": break;
+                case "st_lumlim": break;
+                case "st_lumblend": break;
+
+                case "st_dens": break;
+                case "st_denserr1": break;
+                case "st_denserr2": break;
+                case "st_denslim": break;
+
+                case "st_metfe": break;
+                case "st_metfeerr1": break;
+                case "st_metfeerr2": break;
+                case "st_metfelim": break;
+                case "st_metfeblend": break;
+                case "st_metratio": break;
+
+                case "st_age": StarAge = index; break;
+                case "st_ageerr1": StarAgeErrorMin = index; break;
+                case "st_ageerr2": StarAgeErrorMax = index; break;
+                case "st_agelim": break;
+
+                case "st_vsini": break;
+                case "st_vsinierr1": break;
+                case "st_vsinierr2": break;
+                case "st_vsinilim": break;
+                case "st_vsiniblend": break;
+                case "st_acts": break;
+                case "st_actserr": break;
+                case "st_actslim": break;
+                case "st_actsblend": break;
+                case "st_actr": break;
+                case "st_actrerr": break;
+                case "st_actrlim": break;
+                case "st_actrblend": break;
+                case "st_actlx": break;
+                case "st_actlxerr": break;
+                case "st_actlxlim": break;
+                case "st_actlxblend": break;
+                case "st_nts": break;
+                case "st_nplc": break;
+                case "st_nglc": break;
+                case "st_nrvc": break;
+                case "st_naxa": break;
+                case "st_nimg": break;
+                case "st_nspec": break;
+                case "st_uj": break;
+                case "st_ujerr": break;
+                case "st_ujlim": break;
+                case "st_ujblend": break;
+                case "st_vj": break;
+                case "st_vjerr": break;
+                case "st_vjlim": break;
+                case "st_vjblend": break;
+                case "st_bj": break;
+                case "st_bjerr": break;
+                case "st_bjlim": break;
+                case "st_bjblend": break;
+                case "st_rc": break;
+                case "st_rcerr": break;
+                case "st_rclim": break;
+                case "st_rcblend": break;
+                case "st_ic": break;
+                case "st_icerr": break;
+                case "st_iclim": break;
+                case "st_icblend": break;
+                case "st_j": break;
+                case "st_jerr": break;
+                case "st_jlim": break;
+                case "st_jblend": break;
+                case "st_h": break;
+                case "st_herr": break;
+                case "st_hlim": break;
+                case "st_hblend": break;
+                case "st_k": break;
+                case "st_kerr": break;
+                case "st_klim": break;
+                case "st_kblend": break;
+                case "st_wise1": break;
+                case "st_wise1err": break;
+                case "st_wise1lim": break;
+                case "st_wise1blend": break;
+                case "st_wise2": break;
+                case "st_wise2err": break;
+                case "st_wise2lim": break;
+                case "st_wise2blend": break;
+                case "st_wise3": break;
+                case "st_wise3err": break;
+                case "st_wise3lim": break;
+                case "st_wise3blend": break;
+                case "st_wise4": break;
+                case "st_wise4err": break;
+                case "st_wise4lim": break;
+                case "st_wise4blend": break;
+                case "st_irac1": break;
+                case "st_irac1err": break;
+                case "st_irac1lim": break;
+                case "st_irac1blend": break;
+                case "st_irac2": break;
+                case "st_irac2err": break;
+                case "st_irac2lim": break;
+                case "st_irac2blend": break;
+                case "st_irac3": break;
+                case "st_irac3err": break;
+                case "st_irac3lim": break;
+                case "st_irac3blend": break;
+                case "st_irac4": break;
+                case "st_irac4err": break;
+                case "st_irac4lim": break;
+                case "st_irac4blend": break;
+                case "st_mips1": break;
+                case "st_mips1err": break;
+                case "st_mips1lim": break;
+                case "st_mips1blend": break;
+                case "st_mips2": break;
+                case "st_mips2err": break;
+                case "st_mips2lim": break;
+                case "st_mips2blend": break;
+                case "st_mips3": break;
+                case "st_mips3err": break;
+                case "st_mips3lim": break;
+                case "st_mips3blend": break;
+                case "st_iras1": break;
+                case "st_iras1err": break;
+                case "st_iras1lim": break;
+                case "st_iras1blend": break;
+                case "st_iras2": break;
+                case "st_iras2err": break;
+                case "st_iras2lim": break;
+                case "st_iras2blend": break;
+                case "st_iras3": break;
+                case "st_iras3err": break;
+                case "st_iras3lim": break;
+                case "st_iras3blend": break;
+                case "st_iras4": break;
+                case "st_iras4err": break;
+                case "st_iras4lim": break;
+                case "st_iras4blend": break;
+                case "st_photn": break;
+                case "st_umbj": break;
+                case "st_umbjerr": break;
+                case "st_umbjlim": break;
+                case "st_umbjblend": break;
+                case "st_bmvj": break;
+                case "st_bmvjerr": break;
+                case "st_bmvjlim": break;
+                case "st_bmvjblend": break;
+                case "st_vjmic": break;
+                case "st_vjmicerr": break;
+                case "st_vjmiclim": break;
+                case "st_vjmicblend": break;
+                case "st_vjmrc": break;
+                case "st_vjmrcerr": break;
+                case "st_vjmrclim": break;
+                case "st_vjmrcblend": break;
+                case "st_jmh2": break;
+                case "st_jmh2err": break;
+                case "st_jmh2lim": break;
+                case "st_jmh2blend": break;
+                case "st_hmk2": break;
+                case "st_hmk2err": break;
+                case "st_hmk2lim": break;
+                case "st_hmk2blend": break;
+                case "st_jmk2": break;
+                case "st_jmk2err": break;
+                case "st_jmk2lim": break;
+                case "st_jmk2blend": break;
+                case "st_bmy": break;
+                case "st_bmyerr": break;
+                case "st_bmylim": break;
+                case "st_bmyblend": break;
+                case "st_m1": break;
+                case "st_m1err": break;
+                case "st_m1lim": break;
+                case "st_m1blend": break;
+                case "st_c1": break;
+                case "st_c1err": break;
+                case "st_c1lim": break;
+                case "st_c1blend": break;
+                case "st_colorn": break;
+
+                case "ra_str": break;
+                case "dec_str": break;
+                case "rowupdate": break;
+
+                case "swasp_id": break;
+                case "hd_name": break;
+                case "hip_name": break;
+                case "id": break;
+
                 default:
                     System.Windows.Forms.MessageBox.Show ("Error: " + substring);
                     break;
@@ -837,3 +1284,4 @@ namespace ExoplanetLibrary
             }
         }
     }
+

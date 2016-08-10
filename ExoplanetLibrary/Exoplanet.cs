@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace ExoplanetLibrary
+﻿namespace ExoplanetLibrary
     {
     public class Exoplanet
         {
@@ -749,6 +746,12 @@ namespace ExoplanetLibrary
                 {
                 Updated = Helper.FormatDateCSV2XML (Updated);
                 }
+
+            if (Helper.IsDefined (Name))
+                Name = Name.Trim ();
+
+            if (Helper.IsDefined (Star.Name))
+                Star.Name = Star.Name.Trim ();
             }
 
         public bool IsDetectionDefined ()
@@ -756,81 +759,48 @@ namespace ExoplanetLibrary
             return DetectionType != null ? true : false;
             }
 
-        public bool IsPrimaryTransit ()
-            {
-            if (DetectionType.Equals ("Primary Transit", StringComparison.OrdinalIgnoreCase) ||
-                DetectionType.Equals ("Detected by Transit", StringComparison.OrdinalIgnoreCase))
-                return true;
-            else
-                return false;
-            }
+        //public bool IsPrimaryTransit ()
+        //    {
+        //    if (DetectionType.Equals ("Primary Transit", StringComparison.OrdinalIgnoreCase) ||
+        //        DetectionType.Equals ("Detected by Transit", StringComparison.OrdinalIgnoreCase))
+        //        return true;
+        //    else
+        //        return false;
+        ////    }
 
-        public bool IsRadialVelocity ()
-            {
-            if (DetectionType.Equals ("Radial Velocity", StringComparison.OrdinalIgnoreCase) ||
-                DetectionType.Equals ("Detected by Radial Velocity", StringComparison.OrdinalIgnoreCase))
-                return true;
-            else
-                return false;
-            }
+        //public bool IsRadialVelocity ()
+        //    {
+        //    if (DetectionType.Equals ("Radial Velocity", StringComparison.OrdinalIgnoreCase) ||
+        //        DetectionType.Equals ("Detected by Radial Velocity", StringComparison.OrdinalIgnoreCase))
+        //        return true;
+        //    else
+        //        return false;
+        //    }
 
-        public bool IsMicrolensing ()
-            {
-            return DetectionType.Equals ("Microlensing", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
+        //public bool IsMicrolensing ()
+        //    {
+        //    return DetectionType.Equals ("Microlensing", StringComparison.OrdinalIgnoreCase) ? true : false;
+        //    }
 
-        public bool IsImaging ()
-            {
-            return DetectionType.Equals ("Imaging", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
+        //public bool IsImaging ()
+        //    {
+        //    return DetectionType.Equals ("Imaging", StringComparison.OrdinalIgnoreCase) ? true : false;
+        //    }
 
-        public bool IsPulsar ()
-            {
-            return DetectionType.Equals ("Pulsar", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
+        //public bool IsPulsar ()
+        //    {
+        //    return DetectionType.Equals ("Pulsar", StringComparison.OrdinalIgnoreCase) ? true : false;
+        //    }
 
-        public bool IsAstrometry ()
-            {
-            return DetectionType.Equals ("Astrometry", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
+        //public bool IsAstrometry ()
+        //    {
+        //    return DetectionType.Equals ("Astrometry", StringComparison.OrdinalIgnoreCase) ? true : false;
+        //    }
 
-        public bool IsTTV ()
-            {
-            return DetectionType.Equals ("TTV", StringComparison.OrdinalIgnoreCase) ? true : false;
-            }
-
-        public bool IsMultipleDetection (Filters filter)
-            {
-            if (filter.PrimaryTransitEnabled == CheckState.Checked)
-                if (DetectionType.Contains ("Primary Transit"))
-                    return true;
-
-            if (filter.RadialVelocityEnabled == CheckState.Checked)
-                if (DetectionType.Contains ("Radial Velocity"))
-                    return true;
-
-            if (filter.MicrolensingEnabled == CheckState.Checked)
-                if (DetectionType.Contains ("Microlensing"))
-                    return true;
-
-            if (filter.ImagingEnabled == CheckState.Checked)
-                if (DetectionType.Contains ("Imaging"))
-                    return true;
-
-            if (filter.PulsarEnabled == CheckState.Checked)
-                if (DetectionType.Contains ("Pulsar"))
-                    return true;
-
-            if (filter.AstrometryEnabled == CheckState.Checked)
-                if (DetectionType.Contains ("Astrometry"))
-                    return true;
-
-            if (filter.TTVEnabled == CheckState.Checked)
-                if (DetectionType.Contains ("TTV"))
-                    return true;
-
-            return false;
-            }
+        //public bool IsTTV ()
+        //    {
+        //    return DetectionType.Equals ("TTV", StringComparison.OrdinalIgnoreCase) ? true : false;
+        //    }
         }
 
     public class Star
@@ -1015,7 +985,6 @@ namespace ExoplanetLibrary
             get { return RadiusErrorMax_; }
             set { RadiusErrorMax_ = value; }
             }
-
 
         private string SPType_;
         public string SPType

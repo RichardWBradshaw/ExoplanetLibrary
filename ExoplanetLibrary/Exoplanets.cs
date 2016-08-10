@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace ExoplanetLibrary
     {
@@ -319,6 +320,66 @@ namespace ExoplanetLibrary
             return array;
             }
 
+        public static ArrayList PlanetsWithMassBetween (ArrayList exoplanets, double value1, double value2)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (Helper.IsDefined (exoplanet.Mass))
+                    {
+                    double mass = double.Parse (exoplanet.Mass);
+
+                    if (mass >= value1 && mass <= value2)
+                        array.Add (exoplanet);
+                    }
+                }
+
+            array.Sort (new SortByExoplanetMass ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithMassLessThan (ArrayList exoplanets, double value)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (Helper.IsDefined (exoplanet.Mass))
+                    {
+                    double mass = double.Parse (exoplanet.Mass);
+
+                    if (mass <= value)
+                        array.Add (exoplanet);
+                    }
+                }
+
+            array.Sort (new SortByExoplanetMass ());
+
+            return array;
+            }
+
+        public static ArrayList PlanetsWithMassGreaterThan (ArrayList exoplanets, double value)
+            {
+            ArrayList array = new ArrayList ();
+
+            foreach (Exoplanet exoplanet in exoplanets)
+                {
+                if (Helper.IsDefined (exoplanet.Mass))
+                    {
+                    double mass = double.Parse (exoplanet.Mass);
+
+                    if (mass <= value)
+                        array.Add (exoplanet);
+                    }
+                }
+
+            array.Sort (new SortByExoplanetMass ());
+
+            return array;
+            }
+
         static public ArrayList GetTypeOStars (ArrayList exoplanets)
             {
             return GetStars (exoplanets, "O");
@@ -626,7 +687,7 @@ namespace ExoplanetLibrary
 
                 if (object2 == null)
                     {
-                    if(initial)
+                    if (initial)
                         stringer += "Added:\r\n";
 
                     stringer += "\t" + ( array1 [index] as Exoplanet ).Name + "\r\n";
@@ -669,6 +730,71 @@ namespace ExoplanetLibrary
                 }
 
             return stringer;
+            }
+
+        static public string VerifyNames (ArrayList array)
+            {
+            string stringer = "";
+
+            array.Sort (new SortByExoplanetName ());
+
+            for (int index = 0; index < array.Count; ++index)
+                {
+                Exoplanet exoplanet = array [index] as Exoplanet;
+
+                if (Queries.CurrentQueries != null)
+                    if (!Queries.CurrentQueries.MatchesQuery (exoplanet))
+                        continue;
+
+                bool mismatch = true;
+
+                List<string> planetNames = new List<string> ();
+
+                planetNames.Add (exoplanet.Name.Trim());
+
+                if (!string.IsNullOrEmpty (exoplanet.AlternateNames))
+                    {
+                    char [] delimiterChars = { ';' };
+                    string [] alternateNames = exoplanet.AlternateNames.Split (delimiterChars);
+
+                    for (int jndex = 0; jndex < alternateNames.Length; ++jndex)
+                        planetNames.Add (alternateNames [jndex].Trim());
+                    }
+
+                List<string> starNames = new List<string> ();
+
+                starNames.Add (exoplanet.Star.Name.Trim ());
+
+                if (!string.IsNullOrEmpty (exoplanet.Star.AlternateNames))
+                    {
+                    char [] delimiterChars = { ';' };
+                    string [] alternateNames = exoplanet.Star.AlternateNames.Split (delimiterChars);
+
+                    for (int jndex = 0; jndex < alternateNames.Length; ++jndex)
+                        starNames.Add (alternateNames [jndex].Trim ());
+                    }
+
+                for (int jndex = 0; jndex < starNames.Count; ++jndex)
+                    for (int kndex = 0; kndex < planetNames.Count; ++kndex)
+                        if (IsMismatch (starNames [jndex], planetNames [kndex]) == false)
+                            {
+                            mismatch = false;
+                            break;
+                            }
+
+                if (mismatch)
+                    stringer += "'" + exoplanet.Name      + "' (" + exoplanet.AlternateNames + ")" +
+                                " may be misnamed "       +
+                                "'" + exoplanet.Star.Name + "' (" + exoplanet.Star.AlternateNames + ")" +
+                                "'\r\n";
+                }
+
+            return stringer;
+            }
+
+        static private bool IsMismatch (string starName, string planetName)
+            {
+            return ( planetName.StartsWith (starName) ) ? false : true;
             }
 
         static private object GetByName (ArrayList array, string name)

@@ -191,8 +191,12 @@ namespace ExoplanetLibrary
                 item.SubItems.Add (Helper.Format (exoplanet.Tperi, exoplanet.TperiErrorMin, exoplanet.TperiErrorMax, "JD"));
                 DetailsListView.Items.Add (item);
 
-                item = new ListViewItem ("Conjonction Date", 0);
+                item = new ListViewItem ("Conjunction Date", 0);
                 item.SubItems.Add (Helper.Format (exoplanet.Tconj, exoplanet.TconjErrorMin, exoplanet.TconjErrorMax, "JD"));
+                DetailsListView.Items.Add (item);
+
+                item = new ListViewItem ("Molecules", 0);
+                item.SubItems.Add (Helper.Format (exoplanet.Molecules, ""));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Year of Discovery", 0);
@@ -252,7 +256,7 @@ namespace ExoplanetLibrary
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Stellar Metallicity", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity, exoplanet.Star.Property.MetallicityErrorMin, exoplanet.Star.Property.MetallicityErrorMax, "" ));
+                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity, exoplanet.Star.Property.MetallicityErrorMin, exoplanet.Star.Property.MetallicityErrorMax, ""));
                 DetailsListView.Items.Add (item);
 
                 item = new ListViewItem ("Stellar Age", 0);
@@ -371,6 +375,8 @@ namespace ExoplanetLibrary
                 else if (item.Text == "Epoch of Periastron")
                     item.ToolTipText = "";
                 else if (item.Text == "Conjonction Date")
+                    item.ToolTipText = "";
+                else if (item.Text == "Molecules")
                     item.ToolTipText = "";
                 else if (item.Text == "Year of Discovery")
                     item.ToolTipText = "";
