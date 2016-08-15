@@ -205,11 +205,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="1RXS 1609 b">
-		<Mass value="14.0" errorMin="3.0" errorMax="2.0" />
+		<Mass value="14." errorMin="3.0" errorMax="2.0" />
 		<MassSini />
 		<Radius value="1.7" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="330.0" errorMin="0.0" errorMax="0.0" />
+		<SemiMajorAxis value="330." errorMin="0.0" errorMax="0.0" />
 		<Eccentricity />
 		<AngularDistance value="2.275862" />
 		<Inclination />
@@ -239,10 +239,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="1SWASP J1407 b">
-		<Mass value="20.0" errorMin="6.0" errorMax="6.0" />
+		<Mass value="20." errorMin="6.0" errorMax="6.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3725.0" errorMin="900.0" errorMax="900.0" />
+		<OrbitalPeriod value="3725." errorMin="900.0" errorMax="900.0" />
 		<SemiMajorAxis value="3.9" errorMin="1.7" errorMax="1.7" />
 		<Eccentricity />
 		<AngularDistance />
@@ -310,7 +310,7 @@
 		<Mass value="0.86" errorMin="0.22" errorMax="0.35" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="883.0" errorMin="14.0" errorMax="32.0" />
+		<OrbitalPeriod value="883." errorMin="14.0" errorMax="32.0" />
 		<SemiMajorAxis value="2.08" errorMin="0.02" errorMax="0.05" />
 		<Eccentricity value="0.29" errorMin="0.09" errorMax="0.16" />
 		<AngularDistance value="0.027807" />
@@ -341,11 +341,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="2M 0103(AB) b">
-		<Mass value="13.0" errorMin="1.0" errorMax="1.0" />
+		<Mass value="13." errorMin="1.0" errorMax="1.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="84.0" />
+		<SemiMajorAxis value="84." />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -375,11 +375,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="2M 0122-2439 b">
-		<Mass value="20.0" errorMin="7.0" errorMax="7.0" />
+		<Mass value="20." errorMin="7.0" errorMax="7.0" />
 		<MassSini />
-		<Radius value="1.0" errorMin="0.2" errorMax="0.2" />
+		<Radius value="1." errorMin="0.2" errorMax="0.2" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="52.0" errorMin="6.0" errorMax="6.0" />
+		<SemiMajorAxis value="52." errorMin="6.0" errorMax="6.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -413,7 +413,7 @@
 		<MassSini />
 		<Radius value="1.44" errorMin="0.03" errorMax="0.03" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="156.0" errorMin="10.0" errorMax="10.0" />
+		<SemiMajorAxis value="156." errorMin="10.0" errorMax="10.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -447,7 +447,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="15.0" errorMin="0.6" errorMax="0.6" />
+		<SemiMajorAxis value="15." errorMin="0.6" errorMax="0.6" />
 		<Eccentricity />
 		<AngularDistance value="0.107143" />
 		<Inclination />
@@ -477,10 +477,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="2M 0746+20 b">
-		<Mass value="30.0" errorMin="25.0" errorMax="25.0" />
+		<Mass value="30." errorMin="25.0" errorMax="25.0" />
 		<MassSini />
 		<Radius value="0.97" errorMin="0.06" errorMax="0.06" />
-		<OrbitalPeriod value="4640.0" errorMin="25.0" errorMax="25.0" />
+		<OrbitalPeriod value="4640." errorMin="25.0" errorMax="25.0" />
 		<SemiMajorAxis value="2.897" errorMin="0.005" errorMax="0.005" />
 		<Eccentricity value="0.487" errorMin="0.003" errorMax="0.003" />
 		<AngularDistance value="0.237265" />
@@ -514,7 +514,7 @@
 		<Mass value="1.9" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="416.0" errorMin="2.0" errorMax="2.0" />
+		<OrbitalPeriod value="416." errorMin="2.0" errorMax="2.0" />
 		<SemiMajorAxis value="0.92" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity />
 		<AngularDistance />
@@ -545,10 +545,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="2M 2140+16 b">
-		<Mass value="20.0" errorMin="20.0" errorMax="80.0" />
+		<Mass value="20." errorMin="20.0" errorMax="80.0" />
 		<MassSini />
 		<Radius value="0.92" errorMin="0.39" errorMax="0.39" />
-		<OrbitalPeriod value="7340.0" errorMin="584.0" errorMax="584.0" />
+		<OrbitalPeriod value="7340." errorMin="584.0" errorMax="584.0" />
 		<SemiMajorAxis value="3.53" errorMin="0.15" errorMax="0.15" />
 		<Eccentricity value="0.26" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.1412" />
@@ -579,10 +579,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="2M 2206-20 b">
-		<Mass value="30.0" errorMin="20.0" errorMax="70.0" />
+		<Mass value="30." errorMin="20.0" errorMax="70.0" />
 		<MassSini />
 		<Radius value="1.3" errorMin="0.18" errorMax="0.18" />
-		<OrbitalPeriod value="8686.0" errorMin="69.4" errorMax="69.4" />
+		<OrbitalPeriod value="8686." errorMin="69.4" errorMax="69.4" />
 		<SemiMajorAxis value="4.48" errorMin="0.4" errorMax="0.4" />
 		<Eccentricity />
 		<AngularDistance value="0.167979" />
@@ -613,11 +613,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="2M1207 b">
-		<Mass value="4.0" errorMin="1.0" errorMax="1.0" />
+		<Mass value="4." errorMin="1.0" errorMax="1.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="46.0" errorMin="5.0" errorMax="5.0" />
+		<SemiMajorAxis value="46." errorMin="5.0" errorMax="5.0" />
 		<Eccentricity />
 		<AngularDistance value="0.877863" />
 		<Inclination />
@@ -752,7 +752,7 @@
 		<Mass value="2.53" errorMin="0.06" errorMax="0.07" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1078.0" errorMin="2.0" errorMax="2.0" />
+		<OrbitalPeriod value="1078." errorMin="2.0" errorMax="2.0" />
 		<SemiMajorAxis value="2.1" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.032" errorMin="0.014" errorMax="0.014" />
 		<AngularDistance value="0.150322" />
@@ -786,7 +786,7 @@
 		<Mass value="0.54" errorMin="0.073" errorMax="0.066" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2391.0" errorMin="87.0" errorMax="100.0" />
+		<OrbitalPeriod value="2391." errorMin="87.0" errorMax="100.0" />
 		<SemiMajorAxis value="3.6" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity value="0.098" errorMin="0.096" errorMax="0.047" />
 		<AngularDistance value="0.257695" />
@@ -820,7 +820,7 @@
 		<Mass value="1.64" errorMin="0.48" errorMax="0.29" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="14002.0" errorMin="5095.0" errorMax="4018.0" />
+		<OrbitalPeriod value="14002." errorMin="5095.0" errorMax="4018.0" />
 		<SemiMajorAxis value="11.6" errorMin="2.9" errorMax="2.1" />
 		<Eccentricity value="0.16" errorMin="0.16" errorMax="0.09" />
 		<AngularDistance value="0.830351" />
@@ -851,14 +851,14 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="51 Eri b">
-		<Mass value="7.0" errorMin="5.0" errorMax="5.0" />
+		<Mass value="7." errorMin="5.0" errorMax="5.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="14965.0" errorMin="4380.0" errorMax="12775.0" />
-		<SemiMajorAxis value="14.0" errorMin="3.0" errorMax="7.0" />
+		<OrbitalPeriod value="14965." errorMin="4380.0" errorMax="12775.0" />
+		<SemiMajorAxis value="14." errorMin="3.0" errorMax="7.0" />
 		<Eccentricity value="0.21" errorMin="0.15" errorMax="0.15" />
 		<AngularDistance />
-		<Inclination value="138.0" errorMin="13.0" errorMax="15.0" />
+		<Inclination value="138." errorMin="13.0" errorMax="15.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -892,7 +892,7 @@
 		<SemiMajorAxis value="0.052" />
 		<Eccentricity value="0.0069" errorMin="0.0066" errorMax="0.0069" />
 		<AngularDistance value="0.003537" />
-		<Inclination value="80.0" errorMin="10.0" errorMax="19.0" />
+		<Inclination value="80." errorMin="10.0" errorMax="19.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -990,11 +990,11 @@
 		<Mass value="3.835" errorMin="0.08" errorMax="0.08" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="5218.0" errorMin="230.0" errorMax="230.0" />
+		<OrbitalPeriod value="5218." errorMin="230.0" errorMax="230.0" />
 		<SemiMajorAxis value="5.76" errorMin="0.06" errorMax="0.06" />
 		<Eccentricity value="0.025" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance value="0.466775" />
-		<Inclination value="53.0" errorMin="6.8" errorMax="6.8" />
+		<Inclination value="53." errorMin="6.8" errorMax="6.8" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -1092,11 +1092,11 @@
 		<Mass value="2.4" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="899.0" errorMin="19.0" errorMax="19.0" />
+		<OrbitalPeriod value="899." errorMin="19.0" errorMax="19.0" />
 		<SemiMajorAxis value="2.2" />
 		<Eccentricity value="0.134" errorMin="0.052" errorMax="0.052" />
 		<AngularDistance value="0.038664" />
-		<Inclination value="2.0" errorMin="1.0" errorMax="79.0" />
+		<Inclination value="2." errorMin="1.0" errorMax="79.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -1228,7 +1228,7 @@
 		<Mass value="2.46" errorMin="0.14" errorMax="0.14" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="796.0" errorMin="7.4" errorMax="7.4" />
+		<OrbitalPeriod value="796." errorMin="7.4" errorMax="7.4" />
 		<SemiMajorAxis value="1.93" errorMin="0.01" errorMax="0.01" />
 		<Eccentricity value="0.22" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance value="0.096203" />
@@ -1293,7 +1293,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="75 Cet b">
-		<Mass value="3.0" />
+		<Mass value="3." />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="691.9" errorMin="3.6" errorMax="3.6" />
@@ -1433,7 +1433,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="275.0" />
+		<SemiMajorAxis value="275." />
 		<Eccentricity />
 		<AngularDistance value="5.813953" />
 		<Inclination />
@@ -1501,7 +1501,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="392.6" errorMin="5.5" errorMax="5.5" />
-		<SemiMajorAxis value="1.0" />
+		<SemiMajorAxis value="1." />
 		<Eccentricity value="0.2" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance />
 		<Inclination />
@@ -1602,7 +1602,7 @@
 		<Mass value="1.6" errorMin="0.2" errorMax="0.4" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2590.0" errorMin="180.0" errorMax="300.0" />
+		<OrbitalPeriod value="2590." errorMin="180.0" errorMax="300.0" />
 		<SemiMajorAxis value="4.2" errorMin="0.2" errorMax="0.32" />
 		<Eccentricity value="0.35" errorMin="0.1" errorMax="0.24" />
 		<AngularDistance />
@@ -1806,7 +1806,7 @@
 		<Mass value="0.53" errorMin="0.05" errorMax="0.05" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1667.0" errorMin="33.0" errorMax="33.0" />
+		<OrbitalPeriod value="1667." errorMin="33.0" errorMax="33.0" />
 		<SemiMajorAxis value="2.28" errorMin="0.07" errorMax="0.07" />
 		<Eccentricity value="0.05" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance value="0.091575" />
@@ -1973,11 +1973,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="CD-35 2722 b">
-		<Mass value="31.0" errorMin="8.0" errorMax="8.0" />
+		<Mass value="31." errorMin="8.0" errorMax="8.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="67.0" errorMin="4.0" errorMax="4.0" />
+		<SemiMajorAxis value="67." errorMin="4.0" errorMax="4.0" />
 		<Eccentricity />
 		<AngularDistance value="3.14554" />
 		<Inclination />
@@ -2010,7 +2010,7 @@
 		<Mass value="6.5" errorMin="4.5" errorMax="4.5" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="14600.0" errorMin="8800.0" errorMax="8800.0" />
+		<OrbitalPeriod value="14600." errorMin="8800.0" errorMax="8800.0" />
 		<SemiMajorAxis value="2.6" errorMin="0.2" errorMax="0.2" />
 		<Eccentricity />
 		<AngularDistance value="0.112554" />
@@ -2041,11 +2041,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="CHXR 73 b">
-		<Mass value="12.0" errorMin="5.0" errorMax="8.0" />
+		<Mass value="12." errorMin="5.0" errorMax="8.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="200.0" />
+		<SemiMajorAxis value="200." />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -2075,11 +2075,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="CT Cha b">
-		<Mass value="17.0" errorMin="6.0" errorMax="6.0" />
+		<Mass value="17." errorMin="6.0" errorMax="6.0" />
 		<MassSini />
 		<Radius value="2.2" errorMin="0.6" errorMax="0.6" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="440.0" />
+		<SemiMajorAxis value="440." />
 		<Eccentricity />
 		<AngularDistance value="2.666667" />
 		<Inclination />
@@ -2694,7 +2694,7 @@
 		<SemiMajorAxis value="0.098" errorMin="0.003" errorMax="0.003" />
 		<Eccentricity />
 		<AngularDistance value="0.000163" />
-		<Inclination value="89.0" errorMin="1.0" errorMax="1.6" />
+		<Inclination value="89." errorMin="1.0" errorMax="1.6" />
 		<TzeroTr value="2454795.3803" errorMin="0.0265" errorMax="0.0265" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -2925,7 +2925,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="CoRoT-33 b">
-		<Mass value="59.0" errorMin="1.8" errorMax="1.8" />
+		<Mass value="59." errorMin="1.8" errorMax="1.8" />
 		<MassSini />
 		<Radius value="1.1" errorMin="0.53" errorMax="0.53" />
 		<OrbitalPeriod value="5.819143" errorMin="1.8e-05" errorMax="1.8e-05" />
@@ -2966,7 +2966,7 @@
 		<SemiMajorAxis value="0.09" errorMin="0.001" errorMax="0.001" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="90.0" errorMin="0.085" errorMax="0.085" />
+		<Inclination value="90." errorMin="0.085" errorMax="0.085" />
 		<TzeroTr value="2454141.36416" errorMin="0.00089" errorMax="0.00089" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -3231,11 +3231,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="DH Tau b">
-		<Mass value="11.0" errorMin="0.003" errorMax="0.01" />
+		<Mass value="11." errorMin="0.003" errorMax="0.01" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="330.0" />
+		<SemiMajorAxis value="330." />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -3268,7 +3268,7 @@
 		<Mass value="6.05" errorMin="0.47" errorMax="0.47" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="10230.0" errorMin="730.0" errorMax="730.0" />
+		<OrbitalPeriod value="10230." errorMin="730.0" errorMax="730.0" />
 		<SemiMajorAxis value="8.19" errorMin="0.39" errorMax="0.39" />
 		<Eccentricity value="0.39" errorMin="0.13" errorMax="0.13" />
 		<AngularDistance />
@@ -3571,11 +3571,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="FU Tau b">
-		<Mass value="15.0" />
+		<Mass value="15." />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="800.0" />
+		<SemiMajorAxis value="800." />
 		<Eccentricity />
 		<AngularDistance value="5.714286" />
 		<Inclination />
@@ -3605,11 +3605,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="FW Tau b">
-		<Mass value="10.0" errorMin="4.0" errorMax="4.0" />
+		<Mass value="10." errorMin="4.0" errorMax="4.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="330.0" errorMin="30.0" errorMax="30.0" />
+		<SemiMajorAxis value="330." errorMin="30.0" errorMax="30.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -3639,11 +3639,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Fomalhaut b">
-		<Mass value="3.0" errorMin="3.0" errorMax="0.0" />
+		<Mass value="3." errorMin="3.0" errorMax="0.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="320000.0" />
-		<SemiMajorAxis value="115.0" />
+		<OrbitalPeriod value="320000." />
+		<SemiMajorAxis value="115." />
 		<Eccentricity value="0.11" errorMin="0.0" errorMax="0.0" />
 		<AngularDistance value="14.92731" />
 		<Inclination />
@@ -3880,7 +3880,7 @@
 		<Mass value="0.091" errorMin="0.063" errorMax="0.057" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="500.0" errorMin="26.0" errorMax="32.0" />
+		<OrbitalPeriod value="500." errorMin="26.0" errorMax="32.0" />
 		<SemiMajorAxis value="1.06" errorMin="0.07" errorMax="0.07" />
 		<Eccentricity value="0.04" errorMin="0.04" errorMax="0.25" />
 		<AngularDistance />
@@ -3914,7 +3914,7 @@
 		<Mass value="0.100682754932" errorMin="0.050326659" errorMax="0.053472075" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="471.0" errorMin="12.0" errorMax="22.0" />
+		<OrbitalPeriod value="471." errorMin="12.0" errorMax="22.0" />
 		<SemiMajorAxis value="0.97" errorMin="0.09" errorMax="0.12" />
 		<Eccentricity value="0.1" errorMin="0.1" errorMax="0.22" />
 		<AngularDistance />
@@ -4016,11 +4016,11 @@
 		<Mass value="1.81" errorMin="0.05" errorMax="0.05" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="692.0" errorMin="2.0" errorMax="2.0" />
+		<OrbitalPeriod value="692." errorMin="2.0" errorMax="2.0" />
 		<SemiMajorAxis value="1.148" />
 		<Eccentricity value="0.11" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance value="0.076159" />
-		<Inclination value="45.0" errorMin="10.0" errorMax="10.0" />
+		<Inclination value="45." errorMin="10.0" errorMax="10.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -4047,11 +4047,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GJ 317 c">
-		<Mass value="2.0" errorMin="0.0" errorMax="0.0" />
+		<Mass value="2." errorMin="0.0" errorMax="0.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="7300.0" />
-		<SemiMajorAxis value="30.0" errorMin="20.0" errorMax="10.0" />
+		<OrbitalPeriod value="7300." />
+		<SemiMajorAxis value="30." errorMin="20.0" errorMax="10.0" />
 		<Eccentricity value="0.81" errorMin="0.2" errorMax="0.2" />
 		<AngularDistance value="1.986755" />
 		<Inclination />
@@ -4084,7 +4084,7 @@
 		<Mass value="2.3" errorMin="13.0" errorMax="13.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4100.0" errorMin="300.0" errorMax="300.0" />
+		<OrbitalPeriod value="4100." errorMin="300.0" errorMax="300.0" />
 		<SemiMajorAxis value="4.5" errorMin="0.2" errorMax="0.2" />
 		<Eccentricity value="0.37" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance />
@@ -4258,7 +4258,7 @@
 		<SemiMajorAxis value="0.0287" errorMin="0.0011" errorMax="0.0011" />
 		<Eccentricity value="0.08" errorMin="0.057" errorMax="0.057" />
 		<AngularDistance value="0.001449" />
-		<Inclination value="59.0" errorMin="24.0" errorMax="24.0" />
+		<Inclination value="59." errorMin="24.0" errorMax="24.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -4356,7 +4356,7 @@
 		<Mass value="0.14" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3693.0" errorMin="253.0" errorMax="253.0" />
+		<OrbitalPeriod value="3693." errorMin="253.0" errorMax="253.0" />
 		<SemiMajorAxis value="3.6" />
 		<Eccentricity value="0.17" errorMin="0.09" errorMax="0.09" />
 		<AngularDistance value="0.39823" />
@@ -4421,7 +4421,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GJ 504 b">
-		<Mass value="4.0" errorMin="1.0" errorMax="4.5" />
+		<Mass value="4." errorMin="1.0" errorMax="4.5" />
 		<MassSini />
 		<Radius value="0.96" errorMin="0.07" errorMax="0.07" />
 		<OrbitalPeriod />
@@ -4727,10 +4727,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GJ 676A c">
-		<Mass value="3.0" />
+		<Mass value="3." />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4400.0" />
+		<OrbitalPeriod value="4400." />
 		<SemiMajorAxis value="5.2" />
 		<Eccentricity value="0.2" />
 		<AngularDistance />
@@ -4897,10 +4897,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GJ 758 b">
-		<Mass value="35.0" errorMin="5.0" errorMax="5.0" />
+		<Mass value="35." errorMin="5.0" errorMax="5.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="109000.0" errorMin="62000.0" errorMax="198000.0" />
+		<OrbitalPeriod value="109000." errorMin="62000.0" errorMax="198000.0" />
 		<SemiMajorAxis value="44.8" errorMin="14.1" errorMax="44.4" />
 		<Eccentricity value="0.564" errorMin="0.148" errorMax="0.148" />
 		<AngularDistance value="3.516129" />
@@ -4934,7 +4934,7 @@
 		<Mass value="0.689047604065" errorMin="0.160463140672687" errorMax="0.160463140672687" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3416.0" errorMin="131.0" errorMax="131.0" />
+		<OrbitalPeriod value="3416." errorMin="131.0" errorMax="131.0" />
 		<SemiMajorAxis value="3.6" errorMin="0.36" errorMax="0.36" />
 		<Eccentricity value="0.08" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.688259" />
@@ -5002,7 +5002,7 @@
 		<Mass value="0.9" errorMin="0.05" errorMax="0.05" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1914.0" errorMin="26.0" errorMax="26.0" />
+		<OrbitalPeriod value="1914." errorMin="26.0" errorMax="26.0" />
 		<SemiMajorAxis value="2.35" />
 		<Eccentricity value="0.012" />
 		<AngularDistance value="0.267045" />
@@ -5036,7 +5036,7 @@
 		<Mass value="0.77" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="7049.0" errorMin="6246.0" errorMax="2155.0" />
+		<OrbitalPeriod value="7049." errorMin="6246.0" errorMax="2155.0" />
 		<SemiMajorAxis />
 		<Eccentricity value="0.218" />
 		<AngularDistance />
@@ -5071,7 +5071,7 @@
 		<MassSini />
 		<Radius value="1.8" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="103.0" errorMin="37.0" errorMax="37.0" />
+		<SemiMajorAxis value="103." errorMin="37.0" errorMax="37.0" />
 		<Eccentricity />
 		<AngularDistance value="0.735714" />
 		<Inclination />
@@ -5101,11 +5101,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GSC 6214-210 b">
-		<Mass value="17.0" errorMin="3.0" errorMax="3.0" />
+		<Mass value="17." errorMin="3.0" errorMax="3.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="320.0" errorMin="0.0" errorMax="0.0" />
+		<SemiMajorAxis value="320." errorMin="0.0" errorMax="0.0" />
 		<Eccentricity />
 		<AngularDistance value="2.206897" />
 		<Inclination />
@@ -5135,11 +5135,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="GU Psc b">
-		<Mass value="11.0" errorMin="1.0" errorMax="1.0" />
+		<Mass value="11." errorMin="1.0" errorMax="1.0" />
 		<MassSini />
 		<Radius value="1.35" errorMin="0.03" errorMax="0.03" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="2000.0" errorMin="200.0" errorMax="200.0" />
+		<SemiMajorAxis value="2000." errorMin="200.0" errorMax="200.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -5308,7 +5308,7 @@
 		<Mass value="0.82" errorMin="0.07" errorMax="0.07" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2288.0" errorMin="59.0" errorMax="59.0" />
+		<OrbitalPeriod value="2288." errorMin="59.0" errorMax="59.0" />
 		<SemiMajorAxis value="2.41" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.21" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.195935" />
@@ -5618,7 +5618,7 @@
 		<SemiMajorAxis value="0.208317" errorMin="2e-05" errorMax="2e-05" />
 		<Eccentricity />
 		<AngularDistance value="0.044323" />
-		<Inclination value="84.0" errorMin="6.0" errorMax="6.0" />
+		<Inclination value="84." errorMin="6.0" errorMax="6.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -5686,7 +5686,7 @@
 		<SemiMajorAxis value="0.02080665" errorMin="1.5e-07" errorMax="1.5e-07" />
 		<Eccentricity value="0.081" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance value="0.004427" />
-		<Inclination value="50.0" />
+		<Inclination value="50." />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -6056,7 +6056,7 @@
 		<Mass value="1.4" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1798.0" />
+		<OrbitalPeriod value="1798." />
 		<SemiMajorAxis value="2.75" />
 		<Eccentricity value="0.1" />
 		<AngularDistance value="0.030556" />
@@ -6162,7 +6162,7 @@
 		<SemiMajorAxis value="0.0674" errorMin="0.00081" errorMax="0.00081" />
 		<Eccentricity value="0.5171" errorMin="0.0033" errorMax="0.0033" />
 		<AngularDistance value="0.000571" />
-		<Inclination value="90.0" errorMin="0.93" errorMax="0.93" />
+		<Inclination value="90." errorMin="0.93" errorMax="0.93" />
 		<TzeroTr value="2454387.49375" errorMin="0.00074" errorMax="0.00074" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -6468,7 +6468,7 @@
 		<SemiMajorAxis value="0.0434" errorMin="0.0007" errorMax="0.0007" />
 		<Eccentricity value="0.051" errorMin="0.033" errorMax="0.033" />
 		<AngularDistance value="0.00011" />
-		<Inclination value="88.0" errorMin="0.9" errorMax="0.9" />
+		<Inclination value="88." errorMin="0.9" errorMax="0.9" />
 		<TzeroTr value="2455417.59832" errorMin="0.00053" errorMax="0.00053" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -6774,7 +6774,7 @@
 		<SemiMajorAxis value="0.0238" errorMin="0.0004" errorMax="0.0004" />
 		<Eccentricity value="0.063" errorMin="0.032" errorMax="0.032" />
 		<AngularDistance value="7.5e-05" />
-		<Inclination value="86.0" errorMin="1.3" errorMax="1.3" />
+		<Inclination value="86." errorMin="1.3" errorMax="1.3" />
 		<TzeroTr value="2455565.18144" errorMin="0.0002" errorMax="0.0002" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -6876,7 +6876,7 @@
 		<SemiMajorAxis value="0.0509" errorMin="0.0006" errorMax="0.0006" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="87.0" errorMin="1.0" errorMax="1.0" />
+		<Inclination value="87." errorMin="1.0" errorMax="1.0" />
 		<TzeroTr value="2455208.75049" errorMin="0.00041" errorMax="0.00041" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -7080,7 +7080,7 @@
 		<SemiMajorAxis value="0.0507" errorMin="0.0007" errorMax="0.0007" />
 		<Eccentricity value="0.072" errorMin="0.071" errorMax="0.071" />
 		<AngularDistance />
-		<Inclination value="89.0" errorMin="0.5" errorMax="0.5" />
+		<Inclination value="89." errorMin="0.5" errorMax="0.5" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -7209,7 +7209,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HAT-P-46 c">
-		<Mass value="2.0" errorMin="0.3" errorMax="0.3" />
+		<Mass value="2." errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="77.7" errorMin="0.6" errorMax="0.6" />
@@ -8334,7 +8334,7 @@
 		<Mass value="0.202624" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2222.0" errorMin="91.0" errorMax="91.0" />
+		<OrbitalPeriod value="2222." errorMin="91.0" errorMax="91.0" />
 		<SemiMajorAxis value="3.4" errorMin="0.11" errorMax="0.11" />
 		<Eccentricity value="0.08" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance value="0.086294" />
@@ -8504,7 +8504,7 @@
 		<Mass value="2.6" errorMin="0.4" errorMax="0.4" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="520.0" errorMin="26.0" errorMax="26.0" />
+		<OrbitalPeriod value="520." errorMin="26.0" errorMax="26.0" />
 		<SemiMajorAxis value="1.57" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.68" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.004361" />
@@ -8810,7 +8810,7 @@
 		<Mass value="7.56" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1600.0" errorMin="18.0" errorMax="18.0" />
+		<OrbitalPeriod value="1600." errorMin="18.0" errorMax="18.0" />
 		<SemiMajorAxis value="2.7" />
 		<Eccentricity value="0.47" errorMin="0.028" errorMax="0.028" />
 		<AngularDistance value="0.072115" />
@@ -8841,10 +8841,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 106270 b">
-		<Mass value="11.0" errorMin="0.8" errorMax="0.8" />
+		<Mass value="11." errorMin="0.8" errorMax="0.8" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2890.0" errorMin="390.0" errorMax="390.0" />
+		<OrbitalPeriod value="2890." errorMin="390.0" errorMax="390.0" />
 		<SemiMajorAxis value="4.3" errorMin="0.4" errorMax="0.4" />
 		<Eccentricity value="0.402" errorMin="0.054" errorMax="0.054" />
 		<AngularDistance value="0.050648" />
@@ -8878,7 +8878,7 @@
 		<Mass value="0.93" errorMin="0.18" errorMax="0.18" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1003.0" errorMin="56.0" errorMax="56.0" />
+		<OrbitalPeriod value="1003." errorMin="56.0" errorMax="56.0" />
 		<SemiMajorAxis value="2.03" errorMin="0.15" errorMax="0.15" />
 		<Eccentricity value="0.1" errorMin="0.01" errorMax="0.01" />
 		<AngularDistance value="0.117341" />
@@ -8912,7 +8912,7 @@
 		<Mass value="9.61" errorMin="0.14" errorMax="0.14" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3630.0" errorMin="14.2" errorMax="14.2" />
+		<OrbitalPeriod value="3630." errorMin="14.2" errorMax="14.2" />
 		<SemiMajorAxis value="4.59" errorMin="0.01" errorMax="0.01" />
 		<Eccentricity value="0.572" errorMin="0.011" errorMax="0.011" />
 		<AngularDistance />
@@ -8943,11 +8943,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 106906 b">
-		<Mass value="11.0" errorMin="2.0" errorMax="2.0" />
+		<Mass value="11." errorMin="2.0" errorMax="2.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="654.0" errorMin="3.0" errorMax="3.0" />
+		<SemiMajorAxis value="654." errorMin="3.0" errorMax="3.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -8984,7 +8984,7 @@
 		<SemiMajorAxis value="2.16" errorMin="0.12" errorMax="0.12" />
 		<Eccentricity value="0.1" errorMin="0.01" errorMax="0.01" />
 		<AngularDistance value="0.066339" />
-		<Inclination value="69.0" errorMin="26.0" errorMax="26.0" />
+		<Inclination value="69." errorMin="26.0" errorMax="26.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -9082,8 +9082,8 @@
 		<Mass value="3.5" errorMin="3.4" errorMax="1.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1129.0" errorMin="6.0" errorMax="8.0" />
-		<SemiMajorAxis value="2.0" errorMin="0.04" errorMax="0.04" />
+		<OrbitalPeriod value="1129." errorMin="6.0" errorMax="8.0" />
+		<SemiMajorAxis value="2." errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.85" errorMin="0.09" errorMax="0.09" />
 		<AngularDistance />
 		<Inclination />
@@ -9388,7 +9388,7 @@
 		<Mass value="6.8" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1143.0" errorMin="14.0" errorMax="14.0" />
+		<OrbitalPeriod value="1143." errorMin="14.0" errorMax="14.0" />
 		<SemiMajorAxis value="1.97" />
 		<Eccentricity value="0.2" errorMin="0.01" errorMax="0.01" />
 		<AngularDistance value="0.067931" />
@@ -9422,7 +9422,7 @@
 		<Mass value="2.83" errorMin="0.24" errorMax="0.24" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="324.0" errorMin="1.7" errorMax="3.3" />
+		<OrbitalPeriod value="324." errorMin="1.7" errorMax="3.3" />
 		<SemiMajorAxis value="0.92" errorMin="0.09" errorMax="0.09" />
 		<Eccentricity value="0.46" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance />
@@ -9490,7 +9490,7 @@
 		<Mass value="0.93" errorMin="0.06" errorMax="0.06" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1818.0" errorMin="25.0" errorMax="25.0" />
+		<OrbitalPeriod value="1818." errorMin="25.0" errorMax="25.0" />
 		<SemiMajorAxis value="2.44" errorMin="0.07" errorMax="0.07" />
 		<Eccentricity value="0.2" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance value="0.153797" />
@@ -9524,7 +9524,7 @@
 		<Mass value="1.24" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="937.0" errorMin="15.6" errorMax="15.6" />
+		<OrbitalPeriod value="937." errorMin="15.6" errorMax="15.6" />
 		<SemiMajorAxis value="1.02" />
 		<Eccentricity value="0.23" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance value="0.058929" />
@@ -9558,7 +9558,7 @@
 		<Mass value="1.19" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1046.0" />
+		<OrbitalPeriod value="1046." />
 		<SemiMajorAxis />
 		<Eccentricity value="0.06" />
 		<AngularDistance />
@@ -9592,7 +9592,7 @@
 		<Mass value="0.48" errorMin="0.04" errorMax="0.04" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3827.0" errorMin="105.0" errorMax="105.0" />
+		<OrbitalPeriod value="3827." errorMin="105.0" errorMax="105.0" />
 		<SemiMajorAxis value="5.16" errorMin="0.13" errorMax="0.13" />
 		<Eccentricity value="0.25" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance />
@@ -9626,7 +9626,7 @@
 		<Mass value="0.84" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1135.0" errorMin="9.0" errorMax="9.0" />
+		<OrbitalPeriod value="1135." errorMin="9.0" errorMax="9.0" />
 		<SemiMajorAxis value="2.08" />
 		<Eccentricity value="0.32" errorMin="0.18" errorMax="0.18" />
 		<AngularDistance value="0.059429" />
@@ -9691,14 +9691,14 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 114783 b">
-		<Mass value="1.0" />
+		<Mass value="1." />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="501.0" errorMin="14.0" errorMax="14.0" />
+		<OrbitalPeriod value="501." errorMin="14.0" errorMax="14.0" />
 		<SemiMajorAxis value="1.2" />
 		<Eccentricity value="0.1" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.058824" />
-		<Inclination value="10.0" errorMin="8.0" errorMax="8.0" />
+		<Inclination value="10." errorMin="8.0" errorMax="8.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -9728,7 +9728,7 @@
 		<Mass value="3.44" errorMin="0.47" errorMax="0.9" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1270.0" errorMin="95.0" errorMax="95.0" />
+		<OrbitalPeriod value="1270." errorMin="95.0" errorMax="95.0" />
 		<SemiMajorAxis value="2.43" errorMin="0.12" errorMax="0.12" />
 		<Eccentricity value="0.22" errorMin="0.12" errorMax="0.12" />
 		<AngularDistance value="0.045151" />
@@ -9932,7 +9932,7 @@
 		<Mass value="0.2" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="318.0" errorMin="2.0" errorMax="2.0" />
+		<OrbitalPeriod value="318." errorMin="2.0" errorMax="2.0" />
 		<SemiMajorAxis value="0.93" errorMin="0.01" errorMax="0.01" />
 		<Eccentricity />
 		<AngularDistance />
@@ -10000,7 +10000,7 @@
 		<Mass value="0.622" errorMin="0.056" errorMax="0.056" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1945.0" errorMin="26.0" errorMax="26.0" />
+		<OrbitalPeriod value="1945." errorMin="26.0" errorMax="26.0" />
 		<SemiMajorAxis value="3.16" errorMin="0.19" errorMax="0.19" />
 		<Eccentricity value="0.041" errorMin="0.017" errorMax="0.017" />
 		<AngularDistance value="0.092996" />
@@ -10068,7 +10068,7 @@
 		<Mass value="6.54" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="711.0" errorMin="8.0" errorMax="8.0" />
+		<OrbitalPeriod value="711." errorMin="8.0" errorMax="8.0" />
 		<SemiMajorAxis value="1.93" />
 		<Eccentricity value="0.4" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance value="0.029023" />
@@ -10102,7 +10102,7 @@
 		<Mass value="4.5" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2082.0" errorMin="35.0" errorMax="24.0" />
+		<OrbitalPeriod value="2082." errorMin="35.0" errorMax="24.0" />
 		<SemiMajorAxis value="4.3" />
 		<Eccentricity value="0.66" errorMin="0.1" errorMax="0.14" />
 		<AngularDistance />
@@ -10235,10 +10235,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 125612 b">
-		<Mass value="3.0" />
+		<Mass value="3." />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="502.0" errorMin="14.0" errorMax="14.0" />
+		<OrbitalPeriod value="502." errorMin="14.0" errorMax="14.0" />
 		<SemiMajorAxis value="1.37" />
 		<Eccentricity value="0.46" errorMin="0.01" errorMax="0.01" />
 		<AngularDistance value="0.025937" />
@@ -10306,7 +10306,7 @@
 		<Mass value="7.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3008.0" errorMin="202.0" errorMax="202.0" />
+		<OrbitalPeriod value="3008." errorMin="202.0" errorMax="202.0" />
 		<SemiMajorAxis value="4.2" />
 		<Eccentricity value="0.28" errorMin="0.12" errorMax="0.12" />
 		<AngularDistance value="0.079515" />
@@ -10442,7 +10442,7 @@
 		<Mass value="1.57" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1708.0" errorMin="14.0" errorMax="14.0" />
+		<OrbitalPeriod value="1708." errorMin="14.0" errorMax="14.0" />
 		<SemiMajorAxis value="2.56" />
 		<Eccentricity value="0.031" errorMin="0.022" errorMax="0.022" />
 		<AngularDistance value="0.068891" />
@@ -10476,7 +10476,7 @@
 		<Mass value="0.38" errorMin="0.04" errorMax="0.04" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1244.0" errorMin="17.0" errorMax="17.0" />
+		<OrbitalPeriod value="1244." errorMin="17.0" errorMax="17.0" />
 		<SemiMajorAxis value="2.35" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.41" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.032459" />
@@ -10544,11 +10544,11 @@
 		<Mass value="3.21" errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="919.0" />
+		<OrbitalPeriod value="919." />
 		<SemiMajorAxis value="1.76" errorMin="0.13" errorMax="0.13" />
 		<Eccentricity value="0.17" errorMin="0.09" errorMax="0.09" />
 		<AngularDistance value="0.106024" />
-		<Inclination value="50.0" errorMin="10.0" errorMax="10.0" />
+		<Inclination value="50." errorMin="10.0" errorMax="10.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -10578,7 +10578,7 @@
 		<Mass value="1.6" errorMin="0.6" errorMax="0.6" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1840.0" errorMin="55.0" errorMax="55.0" />
+		<OrbitalPeriod value="1840." errorMin="55.0" errorMax="55.0" />
 		<SemiMajorAxis value="2.9" errorMin="0.2" errorMax="0.2" />
 		<Eccentricity value="0.7" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.042893" />
@@ -10616,7 +10616,7 @@
 		<SemiMajorAxis value="0.088" />
 		<Eccentricity value="0.044" errorMin="0.018" errorMax="0.018" />
 		<AngularDistance value="0.002933" />
-		<Inclination value="76.0" errorMin="42.0" errorMax="42.0" />
+		<Inclination value="76." errorMin="42.0" errorMax="42.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -10646,7 +10646,7 @@
 		<Mass value="2.2" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="883.0" errorMin="29.0" errorMax="29.0" />
+		<OrbitalPeriod value="883." errorMin="29.0" errorMax="29.0" />
 		<SemiMajorAxis value="2.09" errorMin="0.07" errorMax="0.07" />
 		<Eccentricity value="0.163" errorMin="0.073" errorMax="0.073" />
 		<AngularDistance value="0.019" />
@@ -10677,7 +10677,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 13189 b">
-		<Mass value="14.0" errorMin="6.0" errorMax="6.0" />
+		<Mass value="14." errorMin="6.0" errorMax="6.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="471.6" errorMin="6.0" errorMax="6.0" />
@@ -10714,7 +10714,7 @@
 		<Mass value="5.61" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="974.0" errorMin="39.0" errorMax="39.0" />
+		<OrbitalPeriod value="974." errorMin="39.0" errorMax="39.0" />
 		<SemiMajorAxis value="1.98" />
 		<Eccentricity value="0.34" errorMin="0.09" errorMax="0.09" />
 		<AngularDistance value="0.027887" />
@@ -10748,7 +10748,7 @@
 		<Mass value="1.49" errorMin="0.09" errorMax="0.09" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1544.0" errorMin="34.0" errorMax="34.0" />
+		<OrbitalPeriod value="1544." errorMin="34.0" errorMax="34.0" />
 		<SemiMajorAxis value="2.62" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.22" errorMin="0.09" errorMax="0.09" />
 		<AngularDistance value="0.027292" />
@@ -10986,7 +10986,7 @@
 		<Mass value="0.82" errorMin="0.03" errorMax="0.03" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="5000.0" errorMin="400.0" errorMax="400.0" />
+		<OrbitalPeriod value="5000." errorMin="400.0" errorMax="400.0" />
 		<SemiMajorAxis value="5.8" errorMin="0.5" errorMax="0.5" />
 		<Eccentricity value="0.12" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.261261" />
@@ -11119,7 +11119,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 136418 b">
-		<Mass value="2.0" errorMin="0.1" errorMax="0.1" />
+		<Mass value="2." errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="464.3" errorMin="3.2" errorMax="3.2" />
@@ -11156,7 +11156,7 @@
 		<Mass value="0.223" errorMin="0.029" errorMax="0.029" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="330.0" errorMin="4.0" errorMax="4.0" />
+		<OrbitalPeriod value="330." errorMin="4.0" errorMax="4.0" />
 		<SemiMajorAxis value="0.89" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.36" errorMin="0.12" errorMax="0.12" />
 		<AngularDistance value="0.023421" />
@@ -11292,7 +11292,7 @@
 		<Mass value="5.13" errorMin="0.25" errorMax="0.25" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="931.0" errorMin="17.0" errorMax="17.0" />
+		<OrbitalPeriod value="931." errorMin="17.0" errorMax="17.0" />
 		<SemiMajorAxis value="2.03" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.12" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance />
@@ -11326,7 +11326,7 @@
 		<Mass value="1.88" errorMin="0.15" errorMax="0.15" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4218.0" errorMin="388.0" errorMax="388.0" />
+		<OrbitalPeriod value="4218." errorMin="388.0" errorMax="388.0" />
 		<SemiMajorAxis value="5.15" errorMin="0.29" errorMax="0.29" />
 		<Eccentricity value="0.02" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance value="0.116516" />
@@ -11394,7 +11394,7 @@
 		<Mass value="7.8" errorMin="0.7" errorMax="0.7" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1455.0" errorMin="12.0" errorMax="13.0" />
+		<OrbitalPeriod value="1455." errorMin="12.0" errorMax="13.0" />
 		<SemiMajorAxis value="3.4" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity value="0.533" errorMin="0.047" errorMax="0.043" />
 		<AngularDistance />
@@ -11632,7 +11632,7 @@
 		<Mass value="5.3" errorMin="0.7" errorMax="0.7" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="6005.0" errorMin="477.0" errorMax="477.0" />
+		<OrbitalPeriod value="6005." errorMin="477.0" errorMax="477.0" />
 		<SemiMajorAxis value="6.8" errorMin="0.5" errorMax="0.5" />
 		<Eccentricity value="0.21" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance value="0.330097" />
@@ -11666,11 +11666,11 @@
 		<Mass value="5.1" errorMin="1.5" errorMax="2.6" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1928.0" errorMin="39.0" errorMax="53.0" />
+		<OrbitalPeriod value="1928." errorMin="39.0" errorMax="53.0" />
 		<SemiMajorAxis value="3.03" errorMin="0.005" errorMax="0.005" />
 		<Eccentricity value="0.53" errorMin="0.18" errorMax="0.23" />
 		<AngularDistance value="0.084472" />
-		<Inclination value="10.0" errorMin="6.0" errorMax="6.0" />
+		<Inclination value="10." errorMin="6.0" errorMax="6.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -11700,7 +11700,7 @@
 		<Mass value="1.9" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1299.0" errorMin="48.0" errorMax="48.0" />
+		<OrbitalPeriod value="1299." errorMin="48.0" errorMax="48.0" />
 		<SemiMajorAxis value="2.77" errorMin="0.09" errorMax="0.09" />
 		<Eccentricity value="0.32" />
 		<AngularDistance value="0.025297" />
@@ -11768,8 +11768,8 @@
 		<Mass value="3.12" errorMin="1.44" errorMax="1.44" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1057.0" errorMin="20.0" errorMax="20.0" />
-		<SemiMajorAxis value="2.0" />
+		<OrbitalPeriod value="1057." errorMin="20.0" errorMax="20.0" />
+		<SemiMajorAxis value="2." />
 		<Eccentricity value="0.15" errorMin="0.17" errorMax="0.17" />
 		<AngularDistance value="0.033698" />
 		<Inclination />
@@ -11870,7 +11870,7 @@
 		<Mass value="2.28" errorMin="0.6" errorMax="0.6" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2730.0" errorMin="100.0" errorMax="100.0" />
+		<OrbitalPeriod value="2730." errorMin="100.0" errorMax="100.0" />
 		<SemiMajorAxis value="4.6" errorMin="0.14" errorMax="0.14" />
 		<Eccentricity value="0.053" errorMin="0.053" errorMax="0.053" />
 		<AngularDistance />
@@ -12006,7 +12006,7 @@
 		<Mass value="6.56" errorMin="0.32" errorMax="0.32" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1008.0" errorMin="18.0" errorMax="18.0" />
+		<OrbitalPeriod value="1008." errorMin="18.0" errorMax="18.0" />
 		<SemiMajorAxis value="1.922" errorMin="0.039" errorMax="0.039" />
 		<Eccentricity value="0.133" errorMin="0.011" errorMax="0.011" />
 		<AngularDistance value="0.044739" />
@@ -12074,7 +12074,7 @@
 		<Mass value="0.85" errorMin="0.05" errorMax="0.06" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1010.0" />
+		<OrbitalPeriod value="1010." />
 		<SemiMajorAxis value="2.45" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.52" errorMin="0.09" errorMax="0.09" />
 		<AngularDistance value="0.046183" />
@@ -12278,7 +12278,7 @@
 		<Mass value="2.71" errorMin="0.66" errorMax="1.14" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="5894.0" errorMin="1498.0" errorMax="5584.0" />
+		<OrbitalPeriod value="5894." errorMin="1498.0" errorMax="5584.0" />
 		<SemiMajorAxis value="6.7" errorMin="1.4" errorMax="4.0" />
 		<Eccentricity value="0.38" errorMin="0.32" errorMax="0.28" />
 		<AngularDistance value="0.246324" />
@@ -12309,10 +12309,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 152079 b">
-		<Mass value="3.0" errorMin="2.0" errorMax="2.0" />
+		<Mass value="3." errorMin="2.0" errorMax="2.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2097.0" errorMin="930.0" errorMax="930.0" />
+		<OrbitalPeriod value="2097." errorMin="930.0" errorMax="930.0" />
 		<SemiMajorAxis value="3.2" errorMin="2.1" errorMax="2.1" />
 		<Eccentricity value="0.6" errorMin="0.24" errorMax="0.24" />
 		<AngularDistance value="0.037572" />
@@ -12346,7 +12346,7 @@
 		<Mass value="1.5" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="689.0" errorMin="13.0" errorMax="13.0" />
+		<OrbitalPeriod value="689." errorMin="13.0" errorMax="13.0" />
 		<SemiMajorAxis value="1.48" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.22" />
 		<AngularDistance value="0.007957" />
@@ -12445,14 +12445,14 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 154345 b">
-		<Mass value="1.0" errorMin="0.3" errorMax="0.3" />
+		<Mass value="1." errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3538.0" errorMin="300.0" errorMax="300.0" />
+		<OrbitalPeriod value="3538." errorMin="300.0" errorMax="300.0" />
 		<SemiMajorAxis value="4.3" errorMin="0.4" errorMax="0.4" />
 		<Eccentricity value="0.26" errorMin="0.15" errorMax="0.15" />
 		<AngularDistance value="0.238095" />
-		<Inclination value="50.0" errorMin="26.0" errorMax="26.0" />
+		<Inclination value="50." errorMin="26.0" errorMax="26.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -12550,7 +12550,7 @@
 		<Mass value="2.58" errorMin="0.16" errorMax="0.16" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3452.0" errorMin="105.0" errorMax="105.0" />
+		<OrbitalPeriod value="3452." errorMin="105.0" errorMax="105.0" />
 		<SemiMajorAxis value="5.36" errorMin="0.09" errorMax="0.09" />
 		<Eccentricity value="0.06" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance />
@@ -12581,10 +12581,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 155233 b">
-		<Mass value="2.0" errorMin="0.5" errorMax="0.5" />
+		<Mass value="2." errorMin="0.5" errorMax="0.5" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="885.0" errorMin="63.0" errorMax="63.0" />
+		<OrbitalPeriod value="885." errorMin="63.0" errorMax="63.0" />
 		<SemiMajorAxis value="2.07" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity value="0.03" errorMin="0.2" errorMax="0.2" />
 		<AngularDistance />
@@ -12822,7 +12822,7 @@
 		<Mass value="1.8" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="521.0" errorMin="6.9" errorMax="6.9" />
+		<OrbitalPeriod value="521." errorMin="6.9" errorMax="6.9" />
 		<SemiMajorAxis value="1.52" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.291" errorMin="0.093" errorMax="0.093" />
 		<AngularDistance value="0.014672" />
@@ -12959,7 +12959,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="352.3" errorMin="1.3" errorMax="1.3" />
-		<SemiMajorAxis value="1.0" errorMin="0.01" errorMax="0.01" />
+		<SemiMajorAxis value="1." errorMin="0.01" errorMax="0.01" />
 		<Eccentricity value="0.15" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance value="0.018975" />
 		<Inclination />
@@ -13026,7 +13026,7 @@
 		<Mass value="3.48" errorMin="0.11" errorMax="0.13" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2111.0" errorMin="32.0" errorMax="42.0" />
+		<OrbitalPeriod value="2111." errorMin="32.0" errorMax="42.0" />
 		<SemiMajorAxis value="3.52" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.098" errorMin="0.022" errorMax="0.032" />
 		<AngularDistance />
@@ -13094,7 +13094,7 @@
 		<Mass value="4.4" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="990.0" errorMin="20.0" errorMax="20.0" />
+		<OrbitalPeriod value="990." errorMin="20.0" errorMax="20.0" />
 		<SemiMajorAxis value="2.1" />
 		<Eccentricity value="0.59" errorMin="0.11" errorMax="0.11" />
 		<AngularDistance value="0.035117" />
@@ -13128,7 +13128,7 @@
 		<Mass value="1.53" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3117.0" errorMin="42.0" errorMax="42.0" />
+		<OrbitalPeriod value="3117." errorMin="42.0" errorMax="42.0" />
 		<SemiMajorAxis value="4.43" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.4" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance />
@@ -13230,7 +13230,7 @@
 		<Mass value="2.29" errorMin="0.16" errorMax="0.16" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1314.0" errorMin="8.0" errorMax="8.0" />
+		<OrbitalPeriod value="1314." errorMin="8.0" errorMax="8.0" />
 		<SemiMajorAxis value="2.42" errorMin="0.01" errorMax="0.01" />
 		<Eccentricity value="0.12" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.035072" />
@@ -13332,7 +13332,7 @@
 		<Mass value="0.0516" errorMin="0.00856" errorMax="0.00856" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="40.0" errorMin="0.24" errorMax="0.24" />
+		<OrbitalPeriod value="40." errorMin="0.24" errorMax="0.24" />
 		<SemiMajorAxis value="0.23" />
 		<Eccentricity value="0.088" errorMin="0.066" errorMax="0.12" />
 		<AngularDistance />
@@ -13400,7 +13400,7 @@
 		<Mass value="0.36" errorMin="0.046" errorMax="0.046" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1155.0" errorMin="23.0" errorMax="23.0" />
+		<OrbitalPeriod value="1155." errorMin="23.0" errorMax="23.0" />
 		<SemiMajorAxis value="2.11" errorMin="0.13" errorMax="0.13" />
 		<Eccentricity value="0.05" errorMin="0.14" errorMax="0.14" />
 		<AngularDistance value="0.096215" />
@@ -13434,7 +13434,7 @@
 		<Mass value="6.43" errorMin="0.22" errorMax="0.31" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="270.0" errorMin="0.9" errorMax="0.8" />
+		<OrbitalPeriod value="270." errorMin="0.9" errorMax="0.8" />
 		<SemiMajorAxis value="0.94" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.63" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance />
@@ -13468,7 +13468,7 @@
 		<Mass value="3.53" errorMin="0.11" errorMax="0.11" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="8100.0" />
+		<OrbitalPeriod value="8100." />
 		<SemiMajorAxis value="5.42" errorMin="0.43" errorMax="0.43" />
 		<Eccentricity value="0.734" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance />
@@ -13638,7 +13638,7 @@
 		<Mass value="6.1" errorMin="0.9" errorMax="0.9" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="533.0" errorMin="1.7" errorMax="1.7" />
+		<OrbitalPeriod value="533." errorMin="1.7" errorMax="1.7" />
 		<SemiMajorAxis value="1.3" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.64" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance value="0.004075" />
@@ -13706,7 +13706,7 @@
 		<Mass value="4.04" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2102.0" errorMin="264.0" errorMax="264.0" />
+		<OrbitalPeriod value="2102." errorMin="264.0" errorMax="264.0" />
 		<SemiMajorAxis value="3.6" />
 		<Eccentricity value="0.33" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.099119" />
@@ -13740,7 +13740,7 @@
 		<Mass value="0.67" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1145.0" errorMin="18.0" errorMax="18.0" />
+		<OrbitalPeriod value="1145." errorMin="18.0" errorMax="18.0" />
 		<SemiMajorAxis value="2.24" />
 		<Eccentricity value="0.11" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.034477" />
@@ -13808,7 +13808,7 @@
 		<Mass value="1.98" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="550.0" errorMin="3.0" errorMax="3.0" />
+		<OrbitalPeriod value="550." errorMin="3.0" errorMax="3.0" />
 		<SemiMajorAxis value="1.32" />
 		<Eccentricity value="0.59" errorMin="0.01" errorMax="0.01" />
 		<AngularDistance value="0.014667" />
@@ -13842,7 +13842,7 @@
 		<Mass value="2.6" errorMin="0.15" errorMax="0.15" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1523.0" errorMin="45.0" errorMax="45.0" />
+		<OrbitalPeriod value="1523." errorMin="45.0" errorMax="45.0" />
 		<SemiMajorAxis value="2.54" errorMin="0.06" errorMax="0.06" />
 		<Eccentricity value="0.4" errorMin="0.065" errorMax="0.065" />
 		<AngularDistance value="0.050517" />
@@ -13944,7 +13944,7 @@
 		<Mass value="7.8" errorMin="3.5" errorMax="3.5" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1290.0" errorMin="22.0" errorMax="22.0" />
+		<OrbitalPeriod value="1290." errorMin="22.0" errorMax="22.0" />
 		<SemiMajorAxis value="2.4" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.54" errorMin="0.09" errorMax="0.09" />
 		<AngularDistance value="0.03581" />
@@ -14012,7 +14012,7 @@
 		<Mass value="1.5" errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1016.0" errorMin="40.0" errorMax="40.0" />
+		<OrbitalPeriod value="1016." errorMin="40.0" errorMax="40.0" />
 		<SemiMajorAxis value="1.76" />
 		<Eccentricity />
 		<AngularDistance value="0.117412" />
@@ -14213,7 +14213,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 180314 b">
-		<Mass value="22.0" />
+		<Mass value="22." />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="396.03" errorMin="0.62" errorMax="0.62" />
@@ -14250,7 +14250,7 @@
 		<Mass value="1.6" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="479.0" errorMin="13.0" errorMax="13.0" />
+		<OrbitalPeriod value="479." errorMin="13.0" errorMax="13.0" />
 		<SemiMajorAxis value="1.39" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.09" errorMin="0.11" errorMax="0.11" />
 		<AngularDistance value="0.012636" />
@@ -14284,7 +14284,7 @@
 		<Mass value="3.3" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="663.0" errorMin="29.0" errorMax="29.0" />
+		<OrbitalPeriod value="663." errorMin="29.0" errorMax="29.0" />
 		<SemiMajorAxis value="1.78" errorMin="0.07" errorMax="0.07" />
 		<Eccentricity value="0.177" errorMin="0.057" errorMax="0.057" />
 		<AngularDistance value="0.016094" />
@@ -14352,7 +14352,7 @@
 		<Mass value="0.64" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="962.0" errorMin="15.0" errorMax="15.0" />
+		<OrbitalPeriod value="962." errorMin="15.0" errorMax="15.0" />
 		<SemiMajorAxis value="1.76" />
 		<Eccentricity value="0.28" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.067304" />
@@ -14386,8 +14386,8 @@
 		<Mass value="0.54" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2172.0" errorMin="158.0" errorMax="158.0" />
-		<SemiMajorAxis value="3.0" />
+		<OrbitalPeriod value="2172." errorMin="158.0" errorMax="158.0" />
+		<SemiMajorAxis value="3." />
 		<Eccentricity value="0.48" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance value="0.114723" />
 		<Inclination />
@@ -14420,7 +14420,7 @@
 		<Mass value="0.37" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="956.0" errorMin="14.0" errorMax="14.0" />
+		<OrbitalPeriod value="956." errorMin="14.0" errorMax="14.0" />
 		<SemiMajorAxis value="1.78" />
 		<Eccentricity value="0.26" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.031786" />
@@ -14488,7 +14488,7 @@
 		<Mass value="3.82" errorMin="0.59" errorMax="0.59" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2950.0" errorMin="340.0" errorMax="340.0" />
+		<OrbitalPeriod value="2950." errorMin="340.0" errorMax="340.0" />
 		<SemiMajorAxis value="4.25" errorMin="0.47" errorMax="0.47" />
 		<Eccentricity value="0.253" errorMin="0.076" errorMax="0.076" />
 		<AngularDistance value="0.080189" />
@@ -14556,7 +14556,7 @@
 		<Mass value="0.75" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="986.0" />
+		<OrbitalPeriod value="986." />
 		<SemiMajorAxis value="2.05" />
 		<Eccentricity value="0.47" />
 		<AngularDistance value="0.045576" />
@@ -14624,7 +14624,7 @@
 		<Mass value="1.99" errorMin="0.25" errorMax="0.25" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3810.0" errorMin="420.0" errorMax="420.0" />
+		<OrbitalPeriod value="3810." errorMin="420.0" errorMax="420.0" />
 		<SemiMajorAxis value="4.89" errorMin="0.53" errorMax="0.53" />
 		<Eccentricity value="0.252" errorMin="0.033" errorMax="0.033" />
 		<AngularDistance value="0.0978" />
@@ -14658,7 +14658,7 @@
 		<Mass value="2.7" errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="772.0" errorMin="11.0" errorMax="11.0" />
+		<OrbitalPeriod value="772." errorMin="11.0" errorMax="11.0" />
 		<SemiMajorAxis value="1.92" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.23" />
 		<AngularDistance value="0.014222" />
@@ -14896,7 +14896,7 @@
 		<Mass value="3.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4885.0" />
+		<OrbitalPeriod value="4885." />
 		<SemiMajorAxis value="5.5" />
 		<Eccentricity value="0.57" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.053398" />
@@ -15100,7 +15100,7 @@
 		<Mass value="6.9" errorMin="1.1" errorMax="3.9" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3638.0" errorMin="232.0" errorMax="185.0" />
+		<OrbitalPeriod value="3638." errorMin="232.0" errorMax="185.0" />
 		<SemiMajorAxis value="5.02" errorMin="0.19" errorMax="0.19" />
 		<Eccentricity value="0.66" errorMin="0.09" errorMax="0.18" />
 		<AngularDistance />
@@ -15134,7 +15134,7 @@
 		<Mass value="2.98" errorMin="0.05" errorMax="0.05" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1326.0" errorMin="3.7" errorMax="3.7" />
+		<OrbitalPeriod value="1326." errorMin="3.7" errorMax="3.7" />
 		<SemiMajorAxis value="2.6" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity value="0.48" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.078788" />
@@ -15338,7 +15338,7 @@
 		<Mass value="0.895" errorMin="0.063" errorMax="0.123" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="825.0" errorMin="3.1" errorMax="5.1" />
+		<OrbitalPeriod value="825." errorMin="3.1" errorMax="5.1" />
 		<SemiMajorAxis value="1.95" errorMin="0.005" errorMax="0.008" />
 		<Eccentricity value="0.181" errorMin="0.017" errorMax="0.024" />
 		<AngularDistance value="0.028509" />
@@ -15440,7 +15440,7 @@
 		<Mass value="1.07" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="500.0" errorMin="6.0" errorMax="6.0" />
+		<OrbitalPeriod value="500." errorMin="6.0" errorMax="6.0" />
 		<SemiMajorAxis value="1.25" />
 		<Eccentricity value="0.23" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.046296" />
@@ -15474,7 +15474,7 @@
 		<Mass value="4.9" errorMin="1.0" errorMax="1.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1183.0" errorMin="150.0" errorMax="150.0" />
+		<OrbitalPeriod value="1183." errorMin="150.0" errorMax="150.0" />
 		<SemiMajorAxis value="2.2" errorMin="0.2" errorMax="0.2" />
 		<Eccentricity value="0.67" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.024499" />
@@ -15610,7 +15610,7 @@
 		<Mass value="0.266" errorMin="0.032" errorMax="0.032" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1733.0" errorMin="74.0" errorMax="74.0" />
+		<OrbitalPeriod value="1733." errorMin="74.0" errorMax="74.0" />
 		<SemiMajorAxis value="2.56" errorMin="0.08" errorMax="0.08" />
 		<Eccentricity value="0.37" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.094815" />
@@ -15678,7 +15678,7 @@
 		<Mass value="2.2" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="610.0" errorMin="13.0" errorMax="13.0" />
+		<OrbitalPeriod value="610." errorMin="13.0" errorMax="13.0" />
 		<SemiMajorAxis value="1.68" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.229" errorMin="0.058" errorMax="0.058" />
 		<AngularDistance value="0.00866" />
@@ -16188,7 +16188,7 @@
 		<Mass value="19.2" errorMin="1.2" errorMax="1.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="7930.0" errorMin="2000.0" errorMax="2500.0" />
+		<OrbitalPeriod value="7930." errorMin="2000.0" errorMax="2500.0" />
 		<SemiMajorAxis value="7.5" errorMin="1.4" errorMax="1.6" />
 		<Eccentricity value="0.685" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance />
@@ -16290,7 +16290,7 @@
 		<Mass value="4.5" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="951.0" errorMin="42.0" errorMax="42.0" />
+		<OrbitalPeriod value="951." errorMin="42.0" errorMax="42.0" />
 		<SemiMajorAxis value="2.03" />
 		<Eccentricity value="0.45" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance value="0.049816" />
@@ -16426,7 +16426,7 @@
 		<Mass value="0.246" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2277.0" />
+		<OrbitalPeriod value="2277." />
 		<SemiMajorAxis value="3.394" />
 		<Eccentricity value="0.19" />
 		<AngularDistance value="0.089316" />
@@ -16528,7 +16528,7 @@
 		<Mass value="1.26" errorMin="0.13" errorMax="0.13" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1311.0" errorMin="49.0" errorMax="49.0" />
+		<OrbitalPeriod value="1311." errorMin="49.0" errorMax="49.0" />
 		<SemiMajorAxis value="2.56" errorMin="0.17" errorMax="0.17" />
 		<Eccentricity value="0.07" errorMin="0.078" errorMax="0.078" />
 		<AngularDistance value="0.076877" />
@@ -16562,7 +16562,7 @@
 		<Mass value="1.82" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1256.0" errorMin="35.0" errorMax="35.0" />
+		<OrbitalPeriod value="1256." errorMin="35.0" errorMax="35.0" />
 		<SemiMajorAxis value="2.32" />
 		<Eccentricity value="0.29" errorMin="0.12" errorMax="0.12" />
 		<AngularDistance value="0.087547" />
@@ -16766,7 +16766,7 @@
 		<Mass value="2.49" errorMin="0.25" errorMax="0.25" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4210.0" errorMin="190.0" errorMax="190.0" />
+		<OrbitalPeriod value="4210." errorMin="190.0" errorMax="190.0" />
 		<SemiMajorAxis value="5.27" errorMin="0.36" errorMax="0.36" />
 		<Eccentricity value="0.517" errorMin="0.033" errorMax="0.033" />
 		<AngularDistance value="0.267241" />
@@ -16797,10 +16797,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 217786 b">
-		<Mass value="13.0" errorMin="0.8" errorMax="0.8" />
+		<Mass value="13." errorMin="0.8" errorMax="0.8" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1319.0" errorMin="4.0" errorMax="4.0" />
+		<OrbitalPeriod value="1319." errorMin="4.0" errorMax="4.0" />
 		<SemiMajorAxis value="2.38" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.4" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance value="0.043431" />
@@ -16868,7 +16868,7 @@
 		<Mass value="10.39" errorMin="0.09" errorMax="0.09" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="5501.0" errorMin="130.0" errorMax="130.0" />
+		<OrbitalPeriod value="5501." errorMin="130.0" errorMax="130.0" />
 		<SemiMajorAxis value="6.22" errorMin="0.09" errorMax="0.09" />
 		<Eccentricity value="0.77" errorMin="0.003" errorMax="0.003" />
 		<AngularDistance />
@@ -17004,7 +17004,7 @@
 		<Mass value="0.0117" errorMin="0.006" errorMax="0.19" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1842.0" errorMin="292.0" errorMax="4199.0" />
+		<OrbitalPeriod value="1842." errorMin="292.0" errorMax="4199.0" />
 		<SemiMajorAxis value="2.56" errorMin="0.15" errorMax="3.41" />
 		<Eccentricity value="0.34" errorMin="0.17" errorMax="0.17" />
 		<AngularDistance />
@@ -17106,7 +17106,7 @@
 		<Mass value="0.34" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2247.0" errorMin="43.0" errorMax="43.0" />
+		<OrbitalPeriod value="2247." errorMin="43.0" errorMax="43.0" />
 		<SemiMajorAxis value="3.11" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.06" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance />
@@ -17137,7 +17137,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 219415 b">
-		<Mass value="1.0" />
+		<Mass value="1." />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="2093.3" errorMin="32.7" errorMax="32.7" />
@@ -17242,7 +17242,7 @@
 		<Mass value="1.06" errorMin="0.09" errorMax="0.09" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2209.0" errorMin="103.0" errorMax="81.0" />
+		<OrbitalPeriod value="2209." errorMin="103.0" errorMax="81.0" />
 		<SemiMajorAxis value="3.36" errorMin="0.09" errorMax="0.09" />
 		<Eccentricity value="0.16" errorMin="0.07" errorMax="0.1" />
 		<AngularDistance />
@@ -17344,7 +17344,7 @@
 		<Mass value="1.9" errorMin="0.53" errorMax="0.67" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3999.0" errorMin="541.0" errorMax="541.0" />
+		<OrbitalPeriod value="3999." errorMin="541.0" errorMax="541.0" />
 		<SemiMajorAxis value="5.1" errorMin="0.7" errorMax="0.7" />
 		<Eccentricity value="0.16" errorMin="0.22" errorMax="0.22" />
 		<AngularDistance value="0.10387" />
@@ -17480,7 +17480,7 @@
 		<Mass value="2.5" errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="626.0" errorMin="24.0" errorMax="24.0" />
+		<OrbitalPeriod value="626." errorMin="24.0" errorMax="24.0" />
 		<SemiMajorAxis value="1.5" errorMin="0.2" errorMax="0.2" />
 		<Eccentricity value="0.02" errorMin="0.12" errorMax="0.12" />
 		<AngularDistance value="0.043103" />
@@ -17514,7 +17514,7 @@
 		<Mass value="1.5" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1214.0" errorMin="9.0" errorMax="9.0" />
+		<OrbitalPeriod value="1214." errorMin="9.0" errorMax="9.0" />
 		<SemiMajorAxis value="2.4" errorMin="0.3" errorMax="0.3" />
 		<Eccentricity value="0.44" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance value="0.026936" />
@@ -17582,7 +17582,7 @@
 		<Mass value="6.575" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="192.0" errorMin="0.22" errorMax="0.22" />
+		<OrbitalPeriod value="192." errorMin="0.22" errorMax="0.22" />
 		<SemiMajorAxis value="0.747" />
 		<Eccentricity value="0.05" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance />
@@ -17616,7 +17616,7 @@
 		<Mass value="8.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1565.0" errorMin="21.0" errorMax="21.0" />
+		<OrbitalPeriod value="1565." errorMin="21.0" errorMax="21.0" />
 		<SemiMajorAxis value="2.88" />
 		<Eccentricity value="0.292" errorMin="0.023" errorMax="0.023" />
 		<AngularDistance value="0.055385" />
@@ -17718,7 +17718,7 @@
 		<Mass value="4.01" errorMin="0.49" errorMax="0.49" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3668.0" errorMin="170.0" errorMax="170.0" />
+		<OrbitalPeriod value="3668." errorMin="170.0" errorMax="170.0" />
 		<SemiMajorAxis value="4.92" errorMin="0.38" errorMax="0.38" />
 		<Eccentricity value="0.04" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.105784" />
@@ -17786,7 +17786,7 @@
 		<Mass value="0.95" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1845.0" errorMin="15.0" errorMax="15.0" />
+		<OrbitalPeriod value="1845." errorMin="15.0" errorMax="15.0" />
 		<SemiMajorAxis value="3.02" errorMin="0.16" errorMax="0.16" />
 		<Eccentricity value="0.08" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.054909" />
@@ -17888,7 +17888,7 @@
 		<Mass value="1.45" errorMin="0.14" errorMax="0.14" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2208.0" errorMin="66.0" errorMax="66.0" />
+		<OrbitalPeriod value="2208." errorMin="66.0" errorMax="66.0" />
 		<SemiMajorAxis value="3.25" errorMin="0.07" errorMax="0.07" />
 		<Eccentricity value="0.12" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance />
@@ -17956,7 +17956,7 @@
 		<Mass value="5.7" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="383.0" errorMin="2.0" errorMax="2.0" />
+		<OrbitalPeriod value="383." errorMin="2.0" errorMax="2.0" />
 		<SemiMajorAxis value="1.03" />
 		<Eccentricity value="0.07" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance value="0.026142" />
@@ -17990,7 +17990,7 @@
 		<Mass value="1.16" errorMin="0.06" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1116.0" errorMin="26.0" errorMax="26.0" />
+		<OrbitalPeriod value="1116." errorMin="26.0" errorMax="26.0" />
 		<SemiMajorAxis value="2.15" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.81" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.038256" />
@@ -18021,11 +18021,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 284149 b">
-		<Mass value="32.0" errorMin="18.0" errorMax="14.0" />
+		<Mass value="32." errorMin="18.0" errorMax="14.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="400.0" />
+		<SemiMajorAxis value="400." />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -18126,7 +18126,7 @@
 		<Mass value="2.54" errorMin="0.14" errorMax="0.17" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2443.0" errorMin="117.0" errorMax="117.0" />
+		<OrbitalPeriod value="2443." errorMin="117.0" errorMax="117.0" />
 		<SemiMajorAxis value="3.43" errorMin="0.12" errorMax="0.12" />
 		<Eccentricity value="0.08" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance value="0.062477" />
@@ -18194,7 +18194,7 @@
 		<Mass value="7.7" errorMin="1.5" errorMax="1.5" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1620.0" errorMin="800.0" errorMax="800.0" />
+		<OrbitalPeriod value="1620." errorMin="800.0" errorMax="800.0" />
 		<SemiMajorAxis value="2.6" errorMin="0.9" errorMax="0.9" />
 		<Eccentricity value="0.22" errorMin="0.17" errorMax="0.17" />
 		<AngularDistance value="0.047273" />
@@ -18228,7 +18228,7 @@
 		<Mass value="1.29" errorMin="0.08" errorMax="0.08" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1157.0" errorMin="27.0" errorMax="27.0" />
+		<OrbitalPeriod value="1157." errorMin="27.0" errorMax="27.0" />
 		<SemiMajorAxis value="2.3" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.76" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance value="0.086792" />
@@ -18262,7 +18262,7 @@
 		<Mass value="0.47" errorMin="0.06" errorMax="0.06" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1684.0" errorMin="61.0" errorMax="61.0" />
+		<OrbitalPeriod value="1684." errorMin="61.0" errorMax="61.0" />
 		<SemiMajorAxis value="2.69" errorMin="0.08" errorMax="0.08" />
 		<Eccentricity value="0.18" errorMin="0.15" errorMax="0.15" />
 		<AngularDistance />
@@ -18296,8 +18296,8 @@
 		<Mass value="1.8" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="912.0" errorMin="41.0" errorMax="41.0" />
-		<SemiMajorAxis value="2.0" errorMin="0.08" errorMax="0.08" />
+		<OrbitalPeriod value="912." errorMin="41.0" errorMax="41.0" />
+		<SemiMajorAxis value="2." errorMin="0.08" errorMax="0.08" />
 		<Eccentricity value="0.24" />
 		<AngularDistance value="0.016935" />
 		<Inclination />
@@ -18330,7 +18330,7 @@
 		<Mass value="0.5" errorMin="0.07" errorMax="0.07" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="466.0" errorMin="3.0" errorMax="3.0" />
+		<OrbitalPeriod value="466." errorMin="3.0" errorMax="3.0" />
 		<SemiMajorAxis value="1.26" errorMin="0.006" errorMax="0.006" />
 		<Eccentricity value="0.3" errorMin="0.2" errorMax="0.2" />
 		<AngularDistance value="0.023411" />
@@ -18500,7 +18500,7 @@
 		<Mass value="0.7" errorMin="0.03" errorMax="0.03" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2372.0" errorMin="26.0" errorMax="26.0" />
+		<OrbitalPeriod value="2372." errorMin="26.0" errorMax="26.0" />
 		<SemiMajorAxis value="3.41" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.07" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance />
@@ -18636,7 +18636,7 @@
 		<Mass value="9.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="388.0" errorMin="3.0" errorMax="3.0" />
+		<OrbitalPeriod value="388." errorMin="3.0" errorMax="3.0" />
 		<SemiMajorAxis value="1.1" />
 		<Eccentricity value="0.34" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.052431" />
@@ -18704,7 +18704,7 @@
 		<Mass value="1.75" errorMin="0.18" errorMax="0.18" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="916.0" errorMin="29.5" errorMax="29.5" />
+		<OrbitalPeriod value="916." errorMin="29.5" errorMax="29.5" />
 		<SemiMajorAxis value="2.24" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.13" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance />
@@ -18738,7 +18738,7 @@
 		<Mass value="0.79" errorMin="0.07" errorMax="0.07" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1049.0" errorMin="11.0" errorMax="11.0" />
+		<OrbitalPeriod value="1049." errorMin="11.0" errorMax="11.0" />
 		<SemiMajorAxis value="2.07" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.27" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance value="0.044516" />
@@ -18776,7 +18776,7 @@
 		<SemiMajorAxis value="0.284" />
 		<Eccentricity value="0.63" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance value="0.025818" />
-		<Inclination value="83.0" errorMin="56.0" errorMax="56.0" />
+		<Inclination value="83." errorMin="56.0" errorMax="56.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -18806,7 +18806,7 @@
 		<Mass value="0.09" errorMin="0.03" errorMax="0.03" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="31.0" errorMin="0.02" errorMax="0.02" />
+		<OrbitalPeriod value="31." errorMin="0.02" errorMax="0.02" />
 		<SemiMajorAxis value="0.186" errorMin="0.002" errorMax="0.002" />
 		<Eccentricity value="0.04" errorMin="0.2" errorMax="0.2" />
 		<AngularDistance />
@@ -18908,7 +18908,7 @@
 		<Mass value="0.696" errorMin="0.059" errorMax="0.059" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1862.0" errorMin="38.0" errorMax="38.0" />
+		<OrbitalPeriod value="1862." errorMin="38.0" errorMax="38.0" />
 		<SemiMajorAxis value="2.807" errorMin="0.038" errorMax="0.038" />
 		<Eccentricity value="0.16" errorMin="0.14" errorMax="0.14" />
 		<AngularDistance value="0.085061" />
@@ -18976,7 +18976,7 @@
 		<Mass value="3.366" errorMin="0.072" errorMax="0.072" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2720.0" errorMin="57.0" errorMax="57.0" />
+		<OrbitalPeriod value="2720." errorMin="57.0" errorMax="57.0" />
 		<SemiMajorAxis value="3.814" errorMin="0.058" errorMax="0.058" />
 		<Eccentricity value="0.013" errorMin="0.015" errorMax="0.015" />
 		<AngularDistance />
@@ -19048,7 +19048,7 @@
 		<SemiMajorAxis value="0.131" errorMin="0.0015" errorMax="0.0015" />
 		<Eccentricity value="0.248" errorMin="0.007" errorMax="0.007" />
 		<AngularDistance value="0.003335" />
-		<Inclination value="57.0" errorMin="14.0" errorMax="14.0" />
+		<Inclination value="57." errorMin="14.0" errorMax="14.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -19180,7 +19180,7 @@
 		<Mass value="10.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2049.0" errorMin="150.0" errorMax="150.0" />
+		<OrbitalPeriod value="2049." errorMin="150.0" errorMax="150.0" />
 		<SemiMajorAxis value="3.28" />
 		<Eccentricity value="0.61" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance value="0.179039" />
@@ -19554,7 +19554,7 @@
 		<Mass value="2.54" errorMin="0.74" errorMax="0.74" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="963.0" errorMin="38.0" errorMax="38.0" />
+		<OrbitalPeriod value="963." errorMin="38.0" errorMax="38.0" />
 		<SemiMajorAxis value="1.64" />
 		<Eccentricity value="0.39" errorMin="0.17" errorMax="0.17" />
 		<AngularDistance value="0.038588" />
@@ -19690,7 +19690,7 @@
 		<Mass value="2.17" errorMin="0.52" errorMax="0.52" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="6700.0" errorMin="4500.0" errorMax="4500.0" />
+		<OrbitalPeriod value="6700." errorMin="4500.0" errorMax="4500.0" />
 		<SemiMajorAxis />
 		<Eccentricity value="0.24" errorMin="0.13" errorMax="0.13" />
 		<AngularDistance />
@@ -19724,7 +19724,7 @@
 		<Mass value="0.8" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="829.0" errorMin="36.0" errorMax="36.0" />
+		<OrbitalPeriod value="829." errorMin="36.0" errorMax="36.0" />
 		<SemiMajorAxis value="1.7" />
 		<Eccentricity value="0.04" errorMin="0.12" errorMax="0.12" />
 		<AngularDistance value="0.050147" />
@@ -19792,7 +19792,7 @@
 		<Mass value="2.3" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="356.0" errorMin="2.6" errorMax="2.6" />
+		<OrbitalPeriod value="356." errorMin="2.6" errorMax="2.6" />
 		<SemiMajorAxis value="1.19" errorMin="0.03" errorMax="0.03" />
 		<Eccentricity value="0.041" errorMin="0.037" errorMax="0.037" />
 		<AngularDistance value="0.008686" />
@@ -20197,10 +20197,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 47536 b">
-		<Mass value="5.0" />
+		<Mass value="5." />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="430.0" />
+		<OrbitalPeriod value="430." />
 		<SemiMajorAxis value="1.61" />
 		<Eccentricity value="0.2" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.013266" />
@@ -20231,10 +20231,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 47536 c">
-		<Mass value="7.0" />
+		<Mass value="7." />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2500.0" />
+		<OrbitalPeriod value="2500." />
 		<SemiMajorAxis />
 		<Eccentricity />
 		<AngularDistance />
@@ -20268,7 +20268,7 @@
 		<Mass value="1.16" errorMin="0.38" errorMax="0.38" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="700.0" errorMin="8.0" errorMax="8.0" />
+		<OrbitalPeriod value="700." errorMin="8.0" errorMax="8.0" />
 		<SemiMajorAxis value="1.51" />
 		<Eccentricity value="0.18" errorMin="0.13" errorMax="0.13" />
 		<AngularDistance value="0.017277" />
@@ -20370,7 +20370,7 @@
 		<Mass value="5.16" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1293.0" errorMin="37.0" errorMax="37.0" />
+		<OrbitalPeriod value="1293." errorMin="37.0" errorMax="37.0" />
 		<SemiMajorAxis value="2.41" />
 		<Eccentricity value="0.5" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance value="0.077667" />
@@ -20540,7 +20540,7 @@
 		<Mass value="1.94" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="675.0" errorMin="17.0" errorMax="17.0" />
+		<OrbitalPeriod value="675." errorMin="17.0" errorMax="17.0" />
 		<SemiMajorAxis value="1.75" />
 		<Eccentricity value="0.12" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.0175" />
@@ -20676,7 +20676,7 @@
 		<Mass value="5.25" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="303.0" />
+		<OrbitalPeriod value="303." />
 		<SemiMajorAxis value="0.911" />
 		<Eccentricity />
 		<AngularDistance value="0.009902" />
@@ -20714,7 +20714,7 @@
 		<SemiMajorAxis value="0.77" />
 		<Eccentricity value="0.278" errorMin="0.006" errorMax="0.006" />
 		<AngularDistance value="0.029961" />
-		<Inclination value="20.0" errorMin="0.0" errorMax="0.0" />
+		<Inclination value="20." errorMin="0.0" errorMax="0.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -20748,7 +20748,7 @@
 		<SemiMajorAxis value="1.58" />
 		<Eccentricity value="0.038" errorMin="0.008" errorMax="0.008" />
 		<AngularDistance value="0.061479" />
-		<Inclination value="20.0" errorMin="0.0" errorMax="0.0" />
+		<Inclination value="20." errorMin="0.0" errorMax="0.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -20846,7 +20846,7 @@
 		<Mass value="0.64" errorMin="0.05" errorMax="0.05" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="358.0" errorMin="1.0" errorMax="1.0" />
+		<OrbitalPeriod value="358." errorMin="1.0" errorMax="1.0" />
 		<SemiMajorAxis value="0.949" errorMin="0.016" errorMax="0.016" />
 		<Eccentricity value="0.24" errorMin="0.043" errorMax="0.043" />
 		<AngularDistance value="0.02911" />
@@ -20979,7 +20979,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 66141 b">
-		<Mass value="6.0" errorMin="0.3" errorMax="0.3" />
+		<Mass value="6." errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="480.5" errorMin="0.5" errorMax="0.5" />
@@ -21016,7 +21016,7 @@
 		<Mass value="2.82" errorMin="0.027" errorMax="0.027" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1973.0" errorMin="31.0" errorMax="31.0" />
+		<OrbitalPeriod value="1973." errorMin="31.0" errorMax="31.0" />
 		<SemiMajorAxis value="3.18" errorMin="0.19" errorMax="0.19" />
 		<Eccentricity value="0.465" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance value="0.057818" />
@@ -21084,7 +21084,7 @@
 		<Mass value="4.85" errorMin="3.61" errorMax="10.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2374.0" errorMin="156.0" errorMax="193.0" />
+		<OrbitalPeriod value="2374." errorMin="156.0" errorMax="193.0" />
 		<SemiMajorAxis value="3.86" errorMin="0.37" errorMax="0.43" />
 		<Eccentricity value="0.76" errorMin="0.24" errorMax="0.17" />
 		<AngularDistance />
@@ -21118,7 +21118,7 @@
 		<Mass value="1.56" errorMin="0.1" errorMax="0.11" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2496.0" errorMin="176.0" errorMax="176.0" />
+		<OrbitalPeriod value="2496." errorMin="176.0" errorMax="176.0" />
 		<SemiMajorAxis value="3.56" errorMin="0.15" errorMax="0.15" />
 		<Eccentricity value="0.1" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance value="0.063685" />
@@ -21190,7 +21190,7 @@
 		<SemiMajorAxis value="0.0785" />
 		<Eccentricity value="0.1" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance value="0.00623" />
-		<Inclination value="13.0" errorMin="13.0" errorMax="13.0" />
+		<Inclination value="13." errorMin="13.0" errorMax="13.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -21224,7 +21224,7 @@
 		<SemiMajorAxis value="0.186" />
 		<Eccentricity value="0.13" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.014762" />
-		<Inclination value="13.0" errorMin="13.0" errorMax="13.0" />
+		<Inclination value="13." errorMin="13.0" errorMax="13.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -21254,11 +21254,11 @@
 		<Mass value="0.058" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="197.0" errorMin="3.0" errorMax="3.0" />
+		<OrbitalPeriod value="197." errorMin="3.0" errorMax="3.0" />
 		<SemiMajorAxis value="0.63" />
 		<Eccentricity value="0.07" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance value="0.05" />
-		<Inclination value="13.0" errorMin="13.0" errorMax="13.0" />
+		<Inclination value="13." errorMin="13.0" errorMax="13.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -21319,10 +21319,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 70642 b">
-		<Mass value="2.0" />
+		<Mass value="2." />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2231.0" errorMin="400.0" errorMax="400.0" />
+		<OrbitalPeriod value="2231." errorMin="400.0" errorMax="400.0" />
 		<SemiMajorAxis value="3.3" />
 		<Eccentricity value="0.1" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.114583" />
@@ -21356,7 +21356,7 @@
 		<Mass value="0.29" errorMin="0.023" errorMax="0.023" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="615.0" errorMin="7.0" errorMax="7.0" />
+		<OrbitalPeriod value="615." errorMin="7.0" errorMax="7.0" />
 		<SemiMajorAxis value="1.36" errorMin="0.02" errorMax="0.02" />
 		<Eccentricity value="0.19" errorMin="0.13" errorMax="0.13" />
 		<AngularDistance value="0.037778" />
@@ -21390,7 +21390,7 @@
 		<Mass value="3.15" errorMin="0.14" errorMax="0.14" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3658.0" errorMin="32.0" errorMax="32.0" />
+		<OrbitalPeriod value="3658." errorMin="32.0" errorMax="32.0" />
 		<SemiMajorAxis value="4.74" errorMin="0.08" errorMax="0.08" />
 		<Eccentricity value="0.22" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance value="0.095181" />
@@ -21458,7 +21458,7 @@
 		<Mass value="3.06" errorMin="0.07" errorMax="0.07" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1260.0" errorMin="7.0" errorMax="7.0" />
+		<OrbitalPeriod value="1260." errorMin="7.0" errorMax="7.0" />
 		<SemiMajorAxis value="2.198" errorMin="0.025" errorMax="0.025" />
 		<Eccentricity value="0.256" errorMin="0.009" errorMax="0.009" />
 		<AngularDistance value="0.040029" />
@@ -21560,7 +21560,7 @@
 		<Mass value="1.15" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1800.0" errorMin="110.0" errorMax="110.0" />
+		<OrbitalPeriod value="1800." errorMin="110.0" errorMax="110.0" />
 		<SemiMajorAxis value="3.15" />
 		<Eccentricity value="0.046" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.032478" />
@@ -21628,7 +21628,7 @@
 		<Mass value="8.03" errorMin="0.12" errorMax="0.12" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2476.0" errorMin="8.7" errorMax="8.7" />
+		<OrbitalPeriod value="2476." errorMin="8.7" errorMax="8.7" />
 		<SemiMajorAxis value="3.4" />
 		<Eccentricity value="0.43" errorMin="0.01" errorMax="0.01" />
 		<AngularDistance value="0.052664" />
@@ -21662,7 +21662,7 @@
 		<Mass value="1.11" errorMin="0.37" errorMax="0.27" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1275.0" errorMin="11.0" errorMax="15.0" />
+		<OrbitalPeriod value="1275." errorMin="11.0" errorMax="15.0" />
 		<SemiMajorAxis value="2.3" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.82" errorMin="0.06" errorMax="0.06" />
 		<AngularDistance value="0.058974" />
@@ -21693,10 +21693,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 7449 c">
-		<Mass value="2.0" errorMin="0.54" errorMax="0.36" />
+		<Mass value="2." errorMin="0.54" errorMax="0.36" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4046.0" errorMin="366.0" errorMax="186.0" />
+		<OrbitalPeriod value="4046." errorMin="366.0" errorMax="186.0" />
 		<SemiMajorAxis value="4.96" errorMin="0.3" errorMax="0.2" />
 		<Eccentricity value="0.53" errorMin="0.08" errorMax="0.08" />
 		<AngularDistance value="0.127179" />
@@ -21968,7 +21968,7 @@
 		<Mass value="1.34" errorMin="0.07" errorMax="0.07" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1966.0" errorMin="41.0" errorMax="41.0" />
+		<OrbitalPeriod value="1966." errorMin="41.0" errorMax="41.0" />
 		<SemiMajorAxis value="3.13" errorMin="0.08" errorMax="0.08" />
 		<Eccentricity value="0.59" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.063878" />
@@ -22104,7 +22104,7 @@
 		<Mass value="1.3" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="705.0" errorMin="34.0" errorMax="34.0" />
+		<OrbitalPeriod value="705." errorMin="34.0" errorMax="34.0" />
 		<SemiMajorAxis value="1.65" errorMin="0.06" errorMax="0.06" />
 		<Eccentricity value="0.27" />
 		<AngularDistance value="0.0132" />
@@ -22206,7 +22206,7 @@
 		<Mass value="0.29" errorMin="0.031" errorMax="0.031" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1078.0" errorMin="13.0" errorMax="13.0" />
+		<OrbitalPeriod value="1078." errorMin="13.0" errorMax="13.0" />
 		<SemiMajorAxis value="2.145" errorMin="0.017" errorMax="0.017" />
 		<Eccentricity />
 		<AngularDistance />
@@ -22274,7 +22274,7 @@
 		<Mass value="0.68" errorMin="0.04" errorMax="0.07" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1313.0" errorMin="28.0" errorMax="28.0" />
+		<OrbitalPeriod value="1313." errorMin="28.0" errorMax="28.0" />
 		<SemiMajorAxis value="2.45" errorMin="0.06" errorMax="0.06" />
 		<Eccentricity value="0.15" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance value="0.046667" />
@@ -22308,7 +22308,7 @@
 		<Mass value="0.132" errorMin="0.01" errorMax="0.01" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="788.0" errorMin="25.0" errorMax="25.0" />
+		<OrbitalPeriod value="788." errorMin="25.0" errorMax="25.0" />
 		<SemiMajorAxis value="1.52" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.41" errorMin="0.12" errorMax="0.12" />
 		<AngularDistance value="0.044759" />
@@ -22342,7 +22342,7 @@
 		<Mass value="0.2" errorMin="0.02" errorMax="0.02" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3700.0" errorMin="840.0" errorMax="840.0" />
+		<OrbitalPeriod value="3700." errorMin="840.0" errorMax="840.0" />
 		<SemiMajorAxis value="4.23" errorMin="0.09" errorMax="0.09" />
 		<Eccentricity />
 		<AngularDistance />
@@ -22478,7 +22478,7 @@
 		<Mass value="1.5" errorMin="1.0" errorMax="1.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1534.0" errorMin="280.0" errorMax="280.0" />
+		<OrbitalPeriod value="1534." errorMin="280.0" errorMax="280.0" />
 		<SemiMajorAxis value="2.6" errorMin="0.4" errorMax="0.4" />
 		<Eccentricity value="0.73" errorMin="0.21" errorMax="0.21" />
 		<AngularDistance value="0.061205" />
@@ -22509,10 +22509,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 86264 b">
-		<Mass value="7.0" errorMin="1.6" errorMax="1.6" />
+		<Mass value="7." errorMin="1.6" errorMax="1.6" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1475.0" errorMin="55.0" errorMax="55.0" />
+		<OrbitalPeriod value="1475." errorMin="55.0" errorMax="55.0" />
 		<SemiMajorAxis value="2.86" errorMin="0.07" errorMax="0.07" />
 		<Eccentricity value="0.7" errorMin="0.2" errorMax="0.2" />
 		<AngularDistance value="0.039394" />
@@ -22546,7 +22546,7 @@
 		<Mass value="14.2" errorMin="1.6" errorMax="1.6" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1634.0" errorMin="17.0" errorMax="17.0" />
+		<OrbitalPeriod value="1634." errorMin="17.0" errorMax="17.0" />
 		<SemiMajorAxis value="3.02" errorMin="0.15" errorMax="0.15" />
 		<Eccentricity value="0.723" errorMin="0.016" errorMax="0.016" />
 		<AngularDistance value="0.078954" />
@@ -22580,7 +22580,7 @@
 		<Mass value="12.1" errorMin="10.0" errorMax="9.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2754.0" errorMin="87.0" errorMax="87.0" />
+		<OrbitalPeriod value="2754." errorMin="87.0" errorMax="87.0" />
 		<SemiMajorAxis value="3.6" errorMin="0.08" errorMax="0.08" />
 		<Eccentricity value="0.53" errorMin="0.12" errorMax="0.12" />
 		<AngularDistance value="0.198895" />
@@ -22613,7 +22613,7 @@
 	<Exoplanet name="HD 88133 b">
 		<Mass value="0.3" />
 		<MassSini />
-		<Radius value="1.0" />
+		<Radius value="1." />
 		<OrbitalPeriod value="3.41566" errorMin="0.00084" errorMax="0.00084" />
 		<SemiMajorAxis value="0.047" />
 		<Eccentricity value="0.0761" errorMin="0.0508" errorMax="0.0761" />
@@ -22645,10 +22645,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 89307 b">
-		<Mass value="2.0" errorMin="0.4" errorMax="0.4" />
+		<Mass value="2." errorMin="0.4" errorMax="0.4" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2199.0" errorMin="61.0" errorMax="61.0" />
+		<OrbitalPeriod value="2199." errorMin="61.0" errorMax="61.0" />
 		<SemiMajorAxis value="3.34" errorMin="0.17" errorMax="0.17" />
 		<Eccentricity value="0.25" errorMin="0.09" errorMax="0.09" />
 		<AngularDistance value="0.108091" />
@@ -22682,11 +22682,11 @@
 		<Mass value="7.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="256.0" errorMin="0.7" errorMax="0.7" />
+		<OrbitalPeriod value="256." errorMin="0.7" errorMax="0.7" />
 		<SemiMajorAxis value="0.88" />
 		<Eccentricity value="0.7" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.022" />
-		<Inclination value="54.0" errorMin="12.0" errorMax="12.0" />
+		<Inclination value="54." errorMin="12.0" errorMax="12.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -22788,7 +22788,7 @@
 		<SemiMajorAxis value="0.97" />
 		<Eccentricity value="0.334" errorMin="0.011" errorMax="0.011" />
 		<AngularDistance value="0.029555" />
-		<Inclination value="8.0" errorMin="8.0" errorMax="8.0" />
+		<Inclination value="8." errorMin="8.0" errorMax="8.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -22818,7 +22818,7 @@
 		<Mass value="0.9" errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="162.0" errorMin="3.0" errorMax="3.0" />
+		<OrbitalPeriod value="162." errorMin="3.0" errorMax="3.0" />
 		<SemiMajorAxis value="0.6" errorMin="0.01" errorMax="0.01" />
 		<Eccentricity value="0.04" errorMin="0.21" errorMax="0.21" />
 		<AngularDistance />
@@ -23019,7 +23019,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 95086 b">
-		<Mass value="5.0" errorMin="2.0" errorMax="2.0" />
+		<Mass value="5." errorMin="2.0" errorMax="2.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
@@ -23056,7 +23056,7 @@
 		<Mass value="1.2" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="507.0" errorMin="16.0" errorMax="16.0" />
+		<OrbitalPeriod value="507." errorMin="16.0" errorMax="16.0" />
 		<SemiMajorAxis value="1.51" errorMin="0.05" errorMax="0.05" />
 		<Eccentricity value="0.157" errorMin="0.086" errorMax="0.086" />
 		<AngularDistance value="0.010863" />
@@ -23090,7 +23090,7 @@
 		<Mass value="5.01" errorMin="0.44" errorMax="0.61" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="482.0" errorMin="5.0" errorMax="5.0" />
+		<OrbitalPeriod value="482." errorMin="5.0" errorMax="5.0" />
 		<SemiMajorAxis value="1.28" errorMin="0.01" errorMax="0.01" />
 		<Eccentricity value="0.11" errorMin="0.06" errorMax="0.15" />
 		<AngularDistance />
@@ -23124,7 +23124,7 @@
 		<Mass value="0.62" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="494.0" />
+		<OrbitalPeriod value="494." />
 		<SemiMajorAxis />
 		<Eccentricity />
 		<AngularDistance />
@@ -23158,7 +23158,7 @@
 		<Mass value="4.6" errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4375.0" errorMin="169.0" errorMax="169.0" />
+		<OrbitalPeriod value="4375." errorMin="169.0" errorMax="169.0" />
 		<SemiMajorAxis value="5.2" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity value="0.06" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance />
@@ -23223,7 +23223,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD 96127 b">
-		<Mass value="4.0" />
+		<Mass value="4." />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="647.3" errorMin="16.8" errorMax="16.8" />
@@ -23430,7 +23430,7 @@
 		<Mass value="6.8" errorMin="0.5" errorMax="0.5" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4951.0" errorMin="607.0" errorMax="465.0" />
+		<OrbitalPeriod value="4951." errorMin="607.0" errorMax="465.0" />
 		<SemiMajorAxis value="5.6" errorMin="0.4" errorMax="0.4" />
 		<Eccentricity value="0.85" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance />
@@ -23532,7 +23532,7 @@
 		<Mass value="0.36" errorMin="0.02" errorMax="0.02" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4970.0" errorMin="149.0" errorMax="149.0" />
+		<OrbitalPeriod value="4970." errorMin="149.0" errorMax="149.0" />
 		<SemiMajorAxis value="5.4" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity value="0.106" errorMin="0.006" errorMax="0.006" />
 		<AngularDistance value="0.3" />
@@ -23566,7 +23566,7 @@
 		<Mass value="1.4" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="868.0" errorMin="31.0" errorMax="31.0" />
+		<OrbitalPeriod value="868." errorMin="31.0" errorMax="31.0" />
 		<SemiMajorAxis value="2.14" errorMin="0.08" errorMax="0.08" />
 		<Eccentricity value="0.365" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.016589" />
@@ -23597,7 +23597,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HD169142 b">
-		<Mass value="30.0" errorMin="2.0" errorMax="2.0" />
+		<Mass value="30." errorMin="2.0" errorMax="2.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
@@ -23736,7 +23736,7 @@
 		<Mass value="0.99" errorMin="0.06" errorMax="0.06" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3830.0" errorMin="150.0" errorMax="150.0" />
+		<OrbitalPeriod value="3830." errorMin="150.0" errorMax="150.0" />
 		<SemiMajorAxis value="4.8" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity value="0.1" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance />
@@ -23872,7 +23872,7 @@
 		<Mass value="0.57" errorMin="0.052" errorMax="0.052" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="962.0" errorMin="15.0" errorMax="15.0" />
+		<OrbitalPeriod value="962." errorMin="15.0" errorMax="15.0" />
 		<SemiMajorAxis value="1.89" errorMin="0.11" errorMax="0.11" />
 		<Eccentricity value="0.173" errorMin="0.037" errorMax="0.037" />
 		<AngularDistance value="0.035728" />
@@ -23940,7 +23940,7 @@
 		<Mass value="15.04" errorMin="10.55" errorMax="10.55" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="9018.0" errorMin="3181.0" errorMax="3181.0" />
+		<OrbitalPeriod value="9018." errorMin="3181.0" errorMax="3181.0" />
 		<SemiMajorAxis value="7.7" errorMin="1.88" errorMax="1.88" />
 		<Eccentricity value="0.14" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.171111" />
@@ -24141,7 +24141,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 65891 b">
-		<Mass value="6.0" errorMin="0.5" errorMax="0.5" />
+		<Mass value="6." errorMin="0.5" errorMax="0.5" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="1084.5" errorMin="23.2" errorMax="23.2" />
@@ -24243,11 +24243,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 70849 b">
-		<Mass value="9.0" errorMin="6.0" errorMax="6.0" />
+		<Mass value="9." errorMin="6.0" errorMax="6.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="10000.0" errorMin="8000.0" errorMax="8000.0" />
-		<SemiMajorAxis value="10.0" errorMin="5.5" errorMax="5.5" />
+		<OrbitalPeriod value="10000." errorMin="8000.0" errorMax="8000.0" />
+		<SemiMajorAxis value="10." errorMin="5.5" errorMax="5.5" />
 		<Eccentricity value="0.6" errorMin="0.13" errorMax="0.13" />
 		<AngularDistance value="0.416667" />
 		<Inclination />
@@ -24277,11 +24277,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 73990 b">
-		<Mass value="21.0" errorMin="5.0" errorMax="30.0" />
+		<Mass value="21." errorMin="5.0" errorMax="30.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="20.0" errorMin="4.0" errorMax="4.0" />
+		<SemiMajorAxis value="20." errorMin="4.0" errorMax="4.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -24311,11 +24311,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 73990 c">
-		<Mass value="22.0" errorMin="6.0" errorMax="35.0" />
+		<Mass value="22." errorMin="6.0" errorMax="35.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="32.0" errorMin="7.0" errorMax="7.0" />
+		<SemiMajorAxis value="32." errorMin="7.0" errorMax="7.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -24345,11 +24345,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 74865 b">
-		<Mass value="28.0" errorMin="10.0" errorMax="37.0" />
+		<Mass value="28." errorMin="10.0" errorMax="37.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="23.0" errorMin="6.0" errorMax="6.0" />
+		<SemiMajorAxis value="23." errorMin="6.0" errorMax="6.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -24413,11 +24413,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 77900 b">
-		<Mass value="20.0" errorMin="3.0" errorMax="7.0" />
+		<Mass value="20." errorMin="3.0" errorMax="7.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="3200.0" errorMin="300.0" errorMax="300.0" />
+		<SemiMajorAxis value="3200." errorMin="300.0" errorMax="300.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -24451,7 +24451,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="710.0" errorMin="60.0" errorMax="60.0" />
+		<SemiMajorAxis value="710." errorMin="60.0" errorMax="60.0" />
 		<Eccentricity />
 		<AngularDistance value="4.530951" />
 		<Inclination />
@@ -24549,7 +24549,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HIP 97233 b">
-		<Mass value="20.0" errorMin="0.4" errorMax="0.4" />
+		<Mass value="20." errorMin="0.4" errorMax="0.4" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="1058.8" errorMin="6.7" errorMax="6.7" />
@@ -24583,11 +24583,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HN Peg b">
-		<Mass value="16.0" errorMin="9.4" errorMax="9.4" />
+		<Mass value="16." errorMin="9.4" errorMax="9.4" />
 		<MassSini />
 		<Radius value="1.1" errorMin="0.06" errorMax="0.06" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="795.0" errorMin="15.0" errorMax="15.0" />
+		<SemiMajorAxis value="795." errorMin="15.0" errorMax="15.0" />
 		<Eccentricity />
 		<AngularDistance value="43.206522" />
 		<Inclination />
@@ -24654,7 +24654,7 @@
 		<Mass value="2.37" errorMin="0.38" errorMax="0.38" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2732.0" errorMin="81.0" errorMax="81.0" />
+		<OrbitalPeriod value="2732." errorMin="81.0" errorMax="81.0" />
 		<SemiMajorAxis value="4.6" errorMin="0.23" errorMax="0.23" />
 		<Eccentricity value="0.23" errorMin="0.07" errorMax="0.07" />
 		<AngularDistance />
@@ -24689,7 +24689,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="80.0" />
+		<SemiMajorAxis value="80." />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -24753,14 +24753,14 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HR 8799 b">
-		<Mass value="7.0" errorMin="2.0" errorMax="4.0" />
+		<Mass value="7." errorMin="2.0" errorMax="4.0" />
 		<MassSini />
 		<Radius value="1.2" errorMin="0.1" errorMax="0.1" />
-		<OrbitalPeriod value="164250.0" />
-		<SemiMajorAxis value="68.0" />
+		<OrbitalPeriod value="164250." />
+		<SemiMajorAxis value="68." />
 		<Eccentricity />
 		<AngularDistance value="1.725888" />
-		<Inclination value="28.0" />
+		<Inclination value="28." />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -24787,14 +24787,14 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HR 8799 c">
-		<Mass value="10.0" errorMin="3.0" errorMax="3.0" />
+		<Mass value="10." errorMin="3.0" errorMax="3.0" />
 		<MassSini />
 		<Radius value="1.3" errorMin="0.0" errorMax="0.0" />
-		<OrbitalPeriod value="82145.0" />
+		<OrbitalPeriod value="82145." />
 		<SemiMajorAxis value="42.9" />
 		<Eccentricity />
 		<AngularDistance value="1.088832" />
-		<Inclination value="28.0" />
+		<Inclination value="28." />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -24821,14 +24821,14 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HR 8799 d">
-		<Mass value="10.0" errorMin="3.0" errorMax="3.0" />
+		<Mass value="10." errorMin="3.0" errorMax="3.0" />
 		<MassSini />
 		<Radius value="1.2" errorMin="0.0" errorMax="0.0" />
-		<OrbitalPeriod value="41054.0" />
-		<SemiMajorAxis value="27.0" />
+		<OrbitalPeriod value="41054." />
+		<SemiMajorAxis value="27." />
 		<Eccentricity value="0.1" />
 		<AngularDistance value="0.685279" />
-		<Inclination value="28.0" />
+		<Inclination value="28." />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -24855,10 +24855,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="HR 8799 e">
-		<Mass value="9.0" errorMin="4.0" errorMax="4.0" />
+		<Mass value="9." errorMin="4.0" errorMax="4.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="18000.0" errorMin="0.0" errorMax="0.0" />
+		<OrbitalPeriod value="18000." errorMin="0.0" errorMax="0.0" />
 		<SemiMajorAxis value="14.5" errorMin="0.5" errorMax="0.5" />
 		<Eccentricity />
 		<AngularDistance value="0.36802" />
@@ -24892,7 +24892,7 @@
 		<Mass value="5.9" errorMin="0.1" errorMax="0.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="5646.0" errorMin="8.0" errorMax="8.0" />
+		<OrbitalPeriod value="5646." errorMin="8.0" errorMax="8.0" />
 		<SemiMajorAxis value="6.18" />
 		<Eccentricity value="0.29" errorMin="0.03" errorMax="0.03" />
 		<AngularDistance />
@@ -24926,7 +24926,7 @@
 		<Mass value="14.3" errorMin="1.0" errorMax="1.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4640.0" errorMin="73.0" errorMax="73.0" />
+		<OrbitalPeriod value="4640." errorMin="73.0" errorMax="73.0" />
 		<SemiMajorAxis value="4.69" errorMin="0.06" errorMax="0.06" />
 		<Eccentricity value="0.4" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.025912" />
@@ -25436,7 +25436,7 @@
 		<Mass value="3.71" errorMin="0.21" errorMax="0.21" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1276.0" errorMin="67.0" errorMax="81.0" />
+		<OrbitalPeriod value="1276." errorMin="67.0" errorMax="81.0" />
 		<SemiMajorAxis value="2.39" errorMin="0.11" errorMax="0.11" />
 		<Eccentricity value="0.21" errorMin="0.04" errorMax="0.04" />
 		<AngularDistance />
@@ -25739,7 +25739,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="KIC 12557548 b">
-		<Mass value="3.0" errorMin="3.0" errorMax="0.0" />
+		<Mass value="3." errorMin="3.0" errorMax="0.0" />
 		<MassSini />
 		<Radius value="0.0758320560836" errorMin="0.0133821275441655" errorMax="0.0133821275441655" />
 		<OrbitalPeriod value="0.653553" errorMin="1e-07" errorMax="1e-07" />
@@ -26354,7 +26354,7 @@
 		<Mass value="2.63" errorMin="0.4" errorMax="0.4" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="411.0" errorMin="0.9" errorMax="3.2" />
+		<OrbitalPeriod value="411." errorMin="0.9" errorMax="3.2" />
 		<SemiMajorAxis value="1.188" errorMin="0.06" errorMax="0.04" />
 		<Eccentricity value="0.64" errorMin="0.14" errorMax="0.14" />
 		<AngularDistance />
@@ -26426,7 +26426,7 @@
 		<SemiMajorAxis />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="72.0" errorMin="20.0" errorMax="12.0" />
+		<Inclination value="72." errorMin="20.0" errorMax="12.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -28330,7 +28330,7 @@
 		<SemiMajorAxis value="0.106" errorMin="0.004" errorMax="0.004" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="89.0" errorMin="0.6" errorMax="0.1" />
+		<Inclination value="89." errorMin="0.6" errorMax="0.1" />
 		<TzeroTr value="2454971.1748" errorMin="0.0031" errorMax="0.0031" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -30914,7 +30914,7 @@
 		<SemiMajorAxis />
 		<Eccentricity value="0.035" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance />
-		<Inclination value="90.0" errorMin="2.8" errorMax="2.8" />
+		<Inclination value="90." errorMin="2.8" errorMax="2.8" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -40838,7 +40838,7 @@
 		<Mass value="0.282855614637" errorMin="0.0431048044552119" errorMax="0.0431048044552119" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="123.0" errorMin="2.0" errorMax="2.0" />
+		<OrbitalPeriod value="123." errorMin="2.0" errorMax="2.0" />
 		<SemiMajorAxis />
 		<Eccentricity />
 		<AngularDistance />
@@ -53347,7 +53347,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Kepler-39 b">
-		<Mass value="18.0" errorMin="0.91" errorMax="0.93" />
+		<Mass value="18." errorMin="0.91" errorMax="0.93" />
 		<MassSini />
 		<Radius value="1.22" errorMin="0.1" errorMax="0.12" />
 		<OrbitalPeriod value="21.0874" errorMin="0.0002" errorMax="0.0002" />
@@ -54918,7 +54918,7 @@
 		<SemiMajorAxis value="1.68" errorMin="0.03" errorMax="0.03" />
 		<Eccentricity value="0.184" errorMin="0.002" errorMax="0.002" />
 		<AngularDistance />
-		<Inclination value="88.0" errorMin="2.0" errorMax="3.0" />
+		<Inclination value="88." errorMin="2.0" errorMax="3.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -55598,7 +55598,7 @@
 		<SemiMajorAxis value="0.04178" errorMin="0.00079" errorMax="0.00079" />
 		<Eccentricity value="0.16" errorMin="0.21" errorMax="0.1" />
 		<AngularDistance />
-		<Inclination value="88.0" errorMin="1.2" errorMax="0.6" />
+		<Inclination value="88." errorMin="1.2" errorMax="0.6" />
 		<TzeroTr value="2454966.2599" errorMin="0.0018" errorMax="0.0018" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -56006,7 +56006,7 @@
 		<SemiMajorAxis value="0.027" errorMin="0.003" errorMax="0.003" />
 		<Eccentricity value="0.11" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="8.1e-05" />
-		<Inclination value="87.0" errorMin="0.7" errorMax="0.7" />
+		<Inclination value="87." errorMin="0.7" errorMax="0.7" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -56135,7 +56135,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Kepler-46 b">
-		<Mass value="6.0" />
+		<Mass value="6." />
 		<MassSini />
 		<Radius value="0.812" errorMin="0.043" errorMax="0.043" />
 		<OrbitalPeriod value="33.60134" errorMin="0.00021" errorMax="0.00021" />
@@ -56376,7 +56376,7 @@
 		<Mass value="2.067" errorMin="0.079" errorMax="0.079" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="982.0" errorMin="8.0" errorMax="8.0" />
+		<OrbitalPeriod value="982." errorMin="8.0" errorMax="8.0" />
 		<SemiMajorAxis />
 		<Eccentricity />
 		<AngularDistance />
@@ -57261,7 +57261,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="2.0" />
+		<SemiMajorAxis value="2." />
 		<Eccentricity value="0.4" />
 		<AngularDistance />
 		<Inclination />
@@ -58144,7 +58144,7 @@
 		<Mass value="0.84" errorMin="0.05" errorMax="0.05" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="625.0" errorMin="16.0" errorMax="16.0" />
+		<OrbitalPeriod value="625." errorMin="16.0" errorMax="16.0" />
 		<SemiMajorAxis value="1.4" errorMin="0.03" errorMax="0.03" />
 		<Eccentricity value="0.18" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance />
@@ -58454,7 +58454,7 @@
 		<SemiMajorAxis value="0.028" errorMin="0.003" errorMax="0.003" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="78.0" errorMin="0.2" errorMax="0.2" />
+		<Inclination value="78." errorMin="0.2" errorMax="0.2" />
 		<TzeroTr value="2454966.54811" errorMin="7e-05" errorMax="7e-05" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -58488,7 +58488,7 @@
 		<SemiMajorAxis value="0.04501" errorMin="0.00063" errorMax="0.00063" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="88.0" errorMin="0.11" errorMax="0.11" />
+		<Inclination value="88." errorMin="0.11" errorMax="0.11" />
 		<TzeroTr value="2455095.865727" errorMin="2.9e-05" errorMax="2.9e-05" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -58522,7 +58522,7 @@
 		<SemiMajorAxis value="0.01" errorMin="0.011" errorMax="0.0025" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="79.0" errorMin="14.0" errorMax="9.0" />
+		<Inclination value="79." errorMin="14.0" errorMax="9.0" />
 		<TzeroTr value="2454953.95984" errorMin="0.00015" errorMax="0.00015" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -60388,7 +60388,7 @@
 		<Mass value="9.836" errorMin="0.629" errorMax="0.629" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="820.0" errorMin="3.0" errorMax="3.0" />
+		<OrbitalPeriod value="820." errorMin="3.0" errorMax="3.0" />
 		<SemiMajorAxis />
 		<Eccentricity />
 		<AngularDistance />
@@ -60487,10 +60487,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="LKCA 15 b">
-		<Mass value="6.0" errorMin="1.0" errorMax="1.0" />
+		<Mass value="6." errorMin="1.0" errorMax="1.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="40000.0" errorMin="0.0" errorMax="0.0" />
+		<OrbitalPeriod value="40000." errorMin="0.0" errorMax="0.0" />
 		<SemiMajorAxis value="15.7" errorMin="2.1" errorMax="2.1" />
 		<Eccentricity />
 		<AngularDistance value="0.108276" />
@@ -60555,7 +60555,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="MOA-2007-BLG-197L b">
-		<Mass value="41.0" errorMin="2.0" errorMax="2.0" />
+		<Mass value="41." errorMin="2.0" errorMax="2.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
@@ -60694,7 +60694,7 @@
 		<Mass value="0.0327" errorMin="0.005" errorMax="0.005" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2780.0" errorMin="500.0" errorMax="500.0" />
+		<OrbitalPeriod value="2780." errorMin="500.0" errorMax="500.0" />
 		<SemiMajorAxis value="3.2" errorMin="0.5" errorMax="0.5" />
 		<Eccentricity />
 		<AngularDistance value="0.001053" />
@@ -60729,7 +60729,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="2.0" errorMin="0.4" errorMax="0.4" />
+		<SemiMajorAxis value="2." errorMin="0.4" errorMax="0.4" />
 		<Eccentricity />
 		<AngularDistance value="0.000328" />
 		<Inclination />
@@ -60762,7 +60762,7 @@
 		<Mass value="2.6" errorMin="1.6" errorMax="4.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1970.0" errorMin="1.6" errorMax="1.6" />
+		<OrbitalPeriod value="1970." errorMin="1.6" errorMax="1.6" />
 		<SemiMajorAxis value="1.8" errorMin="0.7" errorMax="0.7" />
 		<Eccentricity />
 		<AngularDistance value="0.000316" />
@@ -60865,7 +60865,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="2.0" errorMin="1.0" errorMax="1.0" />
+		<SemiMajorAxis value="2." errorMin="1.0" errorMax="1.0" />
 		<Eccentricity />
 		<AngularDistance value="0.00087" />
 		<Inclination />
@@ -60967,7 +60967,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="40.0" />
+		<SemiMajorAxis value="40." />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -61272,7 +61272,7 @@
 		<Mass value="6.91" errorMin="0.54" errorMax="0.54" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="5660.0" errorMin="165.0" errorMax="165.0" />
+		<OrbitalPeriod value="5660." errorMin="165.0" errorMax="165.0" />
 		<SemiMajorAxis value="5.38" errorMin="0.2" errorMax="0.2" />
 		<Eccentricity />
 		<AngularDistance value="0.01076" />
@@ -61306,7 +61306,7 @@
 		<Mass value="2.28" errorMin="0.38" errorMax="0.38" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2830.0" errorMin="130.0" errorMax="130.0" />
+		<OrbitalPeriod value="2830." errorMin="130.0" errorMax="130.0" />
 		<SemiMajorAxis value="3.39" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity value="0.2" errorMin="0.02" errorMax="0.02" />
 		<AngularDistance value="0.00678" />
@@ -61442,7 +61442,7 @@
 		<Mass value="3.5" errorMin="0.3" errorMax="0.3" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3600.0" errorMin="0.0" errorMax="0.0" />
+		<OrbitalPeriod value="3600." errorMin="0.0" errorMax="0.0" />
 		<SemiMajorAxis value="3.6" errorMin="0.2" errorMax="0.2" />
 		<Eccentricity />
 		<AngularDistance value="0.001091" />
@@ -61477,7 +61477,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="4.0" errorMin="0.6" errorMax="2.2" />
+		<SemiMajorAxis value="4." errorMin="0.6" errorMax="2.2" />
 		<Eccentricity />
 		<AngularDistance value="0.001037" />
 		<Inclination />
@@ -61510,7 +61510,7 @@
 		<Mass value="0.017" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3500.0" />
+		<OrbitalPeriod value="3500." />
 		<SemiMajorAxis value="2.1" />
 		<Eccentricity />
 		<AngularDistance value="0.000323" />
@@ -61544,11 +61544,11 @@
 		<Mass value="0.727" errorMin="0.06" errorMax="0.06" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1790.0" errorMin="548.0" errorMax="548.0" />
+		<OrbitalPeriod value="1790." errorMin="548.0" errorMax="548.0" />
 		<SemiMajorAxis value="2.3" errorMin="0.5" errorMax="0.5" />
 		<Eccentricity />
 		<AngularDistance value="0.001523" />
-		<Inclination value="64.0" errorMin="7.0" errorMax="7.0" />
+		<Inclination value="64." errorMin="7.0" errorMax="7.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -61578,11 +61578,11 @@
 		<Mass value="0.271" errorMin="0.022" errorMax="0.022" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4931.0" errorMin="1750.0" errorMax="1750.0" />
+		<OrbitalPeriod value="4931." errorMin="1750.0" errorMax="1750.0" />
 		<SemiMajorAxis value="4.5" errorMin="1.0" errorMax="1.0" />
 		<Eccentricity value="0.15" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.00298" />
-		<Inclination value="64.0" errorMin="8.0" errorMax="8.0" />
+		<Inclination value="64." errorMin="8.0" errorMax="8.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -62493,11 +62493,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="Oph 11 b">
-		<Mass value="21.0" errorMin="3.0" errorMax="3.0" />
+		<Mass value="21." errorMin="3.0" errorMax="3.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="730000.0" errorMin="365000.0" errorMax="365000.0" />
-		<SemiMajorAxis value="243.0" errorMin="55.0" errorMax="55.0" />
+		<OrbitalPeriod value="730000." errorMin="365000.0" errorMax="365000.0" />
+		<SemiMajorAxis value="243." errorMin="55.0" errorMax="55.0" />
 		<Eccentricity />
 		<AngularDistance value="1.675862" />
 		<Inclination />
@@ -62534,7 +62534,7 @@
 		<SemiMajorAxis value="0.634" errorMin="0.011" errorMax="0.011" />
 		<Eccentricity value="0.0539" errorMin="0.0081" errorMax="0.0081" />
 		<AngularDistance />
-		<Inclination value="90.0" errorMin="0.07" errorMax="0.07" />
+		<Inclination value="90." errorMin="0.07" errorMax="0.07" />
 		<TzeroTr value="2455074.71" errorMin="0.11" errorMax="0.11" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -62636,7 +62636,7 @@
 		<SemiMajorAxis value="0.36" />
 		<Eccentricity value="0.0186" errorMin="0.0002" errorMax="0.0002" />
 		<AngularDistance value="0.00072" />
-		<Inclination value="53.0" errorMin="4.0" errorMax="4.0" />
+		<Inclination value="53." errorMin="4.0" errorMax="4.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -62670,7 +62670,7 @@
 		<SemiMajorAxis value="0.46" />
 		<Eccentricity value="0.0252" errorMin="0.0002" errorMax="0.0002" />
 		<AngularDistance value="0.00092" />
-		<Inclination value="47.0" errorMin="3.0" errorMax="3.0" />
+		<Inclination value="47." errorMin="3.0" errorMax="3.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -62697,7 +62697,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="PSR 1719-14 b">
-		<Mass value="1.0" errorMin="0.0" errorMax="0.0" />
+		<Mass value="1." errorMin="0.0" errorMax="0.0" />
 		<MassSini />
 		<Radius value="0.4" errorMin="0.0" errorMax="0.0" />
 		<OrbitalPeriod value="0.090706293" />
@@ -62734,8 +62734,8 @@
 		<Mass value="2.5" errorMin="1.0" errorMax="1.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="36525.0" errorMin="0.0" errorMax="0.0" />
-		<SemiMajorAxis value="23.0" errorMin="0.0" errorMax="0.0" />
+		<OrbitalPeriod value="36525." errorMin="0.0" errorMax="0.0" />
+		<SemiMajorAxis value="23." errorMin="0.0" errorMax="0.0" />
 		<Eccentricity />
 		<AngularDistance value="0.006053" />
 		<Inclination />
@@ -62765,7 +62765,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="PSR B1957+20 b">
-		<Mass value="22.0" />
+		<Mass value="22." />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="9.1" />
@@ -62867,7 +62867,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="PSR J2241-5236 b">
-		<Mass value="12.0" />
+		<Mass value="12." />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="0.1456722395" errorMin="3e-10" errorMax="3e-10" />
@@ -62901,11 +62901,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="PZ Tel b">
-		<Mass value="62.0" errorMin="9.0" errorMax="9.0" />
+		<Mass value="62." errorMin="9.0" errorMax="9.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="20.0" />
+		<SemiMajorAxis value="20." />
 		<Eccentricity value="0.62" />
 		<AngularDistance />
 		<Inclination />
@@ -63071,11 +63071,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="ROXs 12 b">
-		<Mass value="16.0" errorMin="4.0" errorMax="4.0" />
+		<Mass value="16." errorMin="4.0" errorMax="4.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="210.0" errorMin="20.0" errorMax="20.0" />
+		<SemiMajorAxis value="210." errorMin="20.0" errorMax="20.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -63105,11 +63105,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="ROXs 42B b">
-		<Mass value="9.0" errorMin="3.0" errorMax="3.0" />
+		<Mass value="9." errorMin="3.0" errorMax="3.0" />
 		<MassSini />
 		<Radius value="2.5" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="140.0" errorMin="10.0" errorMax="10.0" />
+		<SemiMajorAxis value="140." errorMin="10.0" errorMax="10.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -63142,7 +63142,7 @@
 		<Mass value="4.2" errorMin="0.4" errorMax="0.4" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="4350.0" errorMin="37.0" errorMax="37.0" />
+		<OrbitalPeriod value="4350." errorMin="37.0" errorMax="37.0" />
 		<SemiMajorAxis value="5.3" errorMin="0.6" errorMax="0.6" />
 		<Eccentricity />
 		<AngularDistance />
@@ -63177,7 +63177,7 @@
 		<MassSini />
 		<Radius value="1.07" errorMin="0.07" errorMax="0.07" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="1168.0" />
+		<SemiMajorAxis value="1168." />
 		<Eccentricity />
 		<AngularDistance value="10.245614" />
 		<Inclination />
@@ -63241,11 +63241,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="SR 12 AB c">
-		<Mass value="13.0" errorMin="7.0" errorMax="7.0" />
+		<Mass value="13." errorMin="7.0" errorMax="7.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="1083.0" errorMin="217.0" errorMax="217.0" />
+		<SemiMajorAxis value="1083." errorMin="217.0" errorMax="217.0" />
 		<Eccentricity />
 		<AngularDistance value="8.664" />
 		<Inclination />
@@ -63282,7 +63282,7 @@
 		<SemiMajorAxis value="0.055" />
 		<Eccentricity />
 		<AngularDistance value="6e-06" />
-		<Inclination value="87.0" />
+		<Inclination value="87." />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -63316,7 +63316,7 @@
 		<SemiMajorAxis value="0.03" />
 		<Eccentricity />
 		<AngularDistance value="4e-06" />
-		<Inclination value="84.0" />
+		<Inclination value="84." />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -63343,11 +63343,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="TWA 5 A(AB) b">
-		<Mass value="25.0" errorMin="20.0" errorMax="120.0" />
+		<Mass value="25." errorMin="20.0" errorMax="120.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="86.0" />
+		<SemiMajorAxis value="86." />
 		<Eccentricity value="0.45" />
 		<AngularDistance />
 		<Inclination />
@@ -63615,11 +63615,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="USco1602-2401 b">
-		<Mass value="47.0" errorMin="18.0" errorMax="20.0" />
+		<Mass value="47." errorMin="18.0" errorMax="20.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="1000.0" errorMin="140.0" errorMax="140.0" />
+		<SemiMajorAxis value="1000." errorMin="140.0" errorMax="140.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -63649,11 +63649,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="USco1610-1913 b">
-		<Mass value="20.0" errorMin="3.0" errorMax="7.0" />
+		<Mass value="20." errorMin="3.0" errorMax="7.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="840.0" errorMin="90.0" errorMax="90.0" />
+		<SemiMajorAxis value="840." errorMin="90.0" errorMax="90.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -63683,11 +63683,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="USco1612-1800 b">
-		<Mass value="26.0" errorMin="7.0" errorMax="16.0" />
+		<Mass value="26." errorMin="7.0" errorMax="16.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="430.0" errorMin="40.0" errorMax="40.0" />
+		<SemiMajorAxis value="430." errorMin="40.0" errorMax="40.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -63717,11 +63717,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="UScoCTIO 108 b">
-		<Mass value="14.0" errorMin="8.0" errorMax="2.0" />
+		<Mass value="14." errorMin="8.0" errorMax="2.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="670.0" />
+		<SemiMajorAxis value="670." />
 		<Eccentricity />
 		<AngularDistance value="4.62069" />
 		<Inclination />
@@ -63754,7 +63754,7 @@
 		<Mass value="7.7" errorMin="1.2" errorMax="1.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1900.0" errorMin="90.0" errorMax="90.0" />
+		<OrbitalPeriod value="1900." errorMin="90.0" errorMax="90.0" />
 		<SemiMajorAxis value="2.8" errorMin="0.5" errorMax="0.5" />
 		<Eccentricity value="0.05" errorMin="0.05" errorMax="0.05" />
 		<AngularDistance />
@@ -63788,7 +63788,7 @@
 		<Mass value="3.2" errorMin="0.7" errorMax="0.7" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1170.0" errorMin="44.0" errorMax="44.0" />
+		<OrbitalPeriod value="1170." errorMin="44.0" errorMax="44.0" />
 		<SemiMajorAxis value="1.7" errorMin="0.1" errorMax="0.1" />
 		<Eccentricity />
 		<AngularDistance value="0.001214" />
@@ -63823,7 +63823,7 @@
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="102.0" errorMin="9.0" errorMax="9.0" />
+		<SemiMajorAxis value="102." errorMin="9.0" errorMax="9.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -63962,7 +63962,7 @@
 		<SemiMajorAxis value="0.0506" errorMin="0.0009" errorMax="0.0009" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="85.0" errorMin="0.2" errorMax="0.2" />
+		<Inclination value="85." errorMin="0.2" errorMax="0.2" />
 		<TzeroTr value="2456164.6934" errorMin="0.0002" errorMax="0.0002" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -64336,7 +64336,7 @@
 		<SemiMajorAxis value="0.02293" errorMin="0.00078" errorMax="0.00078" />
 		<Eccentricity />
 		<AngularDistance value="5.4e-05" />
-		<Inclination value="86.0" errorMin="3.0" errorMax="3.0" />
+		<Inclination value="86." errorMin="3.0" errorMax="3.0" />
 		<TzeroTr value="2454508.97605" errorMin="0.00028" errorMax="0.00028" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -64540,7 +64540,7 @@
 		<SemiMajorAxis value="0.0243" errorMin="0.0005" errorMax="0.0005" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="82.0" errorMin="0.6" errorMax="0.6" />
+		<Inclination value="82." errorMin="0.6" errorMax="0.6" />
 		<TzeroTr value="2455230.9902" errorMin="0.0009" errorMax="0.0009" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -64710,7 +64710,7 @@
 		<SemiMajorAxis value="0.02047" errorMin="0.00038" errorMax="0.00038" />
 		<Eccentricity value="0.0088" errorMin="0.0012" errorMax="0.0012" />
 		<AngularDistance value="0.000205" />
-		<Inclination value="86.0" errorMin="2.5" errorMax="2.5" />
+		<Inclination value="86." errorMin="2.5" errorMax="2.5" />
 		<TzeroTr value="2454221.48163" errorMin="0.00038" errorMax="0.00038" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -65400,7 +65400,7 @@
 		<PublicationStatus value="Published in a refereed paper" />
 		<Discovered value="2010" />
 		<Updated value="2012-04-08" />
-		<Omega value="341.0" errorMin="-16.0" errorMax="-16.0" />
+		<Omega value="341.0" errorMin="16.0" errorMax="-16.0" />
 		<Tperi />
 		<DetectionType value="Primary Transit" />
 		<Molecules />
@@ -65522,7 +65522,7 @@
 		<Mass value="3.18" errorMin="0.2" errorMax="0.2" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="421.0" errorMin="2.0" errorMax="2.0" />
+		<OrbitalPeriod value="421." errorMin="2.0" errorMax="2.0" />
 		<SemiMajorAxis value="1.07" errorMin="0.03" errorMax="0.03" />
 		<Eccentricity value="0.294" errorMin="0.024" errorMax="0.024" />
 		<AngularDistance />
@@ -65760,7 +65760,7 @@
 		<Mass value="1.24" errorMin="0.22" errorMax="0.22" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="572.0" errorMin="7.0" errorMax="7.0" />
+		<OrbitalPeriod value="572." errorMin="7.0" errorMax="7.0" />
 		<SemiMajorAxis value="1.36" errorMin="0.04" errorMax="0.04" />
 		<Eccentricity value="0.13" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance />
@@ -66818,7 +66818,7 @@
 		<SemiMajorAxis value="0.0375" errorMin="0.0008" errorMax="0.0007" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="82.0" errorMin="0.2" errorMax="0.3" />
+		<Inclination value="82." errorMin="0.2" errorMax="0.3" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -66852,7 +66852,7 @@
 		<SemiMajorAxis value="0.033" errorMin="0.0005" errorMax="0.0005" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="88.0" errorMin="1.6" errorMax="1.6" />
+		<Inclination value="88." errorMin="1.6" errorMax="1.6" />
 		<TzeroTr value="2456107.85507" errorMin="0.00034" errorMax="0.00034" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -66920,7 +66920,7 @@
 		<SemiMajorAxis value="0.0415" errorMin="0.0006" errorMax="0.0006" />
 		<Eccentricity />
 		<AngularDistance value="7.5e-05" />
-		<Inclination value="89.0" errorMin="0.7" errorMax="0.7" />
+		<Inclination value="89." errorMin="0.7" errorMax="0.7" />
 		<TzeroTr value="2455882.35904" errorMin="0.00058" errorMax="0.00058" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -67226,7 +67226,7 @@
 		<SemiMajorAxis value="0.06431" errorMin="0.00062" errorMax="0.00065" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="88.0" errorMin="1.5" errorMax="1.4" />
+		<Inclination value="88." errorMin="1.5" errorMax="1.4" />
 		<TzeroTr value="2456474.73145" errorMin="0.00089" errorMax="0.00089" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -67464,7 +67464,7 @@
 		<SemiMajorAxis value="0.03303" errorMin="0.00056" errorMax="0.00056" />
 		<Eccentricity />
 		<AngularDistance />
-		<Inclination value="88.0" errorMin="1.0" errorMax="1.3" />
+		<Inclination value="88." errorMin="1.0" errorMax="1.3" />
 		<TzeroTr value="2456438.18683" errorMin="0.00018" errorMax="0.00018" />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -67559,11 +67559,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WD 0806-661B b">
-		<Mass value="8.0" errorMin="2.0" errorMax="2.0" />
+		<Mass value="8." errorMin="2.0" errorMax="2.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="2500.0" />
+		<SemiMajorAxis value="2500." />
 		<Eccentricity />
 		<AngularDistance value="130.208333" />
 		<Inclination />
@@ -67627,11 +67627,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WISE 0458+6434 b">
-		<Mass value="13.0" errorMin="7.0" errorMax="3.0" />
+		<Mass value="13." errorMin="7.0" errorMax="3.0" />
 		<MassSini />
 		<Radius value="1.009" errorMin="0.035" errorMax="0.011" />
-		<OrbitalPeriod value="25800.0" />
-		<SemiMajorAxis value="5.0" errorMin="0.4" errorMax="0.4" />
+		<OrbitalPeriod value="25800." />
+		<SemiMajorAxis value="5." errorMin="0.4" errorMax="0.4" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -67661,10 +67661,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WISE 1217+16A b">
-		<Mass value="22.0" errorMin="2.0" errorMax="2.0" />
+		<Mass value="22." errorMin="2.0" errorMax="2.0" />
 		<MassSini />
 		<Radius value="0.96" errorMin="0.03" errorMax="0.03" />
-		<OrbitalPeriod value="47400.0" errorMin="11000.0" errorMax="80000.0" />
+		<OrbitalPeriod value="47400." errorMin="11000.0" errorMax="80000.0" />
 		<SemiMajorAxis value="7.6" />
 		<Eccentricity />
 		<AngularDistance />
@@ -67695,11 +67695,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WISE 1711+3500 b">
-		<Mass value="18.0" errorMin="7.0" errorMax="7.0" />
+		<Mass value="18." errorMin="7.0" errorMax="7.0" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="125000.0" errorMin="29000.0" errorMax="29000.0" />
-		<SemiMajorAxis value="15.0" errorMin="2.0" errorMax="2.0" />
+		<OrbitalPeriod value="125000." errorMin="29000.0" errorMax="29000.0" />
+		<SemiMajorAxis value="15." errorMin="2.0" errorMax="2.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -67729,10 +67729,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="WISE J0720-0846">
-		<Mass value="62.0" errorMin="0.11" errorMax="0.09" />
+		<Mass value="62." errorMin="0.11" errorMax="0.09" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1388.0" errorMin="475.0" errorMax="1096.0" />
+		<OrbitalPeriod value="1388." errorMin="475.0" errorMax="1096.0" />
 		<SemiMajorAxis value="1.3" errorMin="0.3" errorMax="0.6" />
 		<Eccentricity value="0.8" errorMin="0.6" errorMax="0.0" />
 		<AngularDistance />
@@ -68307,11 +68307,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="beta Cir b">
-		<Mass value="56.0" errorMin="7.0" errorMax="7.0" />
+		<Mass value="56." errorMin="7.0" errorMax="7.0" />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="6656.0" />
+		<SemiMajorAxis value="6656." />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -68375,10 +68375,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="beta Pic b">
-		<Mass value="7.0" errorMin="3.0" errorMax="4.0" />
+		<Mass value="7." errorMin="3.0" errorMax="4.0" />
 		<MassSini />
 		<Radius value="1.65" errorMin="0.06" errorMax="0.06" />
-		<OrbitalPeriod value="7890.0" errorMin="1000.0" errorMax="1000.0" />
+		<OrbitalPeriod value="7890." errorMin="1000.0" errorMax="1000.0" />
 		<SemiMajorAxis value="9.2" errorMin="1.5" errorMax="0.4" />
 		<Eccentricity value="0.26" errorMin="0.26" errorMax="0.0" />
 		<AngularDistance value="0.440415" />
@@ -68480,7 +68480,7 @@
 		<Mass value="1.55" errorMin="0.24" errorMax="0.24" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="2502.0" errorMin="10.0" errorMax="10.0" />
+		<OrbitalPeriod value="2502." errorMin="10.0" errorMax="10.0" />
 		<SemiMajorAxis value="3.39" errorMin="0.36" errorMax="0.36" />
 		<Eccentricity value="0.702" errorMin="0.039" errorMax="0.039" />
 		<AngularDistance value="1.059375" />
@@ -68681,11 +68681,11 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="kappa And b">
-		<Mass value="14.0" errorMin="2.0" errorMax="25.0" />
+		<Mass value="14." errorMin="2.0" errorMax="25.0" />
 		<MassSini />
 		<Radius value="1.2" errorMin="0.1" errorMax="0.2" />
 		<OrbitalPeriod />
-		<SemiMajorAxis value="55.0" errorMin="2.0" errorMax="2.0" />
+		<SemiMajorAxis value="55." errorMin="2.0" errorMax="2.0" />
 		<Eccentricity />
 		<AngularDistance />
 		<Inclination />
@@ -68718,7 +68718,7 @@
 		<Mass value="1.6" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1251.0" errorMin="15.0" errorMax="15.0" />
+		<OrbitalPeriod value="1251." errorMin="15.0" errorMax="15.0" />
 		<SemiMajorAxis value="2.6" />
 		<Eccentricity value="0.19" errorMin="0.1" errorMax="0.1" />
 		<AngularDistance value="0.086817" />
@@ -68953,7 +68953,7 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="nu Oph b">
-		<Mass value="24.0" />
+		<Mass value="24." />
 		<MassSini />
 		<Radius />
 		<OrbitalPeriod value="530.32" errorMin="0.35" errorMax="0.35" />
@@ -68987,10 +68987,10 @@
 		</Star>
 	</Exoplanet>
 	<Exoplanet name="nu Oph c">
-		<Mass value="27.0" />
+		<Mass value="27." />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="3186.0" errorMin="14.0" errorMax="14.0" />
+		<OrbitalPeriod value="3186." errorMin="14.0" errorMax="14.0" />
 		<SemiMajorAxis value="6.1" />
 		<Eccentricity value="0.18" />
 		<AngularDistance value="0.125641" />
@@ -69092,7 +69092,7 @@
 		<Mass value="4.1" />
 		<MassSini />
 		<Radius />
-		<OrbitalPeriod value="1630.0" errorMin="35.0" errorMax="35.0" />
+		<OrbitalPeriod value="1630." errorMin="35.0" errorMax="35.0" />
 		<SemiMajorAxis value="3.9" />
 		<Eccentricity />
 		<AngularDistance />
@@ -69164,7 +69164,7 @@
 		<SemiMajorAxis value="0.046" />
 		<Eccentricity value="0.0787" errorMin="0.0246" errorMax="0.0382" />
 		<AngularDistance value="0.002949" />
-		<Inclination value="45.0" errorMin="4.0" errorMax="3.0" />
+		<Inclination value="45." errorMin="4.0" errorMax="3.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />
@@ -69232,7 +69232,7 @@
 		<SemiMajorAxis value="0.059" errorMin="0.001" errorMax="0.001" />
 		<Eccentricity value="0.01186" errorMin="0.006" errorMax="0.006" />
 		<AngularDistance value="0.00438" />
-		<Inclination value="90.0" errorMin="0.0" errorMax="90.0" />
+		<Inclination value="90." errorMin="0.0" errorMax="90.0" />
 		<TzeroTr />
 		<TzeroTrSec />
 		<LambdaAngle />

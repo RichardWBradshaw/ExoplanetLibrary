@@ -49,6 +49,7 @@ namespace ExoplanetLibrary
                 using (reader = File.OpenText (votFileName))
                     {
                     string line = null;
+                    int index = 0;                                  // used by NASA VOT
 
                     for (;;)
                         {
@@ -62,11 +63,12 @@ namespace ExoplanetLibrary
                                 {
                                 ;
                                 }
-                            else if (line.StartsWith ("<TR>"))
+                            else if (line.StartsWith ("<TR>"))      // NASA VOT
                                 {
-                                ;
+                                line = line.Replace ("<TR>", "");
+                                WriteExoplanet (writer, line);
                                 }
-                            else if (line.StartsWith ("<TD>"))
+                            else if (line.StartsWith ("<TD>"))      // EU VOT
                                 {
                                 WriteExoplanet (writer, line);
                                 }
@@ -104,20 +106,35 @@ namespace ExoplanetLibrary
                                 string [] substrings = line.Split (delimiterChars);
 
                                 if (substrings [1].StartsWith ("ID=\"col"))
+                                    {                               // EU VOT
                                     if (substrings [2].StartsWith ("name=\""))
                                         {
                                         string temporary, name;
-                                        int index;
+                                        int column = 0;
 
                                         temporary = substrings [1].Replace ("ID=\"col", "");
                                         temporary = temporary.Replace ("\"", "");
-                                        index = int.Parse (temporary);
+                                        column = int.Parse (temporary);
 
                                         name = substrings [2].Replace ("name=\"", "");
                                         name = name.Replace ("\"", "");
 
-                                        Indexer.SetIndex (name, index - 1);
+                                        Indexer.SetIndex (name, column - 1);
                                         }
+                                    }
+                                else
+                                    {
+                                    if (substrings [1].StartsWith ("name=\""))
+                                        {                           // NASA VOT
+                                        string name;
+
+                                        name = substrings [1].Replace ("name=\"", "");
+                                        name = name.Replace ("\"", "");
+
+                                        Indexer.SetIndex (name, index);
+                                        ++index;
+                                        }
+                                    }
                                 }
                             else if (line.StartsWith ("</FIELD>"))
                                 {

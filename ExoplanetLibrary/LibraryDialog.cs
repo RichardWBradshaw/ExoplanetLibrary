@@ -317,7 +317,7 @@ namespace ExoplanetLibrary
             OpenFileDialog openFileDialog = new OpenFileDialog ();
 
             openFileDialog.InitialDirectory = Constant.ProgramDataFolder;
-            openFileDialog.Filter = "xml files (*.xml)|*.xml|csv files (*.csv)|*.csv|vot files (*.vot)|*.vot|All files (*.*)|*.*";
+            openFileDialog.Filter = "xml files (*.xml)|*.xml|Exoplanet.eu Exoplanet Archive files (*.vot)|*.vot|NASA Exoplanet Archive files (*.vot)|*.vot|All files (*.*)|*.*";
             openFileDialog.FilterIndex = Settings.FilterIndex;
             openFileDialog.RestoreDirectory = true;
 
@@ -331,34 +331,41 @@ namespace ExoplanetLibrary
 
                         Cursor.Current = Cursors.WaitCursor;
 
-                        if (fileName.EndsWith (".csv"))
+                        if (openFileDialog.FilterIndex == 1)
                             {
-                            ReadCSV.Read (openFileDialog.FileName);
-                            XmlFileName = openFileDialog.FileName.Replace (".csv", ".xml");
+                            XmlFileName = openFileDialog.FileName;
                             }
-                        else if (fileName.EndsWith (".txt"))
-                            {
-                            ReadCSV.Read (openFileDialog.FileName);
-                            XmlFileName = openFileDialog.FileName.Replace (".txt", ".xml");
-                            }
-                        else if (fileName.EndsWith (".dat"))
-                            {
-                            ReadCSV.Read (openFileDialog.FileName);
-                            XmlFileName = openFileDialog.FileName.Replace (".dat", ".xml");
-                            }
-                        else if (fileName.EndsWith (".vot"))
+                        else if (openFileDialog.FilterIndex == 2 || openFileDialog.FilterIndex == 3)
                             {
                             ReadVOT.Read (openFileDialog.FileName);
                             XmlFileName = openFileDialog.FileName.Replace (".vot", ".xml");
                             }
-                        else if (fileName.EndsWith (".votable"))
+                        else
                             {
-                            ReadVOTABLE.Read (openFileDialog.FileName);
-                            XmlFileName = openFileDialog.FileName.Replace (".votable", ".xml");
-                            }
-                        else if (fileName.EndsWith (".xml"))
-                            {
-                            XmlFileName = openFileDialog.FileName;
+                            if (fileName.EndsWith (".csv"))         // Exoplanet.EU data files
+                                {
+                                ReadCSV.Read (openFileDialog.FileName);
+                                XmlFileName = openFileDialog.FileName.Replace (".csv", ".xml");
+                                }
+                            else if (fileName.EndsWith (".txt"))    // Exoplanet.EU data files
+                                {
+                                ReadCSV.Read (openFileDialog.FileName);
+                                XmlFileName = openFileDialog.FileName.Replace (".txt", ".xml");
+                                }
+                            else if (fileName.EndsWith (".dat"))    // Exoplanet.EU data files
+                                {
+                                ReadCSV.Read (openFileDialog.FileName);
+                                XmlFileName = openFileDialog.FileName.Replace (".dat", ".xml");
+                                }
+                            else if (fileName.EndsWith (".vot"))    // Exoplanet.EU or NASA data files
+                                {
+                                ReadVOT.Read (openFileDialog.FileName);
+                                XmlFileName = openFileDialog.FileName.Replace (".vot", ".xml");
+                                }
+                            else if (fileName.EndsWith (".xml"))
+                                {
+                                XmlFileName = openFileDialog.FileName;
+                                }
                             }
 
                         UpdateExoplanetListView (true);
@@ -480,7 +487,7 @@ namespace ExoplanetLibrary
             string url = "http://exoplanet.eu";
 
             System.Diagnostics.Process.Start (url);
-            Settings.WriteLastVisit (System.DateTime.Now);
+            Settings.WriteLastEUVisit (System.DateTime.Now);
             }
 
         private void launchExoplanetEuCatalog_Click (object sender, EventArgs e)
@@ -488,7 +495,7 @@ namespace ExoplanetLibrary
             string url = "http://exoplanet.eu//catalog";
 
             System.Diagnostics.Process.Start (url);
-            Settings.WriteLastVisit (System.DateTime.Now);
+            Settings.WriteLastEUVisit (System.DateTime.Now);
             }
 
         private void launchExoplanetNasaCatalog_Click (object sender, EventArgs e)
@@ -496,7 +503,7 @@ namespace ExoplanetLibrary
             string url = "http://exoplanetarchive.ipac.caltech.edu/";
 
             System.Diagnostics.Process.Start (url);
-            // needs_work Settings.WriteLastVisit (System.DateTime.Now);
+            Settings.WriteLastNASAVisit (System.DateTime.Now);
             }
 
         private void query_Click (object sender, System.EventArgs e)

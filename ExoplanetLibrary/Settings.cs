@@ -606,13 +606,23 @@ namespace ExoplanetLibrary
             return xmlFileName;
             }
 
-        static public int WriteLastVisit (System.DateTime dateTime)
+        static public int WriteLastEUVisit (System.DateTime dateTime)
+            {
+            return WriteLastVisit ("LastEUVisit", dateTime);
+            }
+
+        static public int WriteLastNASAVisit (System.DateTime dateTime)
+            {
+            return WriteLastVisit ("LastNASAVisit", dateTime);
+            }
+
+        static private int WriteLastVisit (string keyValue, System.DateTime dateTime)
             {
             RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
             RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)
-                subkey.SetValue ("LastVisit", dateTime.ToString (), RegistryValueKind.String);
+                subkey.SetValue (keyValue, dateTime.ToString (), RegistryValueKind.String);
 
             if (key != null)
                 key.Close ();
@@ -620,7 +630,17 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        static public string ReadLastVisit ()
+        static public string ReadLastEUVisit ()
+            {
+            return ReadLastVisit ("LastEUVisit");
+            }
+
+        static public string ReadLastNASAVisit ()
+            {
+            return ReadLastVisit ("LastNASAVisit");
+            }
+
+        static private string ReadLastVisit (string keyValue)
             {
             string dateTime = "";
             RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
@@ -628,7 +648,7 @@ namespace ExoplanetLibrary
 
             if (subkey != null)
                 {
-                object obj = subkey.GetValue ("LastVisit");
+                object obj = subkey.GetValue (keyValue);
 
                 if (obj != null)
                     dateTime = obj as string;

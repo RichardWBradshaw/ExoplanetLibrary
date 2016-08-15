@@ -528,78 +528,86 @@
             return false;
             }
 
+        private enum Flags
+            {
+            IsString,
+            IsNumeric,
+            IsUnsignedNumeric,
+            IsStrings,
+            }
+
         public void AssignFromSubstrings (string [] strings)
             {
-            Name = GetSubstring (strings, Indexer.Name, false);
+            Name = GetSubstring (strings, Indexer.Name, Flags.IsString);
 
             Mass = GetSubstring (strings, Indexer.Mass);
-            MassErrorMin = GetSubstring (strings, Indexer.MassErrorMin);
+            MassErrorMin = GetSubstring (strings, Indexer.MassErrorMin, Flags.IsUnsignedNumeric);
             MassErrorMax = GetSubstring (strings, Indexer.MassErrorMax);
 
             MassSini = GetSubstring (strings, Indexer.MassSini);
-            MassSiniErrorMin = GetSubstring (strings, Indexer.MassSiniErrorMin);
+            MassSiniErrorMin = GetSubstring (strings, Indexer.MassSiniErrorMin, Flags.IsUnsignedNumeric);
             MassSiniErrorMax = GetSubstring (strings, Indexer.MassSiniErrorMax);
 
             Radius = GetSubstring (strings, Indexer.Radius);
-            RadiusErrorMin = GetSubstring (strings, Indexer.RadiusErrorMin);
+            RadiusErrorMin = GetSubstring (strings, Indexer.RadiusErrorMin,Flags.IsUnsignedNumeric);
             RadiusErrorMax = GetSubstring (strings, Indexer.RadiusErrorMax);
 
             OrbitalPeriod = GetSubstring (strings, Indexer.OrbitalPeriod);
-            OrbitalPeriodErrorMin = GetSubstring (strings, Indexer.OrbitalPeriodErrorMin);
+            OrbitalPeriodErrorMin = GetSubstring (strings, Indexer.OrbitalPeriodErrorMin, Flags.IsUnsignedNumeric);
             OrbitalPeriodErrorMax = GetSubstring (strings, Indexer.OrbitalPeriodErrorMax);
 
             SemiMajorAxis = GetSubstring (strings, Indexer.SemiMajorAxis);
-            SemiMajorAxisErrorMin = GetSubstring (strings, Indexer.SemiMajorAxisErrorMin);
+            SemiMajorAxisErrorMin = GetSubstring (strings, Indexer.SemiMajorAxisErrorMin, Flags.IsUnsignedNumeric);
             SemiMajorAxisErrorMax = GetSubstring (strings, Indexer.SemiMajorAxisErrorMax);
 
             Eccentricity = GetSubstring (strings, Indexer.Eccentricity);
-            EccentricityErrorMin = GetSubstring (strings, Indexer.EccentricityErrorMin);
+            EccentricityErrorMin = GetSubstring (strings, Indexer.EccentricityErrorMin, Flags.IsUnsignedNumeric);
             EccentricityErrorMax = GetSubstring (strings, Indexer.EccentricityErrorMax);
 
             Inclination = GetSubstring (strings, Indexer.Inclination);
-            InclinationErrorMin = GetSubstring (strings, Indexer.InclinationErrorMin);
+            InclinationErrorMin = GetSubstring (strings, Indexer.InclinationErrorMin, Flags.IsUnsignedNumeric);
             InclinationErrorMax = GetSubstring (strings, Indexer.InclinationErrorMax);
 
             AngularDistance = GetSubstring (strings, Indexer.AngularDistance);
 
-            Discovered = GetSubstring (strings, Indexer.Discovered, false);
+            Discovered = GetSubstring (strings, Indexer.Discovered, Flags.IsString);
 
-            Updated = GetSubstring (strings, Indexer.Updated, false);
+            Updated = GetSubstring (strings, Indexer.Updated, Flags.IsString);
 
             Omega = GetSubstring (strings, Indexer.Omega);
-            OmegaErrorMin = GetSubstring (strings, Indexer.OmegaErrorMin);
+            OmegaErrorMin = GetSubstring (strings, Indexer.OmegaErrorMin, Flags.IsUnsignedNumeric);
             OmegaErrorMax = GetSubstring (strings, Indexer.OmegaErrorMax);
 
             Tperi = GetSubstring (strings, Indexer.Tperi);
-            TperiErrorMin = GetSubstring (strings, Indexer.TperiErrorMin);
+            TperiErrorMin = GetSubstring (strings, Indexer.TperiErrorMin, Flags.IsUnsignedNumeric);
             TperiErrorMax = GetSubstring (strings, Indexer.TperiErrorMax);
 
             Tconj = GetSubstring (strings, Indexer.Tconj);
-            TconjErrorMin = GetSubstring (strings, Indexer.TconjErrorMin);
+            TconjErrorMin = GetSubstring (strings, Indexer.TconjErrorMin, Flags.IsUnsignedNumeric);
             TconjErrorMax = GetSubstring (strings, Indexer.TconjErrorMax);
 
             TzeroTr = GetSubstring (strings, Indexer.TzeroTr);
-            TzeroTrErrorMin = GetSubstring (strings, Indexer.TzeroTrErrorMin);
+            TzeroTrErrorMin = GetSubstring (strings, Indexer.TzeroTrErrorMin, Flags.IsUnsignedNumeric);
             TzeroTrErrorMax = GetSubstring (strings, Indexer.TzeroTrErrorMax);
 
             TzeroTrSec = GetSubstring (strings, Indexer.TzeroTrSec);
-            TzeroTrSecErrorMin = GetSubstring (strings, Indexer.TzeroTrSecErrorMin);
+            TzeroTrSecErrorMin = GetSubstring (strings, Indexer.TzeroTrSecErrorMin, Flags.IsUnsignedNumeric);
             TzeroTrSecErrorMax = GetSubstring (strings, Indexer.TzeroTrSecErrorMax);
 
             LambdaAngle = GetSubstring (strings, Indexer.LambdaAngle);
-            LambdaAngleErrorMin = GetSubstring (strings, Indexer.LambdaAngleErrorMin);
+            LambdaAngleErrorMin = GetSubstring (strings, Indexer.LambdaAngleErrorMin, Flags.IsUnsignedNumeric);
             LambdaAngleErrorMax = GetSubstring (strings, Indexer.LambdaAngleErrorMax);
 
             ImpactParameter = GetSubstring (strings, Indexer.ImpactParameter);
-            ImpactParameterErrorMin = GetSubstring (strings, Indexer.ImpactParameterErrorMin);
+            ImpactParameterErrorMin = GetSubstring (strings, Indexer.ImpactParameterErrorMin, Flags.IsUnsignedNumeric);
             ImpactParameterErrorMax = GetSubstring (strings, Indexer.ImpactParameterErrorMax);
 
             TzeroVr = GetSubstring (strings, Indexer.TzeroVr);
-            TzeroVrErrorMin = GetSubstring (strings, Indexer.TzeroVrErrorMin);
+            TzeroVrErrorMin = GetSubstring (strings, Indexer.TzeroVrErrorMin, Flags.IsUnsignedNumeric);
             TzeroVrErrorMax = GetSubstring (strings, Indexer.TzeroVrErrorMax);
 
             VelocitySemiamplitude = GetSubstring (strings, Indexer.VelocitySemiamplitude);
-            VelocitySemiamplitudeErrorMin = GetSubstring (strings, Indexer.VelocitySemiamplitudeErrorMin);
+            VelocitySemiamplitudeErrorMin = GetSubstring (strings, Indexer.VelocitySemiamplitudeErrorMin, Flags.IsUnsignedNumeric);
             VelocitySemiamplitudeErrorMax = GetSubstring (strings, Indexer.VelocitySemiamplitudeErrorMax);
 
             TemperatureCalculated = GetSubstring (strings, Indexer.TemperatureCalculated);
@@ -607,27 +615,27 @@
             TemperatureHotPointLo = GetSubstring (strings, Indexer.TemperatureHotPointLo);
 
             GeometricAlbedo = GetSubstring (strings, Indexer.GeometricAlbedo);
-            GeometricAlbedoErrorMin = GetSubstring (strings, Indexer.GeometricAlbedoErrorMin);
+            GeometricAlbedoErrorMin = GetSubstring (strings, Indexer.GeometricAlbedoErrorMin, Flags.IsUnsignedNumeric);
             GeometricAlbedoErrorMax = GetSubstring (strings, Indexer.GeometricAlbedoErrorMax);
 
             LogG = GetSubstring (strings, Indexer.LogG);
 
-            Status = GetSubstring (strings, Indexer.Status, false);
+            Status = GetSubstring (strings, Indexer.Status, Flags.IsString);
 
-            DetectionType = GetSubstring (strings, Indexer.DetectionType, false);
+            DetectionType = GetSubstring (strings, Indexer.DetectionType, Flags.IsString);
 
-            MassDetectionType = GetSubstring (strings, Indexer.MassDetectionType, false);
+            MassDetectionType = GetSubstring (strings, Indexer.MassDetectionType, Flags.IsString);
 
-            RadiusDetectionType = GetSubstring (strings, Indexer.RadiusDetectionType, false);
+            RadiusDetectionType = GetSubstring (strings, Indexer.RadiusDetectionType, Flags.IsString);
 
-            AlternateNames = GetSubstring (strings, Indexer.AlternateNames, false, true);
+            AlternateNames = GetSubstring (strings, Indexer.AlternateNames, Flags.IsStrings);
 
-            Molecules = GetSubstring (strings, Indexer.Molecules, false, true);
+            Molecules = GetSubstring (strings, Indexer.Molecules, Flags.IsStrings);
 
-            Star.Name = GetSubstring (strings, Indexer.StarName, false);
+            Star.Name = GetSubstring (strings, Indexer.StarName, Flags.IsString);
             Star.RightAccession = GetSubstring (strings, Indexer.StarRightAccession);
             Star.Declination = GetSubstring (strings, Indexer.StarDeclination);
-            Star.AlternateNames = GetSubstring (strings, Indexer.StarAlternateNames, false, true);
+            Star.AlternateNames = GetSubstring (strings, Indexer.StarAlternateNames, Flags.IsStrings);
 
             Star.Magnitude.V = GetSubstring (strings, Indexer.StarMagnitudeV);
             Star.Magnitude.I = GetSubstring (strings, Indexer.StarMagnitudeI);
@@ -636,52 +644,57 @@
             Star.Magnitude.K = GetSubstring (strings, Indexer.StarMagnitudeK);
 
             Star.Property.Distance = GetSubstring (strings, Indexer.StarDistance);
-            Star.Property.DistanceErrorMin = GetSubstring (strings, Indexer.StarDistanceErrorMin);
+            Star.Property.DistanceErrorMin = GetSubstring (strings, Indexer.StarDistanceErrorMin, Flags.IsUnsignedNumeric);
             Star.Property.DistanceErrorMax = GetSubstring (strings, Indexer.StarDistanceErrorMax);
 
             Star.Property.Metallicity = GetSubstring (strings, Indexer.StarMetallicity);
-            Star.Property.MetallicityErrorMin = GetSubstring (strings, Indexer.StarMetallicityErrorMin);
+            Star.Property.MetallicityErrorMin = GetSubstring (strings, Indexer.StarMetallicityErrorMin, Flags.IsUnsignedNumeric);
             Star.Property.MetallicityErrorMax = GetSubstring (strings, Indexer.StarMetallicityErrorMax);
 
             Star.Property.Mass = GetSubstring (strings, Indexer.StarMass);
-            Star.Property.MassErrorMin = GetSubstring (strings, Indexer.StarMassErrorMin);
+            Star.Property.MassErrorMin = GetSubstring (strings, Indexer.StarMassErrorMin, Flags.IsUnsignedNumeric);
             Star.Property.MassErrorMax = GetSubstring (strings, Indexer.StarMassErrorMax);
 
             Star.Property.Radius = GetSubstring (strings, Indexer.StarRadius);
-            Star.Property.RadiusErrorMin = GetSubstring (strings, Indexer.StarRadiusErrorMin);
+            Star.Property.RadiusErrorMin = GetSubstring (strings, Indexer.StarRadiusErrorMin, Flags.IsUnsignedNumeric);
             Star.Property.RadiusErrorMax = GetSubstring (strings, Indexer.StarRadiusErrorMax);
 
             Star.Property.SPType = GetSubstring (strings, Indexer.StarSPType);
 
             Star.Property.Age = GetSubstring (strings, Indexer.StarAge);
-            Star.Property.AgeErrorMin = GetSubstring (strings, Indexer.StarAgeErrorMin);
+            Star.Property.AgeErrorMin = GetSubstring (strings, Indexer.StarAgeErrorMin, Flags.IsUnsignedNumeric);
             Star.Property.AgeErrorMax = GetSubstring (strings, Indexer.StarAgeErrorMax);
 
             Star.Property.Teff = GetSubstring (strings, Indexer.StarTeff);
-            Star.Property.TeffErrorMin = GetSubstring (strings, Indexer.StarTeffErrorMin);
+            Star.Property.TeffErrorMin = GetSubstring (strings, Indexer.StarTeffErrorMin, Flags.IsUnsignedNumeric);
             Star.Property.TeffErrorMax = GetSubstring (strings, Indexer.StarTeffErrorMax);
 
-            Star.Property.DetectedDisc = GetSubstring (strings, Indexer.StarDetectedDisc, false);
-            Star.Property.MagneticField = GetSubstring (strings, Indexer.StarMagneticField, false);
+            Star.Property.DetectedDisc = GetSubstring (strings, Indexer.StarDetectedDisc, Flags.IsString);
+            Star.Property.MagneticField = GetSubstring (strings, Indexer.StarMagneticField, Flags.IsString);
             }
 
         static private string GetSubstring (string [] substrings, int index)
             {
-            return GetSubstring (substrings, index, true, false);
+            return GetSubstring (substrings, index, Flags.IsNumeric);
             }
 
-        static private string GetSubstring (string [] substrings, int index, bool isNumeric)
-            {
-            return GetSubstring (substrings, index, isNumeric, false);
-            }
-
-        static private string GetSubstring (string [] substrings, int index, bool isNumeric, bool replaceCommas)
+        static private string GetSubstring (string [] substrings, int index, Flags flag)
             {
             if (index >= 0 && index < substrings.Length)
-                if (isNumeric)
+                if (flag == Flags.IsNumeric)
+                    {
                     return Helper.ReplaceNonNumerics (substrings [index].ToString ());
-                else
-                    if (replaceCommas == true)
+                    }
+                else if (flag == Flags.IsUnsignedNumeric)
+                    {
+                    string stringer = Helper.ReplaceNonNumerics (substrings [index].ToString ());
+
+                    if (stringer.StartsWith ("-"))
+                        stringer = stringer.Substring (1);
+
+                    return stringer;
+                    }
+                else if (flag == Flags.IsStrings)
                     {
                     string stringer = substrings [index].ToString ();
                     return stringer.Replace (',', ';');
@@ -752,6 +765,32 @@
 
             if (Helper.IsDefined (Star.Name))
                 Star.Name = Star.Name.Trim ();
+
+            if (Helper.IsDefined (Mass))
+                Mass = TrimZeros (Mass);
+
+            if (Helper.IsDefined (MassSini))
+                MassSini = TrimZeros (MassSini);
+
+            if (Helper.IsDefined (Radius))
+                Radius = TrimZeros (Radius);
+
+            if (Helper.IsDefined (OrbitalPeriod))
+                OrbitalPeriod = TrimZeros (OrbitalPeriod);
+
+            if (Helper.IsDefined (SemiMajorAxis))
+                SemiMajorAxis = TrimZeros (SemiMajorAxis);
+
+            if (Helper.IsDefined (AngularDistance))
+                AngularDistance = TrimZeros (AngularDistance);
+
+            if (Helper.IsDefined (Inclination))
+                Inclination = TrimZeros (Inclination);
+
+            if (Helper.IsDefined (Eccentricity))
+                Eccentricity = TrimZeros (Eccentricity);
+
+
             }
 
         public bool IsDetectionDefined ()
@@ -759,48 +798,10 @@
             return DetectionType != null ? true : false;
             }
 
-        //public bool IsPrimaryTransit ()
-        //    {
-        //    if (DetectionType.Equals ("Primary Transit", StringComparison.OrdinalIgnoreCase) ||
-        //        DetectionType.Equals ("Detected by Transit", StringComparison.OrdinalIgnoreCase))
-        //        return true;
-        //    else
-        //        return false;
-        ////    }
-
-        //public bool IsRadialVelocity ()
-        //    {
-        //    if (DetectionType.Equals ("Radial Velocity", StringComparison.OrdinalIgnoreCase) ||
-        //        DetectionType.Equals ("Detected by Radial Velocity", StringComparison.OrdinalIgnoreCase))
-        //        return true;
-        //    else
-        //        return false;
-        //    }
-
-        //public bool IsMicrolensing ()
-        //    {
-        //    return DetectionType.Equals ("Microlensing", StringComparison.OrdinalIgnoreCase) ? true : false;
-        //    }
-
-        //public bool IsImaging ()
-        //    {
-        //    return DetectionType.Equals ("Imaging", StringComparison.OrdinalIgnoreCase) ? true : false;
-        //    }
-
-        //public bool IsPulsar ()
-        //    {
-        //    return DetectionType.Equals ("Pulsar", StringComparison.OrdinalIgnoreCase) ? true : false;
-        //    }
-
-        //public bool IsAstrometry ()
-        //    {
-        //    return DetectionType.Equals ("Astrometry", StringComparison.OrdinalIgnoreCase) ? true : false;
-        //    }
-
-        //public bool IsTTV ()
-        //    {
-        //    return DetectionType.Equals ("TTV", StringComparison.OrdinalIgnoreCase) ? true : false;
-        //    }
+        static private string TrimZeros (string value)
+            {
+            return value.TrimEnd ('0');
+            }
         }
 
     public class Star

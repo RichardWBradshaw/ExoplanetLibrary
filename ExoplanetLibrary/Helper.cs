@@ -846,8 +846,8 @@ namespace ExoplanetLibrary
                 case "pl_orbperlim": break;
 
                 case "pl_orbsmax": SemiMajorAxis = index; break;
-                case "pl_orbsmaxerr1": SemiMajorAxisErrorMin = index; break;
-                case "pl_orbsmaxerr2": SemiMajorAxisErrorMax = index; break;
+                case "pl_orbsmaxerr1": SemiMajorAxisErrorMax = index; break;
+                case "pl_orbsmaxerr2": SemiMajorAxisErrorMin = index; break;
                 case "pl_orbsmaxlim": break;
 
                 case "pl_orbeccen": Eccentricity = index; break;
@@ -1097,9 +1097,9 @@ namespace ExoplanetLibrary
                 case "st_denserr2": break;
                 case "st_denslim": break;
 
-                case "st_metfe": break;
-                case "st_metfeerr1": break;
-                case "st_metfeerr2": break;
+                case "st_metfe": StarMetallicity = index; break;
+                case "st_metfeerr1": StarMetallicityErrorMin = index; break;
+                case "st_metfeerr2": StarMetallicityErrorMax = index; break;
                 case "st_metfelim": break;
                 case "st_metfeblend": break;
                 case "st_metratio": break;
@@ -1133,38 +1133,47 @@ namespace ExoplanetLibrary
                 case "st_naxa": break;
                 case "st_nimg": break;
                 case "st_nspec": break;
+
                 case "st_uj": break;
                 case "st_ujerr": break;
                 case "st_ujlim": break;
                 case "st_ujblend": break;
-                case "st_vj": break;
+
+                case "st_vj": StarMagnitudeV = index; break;
                 case "st_vjerr": break;
                 case "st_vjlim": break;
                 case "st_vjblend": break;
+
                 case "st_bj": break;
                 case "st_bjerr": break;
                 case "st_bjlim": break;
                 case "st_bjblend": break;
+
                 case "st_rc": break;
                 case "st_rcerr": break;
                 case "st_rclim": break;
                 case "st_rcblend": break;
-                case "st_ic": break;
+
+                case "st_ic": StarMagnitudeI = index; break;
                 case "st_icerr": break;
                 case "st_iclim": break;
                 case "st_icblend": break;
-                case "st_j": break;
+
+                case "st_j": StarMagnitudeJ = index; break;
                 case "st_jerr": break;
                 case "st_jlim": break;
                 case "st_jblend": break;
-                case "st_h": break;
+
+                case "st_h": StarMagnitudeH = index; break;
                 case "st_herr": break;
                 case "st_hlim": break;
                 case "st_hblend": break;
-                case "st_k": break;
+
+                case "st_k": StarMagnitudeK = index; break;
                 case "st_kerr": break;
                 case "st_klim": break;
                 case "st_kblend": break;
+
                 case "st_wise1": break;
                 case "st_wise1err": break;
                 case "st_wise1lim": break;
@@ -1270,7 +1279,7 @@ namespace ExoplanetLibrary
 
                 case "ra_str": break;
                 case "dec_str": break;
-                case "rowupdate": break;
+                case "rowupdate": Updated = index;  break;
 
                 case "swasp_id": break;
                 case "hd_name": break;

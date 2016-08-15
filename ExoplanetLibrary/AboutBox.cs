@@ -51,7 +51,8 @@ namespace ExoplanetLibrary
                     return "";
                     }
                 return ( ( AssemblyDescriptionAttribute )attributes [0] ).Description + "\r\n" +
-                       "http://exoplanet.eu was last visited on " + Settings.ReadLastVisit ();
+                       "http://exoplanet.eu was last visited on " + Settings.ReadLastEUVisit () + "\r\n" +
+                       "http://exoplanetarchive.ipac.caltech.edu/ was last visited on " + Settings.ReadLastNASAVisit ();
                 }
             }
 

@@ -91,7 +91,6 @@
     <Compile Include="QueryDialog.Designer.cs">
       <DependentUpon>QueryDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReadVOTABLE.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="VisualizationDialog.cs">
       <SubType>Form</SubType>

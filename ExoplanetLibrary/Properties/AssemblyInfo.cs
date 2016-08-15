@@ -5,9 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle ("Exoplanet Library")]
-[assembly: AssemblyDescription ("This program uses the .VOT or .CSV data from http://exoplanet.eu \r\n" +
-"\r\n" +
-"The data is converted into a custom .XML format with a defined .XSD for validation.\r\n" +
+[assembly: AssemblyDescription ("This program uses the .VOT data from http://exoplanet.eu or http://exoplanetarchive.ipac.caltech.edu/ \r\n" +
 "\r\n" +
 "Graphics utilizes 'NPlot' a free .NET library.  More details can be found at http://www.netcontrols.org/nplot \r\n"
 )]
