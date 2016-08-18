@@ -533,7 +533,7 @@
             IsString,
             IsNumeric,
             IsUnsignedNumeric,
-            IsStrings,
+            AreStrings,
             }
 
         public void AssignFromSubstrings (string [] strings)
@@ -549,7 +549,7 @@
             MassSiniErrorMax = GetSubstring (strings, Indexer.MassSiniErrorMax);
 
             Radius = GetSubstring (strings, Indexer.Radius);
-            RadiusErrorMin = GetSubstring (strings, Indexer.RadiusErrorMin,Flags.IsUnsignedNumeric);
+            RadiusErrorMin = GetSubstring (strings, Indexer.RadiusErrorMin, Flags.IsUnsignedNumeric);
             RadiusErrorMax = GetSubstring (strings, Indexer.RadiusErrorMax);
 
             OrbitalPeriod = GetSubstring (strings, Indexer.OrbitalPeriod);
@@ -628,14 +628,22 @@
 
             RadiusDetectionType = GetSubstring (strings, Indexer.RadiusDetectionType, Flags.IsString);
 
-            AlternateNames = GetSubstring (strings, Indexer.AlternateNames, Flags.IsStrings);
+            AlternateNames = GetSubstring (strings, Indexer.AlternateNames, Flags.AreStrings);
 
-            Molecules = GetSubstring (strings, Indexer.Molecules, Flags.IsStrings);
+            Molecules = GetSubstring (strings, Indexer.Molecules, Flags.AreStrings);
 
             Star.Name = GetSubstring (strings, Indexer.StarName, Flags.IsString);
             Star.RightAccession = GetSubstring (strings, Indexer.StarRightAccession);
             Star.Declination = GetSubstring (strings, Indexer.StarDeclination);
-            Star.AlternateNames = GetSubstring (strings, Indexer.StarAlternateNames, Flags.IsStrings);
+
+            if (Indexer.HDName != int.MinValue && Indexer.HIPName != int.MinValue)
+                Star.AlternateNames = GetSubstring (strings, Indexer.HDName, Flags.IsString) + ";" + GetSubstring (strings, Indexer.HIPName, Flags.IsString);
+            else if (Indexer.HDName != int.MinValue)
+                Star.AlternateNames = GetSubstring (strings, Indexer.HDName, Flags.IsString);
+            else if (Indexer.HIPName != int.MinValue)
+                Star.AlternateNames = GetSubstring (strings, Indexer.HIPName, Flags.IsString);
+            else
+                Star.AlternateNames = GetSubstring (strings, Indexer.StarAlternateNames, Flags.AreStrings);
 
             Star.Magnitude.V = GetSubstring (strings, Indexer.StarMagnitudeV);
             Star.Magnitude.I = GetSubstring (strings, Indexer.StarMagnitudeI);
@@ -694,7 +702,7 @@
 
                     return stringer;
                     }
-                else if (flag == Flags.IsStrings)
+                else if (flag == Flags.AreStrings)
                     {
                     string stringer = substrings [index].ToString ();
                     return stringer.Replace (',', ';');
@@ -705,7 +713,7 @@
             return "";
             }
 
-        public void CorrectErrors ()
+        public void CorrectErrors (bool isNasaVot)
             {
             string [] errors = { "KO", "GOV", "KOV", "kov", "KOIII", "KOIV/V", "M4 V" };
             string [] corrections = { "K0", "G0V", "K0V", "K0V", "K0III", "K0IV/V", "M4V" };
@@ -766,31 +774,118 @@
             if (Helper.IsDefined (Star.Name))
                 Star.Name = Star.Name.Trim ();
 
-            if (Helper.IsDefined (Mass))
+            if (isNasaVot)
+                {
                 Mass = TrimZeros (Mass);
+                MassErrorMin = TrimZeros (MassErrorMin);
+                MassErrorMax = TrimZeros (MassErrorMax);
 
-            if (Helper.IsDefined (MassSini))
                 MassSini = TrimZeros (MassSini);
+                MassSiniErrorMin = TrimZeros (MassSiniErrorMin);
+                MassSiniErrorMax = TrimZeros (MassSiniErrorMax);
 
-            if (Helper.IsDefined (Radius))
                 Radius = TrimZeros (Radius);
+                RadiusErrorMin = TrimZeros (RadiusErrorMin);
+                RadiusErrorMax = TrimZeros (RadiusErrorMax);
 
-            if (Helper.IsDefined (OrbitalPeriod))
                 OrbitalPeriod = TrimZeros (OrbitalPeriod);
+                OrbitalPeriodErrorMin = TrimZeros (OrbitalPeriodErrorMin);
+                OrbitalPeriodErrorMax = TrimZeros (OrbitalPeriodErrorMax);
 
-            if (Helper.IsDefined (SemiMajorAxis))
                 SemiMajorAxis = TrimZeros (SemiMajorAxis);
+                SemiMajorAxisErrorMin = TrimZeros (SemiMajorAxisErrorMin);
+                SemiMajorAxisErrorMax = TrimZeros (SemiMajorAxisErrorMax);
 
-            if (Helper.IsDefined (AngularDistance))
-                AngularDistance = TrimZeros (AngularDistance);
-
-            if (Helper.IsDefined (Inclination))
-                Inclination = TrimZeros (Inclination);
-
-            if (Helper.IsDefined (Eccentricity))
                 Eccentricity = TrimZeros (Eccentricity);
+                EccentricityErrorMin = TrimZeros (EccentricityErrorMin);
+                EccentricityErrorMax = TrimZeros (EccentricityErrorMax);
 
+                Inclination = TrimZeros (Inclination);
+                InclinationErrorMin = TrimZeros (InclinationErrorMin);
+                InclinationErrorMax = TrimZeros (InclinationErrorMax);
 
+                TzeroTr = TrimZeros (TzeroTr);
+                TzeroTrErrorMin = TrimZeros (TzeroTrErrorMin);
+                TzeroTrErrorMax = TrimZeros (TzeroTrErrorMax);
+
+                TzeroTrSec = TrimZeros (TzeroTrSec);
+                TzeroTrSecErrorMin = TrimZeros (TzeroTrSecErrorMin);
+                TzeroTrSecErrorMax = TrimZeros (TzeroTrSecErrorMax);
+
+                LambdaAngle = TrimZeros (LambdaAngle);
+                LambdaAngleErrorMin = TrimZeros (LambdaAngleErrorMin);
+                LambdaAngleErrorMax = TrimZeros (LambdaAngleErrorMax);
+
+                TzeroVr = TrimZeros (TzeroVr);
+                TzeroVrErrorMin = TrimZeros (TzeroVrErrorMin);
+                TzeroVrErrorMax = TrimZeros (TzeroVrErrorMax);
+
+                TemperatureCalculated = TrimZeros (TemperatureCalculated);
+
+                TemperatureMeasured = TrimZeros (TemperatureMeasured);
+
+                TemperatureHotPointLo = TrimZeros (TemperatureHotPointLo);
+
+                LogG = TrimZeros (LogG);
+
+                Omega = TrimZeros (Omega);
+                OmegaErrorMin = TrimZeros (OmegaErrorMin);
+                OmegaErrorMax = TrimZeros (OmegaErrorMax);
+
+                Tperi = TrimZeros (Tperi);
+                TperiErrorMin = TrimZeros (TperiErrorMin);
+                TperiErrorMax = TrimZeros (TperiErrorMax);
+
+                ImpactParameter = TrimZeros (ImpactParameter);
+                ImpactParameterErrorMin = TrimZeros (ImpactParameterErrorMin);
+                ImpactParameterErrorMax = TrimZeros (ImpactParameterErrorMax);
+
+                VelocitySemiamplitude = TrimZeros (VelocitySemiamplitude);
+                VelocitySemiamplitudeErrorMin = TrimZeros (VelocitySemiamplitudeErrorMin);
+                VelocitySemiamplitudeErrorMax = TrimZeros (VelocitySemiamplitudeErrorMax);
+
+                GeometricAlbedo = TrimZeros (GeometricAlbedo);
+                GeometricAlbedoErrorMin = TrimZeros (GeometricAlbedoErrorMin);
+                GeometricAlbedoErrorMax = TrimZeros (GeometricAlbedoErrorMax);
+
+                Tconj = TrimZeros (Tconj);
+                TconjErrorMin = TrimZeros (TconjErrorMin);
+                TconjErrorMax = TrimZeros (TconjErrorMax);
+
+                Star.Magnitude.V = TrimZeros (Star.Magnitude.V);
+                Star.Magnitude.I = TrimZeros (Star.Magnitude.I);
+                Star.Magnitude.J = TrimZeros (Star.Magnitude.J);
+                Star.Magnitude.H = TrimZeros (Star.Magnitude.H);
+                Star.Magnitude.K = TrimZeros (Star.Magnitude.K);
+
+                Star.Property.Distance = TrimZeros (Star.Property.Distance);
+                Star.Property.DistanceErrorMin = TrimZeros (Star.Property.DistanceErrorMin);
+                Star.Property.DistanceErrorMax = TrimZeros (Star.Property.DistanceErrorMax);
+
+                Star.Property.Distance = TrimZeros (Star.Property.Distance);
+                Star.Property.DistanceErrorMin = TrimZeros (Star.Property.DistanceErrorMin);
+                Star.Property.DistanceErrorMax = TrimZeros (Star.Property.DistanceErrorMax);
+
+                Star.Property.Metallicity = TrimZeros (Star.Property.Metallicity);
+                Star.Property.MetallicityErrorMin = TrimZeros (Star.Property.MetallicityErrorMin);
+                Star.Property.MetallicityErrorMax = TrimZeros (Star.Property.MetallicityErrorMax);
+
+                Star.Property.Mass = TrimZeros (Star.Property.Mass);
+                Star.Property.MassErrorMin = TrimZeros (Star.Property.MassErrorMin);
+                Star.Property.MassErrorMax = TrimZeros (Star.Property.MassErrorMax);
+
+                Star.Property.Radius = TrimZeros (Star.Property.Radius);
+                Star.Property.RadiusErrorMin = TrimZeros (Star.Property.RadiusErrorMin);
+                Star.Property.RadiusErrorMax = TrimZeros (Star.Property.RadiusErrorMax);
+
+                Star.Property.Age = TrimZeros (Star.Property.Age);
+                Star.Property.AgeErrorMin = TrimZeros (Star.Property.AgeErrorMin);
+                Star.Property.AgeErrorMax = TrimZeros (Star.Property.AgeErrorMax);
+
+                Star.Property.Teff = TrimZeros (Star.Property.Teff);
+                Star.Property.TeffErrorMin = TrimZeros (Star.Property.TeffErrorMin);
+                Star.Property.TeffErrorMax = TrimZeros (Star.Property.TeffErrorMax);
+                }
             }
 
         public bool IsDetectionDefined ()
@@ -798,9 +893,31 @@
             return DetectionType != null ? true : false;
             }
 
+        public void TrimZeros (string value, string value2, string value3)
+            {
+            if (Helper.IsDefined (value))
+                value = TrimZeros (value);
+
+            if (Helper.IsDefined (value2))
+                value2 = TrimZeros (value2);
+
+            if (Helper.IsDefined (value3))
+                value3 = TrimZeros (value3);
+            }
+
         static private string TrimZeros (string value)
             {
-            return value.TrimEnd ('0');
+            if (Helper.IsDefined (value))
+                {
+                string stringer = value.TrimEnd ('0');
+
+                if (stringer.EndsWith ("."))
+                    stringer = stringer + "0";
+
+                return stringer;
+                }
+            else
+                return "";
             }
         }
 

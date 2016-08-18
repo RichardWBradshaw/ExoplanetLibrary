@@ -148,7 +148,7 @@ namespace ExoplanetLibrary
                 return 0;
 
             //
-            // kludge: .csv's can contain commas and / or tabs within in the data, these may occur in literals at are in double quotes
+            // kludge: .csv's can contain commas and / or tabs within in the data, these may occur in literals that are in double quotes
             //
 
             if (IsCommaDelimited == true)
@@ -178,7 +178,7 @@ namespace ExoplanetLibrary
                 Exoplanet exoplanet = new Exoplanet ();
 
                 exoplanet.AssignFromSubstrings (strings);
-                exoplanet.CorrectErrors ();
+                exoplanet.CorrectErrors (false);
                 WriteXML.WriteExoplanet (writer, exoplanet, xmlVersion);
                 }
             else

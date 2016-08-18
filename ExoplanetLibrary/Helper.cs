@@ -521,6 +521,10 @@ namespace ExoplanetLibrary
 
         static public int StarAlternateNames;
 
+        static public int HDName;
+
+        static public int HIPName;
+
         static public void Initialize ()
             {
             Name = int.MinValue;
@@ -1282,8 +1286,8 @@ namespace ExoplanetLibrary
                 case "rowupdate": Updated = index;  break;
 
                 case "swasp_id": break;
-                case "hd_name": break;
-                case "hip_name": break;
+                case "hd_name": HDName = index;  break;
+                case "hip_name": HIPName = index;  break;
                 case "id": break;
 
                 default:
