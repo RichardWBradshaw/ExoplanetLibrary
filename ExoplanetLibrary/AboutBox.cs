@@ -50,9 +50,12 @@ namespace ExoplanetLibrary
                     {
                     return "";
                     }
-                return ( ( AssemblyDescriptionAttribute )attributes [0] ).Description + "\r\n" +
-                       "http://exoplanet.eu was last visited on " + Settings.ReadLastEUVisit () + "\r\n" +
-                       "http://exoplanetarchive.ipac.caltech.edu/ was last visited on " + Settings.ReadLastNASAVisit ();
+                return ( ( AssemblyDescriptionAttribute )attributes [0] ).Description +
+                       "This program uses VOTable data from:\r\n" +
+                       "    o http://exoplanet.eu (last visited on " + Settings.ReadLastEUVisit () + ")\r\n" +
+                       "    o http://exoplanetarchive.ipac.caltech.edu/ (last visited on " + Settings.ReadLastNASAVisit () + ")\r\n" +
+                       "\r\n" +
+                       "Graphics utilizes 'NPlot' a free .NET library.  More details can be found at http://www.netcontrols.org/nplot \r\n";
                 }
             }
 

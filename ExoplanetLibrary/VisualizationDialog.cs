@@ -40,6 +40,7 @@ namespace ExoplanetLibrary
             logYAxisToolStripMenuItem.Checked = Visualization.LogYAxis == CheckState.Checked ? true : false;
             includeDuplicatesToolStripMenuItem.Checked = Visualization.IncludeDuplicates == CheckState.Checked ? true : false;
 
+            //omegaToolStripMenuItem.Enabled = false;
             RefreshGraphics ();
             }
 

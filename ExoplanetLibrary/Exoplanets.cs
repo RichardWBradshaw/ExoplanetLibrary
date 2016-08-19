@@ -672,15 +672,17 @@ namespace ExoplanetLibrary
 
         static public string Compare (ArrayList array1, ArrayList array2)
             {
-            string stringer = "";
+            string added = "", updated = "", missing = "";
+            int numberOfLines = 0;
             bool initial;
 
             array1.Sort (new SortByExoplanetName ());
             array2.Sort (new SortByExoplanetName ());
 
             initial = true;
+            numberOfLines = 0;
 
-            for (int index = 0; index < array1.Count; ++index)
+            for (int index = 0; index < array1.Count && numberOfLines < 10; ++index)
                 {
                 object object1 = array1 [index];
                 object object2 = GetByName (array2, ( array1 [index] as Exoplanet ).Name);
@@ -688,16 +690,22 @@ namespace ExoplanetLibrary
                 if (object2 == null)
                     {
                     if (initial)
-                        stringer += "Added:\r\n";
+                        added += "Added:\r\n";
 
-                    stringer += "\t" + ( array1 [index] as Exoplanet ).Name + "\r\n";
+                    added += "\t" + ( array1 [index] as Exoplanet ).Name + "\r\n";
                     initial = false;
+
+                    ++numberOfLines;
+
+                    if (numberOfLines == 10)
+                        added += "\tmore...\r\n";
                     }
                 }
 
             initial = true;
+            numberOfLines = 0;
 
-            for (int index = 0; index < array1.Count; ++index)
+            for (int index = 0; index < array1.Count && numberOfLines < 10; ++index)
                 {
                 object object1 = array1 [index];
                 object object2 = GetByName (array2, ( array1 [index] as Exoplanet ).Name);
@@ -705,16 +713,22 @@ namespace ExoplanetLibrary
                 if (object2 != null && !Helper.CompareEquals (object1, object2))
                     {
                     if (initial)
-                        stringer += "Updated:\r\n";
+                        updated += "Updated:\r\n";
 
-                    stringer += "\t" + ( array1 [index] as Exoplanet ).Name + "\r\n";
+                    updated += "\t" + ( array1 [index] as Exoplanet ).Name + "\r\n";
                     initial = false;
+
+                    ++numberOfLines;
+
+                    if (numberOfLines == 10)
+                        updated += "\tmore...\r\n";
                     }
                 }
 
             initial = true;
+            numberOfLines = 0;
 
-            for (int index = 0; index < array2.Count; ++index)
+            for (int index = 0; index < array2.Count && numberOfLines < 10; ++index)
                 {
                 object object1 = array2 [index];
                 object object2 = GetByName (array1, ( array2 [index] as Exoplanet ).Name);
@@ -722,19 +736,24 @@ namespace ExoplanetLibrary
                 if (object2 == null)
                     {
                     if (initial)
-                        stringer += "Missing:\r\n";
+                        missing += "Missing:\r\n";
 
-                    stringer += "\t" + ( array2 [index] as Exoplanet ).Name + "\r\n";
+                    missing += "\t" + ( array2 [index] as Exoplanet ).Name + "\r\n";
                     initial = false;
+
+                    ++numberOfLines;
+
+                    if (numberOfLines == 10)
+                        missing += "\tmore...\r\n";
                     }
                 }
 
-            return stringer;
+            return added + updated + missing;
             }
 
         static public string VerifyNames (ArrayList array)
             {
-            string stringer = "";
+            string misnamed = "";
 
             array.Sort (new SortByExoplanetName ());
 
@@ -783,13 +802,13 @@ namespace ExoplanetLibrary
                             }
 
                 if (mismatch)
-                    stringer += "'" + exoplanet.Name      + "' (" + exoplanet.AlternateNames + ")" +
+                    misnamed += "'" + exoplanet.Name      + "' (" + exoplanet.AlternateNames + ")" +
                                 " may be misnamed "       +
                                 "'" + exoplanet.Star.Name + "' (" + exoplanet.Star.AlternateNames + ")" +
                                 "'\r\n";
                 }
 
-            return stringer;
+            return misnamed;
             }
 
         static private bool IsMismatch (string starName, string planetName)

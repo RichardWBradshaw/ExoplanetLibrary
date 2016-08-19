@@ -5,14 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle ("Exoplanet Library")]
-[assembly: AssemblyDescription ("This program uses the .VOT data from http://exoplanet.eu or http://exoplanetarchive.ipac.caltech.edu/ \r\n" +
-"\r\n" +
-"Graphics utilizes 'NPlot' a free .NET library.  More details can be found at http://www.netcontrols.org/nplot \r\n"
-)]
+[assembly: AssemblyDescription ("")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Author:  RichardWBradshaw@Outlook.com")]
 [assembly: AssemblyProduct ("Exoplanet Library")]
-[assembly: AssemblyCopyright ("Copyright ©  2015")]
+[assembly: AssemblyCopyright ("Copyright © 2015-2016")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
