@@ -18,6 +18,7 @@ namespace ExoplanetLibraryUnitTest
             }
 
         [TestMethod]
+        [Ignore]
         public void TestMethodVersion1 ()
             {
             ArrayList exoplanetArray = null;
@@ -38,6 +39,7 @@ namespace ExoplanetLibraryUnitTest
             }
 
         [TestMethod]
+        [Ignore]
         public void TestMethodVersion2 ()
             {
             ArrayList exoplanetArray = null;
@@ -58,6 +60,7 @@ namespace ExoplanetLibraryUnitTest
             }
 
         [TestMethod]
+        [Ignore]
         public void TestMethodVersion3 ()
             {
             ArrayList exoplanetArray = null;
@@ -86,6 +89,7 @@ namespace ExoplanetLibraryUnitTest
             }
 
         [TestMethod]
+        [Ignore]
         public void TestMethodVersion1Dat ()
             {
             ArrayList exoplanetArray = null;
@@ -127,6 +131,7 @@ namespace ExoplanetLibraryUnitTest
             }
 
         [TestMethod]
+        [Ignore]
         public void TestMethodVersion3Dat ()
             {
             ArrayList exoplanetArray = null;
