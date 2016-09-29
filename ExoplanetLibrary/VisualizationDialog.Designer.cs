@@ -54,6 +54,8 @@
             this.logXAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logYAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.includeDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.includeBestFitLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.includeBestFitCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,8 +210,9 @@
             // rightAccessionVsDeclinationToolStripMenuItem
             // 
             this.rightAccessionVsDeclinationToolStripMenuItem.Name = "rightAccessionVsDeclinationToolStripMenuItem";
+            this.rightAccessionVsDeclinationToolStripMenuItem.ShowShortcutKeys = false;
             this.rightAccessionVsDeclinationToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.rightAccessionVsDeclinationToolStripMenuItem.Text = "Right Accession vs Declination";
+            this.rightAccessionVsDeclinationToolStripMenuItem.Text = "Stars";
             this.rightAccessionVsDeclinationToolStripMenuItem.Click += new System.EventHandler(this.visualizeStars_Click);
             // 
             // toolStripSeparator3
@@ -341,7 +344,9 @@
             this.colorFromStarTypeToolStripMenuItem,
             this.logXAxisToolStripMenuItem,
             this.logYAxisToolStripMenuItem,
-            this.includeDuplicatesToolStripMenuItem});
+            this.includeDuplicatesToolStripMenuItem,
+            this.includeBestFitLineToolStripMenuItem,
+            this.includeBestFitCurveToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.settingsToolStripMenuItem.Text = "Settings...";
@@ -349,7 +354,7 @@
             // errorBarsToolStripMenuItem
             // 
             this.errorBarsToolStripMenuItem.Name = "errorBarsToolStripMenuItem";
-            this.errorBarsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.errorBarsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.errorBarsToolStripMenuItem.Text = "Include Error Bars";
             this.errorBarsToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.errorBarsToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -357,7 +362,7 @@
             // colorFromStarTypeToolStripMenuItem
             // 
             this.colorFromStarTypeToolStripMenuItem.Name = "colorFromStarTypeToolStripMenuItem";
-            this.colorFromStarTypeToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.colorFromStarTypeToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.colorFromStarTypeToolStripMenuItem.Text = "Color by Star Type";
             this.colorFromStarTypeToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.colorFromStarTypeToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -365,7 +370,7 @@
             // logXAxisToolStripMenuItem
             // 
             this.logXAxisToolStripMenuItem.Name = "logXAxisToolStripMenuItem";
-            this.logXAxisToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.logXAxisToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.logXAxisToolStripMenuItem.Text = "Log X Axis";
             this.logXAxisToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.logXAxisToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -373,7 +378,7 @@
             // logYAxisToolStripMenuItem
             // 
             this.logYAxisToolStripMenuItem.Name = "logYAxisToolStripMenuItem";
-            this.logYAxisToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.logYAxisToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.logYAxisToolStripMenuItem.Text = "Log Y Axis";
             this.logYAxisToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.logYAxisToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
@@ -381,10 +386,26 @@
             // includeDuplicatesToolStripMenuItem
             // 
             this.includeDuplicatesToolStripMenuItem.Name = "includeDuplicatesToolStripMenuItem";
-            this.includeDuplicatesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.includeDuplicatesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.includeDuplicatesToolStripMenuItem.Text = "Include Duplicates";
             this.includeDuplicatesToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.includeDuplicatesToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // includeBestFitLineToolStripMenuItem
+            // 
+            this.includeBestFitLineToolStripMenuItem.Name = "includeBestFitLineToolStripMenuItem";
+            this.includeBestFitLineToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.includeBestFitLineToolStripMenuItem.Text = "Include Best Fit Line";
+            this.includeBestFitLineToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.includeBestFitLineToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // includeBestFitCurveToolStripMenuItem
+            // 
+            this.includeBestFitCurveToolStripMenuItem.Name = "includeBestFitCurveToolStripMenuItem";
+            this.includeBestFitCurveToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.includeBestFitCurveToolStripMenuItem.Text = "Include Best Fit Curve";
+            this.includeBestFitCurveToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.includeBestFitCurveToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
             // VisualizationDialog
             // 
@@ -447,5 +468,7 @@
         private System.Windows.Forms.ToolStripMenuItem radiusVsInclinationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusVsKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem includeDuplicatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem includeBestFitLineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem includeBestFitCurveToolStripMenuItem;
         }
     }

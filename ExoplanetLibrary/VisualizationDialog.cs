@@ -39,9 +39,44 @@ namespace ExoplanetLibrary
             logXAxisToolStripMenuItem.Checked = Visualization.LogXAxis == CheckState.Checked ? true : false;
             logYAxisToolStripMenuItem.Checked = Visualization.LogYAxis == CheckState.Checked ? true : false;
             includeDuplicatesToolStripMenuItem.Checked = Visualization.IncludeDuplicates == CheckState.Checked ? true : false;
+            includeBestFitLineToolStripMenuItem.Checked = Visualization.IncludeBestFitLine == CheckState.Checked ? true : false;
+            includeBestFitCurveToolStripMenuItem.Checked = Visualization.IncludeBestFitCurve == CheckState.Checked ? true : false;
 
-            //omegaToolStripMenuItem.Enabled = false;
+            EnableNDisable ();
+
             RefreshGraphics ();
+            }
+
+        private void EnableNDisable ()
+            {
+            massToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.Mass);
+            radiiToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.Radius);
+            orbitalPeriodToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.OrbitalPeriod);
+            semiMajorAxisToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.SemiMajorAxis);
+            eccentricityToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.Eccentricity);
+            angularDistanceToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.AngularDistance);
+            inclinationToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.Inclination);
+            omegaToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.Omega);
+            kToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.VelocitySemiamplitude);
+            tcalcToolStripMenuItem.Enabled = Exoplanets.IsPlotable (Exoplanets.ExoplanetsArray, PlotTypes.TemperatureCalculated);
+
+            massVsRadiusToolStripMenuItem.Enabled = ( massToolStripMenuItem.Enabled && radiiToolStripMenuItem.Enabled ) ? true : false;
+            massVsOrbitalPeriodToolStripMenuItem.Enabled = ( massToolStripMenuItem.Enabled && orbitalPeriodToolStripMenuItem.Enabled ) ? true : false;
+            massVsSemiMajorAxisToolStripMenuItem.Enabled = ( massToolStripMenuItem.Enabled && semiMajorAxisToolStripMenuItem.Enabled ) ? true : false;
+            massVsEccentricityToolStripMenuItem.Enabled = ( massToolStripMenuItem.Enabled && eccentricityToolStripMenuItem.Enabled ) ? true : false;
+            massVsAngularDistanceToolStripMenuItem.Enabled = ( massToolStripMenuItem.Enabled && angularDistanceToolStripMenuItem.Enabled ) ? true : false;
+            massVsInclinationToolStripMenuItem.Enabled = ( massToolStripMenuItem.Enabled && inclinationToolStripMenuItem.Enabled ) ? true : false;
+            massVsOmegaToolStripMenuItem.Enabled = ( massToolStripMenuItem.Enabled && omegaToolStripMenuItem.Enabled ) ? true : false;
+            massVsKToolStripMenuItem.Enabled = ( massToolStripMenuItem.Enabled && kToolStripMenuItem.Enabled ) ? true : false;
+
+            radiusVsMassToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && massToolStripMenuItem.Enabled ) ? true : false;
+            radiusVsOrbitalPeriodToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && orbitalPeriodToolStripMenuItem.Enabled ) ? true : false;
+            radiusVsSemiMajorAxisToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && semiMajorAxisToolStripMenuItem.Enabled ) ? true : false;
+            radiusVsEccentricityToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && eccentricityToolStripMenuItem.Enabled ) ? true : false;
+            radiusVsAngularDistanceToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && angularDistanceToolStripMenuItem.Enabled ) ? true : false;
+            radiusVsInclinationToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && inclinationToolStripMenuItem.Enabled ) ? true : false;
+            radiusVsOmegaToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && omegaToolStripMenuItem.Enabled ) ? true : false;
+            radiusVsKToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && kToolStripMenuItem.Enabled ) ? true : false;
             }
 
         private void VisualizationResizeBegin (object sender, System.EventArgs e)
@@ -248,6 +283,8 @@ namespace ExoplanetLibrary
             ArrayList array = null;
             bool includeDuplicates = Visualization.IncludeDuplicates == CheckState.Checked ? true : false;
 
+            EnableNDisable ();
+
             switch (PlotType)
                 {
                 case PlotTypes.Mass:
@@ -441,6 +478,42 @@ namespace ExoplanetLibrary
                 if (PlotType != PlotTypes.Stars)
                     RefreshGraphics ();
                 }
+            else if (sender == includeBestFitLineToolStripMenuItem)
+                {
+                Visualization.IncludeBestFitLine = includeBestFitLineToolStripMenuItem.CheckState;
+
+                if (PlotType != PlotTypes.Stars &&
+                    PlotType != PlotTypes.Mass &&
+                    PlotType != PlotTypes.Radius &&
+                    PlotType != PlotTypes.OrbitalPeriod &&
+                    PlotType != PlotTypes.SemiMajorAxis &&
+                    PlotType != PlotTypes.Eccentricity &&
+                    PlotType != PlotTypes.AngularDistance &&
+                    PlotType != PlotTypes.Inclination &&
+                    PlotType != PlotTypes.TemperatureCalculated &&
+                    PlotType != PlotTypes.Omega &&
+                    PlotType != PlotTypes.VelocitySemiamplitude
+                    )
+                    RefreshGraphics ();
+                }
+            else if (sender == includeBestFitCurveToolStripMenuItem)
+                {
+                Visualization.IncludeBestFitCurve = includeBestFitCurveToolStripMenuItem.CheckState;
+
+                if (PlotType != PlotTypes.Stars &&
+                    PlotType != PlotTypes.Mass &&
+                    PlotType != PlotTypes.Radius &&
+                    PlotType != PlotTypes.OrbitalPeriod &&
+                    PlotType != PlotTypes.SemiMajorAxis &&
+                    PlotType != PlotTypes.Eccentricity &&
+                    PlotType != PlotTypes.AngularDistance &&
+                    PlotType != PlotTypes.Inclination &&
+                    PlotType != PlotTypes.TemperatureCalculated &&
+                    PlotType != PlotTypes.Omega &&
+                    PlotType != PlotTypes.VelocitySemiamplitude
+                    )
+                    RefreshGraphics ();
+                }
             }
 
         private void MenuCheckBox_Click (object sender, EventArgs e)
@@ -464,6 +537,14 @@ namespace ExoplanetLibrary
             else if (sender == includeDuplicatesToolStripMenuItem)
                 {
                 includeDuplicatesToolStripMenuItem.Checked = includeDuplicatesToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == includeBestFitLineToolStripMenuItem)
+                {
+                includeBestFitLineToolStripMenuItem.Checked = includeBestFitLineToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == includeBestFitCurveToolStripMenuItem)
+                {
+                includeBestFitCurveToolStripMenuItem.Checked = includeBestFitCurveToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
             }
         }

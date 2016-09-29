@@ -29,6 +29,30 @@ namespace ExoplanetLibrary
             set { Reader_ = value; }
             }
 
+        static private string [] Extensions_ = { ".vot" };
+        static private string [] Extensions
+            {
+            get { return Extensions_; }
+            }
+
+        static public bool IsVOT (string fileName)
+            {
+            for (int index = 0; index < Extensions.Length; ++index)
+                if (fileName.EndsWith (Extensions [index]))
+                    return true;
+
+            return false;
+            }
+
+        static public string ReplaceExtension (string fileName)
+            {
+            for (int index = 0; index < Extensions.Length; ++index)
+                if (fileName.EndsWith (Extensions [index]))
+                    return fileName.Replace (Extensions [index], ".xml");
+
+            return fileName;
+            }
+
         static public int Read (string votFileName)
             {
             if (File.Exists (votFileName))
@@ -63,128 +87,62 @@ namespace ExoplanetLibrary
                         {
                         line = reader.ReadLine ();
 
-                        if (line != null)
+                        if (line == null)
+                            break;
+
+                        line = line.Trim ();
+
+                        if (line.Length == 0)
                             {
-                            line = line.Trim ();
+                            ;
+                            }
+                        else if (line.StartsWith ("<TR>"))          // NASA VOT
+                            {
+                            line = line.Replace ("<TR>", "");
+                            WriteExoplanet (writer, line);
+                            }
+                        else if (line.StartsWith ("<TD>"))          // EU VOT
+                            {
+                            WriteExoplanet (writer, line);
+                            }
+                        else if (line.StartsWith ("<FIELD"))
+                            {
+                            char [] delimiterChars = { ' ' };
+                            string [] substrings = line.Split (delimiterChars);
 
-                            if (line.Length == 0)
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<TR>"))      // NASA VOT
-                                {
-                                line = line.Replace ("<TR>", "");
-                                WriteExoplanet (writer, line);
-                                }
-                            else if (line.StartsWith ("<TD>"))      // EU VOT
-                                {
-                                WriteExoplanet (writer, line);
-                                }
-                            else if (line.StartsWith ("</TR>"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<VOTABLE"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<RESOURCE"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<INFO"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<COOSYS"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<TABLE"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<DESCRIPTION"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<FIELD"))
-                                {
-                                char [] delimiterChars = { ' ' };
-                                string [] substrings = line.Split (delimiterChars);
-
-                                if (substrings [1].StartsWith ("ID=\"col"))
-                                    {                               // EU VOT
-                                    if (substrings [2].StartsWith ("name=\""))
-                                        {
-                                        string temporary, name;
-                                        int column = 0;
-
-                                        temporary = substrings [1].Replace ("ID=\"col", "");
-                                        temporary = temporary.Replace ("\"", "");
-                                        column = int.Parse (temporary);
-
-                                        name = substrings [2].Replace ("name=\"", "");
-                                        name = name.Replace ("\"", "");
-
-                                        Indexer.SetIndex (name, column - 1);
-                                        }
-                                    }
-                                else
+                            if (substrings [1].StartsWith ("ID=\"col"))
+                                {                                   // EU VOT
+                                if (substrings [2].StartsWith ("name=\""))
                                     {
-                                    if (substrings [1].StartsWith ("name=\""))
-                                        {                           // NASA VOT
-                                        string name;
+                                    string temporary, name;
+                                    int column = 0;
 
-                                        name = substrings [1].Replace ("name=\"", "");
-                                        name = name.Replace ("\"", "");
+                                    temporary = substrings [1].Replace ("ID=\"col", "");
+                                    temporary = temporary.Replace ("\"", "");
+                                    column = int.Parse (temporary);
 
-                                        Indexer.SetIndex (name, index);
-                                        ++index;
+                                    name = substrings [2].Replace ("name=\"", "");
+                                    name = name.Replace ("\"", "");
 
-                                        IsNasaVot = true;
-                                        }
+                                    Indexer.SetIndex (name, column - 1);
                                     }
                                 }
-                            else if (line.StartsWith ("</FIELD>"))
+                            else
                                 {
-                                ;
-                                }
-                            else if (line.StartsWith ("<DATA"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("</DATA>"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<TABLEDATA"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("</TABLEDATA>"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("</DATA"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("</TABLE>"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("<RESOURCE"))
-                                {
-                                ;
-                                }
-                            else if (line.StartsWith ("</VOTABLE>"))
-                                {
-                                ;
+                                if (substrings [1].StartsWith ("name=\""))
+                                    {                               // NASA VOT
+                                    string name;
+
+                                    name = substrings [1].Replace ("name=\"", "");
+                                    name = name.Replace ("\"", "");
+
+                                    Indexer.SetIndex (name, index);
+                                    ++index;
+
+                                    IsNasaVot = true;
+                                    }
                                 }
                             }
-                        else
-                            break;
                         }
                     }
 

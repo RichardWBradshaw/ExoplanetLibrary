@@ -219,6 +219,18 @@ namespace ExoplanetLibraryUnitTest
 
             Assert.IsNotNull (exoplanetArray);
             }
+
+        [TestMethod]
+        public void TestBestFitCurve ()
+            {
+            double [] x = { 1.0, 2.0, 3.0, 4.0 };
+            double [] y = { 1.26, 1.65, 2.52, 6.08 };
+
+            BestFitCurve bestFitCurve = new BestFitCurve ();
+
+            bestFitCurve.Compute (x, y);
+            double result = bestFitCurve.ComputeYAtX (5.0);
+            }
         }
 
     }

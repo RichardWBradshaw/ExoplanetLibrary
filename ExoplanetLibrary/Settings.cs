@@ -4,17 +4,32 @@ using System.Collections;
 
 namespace ExoplanetLibrary
     {
+    public enum QueryTypes
+        {
+        StartsWith = 0,
+        Contains = 1,
+        EndsWith = 2
+        }
+
     public class NameQuery
         {
         public string Name;
+
+        private QueryTypes QueryType_ = QueryTypes.StartsWith;
+        public QueryTypes QueryType
+            {
+            get { return QueryType_; }
+            set { QueryType_ = value; }
+            }
 
         public NameQuery ()
             {
             }
 
-        public NameQuery (string name)
+        public NameQuery (string name, QueryTypes queryType)
             {
             Name = name;
+            QueryType = queryType;
             }
         }
 
@@ -22,13 +37,21 @@ namespace ExoplanetLibrary
         {
         public string Detection;
 
+        private QueryTypes QueryType_ = QueryTypes.StartsWith;
+        public QueryTypes QueryType
+            {
+            get { return QueryType_; }
+            set { QueryType_ = value; }
+            }
+
         public DetectionQuery ()
             {
             }
 
-        public DetectionQuery (string detection)
+        public DetectionQuery (string detection, QueryTypes queryType)
             {
             Detection = detection;
+            QueryType = queryType;
             }
         }
 
@@ -111,14 +134,15 @@ namespace ExoplanetLibrary
                 double value = 0.0, value1 = 0.0, value2 = 0.0;
                 string name = "";
                 string detection = "";
+                QueryTypes queryType = QueryTypes.StartsWith;
 
-                if (ParseName (strings, ref name) == true)
+                if (ParseName (strings, ref name, ref queryType) == true)
                     {
-                    AddName (name);
+                    AddName (name, queryType);
                     }
-                else if (ParseDetection (strings, ref detection) == true)
+                else if (ParseDetection (strings, ref detection, ref queryType) == true)
                     {
-                    AddDetection (detection);
+                    AddDetection (detection, queryType);
                     }
                 else if (ParseBetweenQuery (strings, ref plotType, ref value1, ref value2) == true)
                     {
@@ -136,16 +160,35 @@ namespace ExoplanetLibrary
             }
 
         //
-        // "where name Kelper"
+        // "where name Kepler" or "where name startswith Kepler"
         //
 
-        private bool ParseName (string [] strings, ref string value)
+        private bool ParseName (string [] strings, ref string value, ref QueryTypes queryType)
             {
+            queryType = QueryTypes.StartsWith;
+
             if (strings [0] == "where")
                 if (strings [1] == "name")
                     {
-                    value = strings [2].ToLower ();
-                    return true;
+                    if (strings.Length == 3)
+                        {
+                        value = strings [2].ToLower ();
+                        return true;
+                        }
+                    else if (strings.Length == 4)
+                        {
+                        string query = strings [2].ToLower ();
+
+                        if (query.StartsWith ("start") || query.StartsWith ("startswith"))
+                            queryType = QueryTypes.StartsWith;
+                        else if (query.StartsWith ("contains"))
+                            queryType = QueryTypes.Contains;
+                        else if (query.StartsWith ("end") || query.StartsWith ("endswith"))
+                            queryType = QueryTypes.EndsWith;
+
+                        value = strings [3].ToLower ();
+                        return true;
+                        }
                     }
 
             return false;
@@ -155,14 +198,33 @@ namespace ExoplanetLibrary
         // "where detection PrimaryTransit"
         //
 
-        private bool ParseDetection (string [] strings, ref string value)
+        private bool ParseDetection (string [] strings, ref string value, ref QueryTypes queryType)
             {
+            queryType = QueryTypes.StartsWith;
+
             if (strings [0] == "where")
                 if (strings [1] == "detection")
+                    {
+                    if (strings.Length == 3)
                         {
                         value = strings [2].ToLower ();
                         return true;
                         }
+                    else if (strings.Length == 4)
+                        {
+                        string query = strings [2].ToLower ();
+
+                        if (query.StartsWith ("start") || query.StartsWith ("startswith"))
+                            queryType = QueryTypes.StartsWith;
+                        else if (query.StartsWith ("contains"))
+                            queryType = QueryTypes.Contains;
+                        else if (query.StartsWith ("end") || query.StartsWith ("endswith"))
+                            queryType = QueryTypes.EndsWith;
+
+                        value = strings [3].ToLower ();
+                        return true;
+                        }
+                    }
 
             return false;
             }
@@ -334,14 +396,14 @@ namespace ExoplanetLibrary
             GreaterThanQueries = new ArrayList ();
             }
 
-        private void AddName (string name)
+        private void AddName (string name, QueryTypes queryType)
             {
-            NameQueries.Add (new NameQuery (name.ToLower ()));
+            NameQueries.Add (new NameQuery (name.ToLower (), queryType));
             }
 
-        private void AddDetection (string detection)
+        private void AddDetection (string detection, QueryTypes queryType)
             {
-            DetectionQueries.Add (new DetectionQuery (detection));
+            DetectionQueries.Add (new DetectionQuery (detection, queryType));
             }
 
         private void AddBetween (PlotTypes plotType, double value1, double value2)
@@ -365,9 +427,24 @@ namespace ExoplanetLibrary
                 foreach (NameQuery query in NameQueries)
                     {
                     string name = exoplanet.Name.ToLower ();
+                    // add EndsWith  // needs_work
+                    // add Contains
 
-                    if (!name.StartsWith (query.Name))
-                        return false;
+                    if (query.QueryType == QueryTypes.StartsWith)
+                        {
+                        if (!name.StartsWith (query.Name))
+                            return false;
+                        }
+                    else if (query.QueryType == QueryTypes.EndsWith)
+                        {
+                        if (!name.EndsWith (query.Name))
+                            return false;
+                        }
+                    else if (query.QueryType == QueryTypes.Contains)
+                        {
+                        if (!name.Contains (query.Name))
+                            return false;
+                        }
                     }
 
             if (DetectionQueries.Count > 0)
@@ -375,7 +452,7 @@ namespace ExoplanetLibrary
                     {
                     string detection = exoplanet.DetectionType.ToLower ();
 
-                    if (!detection.Contains( query.Detection))
+                    if (!detection.Contains (query.Detection))
                         return false;
                     }
 
@@ -506,12 +583,31 @@ namespace ExoplanetLibrary
             set { IncludeDuplicates_ = value; }
             }
 
+        static private CheckState IncludeBestFitLine_ = CheckState.Unchecked;
+        static public CheckState IncludeBestFitLine
+            {
+            get { return IncludeBestFitLine_; }
+            set { IncludeBestFitLine_ = value; }
+            }
+
+        static private CheckState IncludeBestFitCurve_ = CheckState.Unchecked;
+        static public CheckState IncludeBestFitCurve
+            {
+            get { return IncludeBestFitCurve_; }
+            set { IncludeBestFitCurve_ = value; }
+            }
+
         Visualization ()
             {
             IncludeErrorBars = CheckState.Unchecked;
             ColorFromStarType = CheckState.Unchecked;
             LogXAxis = CheckState.Unchecked;
             LogYAxis = CheckState.Unchecked;
+
+            IncludeDuplicates = CheckState.Checked;
+
+            IncludeBestFitLine = CheckState.Checked;
+            IncludeBestFitCurve = CheckState.Checked;
             }
         }
 
@@ -537,11 +633,11 @@ namespace ExoplanetLibrary
                 {
                 subkey.SetValue ("IncudeErrorBars", Visualization.IncludeErrorBars == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("ColorFromStarType", Visualization.ColorFromStarType == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-
                 subkey.SetValue ("LogXAxis", Visualization.LogXAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("LogYAxis", Visualization.LogYAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-
                 subkey.SetValue ("IncludeDuplicates", Visualization.IncludeDuplicates == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+                subkey.SetValue ("IncludeBestFitLine", Visualization.IncludeBestFitLine == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+                subkey.SetValue ("IncludeBestFitCurve", Visualization.IncludeBestFitCurve == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
 
                 subkey.SetValue ("OpenFileFilterIndex", Settings.FilterIndex, RegistryValueKind.String);
                 }
@@ -564,6 +660,8 @@ namespace ExoplanetLibrary
                 Visualization.LogXAxis = ReadValue (subkey, "LogXAxis");
                 Visualization.LogYAxis = ReadValue (subkey, "LogYAxis");
                 Visualization.IncludeDuplicates = ReadValue (subkey, "IncludeDuplicates");
+                Visualization.IncludeBestFitLine = ReadValue (subkey, "IncludeBestFitLine");
+                Visualization.IncludeBestFitCurve = ReadValue (subkey, "IncludeBestFitCurve");
 
                 Settings.FilterIndex = ReadIntegerValue (subkey, "OpenFileFilterIndex");
                 }
@@ -608,12 +706,17 @@ namespace ExoplanetLibrary
 
         static public int WriteLastEUVisit (System.DateTime dateTime)
             {
-            return WriteLastVisit ("LastEUVisit", dateTime);
+            return WriteLastVisit (Constant.LastExoplanetEUVisit, dateTime);
             }
 
         static public int WriteLastNASAVisit (System.DateTime dateTime)
             {
-            return WriteLastVisit ("LastNASAVisit", dateTime);
+            return WriteLastVisit (Constant.LastNASAVisit, dateTime);
+            }
+
+        static public int WriteLastExoplanetsOrgVisit (System.DateTime dateTime)
+            {
+            return WriteLastVisit (Constant.LastExoplanetsOrgVisit, dateTime);
             }
 
         static private int WriteLastVisit (string keyValue, System.DateTime dateTime)
@@ -632,12 +735,17 @@ namespace ExoplanetLibrary
 
         static public string ReadLastEUVisit ()
             {
-            return ReadLastVisit ("LastEUVisit");
+            return ReadLastVisit (Constant.LastExoplanetEUVisit);
             }
 
         static public string ReadLastNASAVisit ()
             {
-            return ReadLastVisit ("LastNASAVisit");
+            return ReadLastVisit (Constant.LastNASAVisit);
+            }
+
+        static public string ReadLastExoplanetsOrgVisit ()
+            {
+            return ReadLastVisit (Constant.LastExoplanetsOrgVisit);
             }
 
         static private string ReadLastVisit (string keyValue)

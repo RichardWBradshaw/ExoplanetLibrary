@@ -21,12 +21,14 @@ namespace ExoplanetLibrary
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.launchExoplanetEuMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.launchExoplanetEUCatalogsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.launchExoplanetNASAMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.launchExplanetsOrgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.compareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifyNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,7 +37,8 @@ namespace ExoplanetLibrary
             this.visualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.launchExoplanetNASAMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,13 +58,16 @@ namespace ExoplanetLibrary
             // 
             this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openMenuItem,
-            this.saveAsMenuItem,
-            this.fileSeparator,
+            this.saveToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
+            this.toolStripSeparator3,
             this.launchExoplanetEuMenuItem,
             this.launchExoplanetEUCatalogsMenuItem,
             this.launchExoplanetNASAMenuItem,
+            this.launchExplanetsOrgToolStripMenuItem,
             this.toolStripSeparator1,
             this.compareToolStripMenuItem,
+            this.mergeToolStripMenuItem,
             this.verifyNamesToolStripMenuItem,
             this.toolStripSeparator2,
             this.exitMenuItem});
@@ -75,16 +81,10 @@ namespace ExoplanetLibrary
             this.openMenuItem.Size = new System.Drawing.Size(346, 22);
             this.openMenuItem.Text = "Open ...";
             // 
-            // saveAsMenuItem
+            // toolStripSeparator3
             // 
-            this.saveAsMenuItem.Name = "saveAsMenuItem";
-            this.saveAsMenuItem.Size = new System.Drawing.Size(346, 22);
-            this.saveAsMenuItem.Text = "Save as .CSV";
-            // 
-            // fileSeparator
-            // 
-            this.fileSeparator.Name = "fileSeparator";
-            this.fileSeparator.Size = new System.Drawing.Size(343, 6);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(343, 6);
             // 
             // launchExoplanetEuMenuItem
             // 
@@ -100,6 +100,20 @@ namespace ExoplanetLibrary
             this.launchExoplanetEUCatalogsMenuItem.Text = "Launch http://exoplanet.eu/Catalog ...";
             this.launchExoplanetEUCatalogsMenuItem.Click += new System.EventHandler(this.launchExoplanetEuCatalog_Click);
             // 
+            // launchExoplanetNASAMenuItem
+            // 
+            this.launchExoplanetNASAMenuItem.Name = "launchExoplanetNASAMenuItem";
+            this.launchExoplanetNASAMenuItem.Size = new System.Drawing.Size(346, 22);
+            this.launchExoplanetNASAMenuItem.Text = "Launch http://exoplanetarchive.ipac.caltech.edu/ ...";
+            this.launchExoplanetNASAMenuItem.Click += new System.EventHandler(this.launchExoplanetNasaCatalog_Click);
+            // 
+            // launchExplanetsOrgToolStripMenuItem
+            // 
+            this.launchExplanetsOrgToolStripMenuItem.Name = "launchExplanetsOrgToolStripMenuItem";
+            this.launchExplanetsOrgToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
+            this.launchExplanetsOrgToolStripMenuItem.Text = "Launch http://explanets.org ...";
+            this.launchExplanetsOrgToolStripMenuItem.Click += new System.EventHandler(this.launchExoplanetOrg_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -111,6 +125,13 @@ namespace ExoplanetLibrary
             this.compareToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
             this.compareToolStripMenuItem.Text = "Compare ...";
             this.compareToolStripMenuItem.Click += new System.EventHandler(this.compare_Click);
+            // 
+            // mergeToolStripMenuItem
+            // 
+            this.mergeToolStripMenuItem.Name = "mergeToolStripMenuItem";
+            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
+            this.mergeToolStripMenuItem.Text = "Merge ...";
+            this.mergeToolStripMenuItem.Click += new System.EventHandler(this.merge_Click);
             // 
             // verifyNamesToolStripMenuItem
             // 
@@ -167,12 +188,19 @@ namespace ExoplanetLibrary
             this.aboutMenuItem.Size = new System.Drawing.Size(209, 22);
             this.aboutMenuItem.Text = "About Exoplanet Library...";
             // 
-            // launchExoplanetNASAMenuItem
+            // saveAsToolStripMenuItem
             // 
-            this.launchExoplanetNASAMenuItem.Name = "launchExoplanetNASAMenuItem";
-            this.launchExoplanetNASAMenuItem.Size = new System.Drawing.Size(346, 22);
-            this.launchExoplanetNASAMenuItem.Text = "Launch http://exoplanetarchive.ipac.caltech.edu/ ...";
-            this.launchExoplanetNASAMenuItem.Click += new System.EventHandler(this.launchExoplanetNasaCatalog_Click);
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As ...";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAs_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.save_Click);
             // 
             // LibraryDialog
             // 
@@ -195,12 +223,10 @@ namespace ExoplanetLibrary
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileMenuItem;
-        private ToolStripSeparator fileSeparator;
         private ToolStripMenuItem exitMenuItem;
         private ToolStripMenuItem openMenuItem;
         private ToolStripMenuItem helpMenuItem;
         private ToolStripMenuItem aboutMenuItem;
-        private ToolStripMenuItem saveAsMenuItem;
         private ToolStripMenuItem settingsMenuItem;
         private ToolStripMenuItem launchExoplanetEUCatalogsMenuItem;
         private ToolStripMenuItem launchExoplanetEuMenuItem;
@@ -211,6 +237,11 @@ namespace ExoplanetLibrary
         private ToolStripMenuItem queryBuilderToolStripMenuItem;
         private ToolStripMenuItem verifyNamesToolStripMenuItem;
         private ToolStripMenuItem launchExoplanetNASAMenuItem;
+        private ToolStripMenuItem launchExplanetsOrgToolStripMenuItem;
+        private ToolStripMenuItem mergeToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem saveAsToolStripMenuItem;
         }
     }
 

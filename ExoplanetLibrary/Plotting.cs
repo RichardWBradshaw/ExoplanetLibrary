@@ -1,5 +1,4 @@
 ﻿using NPlot;
-using CubicSpline;
 using System.Drawing;
 using System.Collections;
 using System.Windows.Forms;
@@ -199,10 +198,9 @@ namespace ExoplanetLibrary
             double maximumY = Helper.GetMaximum (YAxis);
 
             VisualizeErrorBars (plotSurface, exoplanets, plotType, ref minimumY, ref maximumY);
+            VisualizeEmbellishments (plotSurface, plotType, XAxis, YAxis);
             VisualizeLogYAxis (plotSurface, plotType, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
-
-            VisualizeCubicSpline (plotSurface, plotType, YAxis, XAxis);
 
             plotSurface.Refresh ();
             }
@@ -425,7 +423,6 @@ namespace ExoplanetLibrary
                     XAxis [counter] = xvalue;
                     counter++;
                     }
-
                 }
 
             if (Visualization.LogXAxis == CheckState.Checked || Visualization.LogYAxis == CheckState.Checked)
@@ -459,6 +456,7 @@ namespace ExoplanetLibrary
             double maximumY = Helper.GetMaximum (YAxis);
 
             VisualizeErrorBars (plotSurface, exoplanets, plotType, ref minimumX, ref maximumX, ref minimumY, ref maximumY);
+            VisualizeEmbellishments (plotSurface, plotType, XAxis, YAxis);
             VisualizeLogXYAxis (plotSurface, plotType, Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
@@ -957,35 +955,6 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static private void VisualizeCubicSpline (NPlot.Windows.PlotSurface2D plotSurface, PlotTypes plotType, double [] yAxis, double [] xAxis)
-            {
-            if (plotType == PlotTypes.Mass ||
-                plotType == PlotTypes.Radius ||
-                plotType == PlotTypes.OrbitalPeriod ||
-                plotType == PlotTypes.SemiMajorAxis ||
-                plotType == PlotTypes.Eccentricity ||
-                plotType == PlotTypes.AngularDistance ||
-                plotType == PlotTypes.Inclination ||
-                plotType == PlotTypes.Omega ||
-                plotType == PlotTypes.VelocitySemiamplitude ||
-                plotType == PlotTypes.TemperatureCalculated)
-                if (Visualization.LogYAxis == CheckState.Unchecked)
-                    {
-                    CubicSpline.CubicSpline cubicSpline = new CubicSpline.CubicSpline ();
-                    float [] xs, ys;
-                    int numberOfPoints = xAxis.Length / 10;
-
-                    cubicSpline.FitGeometric (xAxis, yAxis, numberOfPoints, out xs, out ys);
-
-                    LinePlot linePlot = new LinePlot ();
-                    linePlot.AbscissaData = xs;
-                    linePlot.OrdinateData = ys;
-                    linePlot.Color = Color.Blue;
-                    linePlot.Pen.Width = 1F;
-                    plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, 4);
-                    }
-            }
-
         static private void VisualizeErrorBar (NPlot.Windows.PlotSurface2D plotSurface, double value, double maximumError, double minimumError, int counter)
             {
             counter += 1;
@@ -1083,6 +1052,138 @@ namespace ExoplanetLibrary
                 linePlot2.Color = Color.Black;
                 linePlot2.Pen.Width = 1F;
                 plotSurface.Add (linePlot2, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+                }
+            }
+
+        static private void VisualizeEmbellishments (NPlot.Windows.PlotSurface2D plotSurface, PlotTypes plotType, double [] xAxis, double [] yAxis)
+            {
+            if (plotType == PlotTypes.Mass ||
+                plotType == PlotTypes.Radius ||
+                plotType == PlotTypes.OrbitalPeriod ||
+                plotType == PlotTypes.SemiMajorAxis ||
+                plotType == PlotTypes.Eccentricity ||
+                plotType == PlotTypes.AngularDistance ||
+                plotType == PlotTypes.Inclination ||
+                plotType == PlotTypes.Omega ||
+                plotType == PlotTypes.VelocitySemiamplitude ||
+                plotType == PlotTypes.TemperatureCalculated)
+                {
+                VisualizeCubicSpline (plotSurface, xAxis, yAxis);
+                }
+            else if (plotType == PlotTypes.MassAndRadius ||
+                plotType == PlotTypes.MassAndOrbitalPeriod ||
+                plotType == PlotTypes.MassAndSemiMajorAxis ||
+                plotType == PlotTypes.MassAndEccentricity ||
+                plotType == PlotTypes.MassAndAngularDistance ||
+                plotType == PlotTypes.MassAndInclination ||
+                plotType == PlotTypes.MassAndOmega ||
+                plotType == PlotTypes.MassAndVelocitySemiamplitude ||
+                plotType == PlotTypes.RadiusAndMass ||
+                plotType == PlotTypes.RadiusAndOrbitalPeriod ||
+                plotType == PlotTypes.RadiusAndSemiMajorAxis ||
+                plotType == PlotTypes.RadiusAndEccentricity ||
+                plotType == PlotTypes.RadiusAndAngularDistance ||
+                plotType == PlotTypes.RadiusAndInclination ||
+                plotType == PlotTypes.RadiusAndOmega ||
+                plotType == PlotTypes.RadiusAndVelocitySemiamplitude)
+                {
+                if (Visualization.IncludeBestFitLine == CheckState.Checked)
+                    VisualizeBestFitLine (plotSurface, xAxis, yAxis, BestFitType.Line);
+
+                if (Visualization.IncludeBestFitCurve == CheckState.Checked)
+                    VisualizeBestFitLine (plotSurface, xAxis, yAxis, BestFitType.Curve);
+                }
+            }
+
+        static private void VisualizeCubicSpline (NPlot.Windows.PlotSurface2D plotSurface, double [] xAxis, double [] yAxis)
+            {
+            if (Visualization.LogYAxis == CheckState.Unchecked)
+                {
+                CubicSpline.CubicSpline cubicSpline = new CubicSpline.CubicSpline ();
+                float [] xs, ys;
+                int numberOfPoints = xAxis.Length / 10;
+
+                cubicSpline.FitGeometric (xAxis, yAxis, numberOfPoints, out xs, out ys);
+
+                LinePlot linePlot = new LinePlot ();
+                linePlot.AbscissaData = xs;
+                linePlot.OrdinateData = ys;
+                linePlot.Color = Color.Blue;
+                linePlot.Pen.Width = 1F;
+                plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, 4);
+                }
+            }
+
+        static public void VisualizeBestFitLine (NPlot.Windows.PlotSurface2D plotSurface, double [] xAxis, double [] yAxis, BestFitType type)
+            {
+            double [] x = new double [250];
+            double [] y = new double [250];
+            double minimumX = Helper.GetMinimum (xAxis);
+            double maximumX = Helper.GetMaximum (xAxis);
+
+            if (minimumX <= AlmostZero)
+                minimumX = AlmostZero;
+
+            double interval = ( maximumX - minimumX ) / ( x.Length - 1 );
+
+            BestFit bestFit = new BestFit (type);
+
+            bestFit.Compute (xAxis, yAxis);
+
+            for (int index = 0; index < x.Length; ++index)
+                {
+                x [index] = minimumX + index * interval;
+                y [index] = bestFit.ComputeYAtX (x [index]);
+                }
+
+            bool valid = true;
+            int firstIndex = 0, lastIndex = x.Length - 1;
+
+            if (Visualization.LogXAxis == CheckState.Checked || Visualization.LogYAxis == CheckState.Checked)
+                {
+                for (int index = 0; index < x.Length; ++index)
+                    {
+                    if (x [index] >= AlmostZero && y [index] >= AlmostZero)
+                        {
+                        firstIndex = index;
+                        break;
+                        }
+                    }
+
+                for (int index = x.Length - 1; index > firstIndex; --index)
+                    {
+                    if (x [index] >= AlmostZero && y [index] >= AlmostZero)
+                        {
+                        lastIndex = index;
+                        break;
+                        }
+                    }
+
+                int count = lastIndex - firstIndex + 1;
+                double [] cx = new double [count];
+                double [] cy = new double [count];
+
+                for (int index = 0; index < count; ++index)
+                    {
+                    cx [index] = x [firstIndex + index];
+                    cy [index] = y [firstIndex + index];
+                    }
+
+                x = cx;
+                y = cy;
+
+                valid = true;
+                }
+
+            if (valid == true)
+                {
+                LinePlot linePlot = new LinePlot ();
+
+                linePlot.AbscissaData = x;
+                linePlot.DataSource = y;
+                linePlot.Color = ( type == BestFitType.Line ) ? Color.Green : Color.Red;
+                linePlot.Pen.Width = 2F;
+                plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
                 }
             }
 

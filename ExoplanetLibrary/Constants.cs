@@ -50,22 +50,28 @@
             get { return Version3_; }
             }
 
-        static private int Version1StringCount_ = 62;
-        static public int Version1StringCount
+        static private string LastestVersion_ = Version3;
+        static public string LastestVersion
             {
-            get { return Version1StringCount_; }
+            get { return LastestVersion_; }
             }
 
-        static private int Version2StringCount_ = 79;
-        static public int Version2StringCount
+        static private string LastExoplanetEUVisit_ = "LastExoplanetEUVisit";
+        static public string LastExoplanetEUVisit
             {
-            get { return Version2StringCount_; }
+            get { return LastExoplanetEUVisit_; }
             }
 
-        static private int Version3StringCount_ = 95;
-        static public int Version3StringCount           // April 11, 2016 exoplanet.eu changed catalog
+        static private string LastNASAVisit_ = "LastNASAVisit";
+        static public string LastNASAVisit
             {
-            get { return Version3StringCount_; }
+            get { return LastNASAVisit_; }
+            }
+
+        static private string LastExoplanetsOrgVisit_ = "LastExoplanetsOrgVisit";
+        static public string LastExoplanetsOrgVisit
+            {
+            get { return LastExoplanetsOrgVisit_; }
             }
         }
     }

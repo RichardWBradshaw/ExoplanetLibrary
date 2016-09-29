@@ -622,7 +622,16 @@
 
             Status = GetSubstring (strings, Indexer.Status, Flags.IsString);
 
-            DetectionType = GetSubstring (strings, Indexer.DetectionType, Flags.IsString);
+            if (Indexer.DetectionTypeAstrometry != int.MinValue && strings [Indexer.DetectionTypeAstrometry] == "1")
+                DetectionType = "Astrometry";
+            else if (Indexer.DetectionTypeMicroLensing != int.MinValue && strings [Indexer.DetectionTypeMicroLensing] == "1")
+                DetectionType = "MicroLensing";
+            else if (Indexer.DetectionTypeTiming != int.MinValue && strings [Indexer.DetectionTypeTiming] == "1")
+                DetectionType = "Timing";
+            else if (Indexer.DetectionTypeImaging != int.MinValue && strings [Indexer.DetectionTypeImaging] == "1")
+                DetectionType = "Timing";
+            else
+                DetectionType = GetSubstring (strings, Indexer.DetectionType, Flags.IsString);
 
             MassDetectionType = GetSubstring (strings, Indexer.MassDetectionType, Flags.IsString);
 
@@ -908,14 +917,19 @@
         static private string TrimZeros (string value)
             {
             if (Helper.IsDefined (value))
-                {
-                string stringer = value.TrimEnd ('0');
+                if (value.Contains ("e-"))
+                    return value;
+                else if (value.Contains ("e+"))
+                    return value;
+                else
+                    {
+                    string stringer = value.TrimEnd ('0');
 
-                if (stringer.EndsWith ("."))
-                    stringer = stringer + "0";
+                    if (stringer.EndsWith ("."))
+                        stringer = stringer + "0";
 
-                return stringer;
-                }
+                    return stringer;
+                    }
             else
                 return "";
             }

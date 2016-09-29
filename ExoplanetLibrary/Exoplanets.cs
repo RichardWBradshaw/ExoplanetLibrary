@@ -751,6 +751,89 @@ namespace ExoplanetLibrary
             return added + updated + missing;
             }
 
+        static public ArrayList Merge (ArrayList array1, ArrayList array2)
+            {
+            array1.Sort (new SortByStarName ());
+            array2.Sort (new SortByStarName ());
+
+            foreach (Exoplanet exoplanet1 in array1)
+                {
+                foreach (Exoplanet exoplanet2 in array2)
+                    {
+                    if (Helper.Equals (exoplanet1.Star.Name, exoplanet2.Star.Name))
+                        {
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.Distance))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.Distance))
+                                exoplanet1.Star.Property.Distance = exoplanet2.Star.Property.Distance;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.DistanceErrorMin))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.DistanceErrorMin))
+                                exoplanet1.Star.Property.DistanceErrorMin = exoplanet2.Star.Property.DistanceErrorMin;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.DistanceErrorMax))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.DistanceErrorMax))
+                                exoplanet1.Star.Property.DistanceErrorMax = exoplanet2.Star.Property.DistanceErrorMax;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.Metallicity))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.Metallicity))
+                                exoplanet1.Star.Property.Metallicity = exoplanet2.Star.Property.Metallicity;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.MetallicityErrorMin))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.MetallicityErrorMin))
+                                exoplanet1.Star.Property.MetallicityErrorMin = exoplanet2.Star.Property.MetallicityErrorMin;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.MetallicityErrorMax))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.MetallicityErrorMax))
+                                exoplanet1.Star.Property.MetallicityErrorMax = exoplanet2.Star.Property.MetallicityErrorMax;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.Mass))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.Mass))
+                                exoplanet1.Star.Property.Mass = exoplanet2.Star.Property.Mass;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.MassErrorMin))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.MassErrorMin))
+                                exoplanet1.Star.Property.MassErrorMin = exoplanet2.Star.Property.MassErrorMin;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.MassErrorMax))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.MassErrorMax))
+                                exoplanet1.Star.Property.MassErrorMax = exoplanet2.Star.Property.MassErrorMax;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.Radius))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.Radius))
+                                exoplanet1.Star.Property.Radius = exoplanet2.Star.Property.Radius;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.RadiusErrorMin))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.RadiusErrorMin))
+                                exoplanet1.Star.Property.RadiusErrorMin = exoplanet2.Star.Property.RadiusErrorMin;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.RadiusErrorMax))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.RadiusErrorMax))
+                                exoplanet1.Star.Property.RadiusErrorMax = exoplanet2.Star.Property.RadiusErrorMax;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.SPType))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.SPType))
+                                exoplanet1.Star.Property.SPType = exoplanet2.Star.Property.SPType;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.Age))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.Age))
+                                exoplanet1.Star.Property.Age = exoplanet2.Star.Property.Age;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.AgeErrorMin))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.AgeErrorMin))
+                                exoplanet1.Star.Property.AgeErrorMin = exoplanet2.Star.Property.AgeErrorMin;
+
+                        if (!Helper.IsDefined (exoplanet1.Star.Property.AgeErrorMax))
+                            if (Helper.IsDefined (exoplanet2.Star.Property.AgeErrorMax))
+                                exoplanet1.Star.Property.AgeErrorMax = exoplanet2.Star.Property.AgeErrorMax;
+
+                        break;
+                        }
+                    }
+                }
+
+            return array1;
+            }
+
         static public string VerifyNames (ArrayList array)
             {
             string misnamed = "";
@@ -769,7 +852,7 @@ namespace ExoplanetLibrary
 
                 List<string> planetNames = new List<string> ();
 
-                planetNames.Add (exoplanet.Name.Trim());
+                planetNames.Add (exoplanet.Name.Trim ());
 
                 if (!string.IsNullOrEmpty (exoplanet.AlternateNames))
                     {
@@ -777,7 +860,7 @@ namespace ExoplanetLibrary
                     string [] alternateNames = exoplanet.AlternateNames.Split (delimiterChars);
 
                     for (int jndex = 0; jndex < alternateNames.Length; ++jndex)
-                        planetNames.Add (alternateNames [jndex].Trim());
+                        planetNames.Add (alternateNames [jndex].Trim ());
                     }
 
                 List<string> starNames = new List<string> ();
@@ -802,8 +885,8 @@ namespace ExoplanetLibrary
                             }
 
                 if (mismatch)
-                    misnamed += "'" + exoplanet.Name      + "' (" + exoplanet.AlternateNames + ")" +
-                                " may be misnamed "       +
+                    misnamed += "'" + exoplanet.Name + "' (" + exoplanet.AlternateNames + ")" +
+                                " may be misnamed " +
                                 "'" + exoplanet.Star.Name + "' (" + exoplanet.Star.AlternateNames + ")" +
                                 "'\r\n";
                 }
@@ -827,5 +910,95 @@ namespace ExoplanetLibrary
             return null;
             }
 
+        static public bool IsPlotable (ArrayList array, PlotTypes plotType)
+            {
+            foreach (Exoplanet exoplanet in array)
+                {
+                switch (plotType)
+                    {
+                    case PlotTypes.Mass:
+                        if (Helper.IsDefined (exoplanet.Mass))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.Radius:
+                        if (Helper.IsDefined (exoplanet.Radius))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.OrbitalPeriod:
+                        if (Helper.IsDefined (exoplanet.OrbitalPeriod))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.SemiMajorAxis:
+                        if (Helper.IsDefined (exoplanet.SemiMajorAxis))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.Eccentricity:
+                        if (Helper.IsDefined (exoplanet.Eccentricity))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.AngularDistance:
+                        if (Helper.IsDefined (exoplanet.AngularDistance))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.Inclination:
+                        if (Helper.IsDefined (exoplanet.Inclination))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.Omega:
+                        if (Helper.IsDefined (exoplanet.Omega))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.VelocitySemiamplitude:
+                        if (Helper.IsDefined (exoplanet.VelocitySemiamplitude))
+                            return true;
+
+                        break;
+
+                    case PlotTypes.TemperatureCalculated:
+                        if (Helper.IsDefined (exoplanet.TemperatureCalculated))
+                            return true;
+
+                        break;
+
+
+                    case PlotTypes.MassAndRadius:
+                    case PlotTypes.MassAndOrbitalPeriod:
+                    case PlotTypes.MassAndSemiMajorAxis:
+                    case PlotTypes.MassAndEccentricity:
+                    case PlotTypes.MassAndAngularDistance:
+                    case PlotTypes.MassAndInclination:
+                    case PlotTypes.MassAndOmega:
+                    case PlotTypes.MassAndVelocitySemiamplitude:
+
+                    case PlotTypes.RadiusAndMass:
+                    case PlotTypes.RadiusAndOrbitalPeriod:
+                    case PlotTypes.RadiusAndSemiMajorAxis:
+                    case PlotTypes.RadiusAndEccentricity:
+                    case PlotTypes.RadiusAndAngularDistance:
+                    case PlotTypes.RadiusAndInclination:
+                    case PlotTypes.RadiusAndOmega:
+                    case PlotTypes.RadiusAndVelocitySemiamplitude:
+                        break;
+                    }
+                }
+
+            return false;
+            }
         }
     }

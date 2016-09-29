@@ -103,197 +103,341 @@ namespace ExoplanetLibrary
 
                 Text = "Exoplanet '" + exoplanet.Name + "' Details";
 
-                item = new ListViewItem ("Detection Type", 0);
-                item.SubItems.Add (exoplanet.DetectionType);
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.DetectionType))
+                    {
+                    item = new ListViewItem ("Detection Type", 0);
+                    item.SubItems.Add (exoplanet.DetectionType);
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Mass", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Mass, exoplanet.MassErrorMin, exoplanet.MassErrorMax, "Mjup"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Mass))
+                    {
+                    item = new ListViewItem ("Mass", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Mass, exoplanet.MassErrorMin, exoplanet.MassErrorMax, "Mjup"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("MassSini", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Mass, exoplanet.MassSiniErrorMin, exoplanet.MassSiniErrorMax, "Mjup"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.MassSini))
+                    {
+                    item = new ListViewItem ("MassSini", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.MassSini, exoplanet.MassSiniErrorMin, exoplanet.MassSiniErrorMax, "Mjup"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Radius", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Radius, exoplanet.RadiusErrorMin, exoplanet.RadiusErrorMax, "Rjup"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Radius))
+                    {
+                    item = new ListViewItem ("Radius", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Radius, exoplanet.RadiusErrorMin, exoplanet.RadiusErrorMax, "Rjup"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Orbital Period", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.OrbitalPeriod, exoplanet.OrbitalPeriodErrorMin, exoplanet.OrbitalPeriodErrorMax, "day"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.OrbitalPeriod))
+                    {
+                    item = new ListViewItem ("Orbital Period", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.OrbitalPeriod, exoplanet.OrbitalPeriodErrorMin, exoplanet.OrbitalPeriodErrorMax, "day"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Semi-Major Axis", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.SemiMajorAxis, exoplanet.SemiMajorAxisErrorMin, exoplanet.SemiMajorAxisErrorMax, "AU"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.SemiMajorAxis))
+                    {
+                    item = new ListViewItem ("Semi-Major Axis", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.SemiMajorAxis, exoplanet.SemiMajorAxisErrorMin, exoplanet.SemiMajorAxisErrorMax, "AU"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Eccentricity", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Eccentricity, exoplanet.EccentricityErrorMin, exoplanet.EccentricityErrorMax, ""));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Eccentricity))
+                    {
+                    item = new ListViewItem ("Eccentricity", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Eccentricity, exoplanet.EccentricityErrorMin, exoplanet.EccentricityErrorMax, ""));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Angular Distance", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.AngularDistance));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.AngularDistance))
+                    {
+                    item = new ListViewItem ("Angular Distance", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.AngularDistance));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Inclination", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Inclination, exoplanet.InclinationErrorMin, exoplanet.InclinationErrorMax, "deg"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Inclination))
+                    {
+                    item = new ListViewItem ("Inclination", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Inclination, exoplanet.InclinationErrorMin, exoplanet.InclinationErrorMax, "deg"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Omega", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Omega, exoplanet.OmegaErrorMin, exoplanet.OmegaErrorMax, "deg"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Omega))
+                    {
+                    item = new ListViewItem ("Omega", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Omega, exoplanet.OmegaErrorMin, exoplanet.OmegaErrorMax, "deg"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Velocity Semiamplitude", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.VelocitySemiamplitude, exoplanet.VelocitySemiamplitudeErrorMin, exoplanet.VelocitySemiamplitudeErrorMax, "m/s"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.VelocitySemiamplitude))
+                    {
+                    item = new ListViewItem ("Velocity Semiamplitude", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.VelocitySemiamplitude, exoplanet.VelocitySemiamplitudeErrorMin, exoplanet.VelocitySemiamplitudeErrorMax, "m/s"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Calculated Temperature", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.TemperatureCalculated, "K"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.TemperatureCalculated))
+                    {
+                    item = new ListViewItem ("Calculated Temperature", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.TemperatureCalculated, "K"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Measured Temperature", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.TemperatureMeasured, "K"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.TemperatureMeasured))
+                    {
+                    item = new ListViewItem ("Measured Temperature", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.TemperatureMeasured, "K"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Primary Transit", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.TzeroTr, exoplanet.TzeroTrErrorMin, exoplanet.TzeroTrErrorMax, "JD"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.TzeroTr))
+                    {
+                    item = new ListViewItem ("Primary Transit", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.TzeroTr, exoplanet.TzeroTrErrorMin, exoplanet.TzeroTrErrorMax, "JD"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Secondary Transit", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.TzeroTrSec, exoplanet.TzeroTrSecErrorMin, exoplanet.TzeroTrSecErrorMax, "JD"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.TzeroTrSec))
+                    {
+                    item = new ListViewItem ("Secondary Transit", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.TzeroTrSec, exoplanet.TzeroTrSecErrorMin, exoplanet.TzeroTrSecErrorMax, "JD"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Lambda Angle", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.LambdaAngle, exoplanet.LambdaAngleErrorMin, exoplanet.LambdaAngleErrorMax, "deg"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.LambdaAngle))
+                    {
+                    item = new ListViewItem ("Lambda Angle", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.LambdaAngle, exoplanet.LambdaAngleErrorMin, exoplanet.LambdaAngleErrorMax, "deg"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Zero Radial Speed Time", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.TzeroVr, exoplanet.TzeroVrErrorMin, exoplanet.TzeroVrErrorMax, "JD"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.TzeroVr))
+                    {
+                    item = new ListViewItem ("Zero Radial Speed Time", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.TzeroVr, exoplanet.TzeroVrErrorMin, exoplanet.TzeroVrErrorMax, "JD"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Impact Parameter b(%)", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.ImpactParameter, exoplanet.ImpactParameterErrorMin, exoplanet.ImpactParameterErrorMax, ""));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.ImpactParameter))
+                    {
+                    item = new ListViewItem ("Impact Parameter b(%)", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.ImpactParameter, exoplanet.ImpactParameterErrorMin, exoplanet.ImpactParameterErrorMax, ""));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Geometric Albedo", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.GeometricAlbedo, exoplanet.GeometricAlbedoErrorMin, exoplanet.GeometricAlbedoErrorMax, ""));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.GeometricAlbedo))
+                    {
+                    item = new ListViewItem ("Geometric Albedo", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.GeometricAlbedo, exoplanet.GeometricAlbedoErrorMin, exoplanet.GeometricAlbedoErrorMax, ""));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Surface Gravity log(g)", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.LogG));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.LogG))
+                    {
+                    item = new ListViewItem ("Surface Gravity log(g)", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.LogG));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Hottest Point Longitude", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.TemperatureHotPointLo, "deg"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.TemperatureHotPointLo))
+                    {
+                    item = new ListViewItem ("Hottest Point Longitude", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.TemperatureHotPointLo, "deg"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Epoch of Periastron", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Tperi, exoplanet.TperiErrorMin, exoplanet.TperiErrorMax, "JD"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Tperi))
+                    {
+                    item = new ListViewItem ("Epoch of Periastron", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Tperi, exoplanet.TperiErrorMin, exoplanet.TperiErrorMax, "JD"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Conjunction Date", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Tconj, exoplanet.TconjErrorMin, exoplanet.TconjErrorMax, "JD"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Tconj))
+                    {
+                    item = new ListViewItem ("Conjunction Date", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Tconj, exoplanet.TconjErrorMin, exoplanet.TconjErrorMax, "JD"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Molecules", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Molecules, ""));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Molecules))
+                    {
+                    item = new ListViewItem ("Molecules", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Molecules, ""));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Year of Discovery", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Discovered));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Discovered))
+                    {
+                    item = new ListViewItem ("Year of Discovery", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Discovered));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Last Update", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Updated));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Updated))
+                    {
+                    item = new ListViewItem ("Last Update", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Updated));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Publication Status", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Status));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Status))
+                    {
+                    item = new ListViewItem ("Publication Status", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Status));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("List of Detected Molecules", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Molecules));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Molecules))
+                    {
+                    item = new ListViewItem ("List of Detected Molecules", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Molecules));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Mass Measurement Method", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.MassDetectionType));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.MassDetectionType))
+                    {
+                    item = new ListViewItem ("Mass Measurement Method", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.MassDetectionType));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Radius Measurement Method", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.RadiusDetectionType));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.RadiusDetectionType))
+                    {
+                    item = new ListViewItem ("Radius Measurement Method", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.RadiusDetectionType));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Alternate Names", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.AlternateNames));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.AlternateNames))
+                    {
+                    item = new ListViewItem ("Alternate Names", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.AlternateNames));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Name", 0);
-                item.SubItems.Add (exoplanet.Star.Name);
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Name))
+                    {
+                    item = new ListViewItem ("Stellar Name", 0);
+                    item.SubItems.Add (exoplanet.Star.Name);
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Spectral Type", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.SPType));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.SPType))
+                    {
+                    item = new ListViewItem ("Stellar Spectral Type", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.SPType));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Mass", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Mass, exoplanet.Star.Property.MassErrorMin, exoplanet.Star.Property.MassErrorMax, "Msun"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.Mass))
+                    {
+                    item = new ListViewItem ("Stellar Mass", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Mass, exoplanet.Star.Property.MassErrorMin, exoplanet.Star.Property.MassErrorMax, "Msun"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Radius", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Radius, exoplanet.Star.Property.RadiusErrorMin, exoplanet.Star.Property.RadiusErrorMax, "Rsun"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.Radius))
+                    {
+                    item = new ListViewItem ("Stellar Radius", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Radius, exoplanet.Star.Property.RadiusErrorMin, exoplanet.Star.Property.RadiusErrorMax, "Rsun"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Distance", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Distance, exoplanet.Star.Property.DistanceErrorMin, exoplanet.Star.Property.DistanceErrorMax, "pc"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.Distance))
+                    {
+                    item = new ListViewItem ("Stellar Distance", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Distance, exoplanet.Star.Property.DistanceErrorMin, exoplanet.Star.Property.DistanceErrorMax, "pc"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Right Accession - Epoch 2000", 0);
-                item.SubItems.Add (Helper.Format (Helper.FormatHMS (exoplanet.Star.RightAccession)));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.RightAccession))
+                    {
+                    item = new ListViewItem ("Right Accession - Epoch 2000", 0);
+                    item.SubItems.Add (Helper.Format (Helper.FormatHMS (exoplanet.Star.RightAccession)));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Declination - Epoch 2000", 0);
-                item.SubItems.Add (Helper.Format (Helper.FormatHMS (exoplanet.Star.Declination)));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Declination))
+                    {
+                    item = new ListViewItem ("Declination - Epoch 2000", 0);
+                    item.SubItems.Add (Helper.Format (Helper.FormatHMS (exoplanet.Star.Declination)));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Metallicity", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity, exoplanet.Star.Property.MetallicityErrorMin, exoplanet.Star.Property.MetallicityErrorMax, ""));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.Metallicity))
+                    {
+                    item = new ListViewItem ("Stellar Metallicity", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity, exoplanet.Star.Property.MetallicityErrorMin, exoplanet.Star.Property.MetallicityErrorMax, ""));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Age", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Age, exoplanet.Star.Property.AgeErrorMin, exoplanet.Star.Property.AgeErrorMax, "Gy"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.Age))
+                    {
+                    item = new ListViewItem ("Stellar Age", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Age, exoplanet.Star.Property.AgeErrorMin, exoplanet.Star.Property.AgeErrorMax, "Gy"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Effective Temperature", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Teff, exoplanet.Star.Property.TeffErrorMin, exoplanet.Star.Property.TeffErrorMax, "K"));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.Teff))
+                    {
+                    item = new ListViewItem ("Stellar Effective Temperature", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Teff, exoplanet.Star.Property.TeffErrorMin, exoplanet.Star.Property.TeffErrorMax, "K"));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Detected Disc", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.DetectedDisc));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.DetectedDisc))
+                    {
+                    item = new ListViewItem ("Stellar Detected Disc", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.DetectedDisc));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("Stellar Magnetic Field", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Property.MagneticField));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Property.MagneticField))
+                    {
+                    item = new ListViewItem ("Stellar Magnetic Field", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.MagneticField));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("V Magnitude", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.V));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Magnitude.V))
+                    {
+                    item = new ListViewItem ("V Magnitude", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.V));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("I Magnitude", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.I));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Magnitude.I))
+                    {
+                    item = new ListViewItem ("I Magnitude", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.I));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("J Magnitude", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.J));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Magnitude.J))
+                    {
+                    item = new ListViewItem ("J Magnitude", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.J));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("H Magnitude", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.H));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Magnitude.H))
+                    {
+                    item = new ListViewItem ("H Magnitude", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.H));
+                    DetailsListView.Items.Add (item);
+                    }
 
-                item = new ListViewItem ("K Magnitude", 0);
-                item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.K));
-                DetailsListView.Items.Add (item);
+                if (Helper.IsDefined (exoplanet.Star.Magnitude.K))
+                    {
+                    item = new ListViewItem ("K Magnitude", 0);
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Magnitude.K));
+                    DetailsListView.Items.Add (item);
+                    }
 
                 listView.Refresh ();
                 }

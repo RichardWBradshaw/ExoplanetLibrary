@@ -5,6 +5,8 @@ namespace ExoplanetLibrary
     {
     public partial class QueryDialog : Form
         {
+        static private string QueryText = "";
+
         public QueryDialog ()
             {
             }
@@ -13,6 +15,8 @@ namespace ExoplanetLibrary
             {
             ParentDialog = parent;
             InitializeComponent ();
+
+            queryTextBox.Text = QueryText;
             }
 
         private LibraryDialog ParentDialog_ = null;
@@ -32,6 +36,7 @@ namespace ExoplanetLibrary
             {
             Queries.CurrentQueries = new Queries (queryTextBox.Text);
             ParentDialog.ProcessQuery ();
+            QueryText = queryTextBox.Text;
             }
         }
     }

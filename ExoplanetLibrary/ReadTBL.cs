@@ -4,9 +4,9 @@ using System.Xml;
 
 namespace ExoplanetLibrary
     {
-    public class ReadCSV
+    public class ReadTBL
         {
-        public ReadCSV ()
+        public ReadTBL ()
             {
             }
 
@@ -17,19 +17,14 @@ namespace ExoplanetLibrary
             set { Version_ = value; }
             }
 
-        static private bool IsCommaDelimited_ = true;
-        static private bool IsCommaDelimited
-            {
-            get { return IsCommaDelimited_; }
-            set { IsCommaDelimited_ = value; }
-            }
-
         static private int NumberOfStrings_ = 0;
         static private int NumberOfStrings
             {
             get { return NumberOfStrings_; }
             set { NumberOfStrings_ = value; }
             }
+
+        static private int [] Pipes = null;
 
         static private string ValidationErrors_ = "";
         static private string ReadErrors
@@ -38,13 +33,13 @@ namespace ExoplanetLibrary
             set { ValidationErrors_ = value; }
             }
 
-        static private string [] Extensions_ = { ".csv", ".dat", ".tab" };
+        static private string [] Extensions_ = { ".tbl" };
         static private string [] Extensions
             {
             get { return Extensions_; }
             }
 
-        static public bool IsCSV (string fileName)
+        static public bool IsTBL (string fileName)
             {
             for (int index = 0; index < Extensions.Length; ++index)
                 if (fileName.EndsWith (Extensions [index]))
@@ -76,16 +71,7 @@ namespace ExoplanetLibrary
                 settings.Indent = true;
                 settings.NewLineChars = "\n";
 
-                string xmlFileName = "";
-
-                if (csvFileName.EndsWith (".txt"))      // needs_work write a helper function
-                    xmlFileName = csvFileName.Replace (".txt", ".xml");
-                else if (csvFileName.EndsWith (".dat"))
-                    xmlFileName = csvFileName.Replace (".dat", ".xml");
-                else if (csvFileName.EndsWith (".tab"))
-                    xmlFileName = csvFileName.Replace (".tab", ".xml");
-                else
-                    xmlFileName = csvFileName.Replace (".csv", ".xml");
+                string xmlFileName = csvFileName.Replace (".tbl", ".xml");
 
                 ReadErrors = "";
 
@@ -106,6 +92,7 @@ namespace ExoplanetLibrary
                             {
                             if (IsDefinition (line))
                                 {
+                                AssignPipeIndexes (line);
                                 }
                             else if (IsComment (line))
                                 {
@@ -130,69 +117,69 @@ namespace ExoplanetLibrary
 
         static private bool IsComment (string line)
             {
-            return line.StartsWith ("#") ? true : false;
+            if (line.StartsWith ("\\"))
+                return true;
+            else if (line.StartsWith ("| "))
+                return true;
+            else if (line.StartsWith ("|char"))
+                return true;
+            else
+                return false;
             }
 
         static private bool IsDefinition (string line)
             {
             bool isDefinition = false;
 
-            if (line.StartsWith ("# name"))         // Exoplanet.eu
+            if (line.StartsWith ("|rowid"))
                 {
-                line = line.Replace ("# ", "");
-                isDefinition = true;
-                }
-            else if (line.StartsWith ("A,AUPPER"))  // Exoplanets.org
-                isDefinition = true;
-            else if (line.StartsWith ("rowid,"))    // NASA archive
-                isDefinition = true;
-            else if (line.StartsWith ("rowid\t"))   // NASA archive
-                isDefinition = true;
-
-            if (isDefinition)
-                {
-                char [] delimiterChars = { ',', '\t' };
+                line = line.Remove (0, 1);
+                char [] delimiterChars = { '|' };
                 string [] strings = line.Split (delimiterChars);
 
                 Indexer.Initialize ();
 
                 for (int index = 0; index < strings.Length; ++index)
-                    Indexer.SetIndex (strings [index], index);
+                    Indexer.SetIndex (strings [index].Trim (), index);
 
                 Version = Constant.LastestVersion;
                 NumberOfStrings = strings.Length;
-                IsCommaDelimited = line.Contains ("\t") ? false : true;
+                isDefinition = true;
                 }
 
             return isDefinition;
             }
 
+        static private void AssignPipeIndexes (string line)
+            {
+            int pipeIndex = 0;
+
+            Pipes = new int [NumberOfStrings + 1];
+
+            for (int index = 0; index < line.Length; ++index)
+                if (line [index] == '|')
+                    Pipes [pipeIndex++] = index;
+
+            Pipes [pipeIndex] = line.Length - 1;
+            }
+
         static private int WriteExoplanet (XmlWriter writer, string line)
             {
-            //
-            // kludge: .csv's can contain commas and / or tabs within in the data, these may occur in literals that are in double quotes
-            //
+            string [] strings = new string [NumberOfStrings];
 
-            if (IsCommaDelimited == true)
+            for (int index = 0; index < Pipes.Length - 1; ++index)
                 {
-                line = line.Replace ('\t', ' ');
-                line = Helper.ReplaceInQuotedDelimitor (line);
+                string stringer = line.Substring (Pipes [index] + 1, Pipes [index + 1] - Pipes [index]);
+                stringer = stringer.Replace ("null", "");
+                strings [index] = stringer.Trim ();
                 }
-            else
-                {
-                line = line.Replace (',', ';');
-                line = Helper.ReplaceInQuotedDelimitor (line);
-                }
-
-            char [] delimiterChars = { ',', '\t' };
-            string [] strings = line.Split (delimiterChars);
 
             if (NumberOfStrings == strings.Length)
                 {
                 Exoplanet exoplanet = new Exoplanet ();
 
                 exoplanet.AssignFromSubstrings (strings);
-                exoplanet.CorrectErrors (false);
+                exoplanet.CorrectErrors (true);
                 WriteXML.WriteExoplanet (writer, exoplanet, Version);
                 }
             else

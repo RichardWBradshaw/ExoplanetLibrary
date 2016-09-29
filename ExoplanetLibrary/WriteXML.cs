@@ -1,4 +1,5 @@
 ﻿using System.Xml;
+using System.Collections;
 
 namespace ExoplanetLibrary
     {
@@ -20,6 +21,32 @@ namespace ExoplanetLibrary
             {
             get { return Version_; }
             set { Version_ = value; }
+            }
+
+        static public void WriteExoplanets (string xmlFileName, ArrayList array)
+            {
+            XmlWriterSettings settings = null;
+
+            settings = new XmlWriterSettings ();
+
+            settings.IndentChars = "\t";
+            settings.NewLineHandling = NewLineHandling.Entitize;
+            settings.Indent = true;
+            settings.NewLineChars = "\n";
+
+            Version = Constant.LastestVersion;
+
+            using (Writer = XmlWriter.Create (xmlFileName, settings))
+                {
+                Writer.WriteStartElement ("Exoplanets");
+                Writer.WriteAttributeString ("version", Version);
+
+                foreach (Exoplanet exoplanet in array)
+                    WriteExoplanet (exoplanet);
+
+                Writer.WriteEndElement ();
+                Writer.Close ();
+                }
             }
 
         static public int WriteExoplanet (XmlWriter writer, Exoplanet exoplanet, string version)

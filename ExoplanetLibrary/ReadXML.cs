@@ -72,7 +72,7 @@ namespace ExoplanetLibrary
             XmlSchema xmlSchema = null;
 
             if (skipValidation == false)
-                if (string.Equals (Version, Constant.Version3))
+                if (string.Equals (Version, Constant.LastestVersion) || string.Equals (Version, Constant.Version3))
                     {
                     if (File.Exists (@XsdVersion3FileName))
                         xmlSchema = XmlSchema.Read (( fileStream = File.Open (@XsdVersion3FileName, FileMode.Open) ), validationEventHandler);

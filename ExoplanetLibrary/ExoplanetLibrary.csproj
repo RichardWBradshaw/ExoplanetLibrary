@@ -57,8 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\CubicSpline\CubicSpline\CubicSpline\bin\Debug\CubicSpline.dll</HintPath>
     </Reference>
-    <Reference Include="NPlot">
-      <HintPath>..\..\..\nplot-0.9.10.0\bin\net\2.0\release\NPlot.dll</HintPath>
+    <Reference Include="NPlot, Version=0.9.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\nplot-0.9.10.0\bin\net\2.0\debug\NPlot.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,6 +85,7 @@
     </Compile>
     <Compile Include="Exoplanets.cs" />
     <Compile Include="ExoplanetSorter.cs" />
+    <Compile Include="Indexer.cs" />
     <Compile Include="Plotting.cs" />
     <Compile Include="QueryDialog.cs">
       <SubType>Form</SubType>
@@ -91,6 +93,7 @@
     <Compile Include="QueryDialog.Designer.cs">
       <DependentUpon>QueryDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReadTBL.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="VisualizationDialog.cs">
       <SubType>Form</SubType>
