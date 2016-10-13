@@ -722,7 +722,7 @@
             return "";
             }
 
-        public void CorrectErrors (bool isNasaVot)
+        public void CorrectErrors ()
             {
             string [] errors = { "KO", "GOV", "KOV", "kov", "KOIII", "KOIV/V", "M4 V" };
             string [] corrections = { "K0", "G0V", "K0V", "K0V", "K0III", "K0IV/V", "M4V" };
@@ -783,118 +783,115 @@
             if (Helper.IsDefined (Star.Name))
                 Star.Name = Star.Name.Trim ();
 
-            if (isNasaVot)
-                {
-                Mass = TrimZeros (Mass);
-                MassErrorMin = TrimZeros (MassErrorMin);
-                MassErrorMax = TrimZeros (MassErrorMax);
+            Mass = TrimZeros (Mass);
+            MassErrorMin = TrimZeros (MassErrorMin);
+            MassErrorMax = TrimZeros (MassErrorMax);
 
-                MassSini = TrimZeros (MassSini);
-                MassSiniErrorMin = TrimZeros (MassSiniErrorMin);
-                MassSiniErrorMax = TrimZeros (MassSiniErrorMax);
+            MassSini = TrimZeros (MassSini);
+            MassSiniErrorMin = TrimZeros (MassSiniErrorMin);
+            MassSiniErrorMax = TrimZeros (MassSiniErrorMax);
 
-                Radius = TrimZeros (Radius);
-                RadiusErrorMin = TrimZeros (RadiusErrorMin);
-                RadiusErrorMax = TrimZeros (RadiusErrorMax);
+            Radius = TrimZeros (Radius);
+            RadiusErrorMin = TrimZeros (RadiusErrorMin);
+            RadiusErrorMax = TrimZeros (RadiusErrorMax);
 
-                OrbitalPeriod = TrimZeros (OrbitalPeriod);
-                OrbitalPeriodErrorMin = TrimZeros (OrbitalPeriodErrorMin);
-                OrbitalPeriodErrorMax = TrimZeros (OrbitalPeriodErrorMax);
+            OrbitalPeriod = TrimZeros (OrbitalPeriod);
+            OrbitalPeriodErrorMin = TrimZeros (OrbitalPeriodErrorMin);
+            OrbitalPeriodErrorMax = TrimZeros (OrbitalPeriodErrorMax);
 
-                SemiMajorAxis = TrimZeros (SemiMajorAxis);
-                SemiMajorAxisErrorMin = TrimZeros (SemiMajorAxisErrorMin);
-                SemiMajorAxisErrorMax = TrimZeros (SemiMajorAxisErrorMax);
+            SemiMajorAxis = TrimZeros (SemiMajorAxis);
+            SemiMajorAxisErrorMin = TrimZeros (SemiMajorAxisErrorMin);
+            SemiMajorAxisErrorMax = TrimZeros (SemiMajorAxisErrorMax);
 
-                Eccentricity = TrimZeros (Eccentricity);
-                EccentricityErrorMin = TrimZeros (EccentricityErrorMin);
-                EccentricityErrorMax = TrimZeros (EccentricityErrorMax);
+            Eccentricity = TrimZeros (Eccentricity);
+            EccentricityErrorMin = TrimZeros (EccentricityErrorMin);
+            EccentricityErrorMax = TrimZeros (EccentricityErrorMax);
 
-                Inclination = TrimZeros (Inclination);
-                InclinationErrorMin = TrimZeros (InclinationErrorMin);
-                InclinationErrorMax = TrimZeros (InclinationErrorMax);
+            Inclination = TrimZeros (Inclination);
+            InclinationErrorMin = TrimZeros (InclinationErrorMin);
+            InclinationErrorMax = TrimZeros (InclinationErrorMax);
 
-                TzeroTr = TrimZeros (TzeroTr);
-                TzeroTrErrorMin = TrimZeros (TzeroTrErrorMin);
-                TzeroTrErrorMax = TrimZeros (TzeroTrErrorMax);
+            TzeroTr = TrimZeros (TzeroTr);
+            TzeroTrErrorMin = TrimZeros (TzeroTrErrorMin);
+            TzeroTrErrorMax = TrimZeros (TzeroTrErrorMax);
 
-                TzeroTrSec = TrimZeros (TzeroTrSec);
-                TzeroTrSecErrorMin = TrimZeros (TzeroTrSecErrorMin);
-                TzeroTrSecErrorMax = TrimZeros (TzeroTrSecErrorMax);
+            TzeroTrSec = TrimZeros (TzeroTrSec);
+            TzeroTrSecErrorMin = TrimZeros (TzeroTrSecErrorMin);
+            TzeroTrSecErrorMax = TrimZeros (TzeroTrSecErrorMax);
 
-                LambdaAngle = TrimZeros (LambdaAngle);
-                LambdaAngleErrorMin = TrimZeros (LambdaAngleErrorMin);
-                LambdaAngleErrorMax = TrimZeros (LambdaAngleErrorMax);
+            LambdaAngle = TrimZeros (LambdaAngle);
+            LambdaAngleErrorMin = TrimZeros (LambdaAngleErrorMin);
+            LambdaAngleErrorMax = TrimZeros (LambdaAngleErrorMax);
 
-                TzeroVr = TrimZeros (TzeroVr);
-                TzeroVrErrorMin = TrimZeros (TzeroVrErrorMin);
-                TzeroVrErrorMax = TrimZeros (TzeroVrErrorMax);
+            TzeroVr = TrimZeros (TzeroVr);
+            TzeroVrErrorMin = TrimZeros (TzeroVrErrorMin);
+            TzeroVrErrorMax = TrimZeros (TzeroVrErrorMax);
 
-                TemperatureCalculated = TrimZeros (TemperatureCalculated);
+            TemperatureCalculated = TrimZeros (TemperatureCalculated);
 
-                TemperatureMeasured = TrimZeros (TemperatureMeasured);
+            TemperatureMeasured = TrimZeros (TemperatureMeasured);
 
-                TemperatureHotPointLo = TrimZeros (TemperatureHotPointLo);
+            TemperatureHotPointLo = TrimZeros (TemperatureHotPointLo);
 
-                LogG = TrimZeros (LogG);
+            LogG = TrimZeros (LogG);
 
-                Omega = TrimZeros (Omega);
-                OmegaErrorMin = TrimZeros (OmegaErrorMin);
-                OmegaErrorMax = TrimZeros (OmegaErrorMax);
+            Omega = TrimZeros (Omega);
+            OmegaErrorMin = TrimZeros (OmegaErrorMin);
+            OmegaErrorMax = TrimZeros (OmegaErrorMax);
 
-                Tperi = TrimZeros (Tperi);
-                TperiErrorMin = TrimZeros (TperiErrorMin);
-                TperiErrorMax = TrimZeros (TperiErrorMax);
+            Tperi = TrimZeros (Tperi);
+            TperiErrorMin = TrimZeros (TperiErrorMin);
+            TperiErrorMax = TrimZeros (TperiErrorMax);
 
-                ImpactParameter = TrimZeros (ImpactParameter);
-                ImpactParameterErrorMin = TrimZeros (ImpactParameterErrorMin);
-                ImpactParameterErrorMax = TrimZeros (ImpactParameterErrorMax);
+            ImpactParameter = TrimZeros (ImpactParameter);
+            ImpactParameterErrorMin = TrimZeros (ImpactParameterErrorMin);
+            ImpactParameterErrorMax = TrimZeros (ImpactParameterErrorMax);
 
-                VelocitySemiamplitude = TrimZeros (VelocitySemiamplitude);
-                VelocitySemiamplitudeErrorMin = TrimZeros (VelocitySemiamplitudeErrorMin);
-                VelocitySemiamplitudeErrorMax = TrimZeros (VelocitySemiamplitudeErrorMax);
+            VelocitySemiamplitude = TrimZeros (VelocitySemiamplitude);
+            VelocitySemiamplitudeErrorMin = TrimZeros (VelocitySemiamplitudeErrorMin);
+            VelocitySemiamplitudeErrorMax = TrimZeros (VelocitySemiamplitudeErrorMax);
 
-                GeometricAlbedo = TrimZeros (GeometricAlbedo);
-                GeometricAlbedoErrorMin = TrimZeros (GeometricAlbedoErrorMin);
-                GeometricAlbedoErrorMax = TrimZeros (GeometricAlbedoErrorMax);
+            GeometricAlbedo = TrimZeros (GeometricAlbedo);
+            GeometricAlbedoErrorMin = TrimZeros (GeometricAlbedoErrorMin);
+            GeometricAlbedoErrorMax = TrimZeros (GeometricAlbedoErrorMax);
 
-                Tconj = TrimZeros (Tconj);
-                TconjErrorMin = TrimZeros (TconjErrorMin);
-                TconjErrorMax = TrimZeros (TconjErrorMax);
+            Tconj = TrimZeros (Tconj);
+            TconjErrorMin = TrimZeros (TconjErrorMin);
+            TconjErrorMax = TrimZeros (TconjErrorMax);
 
-                Star.Magnitude.V = TrimZeros (Star.Magnitude.V);
-                Star.Magnitude.I = TrimZeros (Star.Magnitude.I);
-                Star.Magnitude.J = TrimZeros (Star.Magnitude.J);
-                Star.Magnitude.H = TrimZeros (Star.Magnitude.H);
-                Star.Magnitude.K = TrimZeros (Star.Magnitude.K);
+            Star.Magnitude.V = TrimZeros (Star.Magnitude.V);
+            Star.Magnitude.I = TrimZeros (Star.Magnitude.I);
+            Star.Magnitude.J = TrimZeros (Star.Magnitude.J);
+            Star.Magnitude.H = TrimZeros (Star.Magnitude.H);
+            Star.Magnitude.K = TrimZeros (Star.Magnitude.K);
 
-                Star.Property.Distance = TrimZeros (Star.Property.Distance);
-                Star.Property.DistanceErrorMin = TrimZeros (Star.Property.DistanceErrorMin);
-                Star.Property.DistanceErrorMax = TrimZeros (Star.Property.DistanceErrorMax);
+            Star.Property.Distance = TrimZeros (Star.Property.Distance);
+            Star.Property.DistanceErrorMin = TrimZeros (Star.Property.DistanceErrorMin);
+            Star.Property.DistanceErrorMax = TrimZeros (Star.Property.DistanceErrorMax);
 
-                Star.Property.Distance = TrimZeros (Star.Property.Distance);
-                Star.Property.DistanceErrorMin = TrimZeros (Star.Property.DistanceErrorMin);
-                Star.Property.DistanceErrorMax = TrimZeros (Star.Property.DistanceErrorMax);
+            Star.Property.Distance = TrimZeros (Star.Property.Distance);
+            Star.Property.DistanceErrorMin = TrimZeros (Star.Property.DistanceErrorMin);
+            Star.Property.DistanceErrorMax = TrimZeros (Star.Property.DistanceErrorMax);
 
-                Star.Property.Metallicity = TrimZeros (Star.Property.Metallicity);
-                Star.Property.MetallicityErrorMin = TrimZeros (Star.Property.MetallicityErrorMin);
-                Star.Property.MetallicityErrorMax = TrimZeros (Star.Property.MetallicityErrorMax);
+            Star.Property.Metallicity = TrimZeros (Star.Property.Metallicity);
+            Star.Property.MetallicityErrorMin = TrimZeros (Star.Property.MetallicityErrorMin);
+            Star.Property.MetallicityErrorMax = TrimZeros (Star.Property.MetallicityErrorMax);
 
-                Star.Property.Mass = TrimZeros (Star.Property.Mass);
-                Star.Property.MassErrorMin = TrimZeros (Star.Property.MassErrorMin);
-                Star.Property.MassErrorMax = TrimZeros (Star.Property.MassErrorMax);
+            Star.Property.Mass = TrimZeros (Star.Property.Mass);
+            Star.Property.MassErrorMin = TrimZeros (Star.Property.MassErrorMin);
+            Star.Property.MassErrorMax = TrimZeros (Star.Property.MassErrorMax);
 
-                Star.Property.Radius = TrimZeros (Star.Property.Radius);
-                Star.Property.RadiusErrorMin = TrimZeros (Star.Property.RadiusErrorMin);
-                Star.Property.RadiusErrorMax = TrimZeros (Star.Property.RadiusErrorMax);
+            Star.Property.Radius = TrimZeros (Star.Property.Radius);
+            Star.Property.RadiusErrorMin = TrimZeros (Star.Property.RadiusErrorMin);
+            Star.Property.RadiusErrorMax = TrimZeros (Star.Property.RadiusErrorMax);
 
-                Star.Property.Age = TrimZeros (Star.Property.Age);
-                Star.Property.AgeErrorMin = TrimZeros (Star.Property.AgeErrorMin);
-                Star.Property.AgeErrorMax = TrimZeros (Star.Property.AgeErrorMax);
+            Star.Property.Age = TrimZeros (Star.Property.Age);
+            Star.Property.AgeErrorMin = TrimZeros (Star.Property.AgeErrorMin);
+            Star.Property.AgeErrorMax = TrimZeros (Star.Property.AgeErrorMax);
 
-                Star.Property.Teff = TrimZeros (Star.Property.Teff);
-                Star.Property.TeffErrorMin = TrimZeros (Star.Property.TeffErrorMin);
-                Star.Property.TeffErrorMax = TrimZeros (Star.Property.TeffErrorMax);
-                }
+            Star.Property.Teff = TrimZeros (Star.Property.Teff);
+            Star.Property.TeffErrorMin = TrimZeros (Star.Property.TeffErrorMin);
+            Star.Property.TeffErrorMax = TrimZeros (Star.Property.TeffErrorMax);
             }
 
         public bool IsDetectionDefined ()

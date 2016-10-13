@@ -162,7 +162,7 @@ namespace ExoplanetLibrary
                     ReadMagnitudes (exoplanet);
                     ReadProperties (exoplanet);
 
-                    exoplanet.CorrectErrors (false);
+                    exoplanet.CorrectErrors ();
 
                     if (!string.IsNullOrEmpty (exoplanet.Name))
                         exoplanets.Add (( object )exoplanet);

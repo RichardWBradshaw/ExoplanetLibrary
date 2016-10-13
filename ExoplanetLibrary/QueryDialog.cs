@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Windows.Forms;
 
 namespace ExoplanetLibrary
     {
     public partial class QueryDialog : Form
         {
-        static private string QueryText = "";
+        static private int CurrentIndex = 0;
 
         public QueryDialog ()
             {
@@ -16,7 +17,13 @@ namespace ExoplanetLibrary
             ParentDialog = parent;
             InitializeComponent ();
 
-            queryTextBox.Text = QueryText;
+            queryComboBox.BeginUpdate ();
+            queryComboBox.Items.AddRange (Queries.Name);
+            queryComboBox.EndUpdate ();
+
+            queryComboBox.SelectedIndex = CurrentIndex;
+            queryTextBox.Text = Queries.WhereClause [CurrentIndex];
+            Update ();
             }
 
         private LibraryDialog ParentDialog_ = null;
@@ -36,7 +43,44 @@ namespace ExoplanetLibrary
             {
             Queries.CurrentQueries = new Queries (queryTextBox.Text);
             ParentDialog.ProcessQuery ();
-            QueryText = queryTextBox.Text;
+            }
+
+        private void queryComboBox_selectedIndexChanged (object sender, EventArgs e)
+            {
+            if (queryComboBox.SelectedIndex >= 0 && queryComboBox.SelectedIndex < Queries.Name.Length)
+                {
+                CurrentIndex = queryComboBox.SelectedIndex;
+                queryTextBox.Text = Queries.WhereClause [CurrentIndex];
+                queryTextBox.Update ();
+                Update ();
+                }
+            }
+
+        private void updateQueryButton_Click (object sender, EventArgs e)
+            {
+            CurrentIndex = queryComboBox.SelectedIndex;
+            Queries.WhereClause [CurrentIndex] = queryTextBox.Text;
+
+            Queries.Name [CurrentIndex] = NameFromWhereClause ();
+
+            queryComboBox.Items.Clear ();
+
+            queryComboBox.BeginUpdate ();
+            queryComboBox.Items.AddRange (Queries.Name);
+            queryComboBox.EndUpdate ();
+            }
+
+        private string NameFromWhereClause ()
+            {
+            if (Queries.WhereClause [CurrentIndex].Length > 0)
+                {
+                char [] delimiterChars = { '\n', '\r' };
+                string [] strings = Queries.WhereClause [CurrentIndex].Split (delimiterChars);
+
+                return strings [0];
+                }
+
+            return Queries.Name [CurrentIndex];
             }
         }
     }

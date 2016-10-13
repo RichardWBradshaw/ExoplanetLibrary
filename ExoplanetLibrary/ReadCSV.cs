@@ -192,7 +192,7 @@ namespace ExoplanetLibrary
                 Exoplanet exoplanet = new Exoplanet ();
 
                 exoplanet.AssignFromSubstrings (strings);
-                exoplanet.CorrectErrors (false);
+                exoplanet.CorrectErrors ();
                 WriteXML.WriteExoplanet (writer, exoplanet, Version);
                 }
             else

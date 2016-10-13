@@ -15,13 +15,6 @@ namespace ExoplanetLibrary
             get { return Version_; }
             }
 
-        static private bool IsNasaVot_ = false;
-        static private bool IsNasaVot
-            {
-            get { return IsNasaVot_; }
-            set { IsNasaVot_ = value; }
-            }
-
         static XmlReader Reader_ = null;
         static XmlReader Reader
             {
@@ -74,8 +67,6 @@ namespace ExoplanetLibrary
                 writer.WriteAttributeString ("version", Version);
 
                 TextReader reader = null;
-                IsNasaVot = false;
-
                 Indexer.Initialize ();
 
                 using (reader = File.OpenText (votFileName))
@@ -138,8 +129,6 @@ namespace ExoplanetLibrary
 
                                     Indexer.SetIndex (name, index);
                                     ++index;
-
-                                    IsNasaVot = true;
                                     }
                                 }
                             }
@@ -168,7 +157,7 @@ namespace ExoplanetLibrary
                 }
 
             exoplanet.AssignFromSubstrings (substrings);
-            exoplanet.CorrectErrors (IsNasaVot);
+            exoplanet.CorrectErrors ();
             WriteXML.WriteExoplanet (writer, exoplanet, Version);
 
             return 0;

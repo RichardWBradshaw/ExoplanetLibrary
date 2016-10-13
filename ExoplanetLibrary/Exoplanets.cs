@@ -751,80 +751,70 @@ namespace ExoplanetLibrary
             return added + updated + missing;
             }
 
+        static private string Merge ( string string1, string string2)
+            {
+            if (!Helper.IsDefined (string1))
+                if (Helper.IsDefined (string2))
+                    string1 = string2;
+
+            return string1;
+            }
+
         static public ArrayList Merge (ArrayList array1, ArrayList array2)
             {
-            array1.Sort (new SortByStarName ());
-            array2.Sort (new SortByStarName ());
-
             foreach (Exoplanet exoplanet1 in array1)
                 {
                 foreach (Exoplanet exoplanet2 in array2)
                     {
                     if (Helper.Equals (exoplanet1.Star.Name, exoplanet2.Star.Name))
                         {
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.Distance))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.Distance))
-                                exoplanet1.Star.Property.Distance = exoplanet2.Star.Property.Distance;
+                        exoplanet1.Star.AlternateNames = Merge (exoplanet1.Star.AlternateNames, exoplanet2.Star.AlternateNames);
+                        exoplanet1.Star.RightAccession = Merge (exoplanet1.Star.RightAccession, exoplanet2.Star.RightAccession);
+                        exoplanet1.Star.Declination = Merge (exoplanet1.Star.Declination, exoplanet2.Star.Declination);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.DistanceErrorMin))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.DistanceErrorMin))
-                                exoplanet1.Star.Property.DistanceErrorMin = exoplanet2.Star.Property.DistanceErrorMin;
+                        exoplanet1.Star.Property.Age = Merge (exoplanet1.Star.Property.Age, exoplanet2.Star.Property.Age);
+                        exoplanet1.Star.Property.AgeErrorMin = Merge (exoplanet1.Star.Property.AgeErrorMin, exoplanet2.Star.Property.AgeErrorMin);
+                        exoplanet1.Star.Property.AgeErrorMax = Merge (exoplanet1.Star.Property.AgeErrorMax, exoplanet2.Star.Property.AgeErrorMax);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.DistanceErrorMax))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.DistanceErrorMax))
-                                exoplanet1.Star.Property.DistanceErrorMax = exoplanet2.Star.Property.DistanceErrorMax;
+                        exoplanet1.Star.Property.Distance = Merge (exoplanet1.Star.Property.Distance, exoplanet2.Star.Property.Distance);
+                        exoplanet1.Star.Property.DistanceErrorMin = Merge (exoplanet1.Star.Property.DistanceErrorMin, exoplanet2.Star.Property.DistanceErrorMin);
+                        exoplanet1.Star.Property.DistanceErrorMax = Merge (exoplanet1.Star.Property.DistanceErrorMax, exoplanet2.Star.Property.DistanceErrorMax);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.Metallicity))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.Metallicity))
-                                exoplanet1.Star.Property.Metallicity = exoplanet2.Star.Property.Metallicity;
+                        exoplanet1.Star.Property.Metallicity = Merge (exoplanet1.Star.Property.Metallicity, exoplanet2.Star.Property.Metallicity);
+                        exoplanet1.Star.Property.MetallicityErrorMin = Merge (exoplanet1.Star.Property.MetallicityErrorMin, exoplanet2.Star.Property.MetallicityErrorMin);
+                        exoplanet1.Star.Property.MetallicityErrorMax = Merge (exoplanet1.Star.Property.MetallicityErrorMax, exoplanet2.Star.Property.MetallicityErrorMax);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.MetallicityErrorMin))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.MetallicityErrorMin))
-                                exoplanet1.Star.Property.MetallicityErrorMin = exoplanet2.Star.Property.MetallicityErrorMin;
+                        exoplanet1.Star.Property.Mass = Merge (exoplanet1.Star.Property.Mass, exoplanet2.Star.Property.Mass);
+                        exoplanet1.Star.Property.Distance = Merge (exoplanet1.Star.Property.Distance, exoplanet2.Star.Property.Distance);
+                        exoplanet1.Star.Property.Distance = Merge (exoplanet1.Star.Property.Distance, exoplanet2.Star.Property.Distance);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.MetallicityErrorMax))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.MetallicityErrorMax))
-                                exoplanet1.Star.Property.MetallicityErrorMax = exoplanet2.Star.Property.MetallicityErrorMax;
+                        exoplanet1.Star.Property.Mass = Merge (exoplanet1.Star.Property.Mass, exoplanet2.Star.Property.Distance);
+                        exoplanet1.Star.Property.MassErrorMin = Merge (exoplanet1.Star.Property.MassErrorMin, exoplanet2.Star.Property.MassErrorMin);
+                        exoplanet1.Star.Property.MassErrorMax = Merge (exoplanet1.Star.Property.MassErrorMax, exoplanet2.Star.Property.MassErrorMax);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.Mass))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.Mass))
-                                exoplanet1.Star.Property.Mass = exoplanet2.Star.Property.Mass;
+                        exoplanet1.Star.Property.Radius = Merge (exoplanet1.Star.Property.Radius, exoplanet2.Star.Property.Radius);
+                        exoplanet1.Star.Property.RadiusErrorMin = Merge (exoplanet1.Star.Property.RadiusErrorMin, exoplanet2.Star.Property.RadiusErrorMin);
+                        exoplanet1.Star.Property.RadiusErrorMax = Merge (exoplanet1.Star.Property.RadiusErrorMax, exoplanet2.Star.Property.RadiusErrorMax);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.MassErrorMin))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.MassErrorMin))
-                                exoplanet1.Star.Property.MassErrorMin = exoplanet2.Star.Property.MassErrorMin;
+                        exoplanet1.Star.Property.SPType = Merge (exoplanet1.Star.Property.SPType, exoplanet2.Star.Property.SPType);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.MassErrorMax))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.MassErrorMax))
-                                exoplanet1.Star.Property.MassErrorMax = exoplanet2.Star.Property.MassErrorMax;
+                        exoplanet1.Star.Property.Age = Merge (exoplanet1.Star.Property.Age, exoplanet2.Star.Property.Age);
+                        exoplanet1.Star.Property.AgeErrorMin = Merge (exoplanet1.Star.Property.AgeErrorMin, exoplanet2.Star.Property.AgeErrorMin);
+                        exoplanet1.Star.Property.AgeErrorMax = Merge (exoplanet1.Star.Property.AgeErrorMax, exoplanet2.Star.Property.AgeErrorMax);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.Radius))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.Radius))
-                                exoplanet1.Star.Property.Radius = exoplanet2.Star.Property.Radius;
+                        exoplanet1.Star.Property.Teff = Merge (exoplanet1.Star.Property.Teff, exoplanet2.Star.Property.Teff);
+                        exoplanet1.Star.Property.TeffErrorMin = Merge (exoplanet1.Star.Property.TeffErrorMin, exoplanet2.Star.Property.TeffErrorMin);
+                        exoplanet1.Star.Property.TeffErrorMax = Merge (exoplanet1.Star.Property.TeffErrorMax, exoplanet2.Star.Property.TeffErrorMax);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.RadiusErrorMin))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.RadiusErrorMin))
-                                exoplanet1.Star.Property.RadiusErrorMin = exoplanet2.Star.Property.RadiusErrorMin;
+                        exoplanet1.Star.Property.DetectedDisc = Merge (exoplanet1.Star.Property.DetectedDisc, exoplanet2.Star.Property.DetectedDisc);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.RadiusErrorMax))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.RadiusErrorMax))
-                                exoplanet1.Star.Property.RadiusErrorMax = exoplanet2.Star.Property.RadiusErrorMax;
+                        exoplanet1.Star.Property.MagneticField = Merge (exoplanet1.Star.Property.MagneticField, exoplanet2.Star.Property.MagneticField);
 
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.SPType))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.SPType))
-                                exoplanet1.Star.Property.SPType = exoplanet2.Star.Property.SPType;
-
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.Age))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.Age))
-                                exoplanet1.Star.Property.Age = exoplanet2.Star.Property.Age;
-
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.AgeErrorMin))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.AgeErrorMin))
-                                exoplanet1.Star.Property.AgeErrorMin = exoplanet2.Star.Property.AgeErrorMin;
-
-                        if (!Helper.IsDefined (exoplanet1.Star.Property.AgeErrorMax))
-                            if (Helper.IsDefined (exoplanet2.Star.Property.AgeErrorMax))
-                                exoplanet1.Star.Property.AgeErrorMax = exoplanet2.Star.Property.AgeErrorMax;
+                        exoplanet1.Star.Magnitude.V = Merge (exoplanet1.Star.Magnitude.V, exoplanet2.Star.Magnitude.V);
+                        exoplanet1.Star.Magnitude.I = Merge (exoplanet1.Star.Magnitude.I, exoplanet2.Star.Magnitude.I);
+                        exoplanet1.Star.Magnitude.J = Merge (exoplanet1.Star.Magnitude.J, exoplanet2.Star.Magnitude.J);
+                        exoplanet1.Star.Magnitude.H = Merge (exoplanet1.Star.Magnitude.H, exoplanet2.Star.Magnitude.H);
+                        exoplanet1.Star.Magnitude.K = Merge (exoplanet1.Star.Magnitude.K, exoplanet2.Star.Magnitude.K);
 
                         break;
                         }

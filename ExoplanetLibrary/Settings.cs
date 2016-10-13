@@ -55,6 +55,28 @@ namespace ExoplanetLibrary
             }
         }
 
+    public class SpectralQuery
+        {
+        public string Spectral;
+
+        private QueryTypes QueryType_ = QueryTypes.StartsWith;
+        public QueryTypes QueryType
+            {
+            get { return QueryType_; }
+            set { QueryType_ = value; }
+            }
+
+        public SpectralQuery ()
+            {
+            }
+
+        public SpectralQuery (string spectral, QueryTypes queryType)
+            {
+            Spectral = spectral;
+            QueryType = queryType;
+            }
+        }
+
     public class BetweenQuery
         {
         public PlotTypes PlotType;
@@ -111,6 +133,7 @@ namespace ExoplanetLibrary
 
         private ArrayList NameQueries = new ArrayList ();
         private ArrayList DetectionQueries = new ArrayList ();
+        private ArrayList SpectralQueries = new ArrayList ();
         private ArrayList BetweenQueries = new ArrayList ();
         private ArrayList LessThanQueries = new ArrayList ();
         private ArrayList GreaterThanQueries = new ArrayList ();
@@ -134,6 +157,7 @@ namespace ExoplanetLibrary
                 double value = 0.0, value1 = 0.0, value2 = 0.0;
                 string name = "";
                 string detection = "";
+                string spectral = "";
                 QueryTypes queryType = QueryTypes.StartsWith;
 
                 if (ParseName (strings, ref name, ref queryType) == true)
@@ -143,6 +167,10 @@ namespace ExoplanetLibrary
                 else if (ParseDetection (strings, ref detection, ref queryType) == true)
                     {
                     AddDetection (detection, queryType);
+                    }
+                else if (ParseSpectral (strings, ref spectral, ref queryType) == true)
+                    {
+                    AddSpectral (spectral, queryType);
                     }
                 else if (ParseBetweenQuery (strings, ref plotType, ref value1, ref value2) == true)
                     {
@@ -229,46 +257,40 @@ namespace ExoplanetLibrary
             return false;
             }
 
-        //private DetectionType GetDetectionType (string stringer)
-        //    {
-        //    stringer = stringer.ToLower ();
+        //
+        // "where spectral startswith A"
+        //
 
-        //    if(stringer.Contains( ))
-        //    if (stringer.StartsWith ("pri") || stringer == "primarytransit")
-        //        {
-        //        return DetectionType.PrimaryTransit;
-        //        }
-        //    else if (stringer.StartsWith ("rad") || stringer == "radialvelocity")
-        //        {
-        //        return DetectionType.RadialVelocity;
-        //        }
-        //    else if (stringer.StartsWith ("mic") || stringer == "microlensing")
-        //        {
-        //        return DetectionType.MicroLensing;
-        //        }
-        //    else if (stringer.StartsWith ("ima") || stringer == "imaging")
-        //        {
-        //        return DetectionType.Imaging;
-        //        }
-        //    else if (stringer.StartsWith ("pul") || stringer == "pulsar")
-        //        {
-        //        return DetectionType.Pulsar;
-        //        }
-        //    else if (stringer.StartsWith ("ast") || stringer == "astrometry")
-        //        {
-        //        return DetectionType.Astrometry;
-        //        }
-        //    else if (stringer.StartsWith ("ttv") || stringer == "ttv")
-        //        {
-        //        return DetectionType.TTV;
-        //        }
-        //    else if (stringer.StartsWith ("unk") || stringer == "unknown")
-        //        {
-        //        return DetectionType.Unknown;
-        //        }
+        private bool ParseSpectral (string [] strings, ref string value, ref QueryTypes queryType)
+            {
+            queryType = QueryTypes.StartsWith;
 
-        //    return DetectionType.Unknown;
-        //    }
+            if (strings [0] == "where")
+                if (strings [1] == "spectral")
+                    {
+                    if (strings.Length == 3)
+                        {
+                        value = strings [2].ToLower ();
+                        return true;
+                        }
+                    else if (strings.Length == 4)
+                        {
+                        string query = strings [2].ToLower ();
+
+                        if (query.StartsWith ("start") || query.StartsWith ("startswith"))
+                            queryType = QueryTypes.StartsWith;
+                        else if (query.StartsWith ("contains"))
+                            queryType = QueryTypes.Contains;
+                        else if (query.StartsWith ("end") || query.StartsWith ("endswith"))
+                            queryType = QueryTypes.EndsWith;
+
+                        value = strings [3].ToLower ();
+                        return true;
+                        }
+                    }
+
+            return false;
+            }
 
         //
         // "where mass between '0.1' and '1.0'" or "where mass between 0.1 and 1.0"
@@ -391,6 +413,7 @@ namespace ExoplanetLibrary
             {
             NameQueries = new ArrayList ();
             DetectionQueries = new ArrayList ();
+            SpectralQueries = new ArrayList ();
             BetweenQueries = new ArrayList ();
             LessThanQueries = new ArrayList ();
             GreaterThanQueries = new ArrayList ();
@@ -404,6 +427,11 @@ namespace ExoplanetLibrary
         private void AddDetection (string detection, QueryTypes queryType)
             {
             DetectionQueries.Add (new DetectionQuery (detection, queryType));
+            }
+
+        private void AddSpectral (string spectual, QueryTypes queryType)
+            {
+            SpectralQueries.Add (new SpectralQuery (spectual, queryType));
             }
 
         private void AddBetween (PlotTypes plotType, double value1, double value2)
@@ -423,12 +451,11 @@ namespace ExoplanetLibrary
 
         public bool MatchesQuery (Exoplanet exoplanet)
             {
+            // needs_work this only handles a single query, it needs to handle multiple
             if (NameQueries.Count > 0)
                 foreach (NameQuery query in NameQueries)
                     {
                     string name = exoplanet.Name.ToLower ();
-                    // add EndsWith  // needs_work
-                    // add Contains
 
                     if (query.QueryType == QueryTypes.StartsWith)
                         {
@@ -452,9 +479,45 @@ namespace ExoplanetLibrary
                     {
                     string detection = exoplanet.DetectionType.ToLower ();
 
-                    if (!detection.Contains (query.Detection))
-                        return false;
+                    if (query.QueryType == QueryTypes.StartsWith)
+                        {
+                        if (!detection.StartsWith (query.Detection))
+                            return false;
+                        }
+                    else if (query.QueryType == QueryTypes.EndsWith)
+                        {
+                        if (!detection.EndsWith (query.Detection))
+                            return false;
+                        }
+                    else if (query.QueryType == QueryTypes.Contains)
+                        {
+                        if (!detection.Contains (query.Detection))
+                            return false;
+                        }
                     }
+
+            if (SpectralQueries.Count > 0)
+                foreach (SpectralQuery query in SpectralQueries)
+                    if (Helper.IsDefined (exoplanet.Star.Property.SPType))
+                        {
+                        string spectual = exoplanet.Star.Property.SPType.ToLower ();
+
+                        if (query.QueryType == QueryTypes.StartsWith)
+                            {
+                            if (!spectual.StartsWith (query.Spectral))
+                                return false;
+                            }
+                        else if (query.QueryType == QueryTypes.EndsWith)
+                            {
+                            if (!spectual.EndsWith (query.Spectral))
+                                return false;
+                            }
+                        else if (query.QueryType == QueryTypes.Contains)
+                            {
+                            if (!spectual.Contains (query.Spectral))
+                                return false;
+                            }
+                        }
 
             if (BetweenQueries.Count > 0)
                 foreach (BetweenQuery query in BetweenQueries)
@@ -539,6 +602,53 @@ namespace ExoplanetLibrary
                 }
 
             return isValid;
+            }
+
+        static public string [] Name = { "query 1", "query 2", "query 3", "query 4", "query 5", "query 6", "query 7", "query 8", "query 9", "query 10",
+                                         "query 11", "query 12", "query 13", "query 14", "query 15", "query 16", "query 17", "query 18", "query 19", "query 20"};
+        static public string [] WhereClause = { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+
+        public static int WriteQueries ()
+            {
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary\\Queries") : null;
+
+            if (subkey != null)
+                for (int index = 0; index < Name.Length; ++index)
+                    {
+                    subkey.SetValue ("Name" + index.ToString (), Name [index], RegistryValueKind.String);
+                    subkey.SetValue ("WhereClause" + index.ToString (), WhereClause [index], RegistryValueKind.String);
+                    }
+
+            if (key != null)
+                key.Close ();
+
+            return 0;
+            }
+
+        public static int ReadQueries ()
+            {
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary\\Queries") : null;
+
+            if (subkey != null)
+                for (int index = 0; index < Name.Length; ++index)
+                    {
+                    object obj = subkey.GetValue ("Name" + index.ToString ());
+
+                    if (obj != null)
+                        Name [index] = obj as string;
+
+                    obj = subkey.GetValue ("WhereClause" + index.ToString ());
+
+                    if (obj != null)
+                        WhereClause [index] = obj as string;
+                    }
+
+            if (key != null)
+                key.Close ();
+
+            return 0;
             }
         }
 
@@ -640,6 +750,8 @@ namespace ExoplanetLibrary
                 subkey.SetValue ("IncludeBestFitCurve", Visualization.IncludeBestFitCurve == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
 
                 subkey.SetValue ("OpenFileFilterIndex", Settings.FilterIndex, RegistryValueKind.String);
+
+                Queries.WriteQueries ();
                 }
 
             if (key != null)
@@ -664,6 +776,8 @@ namespace ExoplanetLibrary
                 Visualization.IncludeBestFitCurve = ReadValue (subkey, "IncludeBestFitCurve");
 
                 Settings.FilterIndex = ReadIntegerValue (subkey, "OpenFileFilterIndex");
+
+                Queries.ReadQueries ();
                 }
 
             if (key != null)

@@ -179,7 +179,7 @@ namespace ExoplanetLibrary
                 Exoplanet exoplanet = new Exoplanet ();
 
                 exoplanet.AssignFromSubstrings (strings);
-                exoplanet.CorrectErrors (true);
+                exoplanet.CorrectErrors ();
                 WriteXML.WriteExoplanet (writer, exoplanet, Version);
                 }
             else
