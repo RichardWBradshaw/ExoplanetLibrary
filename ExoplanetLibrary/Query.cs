@@ -589,9 +589,9 @@ namespace ExoplanetLibrary
                             matches = true;
                     }
 
-            if (!matches)
-                return false;
-            }
+                if (!matches)
+                    return false;
+                }
 
             return true;
             }
