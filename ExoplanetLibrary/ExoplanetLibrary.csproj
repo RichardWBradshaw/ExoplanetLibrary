@@ -87,6 +87,7 @@
     <Compile Include="ExoplanetSorter.cs" />
     <Compile Include="Indexer.cs" />
     <Compile Include="Plotting.cs" />
+    <Compile Include="Query.cs" />
     <Compile Include="QueryDialog.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace ExoplanetLibrary
@@ -58,16 +57,21 @@ namespace ExoplanetLibrary
 
         private void updateQueryButton_Click (object sender, EventArgs e)
             {
-            CurrentIndex = queryComboBox.SelectedIndex;
-            Queries.WhereClause [CurrentIndex] = queryTextBox.Text;
+            if (queryComboBox.SelectedIndex >= 0 && queryComboBox.SelectedIndex < Queries.Name.Length)
+                {
+                CurrentIndex = queryComboBox.SelectedIndex;
+                Queries.WhereClause [CurrentIndex] = queryTextBox.Text;
 
-            Queries.Name [CurrentIndex] = NameFromWhereClause ();
+                Queries.Name [CurrentIndex] = NameFromWhereClause ();
 
-            queryComboBox.Items.Clear ();
+                queryComboBox.Items.Clear ();
 
-            queryComboBox.BeginUpdate ();
-            queryComboBox.Items.AddRange (Queries.Name);
-            queryComboBox.EndUpdate ();
+                queryComboBox.BeginUpdate ();
+                queryComboBox.Items.AddRange (Queries.Name);
+                queryComboBox.EndUpdate ();
+
+                queryComboBox.SelectedIndex = CurrentIndex;
+                }
             }
 
         private string NameFromWhereClause ()
