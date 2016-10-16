@@ -38,12 +38,6 @@ namespace ExoplanetLibrary
                 ParentDialog.QueryBuilderClosed ();
             }
 
-        private void applyButton_Click (object sender, EventArgs e)
-            {
-            Queries.CurrentQueries = new Queries (queryTextBox.Text);
-            ParentDialog.ProcessQuery ();
-            }
-
         private void queryComboBox_selectedIndexChanged (object sender, EventArgs e)
             {
             if (queryComboBox.SelectedIndex >= 0 && queryComboBox.SelectedIndex < Queries.Name.Length)
@@ -53,6 +47,25 @@ namespace ExoplanetLibrary
                 queryTextBox.Update ();
                 Update ();
                 }
+            }
+
+        private void exampleQueryButton_click (object sender, EventArgs e)
+            {
+            MessageBox.Show (
+                "where <keyword> <string-value>\n" +
+                "where <keyword> startswith <string-value>\n" +
+                "where <keyword> contains <string-value>\n" +
+                "where <keyword> endswith <string-value>\n" +
+                "<keyword> is either 'name', 'detection' or 'spectral'\n" +
+                "<string-value> is an alpha-numeric string\n\n" +
+
+                "where <keyword> >= <numeric-value>\n" +
+                "where <keyword> <= <numeric-value>\n" +
+                "where <keyword> between <numeric-value> and <numeric-value>\n" +
+                "<keyword> is either 'mass', 'radius', 'orbitalperiod', 'semimajoraxis', 'eccentricity', 'angulardistance', 'inclination', 'temperature' or 'omega'\n" +
+                "<numeric-value> is a numeric value\n"
+                , "Example query statements" 
+                );
             }
 
         private void updateQueryButton_Click (object sender, EventArgs e)
@@ -72,6 +85,12 @@ namespace ExoplanetLibrary
 
                 queryComboBox.SelectedIndex = CurrentIndex;
                 }
+            }
+
+        private void applyButton_Click (object sender, EventArgs e)
+            {
+            Queries.CurrentQueries = new Queries (queryTextBox.Text);
+            ParentDialog.ProcessQuery ();
             }
 
         private string NameFromWhereClause ()

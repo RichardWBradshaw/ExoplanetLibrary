@@ -141,6 +141,9 @@ namespace ExoplanetLibrary
         private ArrayList LessThanQueries = new ArrayList ();
         private ArrayList GreaterThanQueries = new ArrayList ();
 
+        static public string [] Name = new string [20];
+        static public string [] WhereClause = new string [20];
+
         public Queries ()
             {
             }
@@ -149,6 +152,7 @@ namespace ExoplanetLibrary
             {
             char [] delimiterChars = { '\r' };
             string query = text.Replace ('\n', ' ');
+            query = query.ToLower ();
             string [] queries = query.Split (delimiterChars);
 
             for (int index = 0; index < queries.Length; ++index)
@@ -210,11 +214,11 @@ namespace ExoplanetLibrary
                         {
                         string query = strings [2].ToLower ();
 
-                        if (query.StartsWith ("start") || query.StartsWith ("startswith"))
+                        if (query.StartsWith ("starts") || query.StartsWith ("startswith"))
                             queryType = QueryTypes.StartsWith;
                         else if (query.StartsWith ("contains"))
                             queryType = QueryTypes.Contains;
-                        else if (query.StartsWith ("end") || query.StartsWith ("endswith"))
+                        else if (query.StartsWith ("ends") || query.StartsWith ("endswith"))
                             queryType = QueryTypes.EndsWith;
 
                         value = strings [3].ToLower ();
@@ -245,11 +249,11 @@ namespace ExoplanetLibrary
                         {
                         string query = strings [2].ToLower ();
 
-                        if (query.StartsWith ("start") || query.StartsWith ("startswith"))
+                        if (query.StartsWith ("starts") || query.StartsWith ("startswith"))
                             queryType = QueryTypes.StartsWith;
                         else if (query.StartsWith ("contains"))
                             queryType = QueryTypes.Contains;
-                        else if (query.StartsWith ("end") || query.StartsWith ("endswith"))
+                        else if (query.StartsWith ("ends") || query.StartsWith ("endswith"))
                             queryType = QueryTypes.EndsWith;
 
                         value = strings [3].ToLower ();
@@ -280,11 +284,11 @@ namespace ExoplanetLibrary
                         {
                         string query = strings [2].ToLower ();
 
-                        if (query.StartsWith ("start") || query.StartsWith ("startswith"))
+                        if (query.StartsWith ("starts") || query.StartsWith ("startswith"))
                             queryType = QueryTypes.StartsWith;
                         else if (query.StartsWith ("contains"))
                             queryType = QueryTypes.Contains;
-                        else if (query.StartsWith ("end") || query.StartsWith ("endswith"))
+                        else if (query.StartsWith ("ends") || query.StartsWith ("endswith"))
                             queryType = QueryTypes.EndsWith;
 
                         value = strings [3].ToLower ();
@@ -648,10 +652,6 @@ namespace ExoplanetLibrary
             return isValid;
             }
 
-        static public string [] Name = { "query 1", "query 2", "query 3", "query 4", "query 5", "query 6", "query 7", "query 8", "query 9", "query 10",
-                                         "query 11", "query 12", "query 13", "query 14", "query 15", "query 16", "query 17", "query 18", "query 19", "query 20"};
-        static public string [] WhereClause = { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-
         public static int WriteQueries ()
             {
             RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
@@ -679,14 +679,10 @@ namespace ExoplanetLibrary
                 for (int index = 0; index < Name.Length; ++index)
                     {
                     object obj = subkey.GetValue ("Name" + index.ToString ());
-
-                    if (obj != null)
-                        Name [index] = obj as string;
+                    Name [index] = obj != null ? obj as string : "query" + ( index + 1 ).ToString ();
 
                     obj = subkey.GetValue ("WhereClause" + index.ToString ());
-
-                    if (obj != null)
-                        WhereClause [index] = obj as string;
+                    WhereClause [index] = obj != null ? obj as string : string.Empty;
                     }
 
             if (key != null)
