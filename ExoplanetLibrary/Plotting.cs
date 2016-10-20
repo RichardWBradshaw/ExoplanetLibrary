@@ -643,33 +643,28 @@ namespace ExoplanetLibrary
                                         break;
                                     }
 
-                                if (Visualization.ColorFromStarType == CheckState.Checked)
-                                    {
-                                    pointPlot.Marker.Color = Color.Black;
+                                pointPlot.Marker.Color = Color.Black;
 
-                                    if (star.Property.SPType != null)
-                                        switch (star.Property.SPType [0])
-                                            {
-                                            case 'O':
-                                                pointPlot.Marker.Color = Color.FromArgb (155, 176, 255); break;
-                                            case 'B':
-                                                pointPlot.Marker.Color = Color.FromArgb (170, 191, 255); break;
-                                            case 'A':
-                                                pointPlot.Marker.Color = Color.FromArgb (202, 215, 255); break;
-                                            case 'F':
-                                                pointPlot.Marker.Color = Color.FromArgb (248, 247, 255); break;
-                                            case 'G':
-                                                pointPlot.Marker.Color = Color.FromArgb (255, 244, 234); break;
-                                            case 'K':
-                                                pointPlot.Marker.Color = Color.FromArgb (255, 210, 161); break;
-                                            case 'M':
-                                                pointPlot.Marker.Color = Color.FromArgb (255, 204, 111); break;
-                                            default:
-                                                pointPlot.Marker.Color = Color.FromArgb (255, 255, 255); break;
-                                            }
-                                    }
-                                else
-                                    pointPlot.Marker.Color = PointColor;
+                                if (star.Property.SPType != null)
+                                    switch (star.Property.SPType [0])
+                                        {
+                                        case 'O':
+                                            pointPlot.Marker.Color = Color.FromArgb (155, 176, 255); break;
+                                        case 'B':
+                                            pointPlot.Marker.Color = Color.FromArgb (170, 191, 255); break;
+                                        case 'A':
+                                            pointPlot.Marker.Color = Color.FromArgb (202, 215, 255); break;
+                                        case 'F':
+                                            pointPlot.Marker.Color = Color.FromArgb (248, 247, 255); break;
+                                        case 'G':
+                                            pointPlot.Marker.Color = Color.FromArgb (255, 244, 234); break;
+                                        case 'K':
+                                            pointPlot.Marker.Color = Color.FromArgb (255, 210, 161); break;
+                                        case 'M':
+                                            pointPlot.Marker.Color = Color.FromArgb (255, 204, 111); break;
+                                        default:
+                                            pointPlot.Marker.Color = Color.FromArgb (255, 255, 255); break;
+                                        }
 
                                 plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
                                 }
@@ -711,7 +706,7 @@ namespace ExoplanetLibrary
             {
             string xAxisLabel = "Index";
             string xAxisFormat = "{0:0}";
-            string yAxisLabel = "";
+            string yAxisLabel = string.Empty;
             string yAxisFormat = "{0:0.00}";
 
             switch (plotType)
@@ -801,9 +796,9 @@ namespace ExoplanetLibrary
 
         static private void VisualizeLogXYAxis (NPlot.Windows.PlotSurface2D plotSurface, PlotTypes plotType, CheckState logX, double minimumX, double maximumX, CheckState logY, double minimumY, double maximumY)
             {
-            string xAxisLabel = "";
+            string xAxisLabel = string.Empty;
             string xAxisFormat = "{0:0.00}";
-            string yAxisLabel = "";
+            string yAxisLabel = string.Empty;
             string yAxisFormat = "{0:0.00}";
 
             switch (plotType)
@@ -1097,6 +1092,7 @@ namespace ExoplanetLibrary
 
         static private void VisualizeCubicSpline (NPlot.Windows.PlotSurface2D plotSurface, double [] xAxis, double [] yAxis)
             {
+#if IncludeCubicSpline
             if (Visualization.LogYAxis == CheckState.Unchecked)
                 {
                 CubicSpline.CubicSpline cubicSpline = new CubicSpline.CubicSpline ();
@@ -1112,6 +1108,7 @@ namespace ExoplanetLibrary
                 linePlot.Pen.Width = 1F;
                 plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, 4);
                 }
+#endif
             }
 
         static public void VisualizeBestFitLine (NPlot.Windows.PlotSurface2D plotSurface, double [] xAxis, double [] yAxis, BestFitType type)

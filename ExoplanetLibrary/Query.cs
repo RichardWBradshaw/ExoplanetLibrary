@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System.Collections;
 
 namespace ExoplanetLibrary
@@ -162,9 +158,9 @@ namespace ExoplanetLibrary
 
                 PlotTypes plotType = PlotTypes.Default;
                 double value = 0.0, value1 = 0.0, value2 = 0.0;
-                string name = "";
-                string detection = "";
-                string spectral = "";
+                string name = string.Empty;
+                string detection = string.Empty;
+                string spectral = string.Empty;
                 QueryTypes queryType = QueryTypes.StartsWith;
 
                 if (ParseName (strings, ref name, ref queryType) == true)
@@ -370,47 +366,25 @@ namespace ExoplanetLibrary
 
         private PlotTypes GetPlotType (string stringer)
             {
+            PlotTypes [] plotType = { PlotTypes.Mass,
+                                      PlotTypes.Radius,
+                                      PlotTypes.OrbitalPeriod,
+                                      PlotTypes.SemiMajorAxis,
+                                      PlotTypes.Eccentricity,
+                                      PlotTypes.AngularDistance,
+                                      PlotTypes.Inclination,
+                                      PlotTypes.TemperatureCalculated,
+                                      PlotTypes.Omega,
+                                      PlotTypes.VelocitySemiamplitude };
+
             stringer = stringer.ToLower ();
 
-            if (stringer.StartsWith ("mas") || stringer == "mass")
+            for (int index = 0; index < plotType.Length; ++index)
                 {
-                return PlotTypes.Mass;
-                }
-            else if (stringer.StartsWith ("rad") || stringer == "radius")
-                {
-                return PlotTypes.Radius;
-                }
-            else if (stringer.StartsWith ("orb") || stringer == "orbitalperiod")
-                {
-                return PlotTypes.OrbitalPeriod;
-                }
-            else if (stringer.StartsWith ("sem") || stringer == "semimajoraxis")
-                {
-                return PlotTypes.SemiMajorAxis;
-                }
-            else if (stringer.StartsWith ("ecc") || stringer == "eccentricity")
-                {
-                return PlotTypes.Eccentricity;
-                }
-            else if (stringer.StartsWith ("ang") || stringer == "angulardistance")
-                {
-                return PlotTypes.AngularDistance;
-                }
-            else if (stringer.StartsWith ("inc") || stringer == "inclination")
-                {
-                return PlotTypes.Inclination;
-                }
-            else if (stringer.StartsWith ("tem") || stringer == "temperaturecalculated")
-                {
-                return PlotTypes.TemperatureCalculated;
-                }
-            else if (stringer.StartsWith ("ome") || stringer == "omega")
-                {
-                return PlotTypes.Omega;
-                }
-            else if (stringer.StartsWith ("vel") || stringer == "velocitysemiamplitude")
-                {
-                return PlotTypes.VelocitySemiamplitude;
+                string keyword = plotType [index].ToString ().ToLower ();
+
+                if (stringer.StartsWith (keyword.Substring (0, 3)) || stringer == keyword)
+                    return plotType [index];
                 }
 
             return PlotTypes.Default;
@@ -654,7 +628,7 @@ namespace ExoplanetLibrary
 
         public static int WriteQueries ()
             {
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, string.Empty);
             RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary\\Queries") : null;
 
             if (subkey != null)
@@ -672,7 +646,7 @@ namespace ExoplanetLibrary
 
         public static int ReadQueries ()
             {
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, string.Empty);
             RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary\\Queries") : null;
 
             if (subkey != null)

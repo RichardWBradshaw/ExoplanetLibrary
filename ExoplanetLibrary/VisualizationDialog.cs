@@ -35,7 +35,6 @@ namespace ExoplanetLibrary
             SizeChanged += new EventHandler (VisualizationResize);
 
             errorBarsToolStripMenuItem.Checked = Visualization.IncludeErrorBars == CheckState.Checked ? true : false;
-            colorFromStarTypeToolStripMenuItem.Checked = Visualization.ColorFromStarType == CheckState.Checked ? true : false;
             logXAxisToolStripMenuItem.Checked = Visualization.LogXAxis == CheckState.Checked ? true : false;
             logYAxisToolStripMenuItem.Checked = Visualization.LogYAxis == CheckState.Checked ? true : false;
             includeDuplicatesToolStripMenuItem.Checked = Visualization.IncludeDuplicates == CheckState.Checked ? true : false;
@@ -450,13 +449,6 @@ namespace ExoplanetLibrary
                 if (PlotType != PlotTypes.Stars)
                     RefreshGraphics ();
                 }
-            else if (sender == colorFromStarTypeToolStripMenuItem)
-                {
-                Visualization.ColorFromStarType = colorFromStarTypeToolStripMenuItem.CheckState;
-
-                if (PlotType == PlotTypes.Stars)
-                    RefreshGraphics ();
-                }
             else if (sender == logXAxisToolStripMenuItem)
                 {
                 Visualization.LogXAxis = logXAxisToolStripMenuItem.CheckState;
@@ -521,10 +513,6 @@ namespace ExoplanetLibrary
             if (sender == errorBarsToolStripMenuItem)
                 {
                 errorBarsToolStripMenuItem.Checked = errorBarsToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
-                }
-            else if (sender == colorFromStarTypeToolStripMenuItem)
-                {
-                colorFromStarTypeToolStripMenuItem.Checked = colorFromStarTypeToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
             else if (sender == logXAxisToolStripMenuItem)
                 {

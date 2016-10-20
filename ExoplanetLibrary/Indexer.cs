@@ -301,7 +301,7 @@
             int numberOfStrings = strings.Length;
 
             if (strings [0].StartsWith ("# "))
-                strings [0] = strings [0].Replace ("# ", "");
+                strings [0] = strings [0].Replace ("# ", string.Empty);
 
             Initialize ();
 
@@ -409,7 +409,7 @@
 
                 case "radius_detection_type": RadiusDetectionType = index; break;
 
-                case "alternate_names":                         // .csv and .dat use the save name for plaent and stellar alternate names
+                case "alternate_names":                         // .csv and .dat use the save name for planet and stellar alternate names
                     if (AlternateNames == int.MinValue)         // planet alternate name
                         AlternateNames = index;
                     else

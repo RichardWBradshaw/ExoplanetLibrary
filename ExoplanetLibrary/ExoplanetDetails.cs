@@ -148,7 +148,7 @@ namespace ExoplanetLibrary
                 if (Helper.IsDefined (exoplanet.Eccentricity))
                     {
                     item = new ListViewItem ("Eccentricity", 0);
-                    item.SubItems.Add (Helper.Format (exoplanet.Eccentricity, exoplanet.EccentricityErrorMin, exoplanet.EccentricityErrorMax, ""));
+                    item.SubItems.Add (Helper.Format (exoplanet.Eccentricity, exoplanet.EccentricityErrorMin, exoplanet.EccentricityErrorMax, string.Empty));
                     DetailsListView.Items.Add (item);
                     }
 
@@ -225,14 +225,14 @@ namespace ExoplanetLibrary
                 if (Helper.IsDefined (exoplanet.ImpactParameter))
                     {
                     item = new ListViewItem ("Impact Parameter b(%)", 0);
-                    item.SubItems.Add (Helper.Format (exoplanet.ImpactParameter, exoplanet.ImpactParameterErrorMin, exoplanet.ImpactParameterErrorMax, ""));
+                    item.SubItems.Add (Helper.Format (exoplanet.ImpactParameter, exoplanet.ImpactParameterErrorMin, exoplanet.ImpactParameterErrorMax, string.Empty));
                     DetailsListView.Items.Add (item);
                     }
 
                 if (Helper.IsDefined (exoplanet.GeometricAlbedo))
                     {
                     item = new ListViewItem ("Geometric Albedo", 0);
-                    item.SubItems.Add (Helper.Format (exoplanet.GeometricAlbedo, exoplanet.GeometricAlbedoErrorMin, exoplanet.GeometricAlbedoErrorMax, ""));
+                    item.SubItems.Add (Helper.Format (exoplanet.GeometricAlbedo, exoplanet.GeometricAlbedoErrorMin, exoplanet.GeometricAlbedoErrorMax, string.Empty));
                     DetailsListView.Items.Add (item);
                     }
 
@@ -267,7 +267,7 @@ namespace ExoplanetLibrary
                 if (Helper.IsDefined (exoplanet.Molecules))
                     {
                     item = new ListViewItem ("Molecules", 0);
-                    item.SubItems.Add (Helper.Format (exoplanet.Molecules, ""));
+                    item.SubItems.Add (Helper.Format (exoplanet.Molecules, string.Empty));
                     DetailsListView.Items.Add (item);
                     }
 
@@ -372,7 +372,7 @@ namespace ExoplanetLibrary
                 if (Helper.IsDefined (exoplanet.Star.Property.Metallicity))
                     {
                     item = new ListViewItem ("Stellar Metallicity", 0);
-                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity, exoplanet.Star.Property.MetallicityErrorMin, exoplanet.Star.Property.MetallicityErrorMax, ""));
+                    item.SubItems.Add (Helper.Format (exoplanet.Star.Property.Metallicity, exoplanet.Star.Property.MetallicityErrorMin, exoplanet.Star.Property.MetallicityErrorMax, string.Empty));
                     DetailsListView.Items.Add (item);
                     }
 
@@ -464,7 +464,7 @@ namespace ExoplanetLibrary
                 //
 
                 if (item.Text == "Detection Type")
-                    item.ToolTipText = "" +
+                    item.ToolTipText = string.Empty +
                                        "\r\r(Ref. https://en.wikipedia.org/wiki/Methods_of_detecting_exoplanets)";
                 else if (item.Text == "Mass")
                     item.ToolTipText = "The planetary mass is a measure of the total amount of material in a body, defined either by the inertial properties of the body or by its gravitational influence on other bodies'" +
@@ -478,12 +478,12 @@ namespace ExoplanetLibrary
                     item.ToolTipText = "The orbital period is the time taken for a given object to make one complete orbit around another object'" +
                                        "\r\r(Ref. https://en.wikipedia.org/wiki/Orbital_period)";
                 else if (item.Text == "Semi-Major Axis")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Eccentricity")
                     item.ToolTipText = "The orbital eccentricity of an astronomical object is a parameter that determines the amount by which its orbit around another body deviates from a perfect circle. A value of 0 is a circular orbit, values between 0 and 1 form an elliptical orbit, 1 is a parabolic escape orbit, and greater than 1 is a hyperbola'" +
                                        "\r\r(Ref. https://en.wikipedia.org/wiki/Orbital_eccentricity)";
                 else if (item.Text == "Angular Distance")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Orbital Inclination")
                     item.ToolTipText = "Orbital inclination is the minimum angle between a reference plane and the orbital plane or axis of direction of an object in orbit around another object'" +
                                        "\r\r(Ref. https://en.wikipedia.org/wiki/Orbital_inclination)";
@@ -494,18 +494,18 @@ namespace ExoplanetLibrary
                     item.ToolTipText = "It is the most widely used measure of orbital wobble in astronomy and the measurement of small radial velocity semi-amplitudes of nearby stars is important in the search for exoplanets'" +
                                        "\r\r(Ref. https://en.wikipedia.org/wiki/Amplitude)";
                 else if (item.Text == "Calculated Temperature")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Measured Temperature")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Primary Transit")
                     item.ToolTipText = "A transit is the astronomical event that occurs when one celestial body appears to move across the face of another celestial body, hiding a small part of it, as seen by an observer at some particular vantage point'" +
                                        "\r\r(Ref. https://en.wikipedia.org/wiki/Transit_(astronomy))";
                 else if (item.Text == "Secondary Transit")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Lambda Angle")
                     item.ToolTipText = "Sky-projected angle between the planetary orbital spin and the stellar rotational spin";
                 else if (item.Text == "Zero Radial Speed Time")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Impact Parameter b(%)")
                     item.ToolTipText = "The impact parameter b is defined as the perpendicular distance between the path of a projectile and the center of a potential field U(r) created by an object that the projectile is approaching'" +
                                       "\r\r(Ref. https://en.wikipedia.org/wiki/Impact_parameter)";
@@ -513,27 +513,27 @@ namespace ExoplanetLibrary
                     item.ToolTipText = "Geometric albedo of a celestial body is the ratio of its actual brightness as seen from the light source (i.e at zero phase angle) to that of an idealized flat, fully reflecting, diffusively scattering (Lambertian) disk with the same cross-section'" +
                                        "\r\r(Ref. https://en.wikipedia.org/wiki/Geometric_albedo)";
                 else if (item.Text == "Surface Gravity log(g)")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Hottest Point Longitude")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Epoch of Periastron")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Conjonction Date")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Molecules")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Year of Discovery")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Last Update")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Publication Status")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "List of Detected Molecules")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Mass Measurement Method")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Radius Measurement Method")
-                    item.ToolTipText = "";
+                    item.ToolTipText = string.Empty;
                 else if (item.Text == "Alternate Names")
                     item.ToolTipText = "List of planet alternative names";
                 else

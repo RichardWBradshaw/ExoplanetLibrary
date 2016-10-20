@@ -53,10 +53,6 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CubicSpline, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\CubicSpline\CubicSpline\CubicSpline\bin\Debug\CubicSpline.dll</HintPath>
-    </Reference>
     <Reference Include="NPlot, Version=0.9.10.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\nplot-0.9.10.0\bin\net\2.0\debug\NPlot.dll</HintPath>
@@ -87,6 +83,11 @@
     <Compile Include="ExoplanetSorter.cs" />
     <Compile Include="Indexer.cs" />
     <Compile Include="Plotting.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Query.cs" />
     <Compile Include="QueryDialog.cs">
       <SubType>Form</SubType>
@@ -125,28 +126,28 @@
     <Compile Include="ReadXML.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ExoplanetDetails.resx">
       <DependentUpon>ExoplanetDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="QueryDialog.resx">
       <DependentUpon>QueryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="VisualizationDialog.resx">
       <DependentUpon>VisualizationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LibraryDialog.resx">
       <DependentUpon>LibraryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -5,7 +5,7 @@ namespace ExoplanetLibrary
     {
     public class StarTypes
         {
-        private string Name_ = "";
+        private string Name_ = string.Empty;
         public string Name
             {
             get { return Name_; }
@@ -92,11 +92,11 @@ namespace ExoplanetLibrary
         static public string ReplaceNonNumerics (string originalString)
             {
             if (originalString == "inf")
-                return "";
+                return string.Empty;
             else if (originalString == "nan")
-                return "";
+                return string.Empty;
             else if (originalString == "null")
-                return "";
+                return string.Empty;
             else
                 return originalString;
             }
@@ -180,7 +180,7 @@ namespace ExoplanetLibrary
         public static string ReplaceInQuotedDelimitor (string text)
             {
             bool withinQuotes = false;
-            string replacement = "";
+            string replacement = string.Empty;
 
             for (int index = 0; index < text.Length; ++index)
                 {
@@ -355,7 +355,7 @@ namespace ExoplanetLibrary
 
         static private string FindNumericRange (string stringer, out int firstNumeric, out int lastNumeric)
             {
-            string name = "";
+            string name = string.Empty;
 
             firstNumeric = lastNumeric = -1;
 

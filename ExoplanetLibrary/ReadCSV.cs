@@ -31,7 +31,7 @@ namespace ExoplanetLibrary
             set { NumberOfStrings_ = value; }
             }
 
-        static private string ValidationErrors_ = "";
+        static private string ValidationErrors_ = string.Empty;
         static private string ReadErrors
             {
             get { return ValidationErrors_; }
@@ -76,7 +76,7 @@ namespace ExoplanetLibrary
                 settings.Indent = true;
                 settings.NewLineChars = "\n";
 
-                string xmlFileName = "";
+                string xmlFileName = string.Empty;
 
                 if (csvFileName.EndsWith (".txt"))      // needs_work write a helper function
                     xmlFileName = csvFileName.Replace (".txt", ".xml");
@@ -87,7 +87,7 @@ namespace ExoplanetLibrary
                 else
                     xmlFileName = csvFileName.Replace (".csv", ".xml");
 
-                ReadErrors = "";
+                ReadErrors = string.Empty;
 
                 writer = XmlWriter.Create (xmlFileName, settings);
 
@@ -139,7 +139,7 @@ namespace ExoplanetLibrary
 
             if (line.StartsWith ("# name"))         // Exoplanet.eu
                 {
-                line = line.Replace ("# ", "");
+                line = line.Replace ("# ", string.Empty);
                 isDefinition = true;
                 }
             else if (line.StartsWith ("A,AUPPER"))  // Exoplanets.org

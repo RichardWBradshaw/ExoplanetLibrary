@@ -89,7 +89,7 @@ namespace ExoplanetLibrary
                             }
                         else if (line.StartsWith ("<TR>"))          // NASA VOT
                             {
-                            line = line.Replace ("<TR>", "");
+                            line = line.Replace ("<TR>", string.Empty);
                             WriteExoplanet (writer, line);
                             }
                         else if (line.StartsWith ("<TD>"))          // EU VOT
@@ -108,12 +108,12 @@ namespace ExoplanetLibrary
                                     string temporary, name;
                                     int column = 0;
 
-                                    temporary = substrings [1].Replace ("ID=\"col", "");
-                                    temporary = temporary.Replace ("\"", "");
+                                    temporary = substrings [1].Replace ("ID=\"col", string.Empty);
+                                    temporary = temporary.Replace ("\"", string.Empty);
                                     column = int.Parse (temporary);
 
-                                    name = substrings [2].Replace ("name=\"", "");
-                                    name = name.Replace ("\"", "");
+                                    name = substrings [2].Replace ("name=\"", string.Empty);
+                                    name = name.Replace ("\"", string.Empty);
 
                                     Indexer.SetIndex (name, column - 1);
                                     }
@@ -124,8 +124,8 @@ namespace ExoplanetLibrary
                                     {                               // NASA VOT
                                     string name;
 
-                                    name = substrings [1].Replace ("name=\"", "");
-                                    name = name.Replace ("\"", "");
+                                    name = substrings [1].Replace ("name=\"", string.Empty);
+                                    name = name.Replace ("\"", string.Empty);
 
                                     Indexer.SetIndex (name, index);
                                     ++index;
@@ -152,8 +152,8 @@ namespace ExoplanetLibrary
 
             for (int index = 0; index < substrings.Length; ++index)
                 {
-                substrings [index] = substrings [index].Replace ("<TD>", "");
-                substrings [index] = substrings [index].Replace ("</TD>", "");
+                substrings [index] = substrings [index].Replace ("<TD>", string.Empty);
+                substrings [index] = substrings [index].Replace ("</TD>", string.Empty);
                 }
 
             exoplanet.AssignFromSubstrings (substrings);

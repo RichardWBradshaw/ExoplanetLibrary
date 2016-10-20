@@ -28,7 +28,7 @@ namespace ExoplanetLibrary
             SizeChanged += new EventHandler (LibraryResize);
             }
 
-        private string XmlFileName_ = "";
+        private string XmlFileName_ = string.Empty;
         public string XmlFileName
             {
             get { return XmlFileName_; }
@@ -263,7 +263,7 @@ namespace ExoplanetLibrary
                     items.Add (item);
                     }
 
-            Text = "Exoplanet Library" + ( XmlFileName.Length > 0 ? " - " + XmlFileName : "" );
+            Text = "Exoplanet Library" + ( XmlFileName.Length > 0 ? " - " + XmlFileName : string.Empty );
 
             if (listView != null)
                 {
@@ -274,19 +274,20 @@ namespace ExoplanetLibrary
 
         private void ExoplanetListView_ColumnClick (object sender, ColumnClickEventArgs e)
             {
-            if (e.Column == LvwColumnSorter.SortColumn)
+            if (e.Column == LvwColumnSorter.ColumnToSort)
                 {
-                if (LvwColumnSorter.Order == SortOrder.Ascending)
-                    LvwColumnSorter.Order = SortOrder.Descending;
+                if (LvwColumnSorter.OrderOfSort == SortOrder.Ascending)
+                    LvwColumnSorter.OrderOfSort = SortOrder.Descending;
                 else
-                    LvwColumnSorter.Order = SortOrder.Ascending;
+                    LvwColumnSorter.OrderOfSort = SortOrder.Ascending;
                 }
             else
                 {
-                LvwColumnSorter.SortColumn = e.Column;
-                LvwColumnSorter.Order = SortOrder.Ascending;
+                LvwColumnSorter.ColumnToSort = e.Column;
+                LvwColumnSorter.OrderOfSort = SortOrder.Ascending;
                 }
 
+            LvwColumnSorter.IsAlphaNumeric = ( LvwColumnSorter.ColumnToSort == 0 || LvwColumnSorter.ColumnToSort == 13 ) ? true : false;
             ExoplanetListView.Sort ();
             }
 
@@ -443,7 +444,7 @@ namespace ExoplanetLibrary
 
         private void compare_Click (object sender, System.EventArgs e)
             {
-            string xmlFileName = "";
+            string xmlFileName = string.Empty;
 
             if (open (out xmlFileName) == 0)
                 {
@@ -455,7 +456,7 @@ namespace ExoplanetLibrary
 
         private void merge_Click (object sender, EventArgs e)
             {
-            string xmlFileName = "";
+            string xmlFileName = string.Empty;
 
             if (open (out xmlFileName) == 0)
                 {
@@ -481,7 +482,7 @@ namespace ExoplanetLibrary
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
 
-            fileName = "";
+            fileName = string.Empty;
 
             if (openFileDialog.ShowDialog () == DialogResult.OK)
                 {

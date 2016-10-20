@@ -719,7 +719,7 @@
                 else
                     return substrings [index].ToString ();
 
-            return "";
+            return string.Empty;
             }
 
         public void CorrectErrors ()
@@ -746,7 +746,7 @@
                     }
                 else
                     {
-                    Star.Property.SPType = Star.Property.SPType.Replace (" ", "");
+                    Star.Property.SPType = Star.Property.SPType.Replace (" ", string.Empty);
                     }
 
             if (Helper.IsDefined (Eccentricity))
@@ -756,9 +756,9 @@
                 if (double.TryParse (Eccentricity, out value) == true)
                     if (value == 0.0)
                         {
-                        Eccentricity = "";
-                        EccentricityErrorMax = "";
-                        EccentricityErrorMin = "";
+                        Eccentricity = string.Empty;
+                        EccentricityErrorMax = string.Empty;
+                        EccentricityErrorMin = string.Empty;
                         }
                     else
                         {
@@ -766,8 +766,8 @@
                             if (double.TryParse (EccentricityErrorMin, out minimumError) == true)
                                 if (maximumError > 10.0 * value)
                                     {
-                                    EccentricityErrorMax = "";
-                                    EccentricityErrorMin = "";
+                                    EccentricityErrorMax = string.Empty;
+                                    EccentricityErrorMin = string.Empty;
                                     }
                         }
                 }
@@ -928,7 +928,7 @@
                     return stringer;
                     }
             else
-                return "";
+                return string.Empty;
             }
         }
 

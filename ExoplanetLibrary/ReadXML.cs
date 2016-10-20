@@ -47,7 +47,7 @@ namespace ExoplanetLibrary
             set { XsdVersion3FileName_ = value; }
             }
 
-        static private string ValidationErrors_ = "";
+        static private string ValidationErrors_ = string.Empty;
         static private string ValidationErrors
             {
             get { return ValidationErrors_; }
@@ -112,7 +112,7 @@ namespace ExoplanetLibrary
             {
             ArrayList exoplanets = new ArrayList ();
 
-            ValidationErrors = "";
+            ValidationErrors = string.Empty;
 
             if (File.Exists (xmlFileName))
                 {
@@ -213,9 +213,9 @@ namespace ExoplanetLibrary
             {
             if (string.Equals (Version, Constant.Version1) || string.Equals (Version, Constant.Version2))
                 {
-                exoplanet.MassSini = "";
-                exoplanet.MassSiniErrorMin = "";
-                exoplanet.MassSiniErrorMax = "";
+                exoplanet.MassSini = string.Empty;
+                exoplanet.MassSiniErrorMin = string.Empty;
+                exoplanet.MassSiniErrorMax = string.Empty;
                 }
             else
                 {
@@ -544,9 +544,9 @@ namespace ExoplanetLibrary
             {
             if (string.Equals (Version, Constant.Version1))
                 {
-                exoplanet.ImpactParameter = "";
-                exoplanet.ImpactParameterErrorMin = "";
-                exoplanet.ImpactParameterErrorMax = "";
+                exoplanet.ImpactParameter = string.Empty;
+                exoplanet.ImpactParameterErrorMin = string.Empty;
+                exoplanet.ImpactParameterErrorMax = string.Empty;
                 }
             else
                 {
@@ -574,8 +574,8 @@ namespace ExoplanetLibrary
             {
             if (string.Equals (Version, Constant.Version1))
                 {
-                exoplanet.VelocitySemiamplitudeErrorMin = "";
-                exoplanet.VelocitySemiamplitudeErrorMax = "";
+                exoplanet.VelocitySemiamplitudeErrorMin = string.Empty;
+                exoplanet.VelocitySemiamplitudeErrorMax = string.Empty;
                 }
             else
                 {
@@ -603,9 +603,9 @@ namespace ExoplanetLibrary
             {
             if (string.Equals (Version, Constant.Version1))
                 {
-                exoplanet.GeometricAlbedo = "";
-                exoplanet.GeometricAlbedoErrorMin = "";
-                exoplanet.GeometricAlbedoErrorMax = "";
+                exoplanet.GeometricAlbedo = string.Empty;
+                exoplanet.GeometricAlbedoErrorMin = string.Empty;
+                exoplanet.GeometricAlbedoErrorMax = string.Empty;
                 }
             else
                 {
@@ -633,9 +633,9 @@ namespace ExoplanetLibrary
             {
             if (string.Equals (Version, Constant.Version1))
                 {
-                exoplanet.Tconj = "";
-                exoplanet.TconjErrorMin = "";
-                exoplanet.TconjErrorMax = "";
+                exoplanet.Tconj = string.Empty;
+                exoplanet.TconjErrorMin = string.Empty;
+                exoplanet.TconjErrorMax = string.Empty;
                 }
             else
                 {
@@ -663,7 +663,7 @@ namespace ExoplanetLibrary
             {
             if (string.Equals (Version, Constant.Version1))
                 {
-                exoplanet.MassDetectionType = "";
+                exoplanet.MassDetectionType = string.Empty;
                 }
             else
                 {
@@ -677,7 +677,7 @@ namespace ExoplanetLibrary
             {
             if (string.Equals (Version, Constant.Version1))
                 {
-                exoplanet.RadiusDetectionType = "";
+                exoplanet.RadiusDetectionType = string.Empty;
                 }
             else
                 {

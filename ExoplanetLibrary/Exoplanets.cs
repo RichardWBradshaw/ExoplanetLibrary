@@ -672,7 +672,7 @@ namespace ExoplanetLibrary
 
         static public string Compare (ArrayList array1, ArrayList array2)
             {
-            string added = "", updated = "", missing = "";
+            string added = string.Empty, updated = string.Empty, missing = string.Empty;
             int numberOfLines = 0;
             bool initial;
 
@@ -826,7 +826,7 @@ namespace ExoplanetLibrary
 
         static public string VerifyNames (ArrayList array)
             {
-            string misnamed = "";
+            string misnamed = string.Empty;
 
             array.Sort (new SortByExoplanetName ());
 

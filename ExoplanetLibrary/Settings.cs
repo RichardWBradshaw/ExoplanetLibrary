@@ -12,13 +12,6 @@ namespace ExoplanetLibrary
             set { IncludeErrorBars_ = value; }
             }
 
-        static private CheckState ColorFromStarType_ = CheckState.Checked;
-        static public CheckState ColorFromStarType
-            {
-            get { return ColorFromStarType_; }
-            set { ColorFromStarType_ = value; }
-            }
-
         static private CheckState LogXAxis_ = CheckState.Checked;
         static public CheckState LogXAxis
             {
@@ -57,7 +50,6 @@ namespace ExoplanetLibrary
         Visualization ()
             {
             IncludeErrorBars = CheckState.Unchecked;
-            ColorFromStarType = CheckState.Unchecked;
             LogXAxis = CheckState.Unchecked;
             LogYAxis = CheckState.Unchecked;
 
@@ -83,13 +75,12 @@ namespace ExoplanetLibrary
 
         static public int Write ()
             {
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, string.Empty);
             RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)
                 {
                 subkey.SetValue ("IncudeErrorBars", Visualization.IncludeErrorBars == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-                subkey.SetValue ("ColorFromStarType", Visualization.ColorFromStarType == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("LogXAxis", Visualization.LogXAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("LogYAxis", Visualization.LogYAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("IncludeDuplicates", Visualization.IncludeDuplicates == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
@@ -109,13 +100,12 @@ namespace ExoplanetLibrary
 
         static public void Read ()
             {
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, string.Empty);
             RegistryKey subkey = key != null ? key.OpenSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)
                 {
                 Visualization.IncludeErrorBars = ReadValue (subkey, "IncudeErrorBars");
-                Visualization.ColorFromStarType = ReadValue (subkey, "ColorFromStarType");
                 Visualization.LogXAxis = ReadValue (subkey, "LogXAxis");
                 Visualization.LogYAxis = ReadValue (subkey, "LogYAxis");
                 Visualization.IncludeDuplicates = ReadValue (subkey, "IncludeDuplicates");
@@ -133,7 +123,7 @@ namespace ExoplanetLibrary
 
         static public int WriteFileName (string xmlFileName)
             {
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, string.Empty);
             RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)
@@ -147,8 +137,8 @@ namespace ExoplanetLibrary
 
         static public string ReadFileName ()
             {
-            string xmlFileName = "";
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            string xmlFileName = string.Empty;
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, string.Empty);
             RegistryKey subkey = key != null ? key.OpenSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)
@@ -182,7 +172,7 @@ namespace ExoplanetLibrary
 
         static private int WriteLastVisit (string keyValue, System.DateTime dateTime)
             {
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, string.Empty);
             RegistryKey subkey = ( key != null ) ? key.CreateSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)
@@ -211,8 +201,8 @@ namespace ExoplanetLibrary
 
         static private string ReadLastVisit (string keyValue)
             {
-            string dateTime = "";
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, "");
+            string dateTime = string.Empty;
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey (RegistryHive.CurrentUser, string.Empty);
             RegistryKey subkey = key != null ? key.OpenSubKey ("Software\\ExoplanetLibrary") : null;
 
             if (subkey != null)

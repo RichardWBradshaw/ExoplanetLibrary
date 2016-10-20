@@ -50,7 +50,6 @@
             this.radiusVsKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorBarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorFromStarTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logXAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logYAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.includeDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -341,7 +340,6 @@
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.errorBarsToolStripMenuItem,
-            this.colorFromStarTypeToolStripMenuItem,
             this.logXAxisToolStripMenuItem,
             this.logYAxisToolStripMenuItem,
             this.includeDuplicatesToolStripMenuItem,
@@ -358,14 +356,6 @@
             this.errorBarsToolStripMenuItem.Text = "Include Error Bars";
             this.errorBarsToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.errorBarsToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
-            // 
-            // colorFromStarTypeToolStripMenuItem
-            // 
-            this.colorFromStarTypeToolStripMenuItem.Name = "colorFromStarTypeToolStripMenuItem";
-            this.colorFromStarTypeToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.colorFromStarTypeToolStripMenuItem.Text = "Color by Star Type";
-            this.colorFromStarTypeToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
-            this.colorFromStarTypeToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
             // logXAxisToolStripMenuItem
             // 
@@ -448,7 +438,6 @@
         private System.Windows.Forms.ToolStripMenuItem rightAccessionVsDeclinationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem errorBarsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem colorFromStarTypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logXAxisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logYAxisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem massVsOrbitalPeriodToolStripMenuItem;

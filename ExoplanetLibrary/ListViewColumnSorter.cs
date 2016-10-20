@@ -9,15 +9,35 @@ namespace ExoplanetLibrary
     {
     public class ListViewColumnSorter : IComparer
         {
-        private int ColumnToSort;
-        private SortOrder OrderOfSort;
         private CaseInsensitiveComparer ObjectCompare;
+
+        private int ColumnToSort_ = 0;
+        public int ColumnToSort
+            {
+            set { ColumnToSort_ = value; }
+            get { return ColumnToSort_; }
+            }
+
+        private SortOrder OrderOfSort_ = SortOrder.Ascending;
+        public SortOrder OrderOfSort
+            {
+            set { OrderOfSort_ = value; }
+            get { return OrderOfSort_; }
+            }
+
+        private bool IsAlphaNumeric_ = false;
+        public bool IsAlphaNumeric
+            {
+            set { IsAlphaNumeric_ = value; }
+            get { return IsAlphaNumeric_; }
+            }
 
         public ListViewColumnSorter ()
             {
             ColumnToSort = 0;
             OrderOfSort = SortOrder.Ascending;
             ObjectCompare = new CaseInsensitiveComparer ();
+            IsAlphaNumeric = false;
             }
 
         public int Compare (object x, object y)
@@ -29,11 +49,7 @@ namespace ExoplanetLibrary
             listviewX = ( ListViewItem )x;
             listviewY = ( ListViewItem )y;
 
-            //
-            // 1st condition is exoplanet name and star name
-            //
-
-            if (( ColumnToSort == 0 || ColumnToSort == 13 ) && ( compareResults = Helper.AlphaNumericSort (listviewX.SubItems [ColumnToSort].Text, listviewY.SubItems [ColumnToSort].Text) ) != 0)
+            if (IsAlphaNumeric && ( compareResults = Helper.AlphaNumericSort (listviewX.SubItems [ColumnToSort].Text, listviewY.SubItems [ColumnToSort].Text) ) != 0)
                 {
                 ;
                 }
@@ -50,30 +66,6 @@ namespace ExoplanetLibrary
                 return ( -compareResults );
             else
                 return 0;
-            }
-
-        public int SortColumn
-            {
-            set
-                {
-                ColumnToSort = value;
-                }
-            get
-                {
-                return ColumnToSort;
-                }
-            }
-
-        public SortOrder Order
-            {
-            set
-                {
-                OrderOfSort = value;
-                }
-            get
-                {
-                return OrderOfSort;
-                }
             }
 
         }

@@ -24,9 +24,14 @@ namespace ExoplanetLibrary
             set { NumberOfStrings_ = value; }
             }
 
-        static private int [] Pipes = null;
+        static private int [] Pipes_ = null;
+        static private int [] Pipes
+            {
+            get { return Pipes_; }
+            set { Pipes_ = value; }
+            }
 
-        static private string ValidationErrors_ = "";
+        static private string ValidationErrors_ = string.Empty;
         static private string ReadErrors
             {
             get { return ValidationErrors_; }
@@ -73,7 +78,7 @@ namespace ExoplanetLibrary
 
                 string xmlFileName = csvFileName.Replace (".tbl", ".xml");
 
-                ReadErrors = "";
+                ReadErrors = string.Empty;
 
                 writer = XmlWriter.Create (xmlFileName, settings);
 
@@ -170,7 +175,7 @@ namespace ExoplanetLibrary
             for (int index = 0; index < Pipes.Length - 1; ++index)
                 {
                 string stringer = line.Substring (Pipes [index] + 1, Pipes [index + 1] - Pipes [index]);
-                stringer = stringer.Replace ("null", "");
+                stringer = stringer.Replace ("null", string.Empty);
                 strings [index] = stringer.Trim ();
                 }
 
