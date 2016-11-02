@@ -112,12 +112,17 @@ namespace ExoplanetLibrary
             if (exoplanets.Count == 0)
                 return;
 
-            double [] XAxis = new double [exoplanets.Count];
-            double [] YAxis = new double [exoplanets.Count];
+            double [] xAxis = new double [exoplanets.Count];
+            double [] yAxis = new double [exoplanets.Count];
             int counter = 0;
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
+                if (Visualization.UtilizeQuery == CheckState.Checked)
+                    if (Queries.CurrentQueries != null)
+                        if (!Queries.CurrentQueries.MatchesQuery (exoplanet))
+                            continue;
+
                 double value = 0.0;
                 bool isValid = false;
 
@@ -166,39 +171,39 @@ namespace ExoplanetLibrary
 
                 if (isValid)
                     {
-                    YAxis [counter] = value;
-                    XAxis [counter] = counter + 1;
+                    yAxis [counter] = value;
+                    xAxis [counter] = counter + 1;
                     counter++;
                     }
                 }
 
             if (Visualization.LogYAxis == CheckState.Checked)
                 {
-                int nonZeros = CountPositives (YAxis);
+                int nonZeros = CountPositives (yAxis);
                 double [] xAxisCopy = new double [nonZeros];
                 double [] yAxisCopy = new double [nonZeros];
 
-                CopyPositives (XAxis, YAxis, ref xAxisCopy, ref yAxisCopy);
+                CopyPositives (xAxis, yAxis, ref xAxisCopy, ref yAxisCopy);
 
-                XAxis = xAxisCopy;
-                YAxis = yAxisCopy;
+                xAxis = xAxisCopy;
+                yAxis = yAxisCopy;
                 }
 
             plotSurface.Clear ();
             plotSurface.BackColor = BackgroundColor;
 
             LinePlot linePlot = new LinePlot ();
-            linePlot.AbscissaData = XAxis;
-            linePlot.OrdinateData = YAxis;
+            linePlot.AbscissaData = xAxis;
+            linePlot.OrdinateData = yAxis;
             linePlot.Color = LineColor;
             linePlot.Pen.Width = LinePenWidth;
             plotSurface.Add (linePlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left, OnTopZOrder);
 
-            double minimumY = Helper.GetMinimum (YAxis);
-            double maximumY = Helper.GetMaximum (YAxis);
+            double minimumY = Helper.GetMinimum (yAxis);
+            double maximumY = Helper.GetMaximum (yAxis);
 
             VisualizeErrorBars (plotSurface, exoplanets, plotType, ref minimumY, ref maximumY);
-            VisualizeEmbellishments (plotSurface, plotType, XAxis, YAxis);
+            VisualizeEmbellishments (plotSurface, plotType, xAxis, yAxis);
             VisualizeLogYAxis (plotSurface, plotType, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
@@ -213,6 +218,11 @@ namespace ExoplanetLibrary
 
                 foreach (Exoplanet exoplanet in array)
                     {
+                    if (Visualization.UtilizeQuery == CheckState.Checked)
+                        if (Queries.CurrentQueries != null)
+                            if (!Queries.CurrentQueries.MatchesQuery (exoplanet))
+                                continue;
+
                     double value = 0.0, maximumError = 0.0, minimumError = 0.0;
                     bool isValid = false;
 
@@ -307,12 +317,18 @@ namespace ExoplanetLibrary
             if (exoplanets.Count == 0)
                 return;
 
-            double [] XAxis = new double [exoplanets.Count];
-            double [] YAxis = new double [exoplanets.Count];
+            double [] xAxis = new double [exoplanets.Count];
+            double [] yAxis = new double [exoplanets.Count];
+            string [] names = new string [exoplanets.Count];
             int counter = 0;
 
             foreach (Exoplanet exoplanet in exoplanets)
                 {
+                if (Visualization.UtilizeQuery == CheckState.Checked)
+                    if (Queries.CurrentQueries != null)
+                        if (!Queries.CurrentQueries.MatchesQuery (exoplanet))
+                            continue;
+
                 double xvalue = 0.0, yvalue = 0.0;
                 bool isValid = false;
 
@@ -419,44 +435,63 @@ namespace ExoplanetLibrary
 
                 if (isValid)
                     {
-                    YAxis [counter] = yvalue;
-                    XAxis [counter] = xvalue;
+                    yAxis [counter] = yvalue;
+                    xAxis [counter] = xvalue;
+                    names [counter] = exoplanet.Name;
                     counter++;
                     }
                 }
 
             if (Visualization.LogXAxis == CheckState.Checked || Visualization.LogYAxis == CheckState.Checked)
                 {
-                int nonZeroXs = CountPositives (XAxis);
-                int nonZeroYs = CountPositives (YAxis);
+                int nonZeroXs = CountPositives (xAxis);
+                int nonZeroYs = CountPositives (yAxis);
                 int nonZeros = ( nonZeroYs <= nonZeroXs ) ? nonZeroYs : nonZeroXs;
                 double [] xAxisCopy = new double [nonZeros];
                 double [] yAxisCopy = new double [nonZeros];
+                string [] namesCopy = new string [nonZeros];
 
-                CopyPositives (XAxis, YAxis, ref xAxisCopy, ref yAxisCopy);
+                CopyPositives (xAxis, yAxis, names, ref xAxisCopy, ref yAxisCopy, ref namesCopy);
 
-                XAxis = xAxisCopy;
-                YAxis = yAxisCopy;
+                xAxis = xAxisCopy;
+                yAxis = yAxisCopy;
+                names = namesCopy;
                 }
 
             plotSurface.Clear ();
             plotSurface.BackColor = BackgroundColor;
 
-            PointPlot pointPlot = new PointPlot ();
-            pointPlot.AbscissaData = XAxis;
-            pointPlot.DataSource = YAxis;
-            pointPlot.Marker.Color = PointColor;
-            pointPlot.Marker.Type = NPlot.Marker.MarkerType.FilledCircle;
+            if (Visualization.IncludeNames == CheckState.Checked)
+                {
+                LabelPointPlot labelPointPlot = new LabelPointPlot ();
 
-            plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+                labelPointPlot.AbscissaData = xAxis;
+                labelPointPlot.DataSource = yAxis;
+                labelPointPlot.TextData = names;
+                labelPointPlot.Marker.Color = PointColor;
+                labelPointPlot.Marker.Type = Marker.MarkerType.FilledCircle;
+                labelPointPlot.Font = new Font ("Arial", 6);
+                labelPointPlot.LabelTextPosition = LabelPointPlot.LabelPositions.Above;
+                plotSurface.Add (labelPointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+                }
+            else
+                {
+                PointPlot pointPlot = new PointPlot ();
+                pointPlot.AbscissaData = xAxis;
+                pointPlot.DataSource = yAxis;
+                pointPlot.Marker.Color = PointColor;
+                pointPlot.Marker.Type = Marker.MarkerType.FilledCircle;
 
-            double minimumX = Helper.GetMinimum (XAxis);
-            double maximumX = Helper.GetMaximum (XAxis);
-            double minimumY = Helper.GetMinimum (YAxis);
-            double maximumY = Helper.GetMaximum (YAxis);
+                plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+                }
+
+            double minimumX = Helper.GetMinimum (xAxis);
+            double maximumX = Helper.GetMaximum (xAxis);
+            double minimumY = Helper.GetMinimum (yAxis);
+            double maximumY = Helper.GetMaximum (yAxis);
 
             VisualizeErrorBars (plotSurface, exoplanets, plotType, ref minimumX, ref maximumX, ref minimumY, ref maximumY);
-            VisualizeEmbellishments (plotSurface, plotType, XAxis, YAxis);
+            VisualizeEmbellishments (plotSurface, plotType, xAxis, yAxis);
             VisualizeLogXYAxis (plotSurface, plotType, Visualization.LogXAxis, minimumX, maximumX, Visualization.LogYAxis, minimumY, maximumY);
             VisualizeLegend (plotSurface);
 
@@ -666,7 +701,25 @@ namespace ExoplanetLibrary
                                             pointPlot.Marker.Color = Color.FromArgb (255, 255, 255); break;
                                         }
 
-                                plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+                                if (Visualization.IncludeNames == CheckState.Checked)
+                                    {
+                                    LabelPointPlot labelPointPlot = new LabelPointPlot ();
+                                    string [] names = new string [1];
+
+                                    names [0] = star.Name;
+                                    labelPointPlot.AbscissaData = accession;
+                                    labelPointPlot.DataSource = declination;
+                                    labelPointPlot.TextData = names;
+                                    labelPointPlot.Marker.Color = pointPlot.Marker.Color;
+                                    labelPointPlot.Marker.Type = pointPlot.Marker.Type;
+                                    labelPointPlot.Font = new Font ("Arial", 6);
+                                    labelPointPlot.LabelTextPosition = LabelPointPlot.LabelPositions.Above;
+                                    plotSurface.Add (labelPointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+                                    }
+                                else
+                                    {
+                                    plotSurface.Add (pointPlot, PlotSurface2D.XAxisPosition.Bottom, PlotSurface2D.YAxisPosition.Left);
+                                    }
                                 }
                         }
                 }
@@ -676,10 +729,6 @@ namespace ExoplanetLibrary
 
             plotSurface.Refresh ();
             }
-
-        //
-        // Visualization utilities
-        //
 
         static private void VisualizeAxis (NPlot.Windows.PlotSurface2D plotSurface, string xAxisLabel, string xAxisFormat, string yAxisLabel, string yAxisFormat, bool reversed)
             {
@@ -1111,7 +1160,7 @@ namespace ExoplanetLibrary
 #endif
             }
 
-        static public void VisualizeBestFitLine (NPlot.Windows.PlotSurface2D plotSurface, double [] xAxis, double [] yAxis, BestFitType type)
+        static private void VisualizeBestFitLine (NPlot.Windows.PlotSurface2D plotSurface, double [] xAxis, double [] yAxis, BestFitType type)
             {
             double [] x = new double [250];
             double [] y = new double [250];
@@ -1184,7 +1233,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        static public void VisualizeLegend (NPlot.Windows.PlotSurface2D plotSurface)
+        static private void VisualizeLegend (NPlot.Windows.PlotSurface2D plotSurface)
             {
 #if Include_Legend
             if (Visualization.IncludeLegend == CheckState.Checked)
@@ -1213,17 +1262,35 @@ namespace ExoplanetLibrary
             return count;
             }
 
-        static private void CopyPositives (double [] originalX, double [] originalY, ref double [] copyX, ref double [] copyY)
+        static private int CopyPositives (double [] originalX, double [] originalY, ref double [] copyX, ref double [] copyY)
             {
             int count = 0;
 
             for (int index = 0; index < originalY.Length; ++index)
-                if (( double )originalX [index] > 0.0 && ( double )originalY [index] > 0.0)
+                if (originalX [index] > 0.0 && originalY [index] > 0.0)
                     {
                     copyX [count] = originalX [index];
                     copyY [count] = originalY [index];
                     ++count;
                     }
+
+            return count;
+            }
+
+        static private int CopyPositives (double [] originalX, double [] originalY, string [] originalName, ref double [] copyX, ref double [] copyY, ref string [] copyName)
+            {
+            int count = 0;
+
+            for (int index = 0; index < originalY.Length; ++index)
+                if (originalX [index] > 0.0 && originalY [index] > 0.0)
+                    {
+                    copyX [count] = originalX [index];
+                    copyY [count] = originalY [index];
+                    copyName [count] = originalName [index];
+                    ++count;
+                    }
+
+            return count;
             }
         }
     }

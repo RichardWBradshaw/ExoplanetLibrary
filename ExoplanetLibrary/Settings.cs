@@ -5,13 +5,6 @@ namespace ExoplanetLibrary
     {
     public class Visualization
         {
-        static private CheckState IncludeErrorBars_ = CheckState.Checked;
-        static public CheckState IncludeErrorBars
-            {
-            get { return IncludeErrorBars_; }
-            set { IncludeErrorBars_ = value; }
-            }
-
         static private CheckState LogXAxis_ = CheckState.Checked;
         static public CheckState LogXAxis
             {
@@ -26,11 +19,32 @@ namespace ExoplanetLibrary
             set { LogYAxis_ = value; }
             }
 
+        static private CheckState IncludeNames_ = CheckState.Unchecked;
+        static public CheckState IncludeNames
+            {
+            get { return IncludeNames_; }
+            set { IncludeNames_ = value; }
+            }
+
+        static private CheckState IncludeErrorBars_ = CheckState.Checked;
+        static public CheckState IncludeErrorBars
+            {
+            get { return IncludeErrorBars_; }
+            set { IncludeErrorBars_ = value; }
+            }
+
         static private CheckState IncludeDuplicates_ = CheckState.Unchecked;
         static public CheckState IncludeDuplicates
             {
             get { return IncludeDuplicates_; }
             set { IncludeDuplicates_ = value; }
+            }
+
+        static private CheckState UtilizeQuery_ = CheckState.Unchecked;
+        static public CheckState UtilizeQuery
+            {
+            get { return UtilizeQuery_; }
+            set { UtilizeQuery_ = value; }
             }
 
         static private CheckState IncludeBestFitLine_ = CheckState.Unchecked;
@@ -49,11 +63,14 @@ namespace ExoplanetLibrary
 
         Visualization ()
             {
-            IncludeErrorBars = CheckState.Unchecked;
             LogXAxis = CheckState.Unchecked;
             LogYAxis = CheckState.Unchecked;
 
+            IncludeNames = CheckState.Unchecked;
+            IncludeErrorBars = CheckState.Unchecked;
             IncludeDuplicates = CheckState.Checked;
+
+            UtilizeQuery = CheckState.Checked;
 
             IncludeBestFitLine = CheckState.Checked;
             IncludeBestFitCurve = CheckState.Checked;
@@ -80,13 +97,14 @@ namespace ExoplanetLibrary
 
             if (subkey != null)
                 {
-                subkey.SetValue ("IncudeErrorBars", Visualization.IncludeErrorBars == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("LogXAxis", Visualization.LogXAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("LogYAxis", Visualization.LogYAxis == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+                subkey.SetValue ("IncludeNames", Visualization.IncludeNames == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+                subkey.SetValue ("IncludeErrorBars", Visualization.IncludeErrorBars == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("IncludeDuplicates", Visualization.IncludeDuplicates == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
+                subkey.SetValue ("UtilizeQuery", Visualization.UtilizeQuery == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("IncludeBestFitLine", Visualization.IncludeBestFitLine == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
                 subkey.SetValue ("IncludeBestFitCurve", Visualization.IncludeBestFitCurve == CheckState.Checked ? "True" : "False", RegistryValueKind.String);
-
                 subkey.SetValue ("OpenFileFilterIndex", Settings.FilterIndex, RegistryValueKind.String);
 
                 Queries.WriteQueries ();
@@ -105,10 +123,12 @@ namespace ExoplanetLibrary
 
             if (subkey != null)
                 {
-                Visualization.IncludeErrorBars = ReadValue (subkey, "IncudeErrorBars");
                 Visualization.LogXAxis = ReadValue (subkey, "LogXAxis");
                 Visualization.LogYAxis = ReadValue (subkey, "LogYAxis");
+                Visualization.IncludeNames = ReadValue (subkey, "IncludeNames");
+                Visualization.IncludeErrorBars = ReadValue (subkey, "IncludeErrorBars");
                 Visualization.IncludeDuplicates = ReadValue (subkey, "IncludeDuplicates");
+                Visualization.UtilizeQuery = ReadValue (subkey, "UtilizeQuery");
                 Visualization.IncludeBestFitLine = ReadValue (subkey, "IncludeBestFitLine");
                 Visualization.IncludeBestFitCurve = ReadValue (subkey, "IncludeBestFitCurve");
 

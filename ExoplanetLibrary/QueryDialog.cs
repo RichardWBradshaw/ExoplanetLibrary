@@ -56,7 +56,7 @@ namespace ExoplanetLibrary
                 "where <keyword> startswith <string-value>\n" +
                 "where <keyword> contains <string-value>\n" +
                 "where <keyword> endswith <string-value>\n" +
-                "<keyword> is either 'name', 'detection' or 'spectral'\n" +
+                "<keyword> is either 'name', 'detection', 'spectral' or 'habitability'\n" +
                 "<string-value> is an alpha-numeric string\n\n" +
 
                 "where <keyword> >= <numeric-value>\n" +

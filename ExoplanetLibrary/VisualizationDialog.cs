@@ -34,10 +34,12 @@ namespace ExoplanetLibrary
             ResizeEnd += new EventHandler (VisualizationResizeEnd);
             SizeChanged += new EventHandler (VisualizationResize);
 
-            errorBarsToolStripMenuItem.Checked = Visualization.IncludeErrorBars == CheckState.Checked ? true : false;
             logXAxisToolStripMenuItem.Checked = Visualization.LogXAxis == CheckState.Checked ? true : false;
             logYAxisToolStripMenuItem.Checked = Visualization.LogYAxis == CheckState.Checked ? true : false;
+            includeNamesToolStripMenuItem.Checked = Visualization.IncludeNames == CheckState.Checked ? true : false;
+            includeErrorBarsToolStripMenuItem.Checked = Visualization.IncludeErrorBars == CheckState.Checked ? true : false;
             includeDuplicatesToolStripMenuItem.Checked = Visualization.IncludeDuplicates == CheckState.Checked ? true : false;
+            utilizeQueryToolStripMenuItem.Checked = Visualization.UtilizeQuery == CheckState.Checked ? true : false;
             includeBestFitLineToolStripMenuItem.Checked = Visualization.IncludeBestFitLine == CheckState.Checked ? true : false;
             includeBestFitCurveToolStripMenuItem.Checked = Visualization.IncludeBestFitCurve == CheckState.Checked ? true : false;
 
@@ -78,11 +80,11 @@ namespace ExoplanetLibrary
             radiusVsKToolStripMenuItem.Enabled = ( radiiToolStripMenuItem.Enabled && kToolStripMenuItem.Enabled ) ? true : false;
             }
 
-        private void VisualizationResizeBegin (object sender, System.EventArgs e)
+        private void VisualizationResizeBegin (object sender, EventArgs e)
             {
             }
 
-        private void VisualizationResizeEnd (object sender, System.EventArgs e)
+        private void VisualizationResizeEnd (object sender, EventArgs e)
             {
             Control control = ( Control )sender;
 
@@ -93,7 +95,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void VisualizationResize (object sender, System.EventArgs e)
+        private void VisualizationResize (object sender, EventArgs e)
             {
             Control control = ( Control )sender;
 
@@ -110,19 +112,19 @@ namespace ExoplanetLibrary
                 ParentDialog.VisualizationClosed ();
             }
 
-        private void visualizeMass_Click (object sender, System.EventArgs e)
+        private void visualizeMass_Click (object sender, EventArgs e)
             {
             PlotType = PlotTypes.Mass;
             RefreshGraphics ();
             }
 
-        private void visualizeRadii_Click (object sender, System.EventArgs e)
+        private void visualizeRadii_Click (object sender, EventArgs e)
             {
             PlotType = PlotTypes.Radius;
             RefreshGraphics ();
             }
 
-        private void visualizeOrbitalPeriod_Click (object sender, System.EventArgs e)
+        private void visualizeOrbitalPeriod_Click (object sender, EventArgs e)
             {
             PlotType = PlotTypes.OrbitalPeriod;
             RefreshGraphics ();
@@ -134,7 +136,7 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
-        private void visualizeEccentricity_Click (object sender, System.EventArgs e)
+        private void visualizeEccentricity_Click (object sender, EventArgs e)
             {
             PlotType = PlotTypes.Eccentricity;
             RefreshGraphics ();
@@ -170,19 +172,19 @@ namespace ExoplanetLibrary
             RefreshGraphics ();
             }
 
-        private void visualizeStars_Click (object sender, System.EventArgs e)
+        private void visualizeStars_Click (object sender, EventArgs e)
             {
             PlotType = PlotTypes.Stars;
             RefreshGraphics ();
             }
 
-        private void visualizeMassVersusRadius_Click (object sender, System.EventArgs e)
+        private void visualizeMassVersusRadius_Click (object sender, EventArgs e)
             {
             PlotType = PlotTypes.MassAndRadius;
             RefreshGraphics ();
             }
 
-        private void visualizeEccentricityVersusMass_Click (object sender, System.EventArgs e)
+        private void visualizeEccentricityVersusMass_Click (object sender, EventArgs e)
             {
             PlotType = PlotTypes.MassAndEccentricity;
             RefreshGraphics ();
@@ -442,14 +444,7 @@ namespace ExoplanetLibrary
 
         private void MenuCheckBox_CheckStateChanged (object sender, EventArgs e)
             {
-            if (sender == errorBarsToolStripMenuItem)
-                {
-                Visualization.IncludeErrorBars = errorBarsToolStripMenuItem.CheckState;
-
-                if (PlotType != PlotTypes.Stars)
-                    RefreshGraphics ();
-                }
-            else if (sender == logXAxisToolStripMenuItem)
+            if (sender == logXAxisToolStripMenuItem)
                 {
                 Visualization.LogXAxis = logXAxisToolStripMenuItem.CheckState;
 
@@ -463,9 +458,28 @@ namespace ExoplanetLibrary
                 if (PlotType != PlotTypes.Stars)
                     RefreshGraphics ();
                 }
+            else if (sender == includeNamesToolStripMenuItem)
+                {
+                Visualization.IncludeNames = includeNamesToolStripMenuItem.CheckState;
+                RefreshGraphics ();
+                }
+            else if (sender == includeErrorBarsToolStripMenuItem)
+                {
+                Visualization.IncludeErrorBars = includeErrorBarsToolStripMenuItem.CheckState;
+
+                if (PlotType != PlotTypes.Stars)
+                    RefreshGraphics ();
+                }
             else if (sender == includeDuplicatesToolStripMenuItem)
                 {
                 Visualization.IncludeDuplicates = includeDuplicatesToolStripMenuItem.CheckState;
+
+                if (PlotType != PlotTypes.Stars)
+                    RefreshGraphics ();
+                }
+            else if (sender == utilizeQueryToolStripMenuItem)
+                {
+                Visualization.UtilizeQuery = utilizeQueryToolStripMenuItem.CheckState;
 
                 if (PlotType != PlotTypes.Stars)
                     RefreshGraphics ();
@@ -510,11 +524,7 @@ namespace ExoplanetLibrary
 
         private void MenuCheckBox_Click (object sender, EventArgs e)
             {
-            if (sender == errorBarsToolStripMenuItem)
-                {
-                errorBarsToolStripMenuItem.Checked = errorBarsToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
-                }
-            else if (sender == logXAxisToolStripMenuItem)
+            if (sender == logXAxisToolStripMenuItem)
                 {
                 logXAxisToolStripMenuItem.Checked = logXAxisToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
@@ -522,9 +532,21 @@ namespace ExoplanetLibrary
                 {
                 logYAxisToolStripMenuItem.Checked = logYAxisToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
+            else if (sender == includeNamesToolStripMenuItem)
+                {
+                includeNamesToolStripMenuItem.Checked = includeNamesToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == includeErrorBarsToolStripMenuItem)
+                {
+                includeErrorBarsToolStripMenuItem.Checked = includeErrorBarsToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
             else if (sender == includeDuplicatesToolStripMenuItem)
                 {
                 includeDuplicatesToolStripMenuItem.Checked = includeDuplicatesToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
+                }
+            else if (sender == utilizeQueryToolStripMenuItem)
+                {
+                utilizeQueryToolStripMenuItem.Checked = utilizeQueryToolStripMenuItem.CheckState == CheckState.Checked ? false : true;
                 }
             else if (sender == includeBestFitLineToolStripMenuItem)
                 {

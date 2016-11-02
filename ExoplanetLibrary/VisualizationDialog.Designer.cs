@@ -49,12 +49,17 @@
             this.radiusVsOmegaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radiusVsKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.errorBarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logXAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logYAxisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.includeNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.includeErrorBarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.includeDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.includeBestFitLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.includeBestFitCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilizeQueryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -339,23 +344,20 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.errorBarsToolStripMenuItem,
             this.logXAxisToolStripMenuItem,
             this.logYAxisToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.includeNamesToolStripMenuItem,
+            this.includeErrorBarsToolStripMenuItem,
             this.includeDuplicatesToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.utilizeQueryToolStripMenuItem,
+            this.toolStripSeparator2,
             this.includeBestFitLineToolStripMenuItem,
             this.includeBestFitCurveToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.settingsToolStripMenuItem.Text = "Settings...";
-            // 
-            // errorBarsToolStripMenuItem
-            // 
-            this.errorBarsToolStripMenuItem.Name = "errorBarsToolStripMenuItem";
-            this.errorBarsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.errorBarsToolStripMenuItem.Text = "Include Error Bars";
-            this.errorBarsToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
-            this.errorBarsToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
             // logXAxisToolStripMenuItem
             // 
@@ -373,6 +375,27 @@
             this.logYAxisToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.logYAxisToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(185, 6);
+            // 
+            // includeNamesToolStripMenuItem
+            // 
+            this.includeNamesToolStripMenuItem.Name = "includeNamesToolStripMenuItem";
+            this.includeNamesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.includeNamesToolStripMenuItem.Text = "Include Names";
+            this.includeNamesToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.includeNamesToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // includeErrorBarsToolStripMenuItem
+            // 
+            this.includeErrorBarsToolStripMenuItem.Name = "includeErrorBarsToolStripMenuItem";
+            this.includeErrorBarsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.includeErrorBarsToolStripMenuItem.Text = "Include Error Bars";
+            this.includeErrorBarsToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.includeErrorBarsToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
             // includeDuplicatesToolStripMenuItem
             // 
             this.includeDuplicatesToolStripMenuItem.Name = "includeDuplicatesToolStripMenuItem";
@@ -380,6 +403,11 @@
             this.includeDuplicatesToolStripMenuItem.Text = "Include Duplicates";
             this.includeDuplicatesToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.includeDuplicatesToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
             // 
             // includeBestFitLineToolStripMenuItem
             // 
@@ -396,6 +424,19 @@
             this.includeBestFitCurveToolStripMenuItem.Text = "Include Best Fit Curve";
             this.includeBestFitCurveToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
             this.includeBestFitCurveToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // utilizeQueryToolStripMenuItem
+            // 
+            this.utilizeQueryToolStripMenuItem.Name = "utilizeQueryToolStripMenuItem";
+            this.utilizeQueryToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.utilizeQueryToolStripMenuItem.Text = "Utilize Query";
+            this.utilizeQueryToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.MenuCheckBox_CheckStateChanged);
+            this.utilizeQueryToolStripMenuItem.Click += new System.EventHandler(this.MenuCheckBox_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(185, 6);
             // 
             // VisualizationDialog
             // 
@@ -437,7 +478,7 @@
         private System.Windows.Forms.ToolStripMenuItem kToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rightAccessionVsDeclinationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem errorBarsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem includeErrorBarsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logXAxisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logYAxisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem massVsOrbitalPeriodToolStripMenuItem;
@@ -459,5 +500,10 @@
         private System.Windows.Forms.ToolStripMenuItem includeDuplicatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem includeBestFitLineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem includeBestFitCurveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem includeNamesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem utilizeQueryToolStripMenuItem;
         }
     }

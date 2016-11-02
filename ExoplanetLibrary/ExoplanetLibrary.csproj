@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="Exoplanets.cs" />
     <Compile Include="ExoplanetSorter.cs" />
+    <Compile Include="Habitability.cs" />
     <Compile Include="Indexer.cs" />
     <Compile Include="Plotting.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

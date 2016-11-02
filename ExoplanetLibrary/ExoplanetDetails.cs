@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ExoplanetLibrary
@@ -36,15 +37,15 @@ namespace ExoplanetLibrary
                 ParentDialog.ExoplanetDetailsClosed ();
             }
 
-        private void MyResizeBegin (object sender, System.EventArgs e)
+        private void MyResizeBegin (object sender, EventArgs e)
             {
             }
 
-        private void MyResizeEnd (object sender, System.EventArgs e)
+        private void MyResizeEnd (object sender, EventArgs e)
             {
             }
 
-        private void MyResize (object sender, System.EventArgs e)
+        private void MyResize (object sender, EventArgs e)
             {
             Control control = ( Control )sender;
 

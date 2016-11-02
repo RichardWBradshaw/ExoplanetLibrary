@@ -76,6 +76,28 @@ namespace ExoplanetLibrary
             }
         }
 
+    public class HabitabilityQuery
+        {
+        public string Habitability;
+
+        private QueryTypes QueryType_ = QueryTypes.StartsWith;
+        public QueryTypes QueryType
+            {
+            get { return QueryType_; }
+            set { QueryType_ = value; }
+            }
+
+        public HabitabilityQuery ()
+            {
+            }
+
+        public HabitabilityQuery (string habitability, QueryTypes queryType)
+            {
+            Habitability = habitability;
+            QueryType = queryType;
+            }
+        }
+
     public class BetweenQuery
         {
         public PlotTypes PlotType;
@@ -133,6 +155,7 @@ namespace ExoplanetLibrary
         private ArrayList NameQueries = new ArrayList ();
         private ArrayList DetectionQueries = new ArrayList ();
         private ArrayList SpectralQueries = new ArrayList ();
+        private ArrayList HabitabilityQueries = new ArrayList ();
         private ArrayList BetweenQueries = new ArrayList ();
         private ArrayList LessThanQueries = new ArrayList ();
         private ArrayList GreaterThanQueries = new ArrayList ();
@@ -161,6 +184,7 @@ namespace ExoplanetLibrary
                 string name = string.Empty;
                 string detection = string.Empty;
                 string spectral = string.Empty;
+                string habitability = string.Empty;
                 QueryTypes queryType = QueryTypes.StartsWith;
 
                 if (ParseName (strings, ref name, ref queryType) == true)
@@ -174,6 +198,10 @@ namespace ExoplanetLibrary
                 else if (ParseSpectral (strings, ref spectral, ref queryType) == true)
                     {
                     AddSpectral (spectral, queryType);
+                    }
+                else if (ParseHabitability (strings, ref habitability, ref queryType) == true)
+                    {
+                    AddHabitability (habitability, queryType);
                     }
                 else if (ParseBetweenQuery (strings, ref plotType, ref value1, ref value2) == true)
                     {
@@ -296,6 +324,40 @@ namespace ExoplanetLibrary
             }
 
         //
+        // "where habitability startswith cold"
+        //
+
+        private bool ParseHabitability (string [] strings, ref string value, ref QueryTypes queryType)
+            {
+            queryType = QueryTypes.StartsWith;
+
+            if (strings [0] == "where")
+                if (strings [1] == "habitability")
+                    {
+                    if (strings.Length == 3)
+                        {
+                        value = strings [2].ToLower ();
+                        return true;
+                        }
+                    else if (strings.Length == 4)
+                        {
+                        string query = strings [2].ToLower ();
+
+                        if (query.StartsWith ("starts") || query.StartsWith ("startswith"))
+                            queryType = QueryTypes.StartsWith;
+                        else if (query.StartsWith ("contains"))
+                            queryType = QueryTypes.Contains;
+                        else if (query.StartsWith ("ends") || query.StartsWith ("endswith"))
+                            queryType = QueryTypes.EndsWith;
+
+                        value = strings [3].ToLower ();
+                        return true;
+                        }
+                    }
+
+            return false;
+            }
+        //
         // "where mass between '0.1' and '1.0'" or "where mass between 0.1 and 1.0"
         //
 
@@ -395,6 +457,7 @@ namespace ExoplanetLibrary
             NameQueries = new ArrayList ();
             DetectionQueries = new ArrayList ();
             SpectralQueries = new ArrayList ();
+            HabitabilityQueries = new ArrayList ();
             BetweenQueries = new ArrayList ();
             LessThanQueries = new ArrayList ();
             GreaterThanQueries = new ArrayList ();
@@ -413,6 +476,11 @@ namespace ExoplanetLibrary
         private void AddSpectral (string spectual, QueryTypes queryType)
             {
             SpectralQueries.Add (new SpectralQuery (spectual, queryType));
+            }
+
+        private void AddHabitability (string habitability, QueryTypes queryType)
+            {
+            HabitabilityQueries.Add (new HabitabilityQuery (habitability, queryType));
             }
 
         private void AddBetween (PlotTypes plotType, double value1, double value2)
@@ -515,6 +583,35 @@ namespace ExoplanetLibrary
                                 matches = true;
                             }
                         }
+
+                if (!matches)
+                    return false;
+                }
+
+            if (HabitabilityQueries.Count > 0)
+                {
+                bool matches = false;
+
+                foreach (HabitabilityQuery query in HabitabilityQueries)
+                    {
+                    string habitability = Habitability.GetHabitability (exoplanet).ToString ().ToLower();
+
+                    if (query.QueryType == QueryTypes.StartsWith)
+                        {
+                        if (habitability.StartsWith (query.Habitability))
+                            matches = true;
+                        }
+                    else if (query.QueryType == QueryTypes.EndsWith)
+                        {
+                        if (habitability.EndsWith (query.Habitability))
+                            matches = true;
+                        }
+                    else if (query.QueryType == QueryTypes.Contains)
+                        {
+                        if (habitability.Contains (query.Habitability))
+                            matches = true;
+                        }
+                    }
 
                 if (!matches)
                     return false;

@@ -49,11 +49,11 @@ namespace ExoplanetLibrary
             set { ExoplanetDetails_ = value; }
             }
 
-        private VisualizationDialog Visualization_ = null;
-        public VisualizationDialog Visualization
+        private VisualizationDialog VisualizationDialog_ = null;
+        public VisualizationDialog VisualizationDialog
             {
-            get { return Visualization_; }
-            set { Visualization_ = value; }
+            get { return VisualizationDialog_; }
+            set { VisualizationDialog_ = value; }
             }
 
         private AboutBox About_ = null;
@@ -84,15 +84,15 @@ namespace ExoplanetLibrary
             set { Query_ = value; }
             }
 
-        private void LibraryResizeBegin (object sender, System.EventArgs e)
+        private void LibraryResizeBegin (object sender, EventArgs e)
             {
             }
 
-        private void LibraryResizeEnd (object sender, System.EventArgs e)
+        private void LibraryResizeEnd (object sender, EventArgs e)
             {
             }
 
-        private void LibraryResize (object sender, System.EventArgs e)
+        private void LibraryResize (object sender, EventArgs e)
             {
             Control control = ( Control )sender;
 
@@ -180,6 +180,7 @@ namespace ExoplanetLibrary
             {
             listView.Columns.Add ("Name", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Detection Type", -2, HorizontalAlignment.Left);
+            listView.Columns.Add ("Habitability Zone", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Mass (Mjup)", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Radius (Rjup)", -2, HorizontalAlignment.Left);
             listView.Columns.Add ("Orbital Period (day)", -2, HorizontalAlignment.Left);
@@ -237,6 +238,7 @@ namespace ExoplanetLibrary
                     ListViewItem item = new ListViewItem (exoplanet.Name, 0);
 
                     item.SubItems.Add (Helper.Format (exoplanet.DetectionType));
+                    item.SubItems.Add (Helper.Format (Habitability.GetHabitability( exoplanet).ToString()));
                     item.SubItems.Add (Helper.Format (exoplanet.Mass));
                     item.SubItems.Add (Helper.Format (exoplanet.Radius));
                     item.SubItems.Add (Helper.Format (exoplanet.OrbitalPeriod));
@@ -312,7 +314,7 @@ namespace ExoplanetLibrary
             ExoplanetDetails.BringToFront ();
             }
 
-        private void open_Click (object sender, System.EventArgs e)
+        private void open_Click (object sender, EventArgs e)
             {
             OpenFileDialog openFileDialog = new OpenFileDialog ();
 
@@ -373,8 +375,8 @@ namespace ExoplanetLibrary
 
                         UpdateExoplanetListView (true);
 
-                        if (Visualization != null)
-                            Visualization.RefreshGraphics ();
+                        if (VisualizationDialog != null)
+                            VisualizationDialog.RefreshGraphics ();
 
                         if (ExoplanetDetails != null)
                             if (ExoplanetListView.SelectedItems.Count == 1)
@@ -399,17 +401,17 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void exit_Click (object sender, System.EventArgs e)
+        private void exit_Click (object sender, EventArgs e)
             {
             Close ();
             }
 
-        private void save_Click (object sender, System.EventArgs e)
+        private void save_Click (object sender, EventArgs e)
             {
             WriteXML.WriteExoplanets (XmlFileName, Exoplanets.ExoplanetsArray);
             }
 
-        private void saveAs_Click (object sender, System.EventArgs e)
+        private void saveAs_Click (object sender, EventArgs e)
             {
             SaveFileDialog saveFileDialog = new SaveFileDialog ();
 
@@ -442,7 +444,7 @@ namespace ExoplanetLibrary
                 }
             }
 
-        private void compare_Click (object sender, System.EventArgs e)
+        private void compare_Click (object sender, EventArgs e)
             {
             string xmlFileName = string.Empty;
 
@@ -504,7 +506,7 @@ namespace ExoplanetLibrary
             return 0;
             }
 
-        private void launchExoplanetEu_Click (object sender, System.EventArgs e)
+        private void launchExoplanetEu_Click (object sender, EventArgs e)
             {
             string url = "http://exoplanet.eu";
 
@@ -528,15 +530,15 @@ namespace ExoplanetLibrary
             Settings.WriteLastNASAVisit (System.DateTime.Now);
             }
 
-        private void launchExoplanetOrg_Click (object sender, System.EventArgs e)
+        private void launchExoplanetOrg_Click (object sender, EventArgs e)
             {
             string url = "http://exoplanets.org";
 
             System.Diagnostics.Process.Start (url);
-            Settings.WriteLastExoplanetsOrgVisit (System.DateTime.Now);
+            Settings.WriteLastExoplanetsOrgVisit (DateTime.Now);
             }
 
-        private void query_Click (object sender, System.EventArgs e)
+        private void query_Click (object sender, EventArgs e)
             {
             if (QueryDialog == null)
                 QueryDialog = new QueryDialog (this);
@@ -545,16 +547,16 @@ namespace ExoplanetLibrary
             QueryDialog.BringToFront ();
             }
 
-        private void visualize_Click (object sender, System.EventArgs e)
+        private void visualize_Click (object sender, EventArgs e)
             {
-            if (Visualization == null)
-                Visualization = new VisualizationDialog (this);
+            if (VisualizationDialog == null)
+                VisualizationDialog = new VisualizationDialog (this);
 
-            Visualization.Show ();
-            Visualization.BringToFront ();
+            VisualizationDialog.Show ();
+            VisualizationDialog.BringToFront ();
             }
 
-        private void about_Click (object sender, System.EventArgs e)
+        private void about_Click (object sender, EventArgs e)
             {
             About = new AboutBox ();
             About.ShowDialog ();     // modal
@@ -573,7 +575,7 @@ namespace ExoplanetLibrary
 
         public void VisualizationClosed ()
             {
-            Visualization = null;
+            VisualizationDialog = null;
             }
 
         public void ExoplanetDetailsClosed ()
@@ -591,6 +593,9 @@ namespace ExoplanetLibrary
         public void ProcessQuery ()
             {
             UpdateExoplanetListView (false);
+
+            if (VisualizationDialog != null)
+                VisualizationDialog.RefreshGraphics ();
             }
         }
     }
